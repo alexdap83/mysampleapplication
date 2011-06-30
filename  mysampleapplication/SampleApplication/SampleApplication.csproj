@@ -1,0 +1,576 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7428462D-3921-4479-987F-EE562227255F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SampleApplication</RootNamespace>
+    <AssemblyName>SampleApplication</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v8.3, Version=8.3.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v8.3, Version=8.3.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v8.3, Version=8.3.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v8.3, Version=8.3.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v8.3, Version=8.3.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v8.3, Version=8.3.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v8.3, Version=8.3.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\DevExpress.XtraRichEdit.v8.3\8.3.5.0__b88d1754d700e49a\DevExpress.XtraRichEdit.v8.3.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v8.3, Version=8.3.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BarCheckAndDropDownButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyRibbonControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonForm1.resx">
+      <DependentUpon>RibbonForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="RibbonForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RibbonForm1.Designer.cs">
+      <DependentUpon>RibbonForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\100_display_16x16.png" />
+    <Content Include="Resources\100_display_32x32.png" />
+    <Content Include="Resources\about_16x16.png" />
+    <Content Include="Resources\activate 16x16.png" />
+    <Content Include="Resources\activate 32x32.png" />
+    <Content Include="Resources\activate_16x16.png" />
+    <Content Include="Resources\activate_32x32.png" />
+    <Content Include="Resources\adf_16x16.png" />
+    <Content Include="Resources\adf_32x32.png" />
+    <Content Include="Resources\annotate_16x16.png" />
+    <Content Include="Resources\annotate_32x32.png" />
+    <Content Include="Resources\annotate_font_size_10_16x16.png" />
+    <Content Include="Resources\annotate_font_size_12_16x16.png" />
+    <Content Include="Resources\annotate_font_size_8_16x16.png" />
+    <Content Include="Resources\annotate_horizontal_down_16x16.png" />
+    <Content Include="Resources\annotate_horizontal_left_16x16.png" />
+    <Content Include="Resources\annotate_horizontal_right_16x16.png" />
+    <Content Include="Resources\annotate_horizontal_up_16x16.png" />
+    <Content Include="Resources\annotate_vertical_down_16x16.png" />
+    <Content Include="Resources\annotate_vertical_left_16x16.png" />
+    <Content Include="Resources\annotate_vertical_right_16x16.png" />
+    <Content Include="Resources\annotate_vertical_up_16x16.png" />
+    <Content Include="Resources\annotation_background_transparent_16x16.png" />
+    <Content Include="Resources\annotation_background_white_16x16.png" />
+    <Content Include="Resources\application_menu.png" />
+    <Content Include="Resources\autoexport_16x16.png" />
+    <Content Include="Resources\autoexport_32x321.png" />
+    <Content Include="Resources\auto_crop_16x16.png" />
+    <Content Include="Resources\auto_crop_32x32.png" />
+    <Content Include="Resources\auto_rotate_16x16.png" />
+    <Content Include="Resources\auto_rotate_32x32.png" />
+    <Content Include="Resources\bar_code_128_16x16.png" />
+    <Content Include="Resources\bar_code_128_32x32.png" />
+    <Content Include="Resources\bar_code_16x16.png" />
+    <Content Include="Resources\bar_code_32x32.png" />
+    <Content Include="Resources\bar_code_39_16x16.png" />
+    <Content Include="Resources\bar_code_39_32x32.png" />
+    <Content Include="Resources\bar_code_93_16x16.png" />
+    <Content Include="Resources\bar_code_93_32x32.png" />
+    <Content Include="Resources\bar_code_aztec_16x16.png" />
+    <Content Include="Resources\bar_code_aztec_32x32.png" />
+    <Content Include="Resources\bar_code_codabar_16x16.png" />
+    <Content Include="Resources\bar_code_codabar_32x32.png" />
+    <Content Include="Resources\bar_code_data_matrix_16x16.png" />
+    <Content Include="Resources\bar_code_data_matrix_32x32.png" />
+    <Content Include="Resources\bar_code_ean_16x16.png" />
+    <Content Include="Resources\bar_code_ean_32x32.png" />
+    <Content Include="Resources\bar_code_i25_16x16.png" />
+    <Content Include="Resources\bar_code_i25_32x32.png" />
+    <Content Include="Resources\bar_code_maxi_code_16x16.png" />
+    <Content Include="Resources\bar_code_maxi_code_32x32.png" />
+    <Content Include="Resources\bar_code_orientation_000_16x16.png" />
+    <Content Include="Resources\bar_code_orientation_090_16x16.png" />
+    <Content Include="Resources\bar_code_orientation_180_16x16.png" />
+    <Content Include="Resources\bar_code_orientation_270_16x16.png" />
+    <Content Include="Resources\bar_code_pdf_417_16x16.png" />
+    <Content Include="Resources\bar_code_pdf_417_32x32.png" />
+    <Content Include="Resources\bar_code_postnet_16x16.png" />
+    <Content Include="Resources\bar_code_postnet_32x32.png" />
+    <Content Include="Resources\bar_code_qr_16x16.png" />
+    <Content Include="Resources\bar_code_qr_32x32.png" />
+    <Content Include="Resources\bar_code_upc_16x16.png" />
+    <Content Include="Resources\bar_code_upc_32x32.png" />
+    <Content Include="Resources\batch_16x16.png" />
+    <Content Include="Resources\batch_32x32.png" />
+    <Content Include="Resources\batch_release_16x16.png" />
+    <Content Include="Resources\batch_release_32x32.png" />
+    <Content Include="Resources\beep_16x16.png" />
+    <Content Include="Resources\beep_32x32.png" />
+    <Content Include="Resources\blank_sensitivity1_16x16.png" />
+    <Content Include="Resources\blank_sensitivity1_32x32.png" />
+    <Content Include="Resources\blank_sensitivity2_16x16.png" />
+    <Content Include="Resources\blank_sensitivity2_32x32.png" />
+    <Content Include="Resources\blank_sensitivity3_16x16.png" />
+    <Content Include="Resources\blank_sensitivity3_32x32.png" />
+    <Content Include="Resources\blank_sensitivity4_16x16.png" />
+    <Content Include="Resources\blank_sensitivity4_32x32.png" />
+    <Content Include="Resources\blank_sensitivity5_16x16.png" />
+    <Content Include="Resources\blank_sensitivity5_32x32.png" />
+    <Content Include="Resources\blank_sheet_separation_16x16.png" />
+    <Content Include="Resources\blank_sheet_separation_32x32.png" />
+    <Content Include="Resources\brightness_16x16.png" />
+    <Content Include="Resources\browse_16x16.png" />
+    <Content Include="Resources\calibrate_16x16.png" />
+    <Content Include="Resources\calibrate_32x32.png" />
+    <Content Include="Resources\check_red_16x16.png" />
+    <Content Include="Resources\cleaner_16x16.png" />
+    <Content Include="Resources\cleaner_32x32.png" />
+    <Content Include="Resources\closebatch_16x16.png" />
+    <Content Include="Resources\closebatch_32x321.png" />
+    <Content Include="Resources\closebatch_32x322.png" />
+    <Content Include="Resources\close_16x16.png" />
+    <Content Include="Resources\close_32x32.png" />
+    <Content Include="Resources\close_kfi.png" />
+    <Content Include="Resources\color_background_to_white_16x16.png" />
+    <Content Include="Resources\color_background_to_white_32x32.png" />
+    <Content Include="Resources\color_business_16x16.png" />
+    <Content Include="Resources\color_detect_16x16.png" />
+    <Content Include="Resources\color_detect_32x32.png" />
+    <Content Include="Resources\color_lots_16x16.png" />
+    <Content Include="Resources\color_lots_32x32.png" />
+    <Content Include="Resources\color_mode_bw_16x16.png" />
+    <Content Include="Resources\color_mode_bw_32x32.png" />
+    <Content Include="Resources\color_mode_color_16x16.png" />
+    <Content Include="Resources\color_mode_color_32x32.png" />
+    <Content Include="Resources\color_mode_gray_16x16.png" />
+    <Content Include="Resources\color_mode_gray_32x32.png" />
+    <Content Include="Resources\color_photographic_16x16.png" />
+    <Content Include="Resources\color_small_16x16.png" />
+    <Content Include="Resources\color_small_32x32.png" />
+    <Content Include="Resources\color_some_16x16.png" />
+    <Content Include="Resources\color_some_32x32.png" />
+    <Content Include="Resources\color_very_small_16x16.png" />
+    <Content Include="Resources\color_very_small_32x32.png" />
+    <Content Include="Resources\compact_view_16x16.png" />
+    <Content Include="Resources\compress_color_16x16.png" />
+    <Content Include="Resources\compress_gray_16x16.png" />
+    <Content Include="Resources\continuous_paper_16x16.png" />
+    <Content Include="Resources\continuous_paper_32x32.png" />
+    <Content Include="Resources\contrast_16x16.png" />
+    <Content Include="Resources\copy_16x16.png" />
+    <Content Include="Resources\copy_32x32.png" />
+    <Content Include="Resources\counter_16x16.png" />
+    <Content Include="Resources\counter_32x32.png" />
+    <Content Include="Resources\counter_length_16x16.png" />
+    <Content Include="Resources\counter_length_32x32.png" />
+    <Content Include="Resources\crop_16x16.png" />
+    <Content Include="Resources\crop_32x32.png" />
+    <Content Include="Resources\cut_16x16.png" />
+    <Content Include="Resources\cut_32x32.png" />
+    <Content Include="Resources\deactivate 16x16.png" />
+    <Content Include="Resources\deactivate_16x16.png" />
+    <Content Include="Resources\deactivate_32x32.png" />
+    <Content Include="Resources\delete_batch_16x16.png" />
+    <Content Include="Resources\delete_batch_32x32.png" />
+    <Content Include="Resources\delete_blank_sides_16x16.png" />
+    <Content Include="Resources\delete_blank_sides_32x32.png" />
+    <Content Include="Resources\delete_document_16x16.png" />
+    <Content Include="Resources\delete_document_32x32.png" />
+    <Content Include="Resources\delete_end_of_document_16x16.png" />
+    <Content Include="Resources\delete_end_of_document_32x32.png" />
+    <Content Include="Resources\delete_job_16x16.png" />
+    <Content Include="Resources\delete_job_32x32.png" />
+    <Content Include="Resources\delete_job_template_16x16.png" />
+    <Content Include="Resources\delete_job_template_32x32.png" />
+    <Content Include="Resources\delete_object_16x16.png" />
+    <Content Include="Resources\delete_object_32x32.png" />
+    <Content Include="Resources\deskew_16x16.png" />
+    <Content Include="Resources\deskew_32x32.png" />
+    <Content Include="Resources\drop_down_16x16.png" />
+    <Content Include="Resources\drop_down_32x32.png" />
+    <Content Include="Resources\drop_out_blue_16x16.png" />
+    <Content Include="Resources\drop_out_green_16x16.png" />
+    <Content Include="Resources\drop_out_off_16x16.png" />
+    <Content Include="Resources\drop_out_red_16x16.png" />
+    <Content Include="Resources\duplex_16x16.png" />
+    <Content Include="Resources\duplex_32x32.png" />
+    <Content Include="Resources\edge_cleanup_16x16.png" />
+    <Content Include="Resources\edge_cleanup_32x32.png" />
+    <Content Include="Resources\exit_16x16.png" />
+    <Content Include="Resources\exit_32x32.png" />
+    <Content Include="Resources\export_16x16.png" />
+    <Content Include="Resources\export_32x32.png" />
+    <Content Include="Resources\export_job_16x16.png" />
+    <Content Include="Resources\export_job_32x32.png" />
+    <Content Include="Resources\export_scanner_profiles_16x16.png" />
+    <Content Include="Resources\export_scanner_profiles_32x32.png" />
+    <Content Include="Resources\fast_16x16.png" />
+    <Content Include="Resources\fast_32x32.png" />
+    <Content Include="Resources\first_16x16.png" />
+    <Content Include="Resources\fit_horizontal_16x16.png" />
+    <Content Include="Resources\fit_horizontal_32x32.png" />
+    <Content Include="Resources\fit_page_16x16.png" />
+    <Content Include="Resources\fit_page_32x32.png" />
+    <Content Include="Resources\fit_vertical_16x16.png" />
+    <Content Include="Resources\fit_vertical_32x32.png" />
+    <Content Include="Resources\flatbed_16x16.png" />
+    <Content Include="Resources\flatbed_32x32.png" />
+    <Content Include="Resources\gamma_16x16.png" />
+    <Content Include="Resources\help.ico" />
+    <Content Include="Resources\help16x16.png" />
+    <Content Include="Resources\help32x32.png" />
+    <Content Include="Resources\help_contents_16x16.png" />
+    <Content Include="Resources\help_index_16x16.png" />
+    <Content Include="Resources\help_search_16x16.png" />
+    <Content Include="Resources\help_website_16x16.png" />
+    <Content Include="Resources\hole_punches_16x16.png" />
+    <Content Include="Resources\hole_punches_32x32.png" />
+    <Content Include="Resources\hole_punch_removal_16x16.png" />
+    <Content Include="Resources\hole_punch_removal_32x32.png" />
+    <Content Include="Resources\import_16x16.png" />
+    <Content Include="Resources\import_32x32.png" />
+    <Content Include="Resources\import_job_16x16.png" />
+    <Content Include="Resources\import_job_32x32.png" />
+    <Content Include="Resources\import_scanner_profiles_16x16.png" />
+    <Content Include="Resources\import_scanner_profiles_32x32.png" />
+    <Content Include="Resources\imprinter_16x16.png" />
+    <Content Include="Resources\imprinter_32x32.png" />
+    <Content Include="Resources\imprinter_bold_16x16.png" />
+    <Content Include="Resources\imprinter_bold_32x32.png" />
+    <Content Include="Resources\imprinter_down_16x16.png" />
+    <Content Include="Resources\imprinter_down_32x32.png" />
+    <Content Include="Resources\imprinter_left_16x16.png" />
+    <Content Include="Resources\imprinter_left_32x32.png" />
+    <Content Include="Resources\imprinter_right_16x16.png" />
+    <Content Include="Resources\imprinter_right_32x32.png" />
+    <Content Include="Resources\imprinter_up_16x16.png" />
+    <Content Include="Resources\imprinter_up_32x32.png" />
+    <Content Include="Resources\increment_across_batches_off_16x16.png" />
+    <Content Include="Resources\increment_across_batches_off_32x32.png" />
+    <Content Include="Resources\increment_across_batches_on_16x16.png" />
+    <Content Include="Resources\increment_across_batches_on_32x32.png" />
+    <Content Include="Resources\index_16x16.png" />
+    <Content Include="Resources\index_32x32.png" />
+    <Content Include="Resources\index_bar_code_types_16x16.png" />
+    <Content Include="Resources\index_bar_code_types_32x32.png" />
+    <Content Include="Resources\index_delete_16x16.png" />
+    <Content Include="Resources\index_delete_32x32.png" />
+    <Content Include="Resources\index_new_16x16.png" />
+    <Content Include="Resources\index_new_32x32.png" />
+    <Content Include="Resources\insert_new_document_16x16.png" />
+    <Content Include="Resources\insert_new_document_32x32.png" />
+    <Content Include="Resources\insert_scan_multi_16x16.png" />
+    <Content Include="Resources\insert_scan_multi_32x32.png" />
+    <Content Include="Resources\invert_16x16.png" />
+    <Content Include="Resources\invert_32x32.png" />
+    <Content Include="Resources\job_16x16.png" />
+    <Content Include="Resources\job_32x32.png" />
+    <Content Include="Resources\key_from_image_16x16.png" />
+    <Content Include="Resources\key_from_image_32x32.png" />
+    <Content Include="Resources\landscape_16x16.png" />
+    <Content Include="Resources\landscape_32x32.png" />
+    <Content Include="Resources\landscape_48x48.png" />
+    <Content Include="Resources\landscape_orientation_landscapetext_0_degrees_16x16.png" />
+    <Content Include="Resources\landscape_orientation_landscapetext_0_degrees_32x32.png" />
+    <Content Include="Resources\landscape_orientation_landscapetext_180_degrees_16x16.png" />
+    <Content Include="Resources\landscape_orientation_landscapetext_180_degrees_32x32.png" />
+    <Content Include="Resources\landscape_orientation_portraittext_0_degrees_16x16.png" />
+    <Content Include="Resources\landscape_orientation_portraittext_0_degrees_32x32.png" />
+    <Content Include="Resources\landscape_orientation_portraittext_180_degrees_16x16.png" />
+    <Content Include="Resources\landscape_orientation_portraittext_180_degrees_32x32.png" />
+    <Content Include="Resources\lasso_ocr1.png" />
+    <Content Include="Resources\lasso_ocr_16x16.png" />
+    <Content Include="Resources\last_16x16.png" />
+    <Content Include="Resources\learn_more_16x16.png" />
+    <Content Include="Resources\learn_more_32x32.png" />
+    <Content Include="Resources\left_offset_16x16.png" />
+    <Content Include="Resources\level1_16x16.png" />
+    <Content Include="Resources\level1_32x32.png" />
+    <Content Include="Resources\level2_16x16.png" />
+    <Content Include="Resources\level2_32x32.png" />
+    <Content Include="Resources\level3_16x16.png" />
+    <Content Include="Resources\level3_32x32.png" />
+    <Content Include="Resources\lock_16x16.png" />
+    <Content Include="Resources\lock_32x32.png" />
+    <Content Include="Resources\long_paper_16x16.png" />
+    <Content Include="Resources\long_paper_32x32.png" />
+    <Content Include="Resources\magnifier_16x16.png" />
+    <Content Include="Resources\magnifier_32x32.png" />
+    <Content Include="Resources\merge_documents_16x16.png" />
+    <Content Include="Resources\merge_documents_32x32.png" />
+    <Content Include="Resources\merge_with_next_16x16.png" />
+    <Content Include="Resources\merge_with_next_32x32.png" />
+    <Content Include="Resources\merge_with_previous_16x16.png" />
+    <Content Include="Resources\merge_with_previous_32x32.png" />
+    <Content Include="Resources\mini_index_viewer_32x32.png" />
+    <Content Include="Resources\multifeed_detect_16x16.png" />
+    <Content Include="Resources\multifeed_detect_32x32.png" />
+    <Content Include="Resources\multifeed_off_16x16.png" />
+    <Content Include="Resources\multifeed_off_32x32.png" />
+    <Content Include="Resources\new_16x16.png" />
+    <Content Include="Resources\new_32x32.png" />
+    <Content Include="Resources\new_batch_16x16.png" />
+    <Content Include="Resources\new_batch_32x32.png" />
+    <Content Include="Resources\new_document_16x16.png" />
+    <Content Include="Resources\new_document_32x32.png" />
+    <Content Include="Resources\new_job_16x16.png" />
+    <Content Include="Resources\new_job_32x32.png" />
+    <Content Include="Resources\new_scan_profile_16x16.png" />
+    <Content Include="Resources\new_scan_profile_32x32.png" />
+    <Content Include="Resources\nextbatch_16x16.png" />
+    <Content Include="Resources\nextbatch_32x321.png" />
+    <Content Include="Resources\nextbatch_32x322.png" />
+    <Content Include="Resources\next_16x16.png" />
+    <Content Include="Resources\next_incomplete_16x16.png" />
+    <Content Include="Resources\ocr_language_16x16.png" />
+    <Content Include="Resources\ocr_language_32x32.png" />
+    <Content Include="Resources\off_16x16.png" />
+    <Content Include="Resources\off_32x32.png" />
+    <Content Include="Resources\ok_16x16.png" />
+    <Content Include="Resources\ok_32x32.png" />
+    <Content Include="Resources\on_16x16.png" />
+    <Content Include="Resources\on_32x32.png" />
+    <Content Include="Resources\open_16x16.png" />
+    <Content Include="Resources\open_32x32.png" />
+    <Content Include="Resources\page_count_separation_16x16.png" />
+    <Content Include="Resources\page_count_separation_32x32.png" />
+    <Content Include="Resources\pan_hand_16x16.png" />
+    <Content Include="Resources\pan_hand_32x32.png" />
+    <Content Include="Resources\paste_16x16.png" />
+    <Content Include="Resources\paste_32x32.png" />
+    <Content Include="Resources\patch_code_iii_16x16.png" />
+    <Content Include="Resources\patch_code_iii_32x32.png" />
+    <Content Include="Resources\patch_code_ii_16x16.png" />
+    <Content Include="Resources\patch_code_ii_32x32.png" />
+    <Content Include="Resources\patch_code_t_16x16.png" />
+    <Content Include="Resources\patch_code_t_32x32.png" />
+    <Content Include="Resources\performance_16x16.png" />
+    <Content Include="Resources\portrait_16x16.png" />
+    <Content Include="Resources\portrait_32x32.png" />
+    <Content Include="Resources\portrait_48x48.png" />
+    <Content Include="Resources\portrait_orientation_landscapetext_0_degrees_16x16.png" />
+    <Content Include="Resources\portrait_orientation_landscapetext_0_degrees_32x32.png" />
+    <Content Include="Resources\portrait_orientation_landscapetext_180_degrees_16x16.png" />
+    <Content Include="Resources\portrait_orientation_landscapetext_180_degrees_32x32.png" />
+    <Content Include="Resources\portrait_orientation_portrait_text_0_degrees_16x16.png" />
+    <Content Include="Resources\portrait_orientation_portrait_text_0_degrees_32x32.png" />
+    <Content Include="Resources\portrait_orientation_portrait_text_180_degrees_16x16.png" />
+    <Content Include="Resources\portrait_orientation_portrait_text_180_degrees_32x32.png" />
+    <Content Include="Resources\previous_16x16.png" />
+    <Content Include="Resources\print_16x16.png" />
+    <Content Include="Resources\print_32x32.png" />
+    <Content Include="Resources\properties_16x16.png" />
+    <Content Include="Resources\properties_32x32.png" />
+    <Content Include="Resources\publishjobas_16x16.png" />
+    <Content Include="Resources\publishjobas_32x32.png" />
+    <Content Include="Resources\publishjob_16x16.png" />
+    <Content Include="Resources\publishjob_32x32.png" />
+    <Content Include="Resources\publishscanprofile_16x16.png" />
+    <Content Include="Resources\publish_16x16.png" />
+    <Content Include="Resources\publish_32x32.png" />
+    <Content Include="Resources\publish_scan_profile_32x32.png" />
+    <Content Include="Resources\raw_off_16x16.png" />
+    <Content Include="Resources\raw_off_32x32.png" />
+    <Content Include="Resources\rectangle_16x16.png" />
+    <Content Include="Resources\rectangle_32x32.png" />
+    <Content Include="Resources\redo_16x16.png" />
+    <Content Include="Resources\redo_32x32.png" />
+    <Content Include="Resources\register_16x16.png" />
+    <Content Include="Resources\register_32x32.png" />
+    <Content Include="Resources\remove_rubber_band_ocr_16x16.png" />
+    <Content Include="Resources\remove_rubber_band_ocr_32x32.png" />
+    <Content Include="Resources\rename_16x16.png" />
+    <Content Include="Resources\rename_32x32.png" />
+    <Content Include="Resources\required_16x16.png" />
+    <Content Include="Resources\required_32x32.png" />
+    <Content Include="Resources\rescan_multi_feed_16x16.png" />
+    <Content Include="Resources\rescan_multi_feed_32x32.png" />
+    <Content Include="Resources\rescan_multi_page_16x16.png" />
+    <Content Include="Resources\rescan_multi_page_32x32.png" />
+    <Content Include="Resources\reset_16x16.png" />
+    <Content Include="Resources\reset_32x32.png" />
+    <Content Include="Resources\reset_vrs_16x16.png" />
+    <Content Include="Resources\reset_vrs_32x32.png" />
+    <Content Include="Resources\rotate_00_16x16.png" />
+    <Content Include="Resources\rotate_00_32x32.png" />
+    <Content Include="Resources\rotate_180_16x16.png" />
+    <Content Include="Resources\rotate_180_32x32.png" />
+    <Content Include="Resources\rotate_270_16x16.png" />
+    <Content Include="Resources\rotate_270_32x32.png" />
+    <Content Include="Resources\rotate_90_16x16.png" />
+    <Content Include="Resources\rotate_90_32x32.png" />
+    <Content Include="Resources\rubber_band_ocr_16x16.png" />
+    <Content Include="Resources\rubber_band_ocr_32x32.png" />
+    <Content Include="Resources\sans_serif_16x16.png" />
+    <Content Include="Resources\save_16x16.png" />
+    <Content Include="Resources\save_32x32.png" />
+    <Content Include="Resources\save_as_16x16.png" />
+    <Content Include="Resources\save_as_32x32.png" />
+    <Content Include="Resources\save_job_16x16.png" />
+    <Content Include="Resources\save_job_32x32.png" />
+    <Content Include="Resources\save_job_as_16x16.png" />
+    <Content Include="Resources\save_job_as_32x32.png" />
+    <Content Include="Resources\save_job_as_template_16x16.png" />
+    <Content Include="Resources\save_job_as_template_32x32.png" />
+    <Content Include="Resources\save_scan_profile_16x16.png" />
+    <Content Include="Resources\save_scan_profile_32x32.png" />
+    <Content Include="Resources\save_scan_profile_as_16x16.png" />
+    <Content Include="Resources\save_scan_profile_as_32x32.png" />
+    <Content Include="Resources\scanner_button_16x16.png" />
+    <Content Include="Resources\scanner_button_32x32.png" />
+    <Content Include="Resources\scan_batch_16x16.png" />
+    <Content Include="Resources\scan_batch_32x32.png" />
+    <Content Include="Resources\scan_page_16x16.png" />
+    <Content Include="Resources\scan_page_32x32.png" />
+    <Content Include="Resources\screw_tool_16x16.png" />
+    <Content Include="Resources\screw_tool_32x32.png" />
+    <Content Include="Resources\select_16x16.png" />
+    <Content Include="Resources\select_32x32.png" />
+    <Content Include="Resources\send_raw_to_server_16x16.png" />
+    <Content Include="Resources\send_raw_to_server_32x32.png" />
+    <Content Include="Resources\serif_16x16.png" />
+    <Content Include="Resources\setup_16x16.png" />
+    <Content Include="Resources\setup_32x32.png" />
+    <Content Include="Resources\simplex_16x16.png" />
+    <Content Include="Resources\simplex_32x32.png" />
+    <Content Include="Resources\single_sheet_16x16.png" />
+    <Content Include="Resources\single_sheet_32x32.png" />
+    <Content Include="Resources\slow_16x16.png" />
+    <Content Include="Resources\slow_32x32.png" />
+    <Content Include="Resources\smoothing_16x16.png" />
+    <Content Include="Resources\smoothing_32x32.png" />
+    <Content Include="Resources\smoothing_high_16x16.png" />
+    <Content Include="Resources\smoothing_low_16x16.png" />
+    <Content Include="Resources\snap_to_white_16x16.png" />
+    <Content Include="Resources\snap_to_white_32x32.png" />
+    <Content Include="Resources\split_document_16x16.png" />
+    <Content Include="Resources\split_document_32x32.png" />
+    <Content Include="Resources\start_16x16.png" />
+    <Content Include="Resources\start_32x32.png" />
+    <Content Include="Resources\step_16x16.png" />
+    <Content Include="Resources\step_32x32.png" />
+    <Content Include="Resources\sticky_value_16x16.png" />
+    <Content Include="Resources\sticky_value_32x32.png" />
+    <Content Include="Resources\stop_multifeed_16x16.png" />
+    <Content Include="Resources\stop_multifeed_32x32.png" />
+    <Content Include="Resources\stop_scanner_16x16.png" />
+    <Content Include="Resources\stop_scanner_32x32.png" />
+    <Content Include="Resources\support_16x16.png" />
+    <Content Include="Resources\suspendbatch_16x16.png" />
+    <Content Include="Resources\suspendbatch_32x321.png" />
+    <Content Include="Resources\swap_front_back_16x16.png" />
+    <Content Include="Resources\swap_front_back_32x32.png" />
+    <Content Include="Resources\switch_to_bw_16x16.png" />
+    <Content Include="Resources\switch_to_color_16x16.png" />
+    <Content Include="Resources\switch_to_gray_16x16.png" />
+    <Content Include="Resources\template_ocr1.png" />
+    <Content Include="Resources\template_ocr_16x16.png" />
+    <Content Include="Resources\thick_16x16.png" />
+    <Content Include="Resources\thin_16x16.png" />
+    <Content Include="Resources\time_out_16x16.png" />
+    <Content Include="Resources\time_out_32x32.png" />
+    <Content Include="Resources\top_offset_16x16.png" />
+    <Content Include="Resources\tutorial_16x16.png" />
+    <Content Include="Resources\tutorial_32x32.png" />
+    <Content Include="Resources\undo_16x16.png" />
+    <Content Include="Resources\undo_32x32.png" />
+    <Content Include="Resources\view_one_image_16x16.png" />
+    <Content Include="Resources\view_one_image_32x32.png" />
+    <Content Include="Resources\view_thumbnails_16x16.png" />
+    <Content Include="Resources\view_thumbnails_32x32.png" />
+    <Content Include="Resources\view_two_images_16x16.png" />
+    <Content Include="Resources\view_two_images_32x32.png" />
+    <Content Include="Resources\vrs_16x16.png" />
+    <Content Include="Resources\vrs_32x32.png" />
+    <Content Include="Resources\vrs_rotate_180_16x16.png" />
+    <Content Include="Resources\vrs_rotate_180_32x32.png" />
+    <Content Include="Resources\vrs_rotate_270_16x16.png" />
+    <Content Include="Resources\vrs_rotate_270_32x32.png" />
+    <Content Include="Resources\vrs_rotate_90_16x16.png" />
+    <Content Include="Resources\vrs_rotate_90_32x32.png" />
+    <Content Include="Resources\warning_16x16.png" />
+    <Content Include="Resources\warning_32x32.png" />
+    <Content Include="Resources\zoom_on_rectangle_16x16.png" />
+    <Content Include="Resources\zoom_on_rectangle_32x32.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
