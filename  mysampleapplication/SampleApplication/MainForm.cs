@@ -1,41 +1,69 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.Skins;
-using DevExpress.Utils.Drawing;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
-using DevExpress.XtraEditors;
 
 namespace SampleApplication
 {
-    public partial class MainForm : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class MainForm : RibbonForm
     {
+//        private ScanSettingMode CurrentScanSettingMode;
         public MainForm()
         {
             InitializeComponent();
             ribbon.ForceInitialize(); // Fix error: skin gallery not show until click on dropdown
             SkinHelper.CreateGallery(ribbonGalleryBarItemThemes);
+
+            SetupGroup();
+            SetScanSettingMode(ScanSettingMode.Scanner);
+//            CurrentScanSettingMode = ScanSettingMode.Scanner;
         }
 
         private void ribbon_SelectedPageChanged(object sender, EventArgs e)
         {
-            if(ribbon.SelectedPage.Name == "ribbonScanSettings")
+            if (ribbon.SelectedPage.Name == "ribbonScanSettings")
             {
-                barButtonItemScanOne.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
-                barButtonItemScanAll.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
-                barButtonItemStop.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+                barButtonItemScanOne.RibbonStyle = RibbonItemStyles.SmallWithoutText;
+                barButtonItemScanAll.RibbonStyle = RibbonItemStyles.SmallWithoutText;
+                barButtonItemStop.RibbonStyle = RibbonItemStyles.SmallWithoutText;
             }
             else
             {
-                barButtonItemScanOne.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Default;
-                barButtonItemScanAll.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Default;
-                barButtonItemStop.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Default;
+                barButtonItemScanOne.RibbonStyle = RibbonItemStyles.Default;
+                barButtonItemScanAll.RibbonStyle = RibbonItemStyles.Default;
+                barButtonItemStop.RibbonStyle = RibbonItemStyles.Default;
             }
+        }
+
+        private void barButtonItemScannerSetting_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var item = (BarButtonItem) e.Item;
+            if (item.Name == "barButtonItemScanner")
+                SetScanSettingMode(ScanSettingMode.Scanner);
+            else if (item.Name == "barButtonItemVRSGeneral")
+                SetScanSettingMode(ScanSettingMode.VRSGeneral);
+            else if (item.Name == "barButtonItemVRSColor")
+                SetScanSettingMode(ScanSettingMode.VRSColor);
+        }
+        void SetScanSettingMode(ScanSettingMode mode)
+        {
+            bool modeScanner = mode == ScanSettingMode.Scanner;
+            bool modeVRSColor = mode == ScanSettingMode.VRSColor;
+            bool modeVRSGeneral = mode == ScanSettingMode.VRSGeneral;
+
+            SetChecked(barButtonItemScanner,modeScanner);
+            SetChecked(barButtonItemVRSColor,modeVRSColor);
+            SetChecked(barButtonItemVRSGeneral, modeVRSGeneral);
+
+            foreach (var ribbonPageGroup in ScannerGroups)
+            {
+                ribbonPageGroup.Visible = modeScanner;
+            }
+
+            foreach (var ribbonPageGroup in VRSGeneralGroups)
+            {
+                ribbonPageGroup.Visible = modeVRSGeneral;
+            }
+
         }
     }
 }

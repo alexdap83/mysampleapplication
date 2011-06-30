@@ -137,21 +137,20 @@ namespace SampleApplication
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonScanSettings = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroupSetting = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroupScan_ScanSettings = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroupDetail = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroupFeeder = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupSides = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonDocument = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroupPaperSize = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroupRotation = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroupAutoResolve = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroupReset = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupAutomaticCorrections = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupClarity = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroupBWFilters = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroupScanner = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonDocument = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonRescan = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonVRSCorrections = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonJobSetup = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -159,8 +158,8 @@ namespace SampleApplication
             this.ribbonIndexSetup = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonHelp = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonStatusBar2 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -341,9 +340,9 @@ namespace SampleApplication
             this.repositoryItemTrackBar4,
             this.repositoryItemTrackBar5,
             this.repositoryItemTrackBar6});
-            this.ribbon.SelectedPage = this.ribbonHome;
+            this.ribbon.SelectedPage = this.ribbonScanSettings;
             this.ribbon.Size = new System.Drawing.Size(1063, 148);
-            this.ribbon.StatusBar = this.ribbonStatusBar2;
+            this.ribbon.StatusBar = this.ribbonStatusBar;
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemScanOne);
             this.ribbon.TransparentEditors = true;
             this.ribbon.SelectedPageChanged += new System.EventHandler(this.ribbon_SelectedPageChanged);
@@ -967,6 +966,7 @@ namespace SampleApplication
             this.barButtonItemScanner.Glyph = global::SampleApplication.Properties.Resources.setup_16x16;
             this.barButtonItemScanner.Id = 148;
             this.barButtonItemScanner.Name = "barButtonItemScanner";
+            this.barButtonItemScanner.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemScannerSetting_ItemClick);
             // 
             // barButtonItemVRSGeneral
             // 
@@ -975,6 +975,7 @@ namespace SampleApplication
             this.barButtonItemVRSGeneral.Glyph = global::SampleApplication.Properties.Resources.vrs_16x16;
             this.barButtonItemVRSGeneral.Id = 149;
             this.barButtonItemVRSGeneral.Name = "barButtonItemVRSGeneral";
+            this.barButtonItemVRSGeneral.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemScannerSetting_ItemClick);
             // 
             // barButtonItemVRSColor
             // 
@@ -983,6 +984,7 @@ namespace SampleApplication
             this.barButtonItemVRSColor.Glyph = global::SampleApplication.Properties.Resources.vrs_16x16;
             this.barButtonItemVRSColor.Id = 150;
             this.barButtonItemVRSColor.Name = "barButtonItemVRSColor";
+            this.barButtonItemVRSColor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemScannerSetting_ItemClick);
             // 
             // barButtonItemBlackAndWhite
             // 
@@ -1482,55 +1484,58 @@ namespace SampleApplication
             // ribbonScanSettings
             // 
             this.ribbonScanSettings.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1,
-            this.ribbonPageGroup2,
-            this.ribbonPageGroup12,
-            this.ribbonPageGroup8,
+            this.ribbonPageGroupSetting,
+            this.ribbonPageGroupScan_ScanSettings,
+            this.ribbonPageGroupDetail,
+            this.ribbonPageGroupFeeder,
             this.ribbonPageGroupSides,
-            this.ribbonPageGroup3,
-            this.ribbonPageGroup4,
-            this.ribbonPageGroup9,
-            this.ribbonPageGroup10,
-            this.ribbonPageGroup11});
+            this.ribbonPageGroupPaperSize,
+            this.ribbonPageGroupRotation,
+            this.ribbonPageGroupAutoResolve,
+            this.ribbonPageGroupReset,
+            this.ribbonPageGroupAutomaticCorrections,
+            this.ribbonPageGroupClarity,
+            this.ribbonPageGroupBWFilters,
+            this.ribbonPageGroupScanner});
             this.ribbonScanSettings.Name = "ribbonScanSettings";
             this.ribbonScanSettings.Text = "Scan Settings";
             // 
-            // ribbonPageGroup1
+            // ribbonPageGroupSetting
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemScanner);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemVRSGeneral);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemVRSColor);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.ShowCaptionButton = false;
-            this.ribbonPageGroup1.Text = "Settings";
+            this.ribbonPageGroupSetting.ItemLinks.Add(this.barButtonItemScanner);
+            this.ribbonPageGroupSetting.ItemLinks.Add(this.barButtonItemVRSGeneral);
+            this.ribbonPageGroupSetting.ItemLinks.Add(this.barButtonItemVRSColor);
+            this.ribbonPageGroupSetting.Name = "ribbonPageGroupSetting";
+            this.ribbonPageGroupSetting.ShowCaptionButton = false;
+            this.ribbonPageGroupSetting.Text = "Settings";
             // 
-            // ribbonPageGroup2
+            // ribbonPageGroupScan_ScanSettings
             // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItemScanOne);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItemScanAll);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItemStop);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItemBlackAndWhite, true);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItemGrayscale);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItemColor);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.ShowCaptionButton = false;
-            this.ribbonPageGroup2.Text = "Scan";
+            this.ribbonPageGroupScan_ScanSettings.ItemLinks.Add(this.barButtonItemScanOne);
+            this.ribbonPageGroupScan_ScanSettings.ItemLinks.Add(this.barButtonItemScanAll);
+            this.ribbonPageGroupScan_ScanSettings.ItemLinks.Add(this.barButtonItemStop);
+            this.ribbonPageGroupScan_ScanSettings.ItemLinks.Add(this.barButtonItemBlackAndWhite, true);
+            this.ribbonPageGroupScan_ScanSettings.ItemLinks.Add(this.barButtonItemGrayscale);
+            this.ribbonPageGroupScan_ScanSettings.ItemLinks.Add(this.barButtonItemColor);
+            this.ribbonPageGroupScan_ScanSettings.Name = "ribbonPageGroupScan_ScanSettings";
+            this.ribbonPageGroupScan_ScanSettings.ShowCaptionButton = false;
+            this.ribbonPageGroupScan_ScanSettings.Text = "Scan";
             // 
-            // ribbonPageGroup12
+            // ribbonPageGroupDetail
             // 
-            this.ribbonPageGroup12.ItemLinks.Add(this.barStaticItem2);
-            this.ribbonPageGroup12.ItemLinks.Add(this.barEditItem2);
-            this.ribbonPageGroup12.Name = "ribbonPageGroup12";
-            this.ribbonPageGroup12.ShowCaptionButton = false;
-            this.ribbonPageGroup12.Text = "Detal";
+            this.ribbonPageGroupDetail.ItemLinks.Add(this.barStaticItem2);
+            this.ribbonPageGroupDetail.ItemLinks.Add(this.barEditItem2);
+            this.ribbonPageGroupDetail.Name = "ribbonPageGroupDetail";
+            this.ribbonPageGroupDetail.ShowCaptionButton = false;
+            this.ribbonPageGroupDetail.Text = "Detail";
             // 
-            // ribbonPageGroup8
+            // ribbonPageGroupFeeder
             // 
-            this.ribbonPageGroup8.ItemLinks.Add(this.barButtonItemFlatbed);
-            this.ribbonPageGroup8.ItemLinks.Add(this.barButtonItemFeeder);
-            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
-            this.ribbonPageGroup8.ShowCaptionButton = false;
-            this.ribbonPageGroup8.Text = "Feeder";
+            this.ribbonPageGroupFeeder.ItemLinks.Add(this.barButtonItemFlatbed);
+            this.ribbonPageGroupFeeder.ItemLinks.Add(this.barButtonItemFeeder);
+            this.ribbonPageGroupFeeder.Name = "ribbonPageGroupFeeder";
+            this.ribbonPageGroupFeeder.ShowCaptionButton = false;
+            this.ribbonPageGroupFeeder.Text = "Feeder";
             // 
             // ribbonPageGroupSides
             // 
@@ -1540,54 +1545,37 @@ namespace SampleApplication
             this.ribbonPageGroupSides.ShowCaptionButton = false;
             this.ribbonPageGroupSides.Text = "Sides";
             // 
-            // ribbonPageGroup3
+            // ribbonPageGroupPaperSize
             // 
-            this.ribbonPageGroup3.ItemLinks.Add(this.barEditItemSize, false, "", "", true);
-            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonGroupLongSheet);
-            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonGroupOrientation);
-            this.ribbonPageGroup3.ItemLinks.Add(this.barStaticItem1, false, "", "", true);
-            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.ShowCaptionButton = false;
-            this.ribbonPageGroup3.Text = "Paper Size";
+            this.ribbonPageGroupPaperSize.ItemLinks.Add(this.barEditItemSize, false, "", "", true);
+            this.ribbonPageGroupPaperSize.ItemLinks.Add(this.barButtonGroupLongSheet);
+            this.ribbonPageGroupPaperSize.ItemLinks.Add(this.barButtonGroupOrientation);
+            this.ribbonPageGroupPaperSize.ItemLinks.Add(this.barStaticItem1, false, "", "", true);
+            this.ribbonPageGroupPaperSize.Name = "ribbonPageGroupPaperSize";
+            this.ribbonPageGroupPaperSize.ShowCaptionButton = false;
+            this.ribbonPageGroupPaperSize.Text = "Paper Size";
             // 
-            // ribbonPageGroup4
+            // ribbonPageGroupRotation
             // 
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItemFront);
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItemBack);
-            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-            this.ribbonPageGroup4.ShowCaptionButton = false;
-            this.ribbonPageGroup4.Text = "Rotation";
+            this.ribbonPageGroupRotation.ItemLinks.Add(this.barButtonItemFront);
+            this.ribbonPageGroupRotation.ItemLinks.Add(this.barButtonItemBack);
+            this.ribbonPageGroupRotation.Name = "ribbonPageGroupRotation";
+            this.ribbonPageGroupRotation.ShowCaptionButton = false;
+            this.ribbonPageGroupRotation.Text = "Rotation";
             // 
-            // ribbonPageGroup9
+            // ribbonPageGroupAutoResolve
             // 
-            this.ribbonPageGroup9.ItemLinks.Add(this.barButtonItemAutoResolve);
-            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
-            this.ribbonPageGroup9.ShowCaptionButton = false;
-            this.ribbonPageGroup9.Text = "Auto Resolve";
+            this.ribbonPageGroupAutoResolve.ItemLinks.Add(this.barButtonItemAutoResolve);
+            this.ribbonPageGroupAutoResolve.Name = "ribbonPageGroupAutoResolve";
+            this.ribbonPageGroupAutoResolve.ShowCaptionButton = false;
+            this.ribbonPageGroupAutoResolve.Text = "Auto Resolve";
             // 
-            // ribbonPageGroup10
+            // ribbonPageGroupReset
             // 
-            this.ribbonPageGroup10.ItemLinks.Add(this.barButtonItemResetScanSetting);
-            this.ribbonPageGroup10.Name = "ribbonPageGroup10";
-            this.ribbonPageGroup10.ShowCaptionButton = false;
-            this.ribbonPageGroup10.Text = "Reset";
-            // 
-            // ribbonPageGroup11
-            // 
-            this.ribbonPageGroup11.ItemLinks.Add(this.barButtonItemSelectScanner);
-            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
-            this.ribbonPageGroup11.ShowCaptionButton = false;
-            this.ribbonPageGroup11.Text = "Scanner";
-            // 
-            // ribbonDocument
-            // 
-            this.ribbonDocument.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroupAutomaticCorrections,
-            this.ribbonPageGroupClarity,
-            this.ribbonPageGroup13,
-            this.ribbonPageGroup14});
-            this.ribbonDocument.Name = "ribbonDocument";
-            this.ribbonDocument.Text = "Document";
+            this.ribbonPageGroupReset.ItemLinks.Add(this.barButtonItemResetScanSetting);
+            this.ribbonPageGroupReset.Name = "ribbonPageGroupReset";
+            this.ribbonPageGroupReset.ShowCaptionButton = false;
+            this.ribbonPageGroupReset.Text = "Reset";
             // 
             // ribbonPageGroupAutomaticCorrections
             // 
@@ -1620,24 +1608,33 @@ namespace SampleApplication
             this.ribbonPageGroupClarity.ShowCaptionButton = false;
             this.ribbonPageGroupClarity.Text = "Clarity";
             // 
-            // ribbonPageGroup13
+            // ribbonPageGroupBWFilters
             // 
-            this.ribbonPageGroup13.ItemLinks.Add(this.barEditItem3);
-            this.ribbonPageGroup13.ItemLinks.Add(this.barEditItem4);
-            this.ribbonPageGroup13.ItemLinks.Add(this.barStaticItemBlank);
-            this.ribbonPageGroup13.ItemLinks.Add(this.barStaticItem3);
-            this.ribbonPageGroup13.ItemLinks.Add(this.barButtonItem7);
-            this.ribbonPageGroup13.ItemLinks.Add(this.barStaticItemBlank);
-            this.ribbonPageGroup13.Name = "ribbonPageGroup13";
-            this.ribbonPageGroup13.ShowCaptionButton = false;
-            this.ribbonPageGroup13.Text = "B & W Filters";
+            this.ribbonPageGroupBWFilters.ItemLinks.Add(this.barEditItem3);
+            this.ribbonPageGroupBWFilters.ItemLinks.Add(this.barEditItem4);
+            this.ribbonPageGroupBWFilters.ItemLinks.Add(this.barStaticItemBlank);
+            this.ribbonPageGroupBWFilters.ItemLinks.Add(this.barStaticItem3);
+            this.ribbonPageGroupBWFilters.ItemLinks.Add(this.barButtonItem7);
+            this.ribbonPageGroupBWFilters.ItemLinks.Add(this.barStaticItemBlank);
+            this.ribbonPageGroupBWFilters.Name = "ribbonPageGroupBWFilters";
+            this.ribbonPageGroupBWFilters.ShowCaptionButton = false;
+            this.ribbonPageGroupBWFilters.Text = "B && W Filters";
             // 
-            // ribbonPageGroup14
+            // ribbonPageGroupScanner
             // 
-            this.ribbonPageGroup14.ItemLinks.Add(this.barButtonItemResetScanSetting);
-            this.ribbonPageGroup14.Name = "ribbonPageGroup14";
-            this.ribbonPageGroup14.ShowCaptionButton = false;
-            this.ribbonPageGroup14.Text = "Reset";
+            this.ribbonPageGroupScanner.ItemLinks.Add(this.barButtonItemSelectScanner);
+            this.ribbonPageGroupScanner.Name = "ribbonPageGroupScanner";
+            this.ribbonPageGroupScanner.ShowCaptionButton = false;
+            this.ribbonPageGroupScanner.Text = "Scanner";
+            // 
+            // ribbonDocument
+            // 
+            this.ribbonDocument.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroupAutomaticCorrections,
+            this.ribbonPageGroupClarity,
+            this.ribbonPageGroupBWFilters});
+            this.ribbonDocument.Name = "ribbonDocument";
+            this.ribbonDocument.Text = "Document";
             // 
             // ribbonRescan
             // 
@@ -1678,14 +1675,6 @@ namespace SampleApplication
             this.ribbonPageGroup15.ShowCaptionButton = false;
             this.ribbonPageGroup15.Text = "Themes";
             // 
-            // ribbonStatusBar
-            // 
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemScanOne);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 565);
-            this.ribbonStatusBar.Name = "ribbonStatusBar";
-            this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1063, 23);
-            // 
             // ribbonStatusBar2
             // 
             this.ribbonStatusBar2.Dock = System.Windows.Forms.DockStyle.None;
@@ -1693,6 +1682,14 @@ namespace SampleApplication
             this.ribbonStatusBar2.Name = "ribbonStatusBar2";
             this.ribbonStatusBar2.Ribbon = this.ribbon;
             this.ribbonStatusBar2.Size = new System.Drawing.Size(311, 23);
+            // 
+            // ribbonStatusBar
+            // 
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemScanOne);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 565);
+            this.ribbonStatusBar.Name = "ribbonStatusBar";
+            this.ribbonStatusBar.Ribbon = this.ribbon;
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1063, 23);
             // 
             // dockManager1
             // 
@@ -2130,8 +2127,8 @@ namespace SampleApplication
         private DevExpress.XtraBars.BarButtonItem barButtonItemScanOne;
         private DevExpress.XtraBars.BarButtonItem barButtonItemScanAll;
         private DevExpress.XtraBars.BarButtonItem barButtonItemStop;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupSetting;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupScan_ScanSettings;
         private DevExpress.XtraBars.Ribbon.ApplicationMenu appMenu;
         private PopupControlContainer popupControlContainerBottomMenu;
         private DevExpress.XtraEditors.SimpleButton simpleButtonOption;
@@ -2144,7 +2141,7 @@ namespace SampleApplication
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private DevExpress.XtraLayout.SimpleSeparator simpleSeparator2;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupPaperSize;
         private BarButtonItem barButtonItem3;
         private BarButtonItem barButtonItem4;
         private BarButtonItem barButtonItem5;
@@ -2192,24 +2189,24 @@ namespace SampleApplication
         private BarButtonItem barButtonItemColor;
         private BarButtonItem barButtonItemFlatbed;
         private BarButtonItem barButtonItemFeeder;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupFeeder;
         private BarButtonItem barButtonItemOneSide;
         private BarButtonItem barButtonItemBothSides;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupSides;
         private BarStaticItem barStaticItem1;
         private BarButtonItem barButtonItemFront;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupRotation;
         private BarButtonItem barButtonItemBack;
         private BarButtonItem barButtonItemAutoResolve;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupAutoResolve;
         private BarButtonItem barButtonItemResetScanSetting;
         private BarButtonItem barButtonItemSelectScanner;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupReset;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupScanner;
         private BarEditItem barEditItem2;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
         private BarStaticItem barStaticItem2;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupDetail;
         private BarButtonItem barButtonItemDeskew;
         private BarButtonItem barButtonItemAutoCrop;
         private BarButtonItem barButtonItemEdgeCleanup;
@@ -2239,14 +2236,13 @@ namespace SampleApplication
         private BarStaticItem barStaticItemBlank;
         private BarStaticItem barStaticItem5;
         private BarButtonItem barButtonItem2;
-        private RibbonPageGroup ribbonPageGroup13;
+        private RibbonPageGroup ribbonPageGroupBWFilters;
         private BarEditItem barEditItem3;
         private DevExpress.XtraEditors.Repository.RepositoryItemTrackBar repositoryItemTrackBar5;
         private BarEditItem barEditItem4;
         private DevExpress.XtraEditors.Repository.RepositoryItemTrackBar repositoryItemTrackBar6;
         private BarStaticItem barStaticItem3;
         private BarButtonItem barButtonItem7;
-        private RibbonPageGroup ribbonPageGroup14;
         private RibbonGalleryBarItem ribbonGalleryBarItemThemes;
         private RibbonPageGroup ribbonPageGroup15;
     }

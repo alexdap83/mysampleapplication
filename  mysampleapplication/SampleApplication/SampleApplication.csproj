@@ -69,6 +69,9 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainFormParameter.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MyRibbonControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -106,7 +109,11 @@
     <Compile Include="RibbonForm1.Designer.cs">
       <DependentUpon>RibbonForm1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ScanSettingMode.cs" />
     <Compile Include="SkinHelper.cs" />
+    <Compile Include="UIHelper.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\100_display_16x16.png" />
