@@ -44,6 +44,7 @@ namespace SampleApplication
             else if (item.Name == "barButtonItemVRSColor")
                 SetScanSettingMode(ScanSettingMode.VRSColor);
         }
+
         void SetScanSettingMode(ScanSettingMode mode)
         {
             bool modeScanner = mode == ScanSettingMode.Scanner;
@@ -62,6 +63,10 @@ namespace SampleApplication
             foreach (var ribbonPageGroup in VRSGeneralGroups)
             {
                 ribbonPageGroup.Visible = modeVRSGeneral;
+            }
+            foreach (var ribbonPageGroup in VRSColorGroups)
+            {
+                ribbonPageGroup.Visible = modeVRSColor;
             }
 
         }
