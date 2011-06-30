@@ -73,6 +73,11 @@ namespace SampleApplication
             this.barButtonItemMergeSeleted = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemIndexing = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemLanguage = new DevExpress.XtraBars.BarButtonItem();
+            this.popupControlContainerLanguages = new DevExpress.XtraBars.PopupControlContainer(this.components);
+            this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
+            this.checkedListBoxControl1 = new DevExpress.XtraEditors.CheckedListBoxControl();
+            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.barButtonItemDrawZone = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemRemoveZone = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemExport = new DevExpress.XtraBars.BarButtonItem();
@@ -158,8 +163,8 @@ namespace SampleApplication
             this.ribbonIndexSetup = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonHelp = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonStatusBar2 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.ribbonStatusBar2 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -204,6 +209,13 @@ namespace SampleApplication
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupControlContainerLanguages)).BeginInit();
+            this.popupControlContainerLanguages.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
+            this.layoutControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkedListBoxControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar2)).BeginInit();
@@ -340,9 +352,9 @@ namespace SampleApplication
             this.repositoryItemTrackBar4,
             this.repositoryItemTrackBar5,
             this.repositoryItemTrackBar6});
-            this.ribbon.SelectedPage = this.ribbonScanSettings;
+            this.ribbon.SelectedPage = this.ribbonHome;
             this.ribbon.Size = new System.Drawing.Size(1063, 148);
-            this.ribbon.StatusBar = this.ribbonStatusBar;
+            this.ribbon.StatusBar = this.ribbonStatusBar2;
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemScanOne);
             this.ribbon.TransparentEditors = true;
             this.ribbon.SelectedPageChanged += new System.EventHandler(this.ribbon_SelectedPageChanged);
@@ -927,11 +939,83 @@ namespace SampleApplication
             // barButtonItemLanguage
             // 
             this.barButtonItemLanguage.ActAsDropDown = true;
+            this.barButtonItemLanguage.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.barButtonItemLanguage.Caption = "Languages";
+            this.barButtonItemLanguage.DropDownControl = this.popupControlContainerLanguages;
             this.barButtonItemLanguage.Glyph = global::SampleApplication.Properties.Resources.ocr_language_16x16;
             this.barButtonItemLanguage.Id = 144;
             this.barButtonItemLanguage.LargeGlyph = global::SampleApplication.Properties.Resources.ocr_language_32x32;
             this.barButtonItemLanguage.Name = "barButtonItemLanguage";
+            // 
+            // popupControlContainerLanguages
+            // 
+            this.popupControlContainerLanguages.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.popupControlContainerLanguages.Controls.Add(this.layoutControl3);
+            this.popupControlContainerLanguages.Location = new System.Drawing.Point(382, 272);
+            this.popupControlContainerLanguages.Name = "popupControlContainerLanguages";
+            this.popupControlContainerLanguages.Ribbon = this.ribbon;
+            this.popupControlContainerLanguages.Size = new System.Drawing.Size(200, 225);
+            this.popupControlContainerLanguages.TabIndex = 8;
+            this.popupControlContainerLanguages.Visible = false;
+            // 
+            // layoutControl3
+            // 
+            this.layoutControl3.Appearance.DisabledLayoutGroupCaption.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.layoutControl3.Appearance.DisabledLayoutGroupCaption.Options.UseForeColor = true;
+            this.layoutControl3.Appearance.DisabledLayoutItem.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.layoutControl3.Appearance.DisabledLayoutItem.Options.UseForeColor = true;
+            this.layoutControl3.Controls.Add(this.checkedListBoxControl1);
+            this.layoutControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl3.Name = "layoutControl3";
+            this.layoutControl3.Root = this.layoutControlGroup4;
+            this.layoutControl3.Size = new System.Drawing.Size(200, 225);
+            this.layoutControl3.TabIndex = 0;
+            this.layoutControl3.Text = "layoutControl3";
+            // 
+            // checkedListBoxControl1
+            // 
+            this.checkedListBoxControl1.CheckOnClick = true;
+            this.checkedListBoxControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkedListBoxControl1.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null)});
+            this.checkedListBoxControl1.Location = new System.Drawing.Point(2, 2);
+            this.checkedListBoxControl1.Name = "checkedListBoxControl1";
+            this.checkedListBoxControl1.Size = new System.Drawing.Size(197, 222);
+            this.checkedListBoxControl1.StyleController = this.layoutControl3;
+            this.checkedListBoxControl1.TabIndex = 4;
+            // 
+            // layoutControlGroup4
+            // 
+            this.layoutControlGroup4.CustomizationFormText = "layoutControlGroup4";
+            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem6});
+            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup4.Name = "layoutControlGroup4";
+            this.layoutControlGroup4.Size = new System.Drawing.Size(200, 225);
+            this.layoutControlGroup4.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlGroup4.Text = "layoutControlGroup4";
+            this.layoutControlGroup4.TextVisible = false;
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.checkedListBoxControl1;
+            this.layoutControlItem6.CustomizationFormText = "layoutControlItem6";
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlItem6.Size = new System.Drawing.Size(198, 223);
+            this.layoutControlItem6.Text = "layoutControlItem6";
+            this.layoutControlItem6.TextLocation = DevExpress.Utils.Locations.Left;
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem6.TextToControlDistance = 0;
+            this.layoutControlItem6.TextVisible = false;
             // 
             // barButtonItemDrawZone
             // 
@@ -1675,14 +1759,6 @@ namespace SampleApplication
             this.ribbonPageGroup15.ShowCaptionButton = false;
             this.ribbonPageGroup15.Text = "Themes";
             // 
-            // ribbonStatusBar2
-            // 
-            this.ribbonStatusBar2.Dock = System.Windows.Forms.DockStyle.None;
-            this.ribbonStatusBar2.Location = new System.Drawing.Point(2, 204);
-            this.ribbonStatusBar2.Name = "ribbonStatusBar2";
-            this.ribbonStatusBar2.Ribbon = this.ribbon;
-            this.ribbonStatusBar2.Size = new System.Drawing.Size(311, 23);
-            // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemScanOne);
@@ -1690,6 +1766,14 @@ namespace SampleApplication
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1063, 23);
+            // 
+            // ribbonStatusBar2
+            // 
+            this.ribbonStatusBar2.Dock = System.Windows.Forms.DockStyle.None;
+            this.ribbonStatusBar2.Location = new System.Drawing.Point(2, 204);
+            this.ribbonStatusBar2.Name = "ribbonStatusBar2";
+            this.ribbonStatusBar2.Ribbon = this.ribbon;
+            this.ribbonStatusBar2.Size = new System.Drawing.Size(311, 23);
             // 
             // dockManager1
             // 
@@ -2032,6 +2116,7 @@ namespace SampleApplication
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1063, 588);
+            this.Controls.Add(this.popupControlContainerLanguages);
             this.Controls.Add(this.popupControlContainerRightPanel);
             this.Controls.Add(this.popupControlContainerBottomMenu);
             this.Controls.Add(this.dockPanel1);
@@ -2053,6 +2138,13 @@ namespace SampleApplication
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupControlContainerLanguages)).EndInit();
+            this.popupControlContainerLanguages.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
+            this.layoutControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.checkedListBoxControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar2)).EndInit();
@@ -2245,5 +2337,10 @@ namespace SampleApplication
         private BarButtonItem barButtonItem7;
         private RibbonGalleryBarItem ribbonGalleryBarItemThemes;
         private RibbonPageGroup ribbonPageGroup15;
+        private PopupControlContainer popupControlContainerLanguages;
+        private DevExpress.XtraLayout.LayoutControl layoutControl3;
+        private DevExpress.XtraEditors.CheckedListBoxControl checkedListBoxControl1;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
     }
 }
