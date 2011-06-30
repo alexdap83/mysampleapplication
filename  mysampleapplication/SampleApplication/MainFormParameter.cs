@@ -28,7 +28,8 @@ namespace SampleApplication
             VRSGeneralGroups.Add(this.ribbonPageGroupBWFilters);
 
 
-            //VRSColorGroups.Add(this.ribbonPageGroupC);
+            VRSColorGroups.Add(this.ribbonPageGroupColorDetection);
+            VRSColorGroups.Add(this.ribbonPageGroupBackground);
         }
 
     }
