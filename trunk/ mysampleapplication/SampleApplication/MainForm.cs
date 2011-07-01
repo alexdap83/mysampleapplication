@@ -6,16 +6,36 @@ namespace SampleApplication
 {
     public partial class MainForm : RibbonForm
     {
-//        private ScanSettingMode CurrentScanSettingMode;
         public MainForm()
         {
             InitializeComponent();
+//            CurrentScanSettingMode = ScanSettingMode.Scanner;
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            arMRUList = new MRUArrayList(pcAppRecentJobs, imageList1.Images[0], imageList1.Images[1]);
+            arMRUList.LabelClicked += OnLabelClicked;
+            InitMostRecentJobs(arMRUList);
+
             ribbon.ForceInitialize(); // Fix error: skin gallery not show until click on dropdown
             SkinHelper.CreateGallery(ribbonGalleryBarItemThemes);
 
             SetupGroup();
-            SetScanSettingMode(ScanSettingMode.Scanner);
-//            CurrentScanSettingMode = ScanSettingMode.Scanner;
+            //SetScanSettingMode(AppSetting.CurrentSetting.CurrentScanSettingMode);
+            ribbon.Minimized = AppSetting.CurrentSetting.IsRibbonMinimized;
+            ribbon.ToolbarLocation = AppSetting.CurrentSetting.ToolbarLocation;
+            SetSelectedPage(AppSetting.CurrentSetting.SelectedPageIndex);
+        }
+
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            AppSetting.CurrentSetting.IsRibbonMinimized = ribbon.Minimized;
+            AppSetting.CurrentSetting.SelectedPageIndex = ribbon.SelectedPage.PageIndex;
+            AppSetting.CurrentSetting.ToolbarLocation = ribbon.ToolbarLocation;
+            AppSetting.CurrentSetting.Save();
+
+            ScanProfile.CurrentSetting.Save();
         }
 
         private void ribbon_SelectedPageChanged(object sender, EventArgs e)
@@ -59,5 +79,7 @@ namespace SampleApplication
             VRSGeneralGroups.ForEach(p => p.Visible = modeVRSGeneral);
             VRSColorGroups.ForEach(p => p.Visible = modeVRSColor);
         }
+
+
     }
 }
