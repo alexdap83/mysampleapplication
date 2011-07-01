@@ -421,7 +421,7 @@ namespace SampleApplication
             this.repositoryItemSpinEdit5,
             this.repositoryItemTrackBar9,
             this.repositoryItemSpinEdit6});
-            this.ribbon.SelectedPage = this.ribbonDocument;
+            this.ribbon.SelectedPage = this.ribbonScanSettings;
             this.ribbon.Size = new System.Drawing.Size(1063, 148);
             this.ribbon.StatusBar = this.ribbonStatusBar2;
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemScanOne);
@@ -1124,6 +1124,7 @@ namespace SampleApplication
             this.barButtonItemBlackAndWhite.LargeGlyph = global::SampleApplication.Properties.Resources.color_mode_bw_32x32;
             this.barButtonItemBlackAndWhite.Name = "barButtonItemBlackAndWhite";
             this.barButtonItemBlackAndWhite.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+            this.barButtonItemBlackAndWhite.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemScannerSetting_ItemClick);
             // 
             // barButtonItemGrayscale
             // 
@@ -1134,6 +1135,7 @@ namespace SampleApplication
             this.barButtonItemGrayscale.LargeGlyph = global::SampleApplication.Properties.Resources.color_mode_gray_32x32;
             this.barButtonItemGrayscale.Name = "barButtonItemGrayscale";
             this.barButtonItemGrayscale.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+            this.barButtonItemGrayscale.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemScannerSetting_ItemClick);
             // 
             // barButtonItemColor
             // 
@@ -1144,6 +1146,7 @@ namespace SampleApplication
             this.barButtonItemColor.LargeGlyph = global::SampleApplication.Properties.Resources.color_mode_color_32x32;
             this.barButtonItemColor.Name = "barButtonItemColor";
             this.barButtonItemColor.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+            this.barButtonItemColor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemScannerSetting_ItemClick);
             // 
             // barButtonItemFlatbed
             // 
@@ -1275,6 +1278,7 @@ namespace SampleApplication
             this.barButtonItemDeskew.Id = 170;
             this.barButtonItemDeskew.LargeGlyph = global::SampleApplication.Properties.Resources.deskew_32x32;
             this.barButtonItemDeskew.Name = "barButtonItemDeskew";
+            this.barButtonItemDeskew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemDeskew_ItemClick);
             // 
             // barButtonItemAutoCrop
             // 
@@ -1284,6 +1288,7 @@ namespace SampleApplication
             this.barButtonItemAutoCrop.Id = 171;
             this.barButtonItemAutoCrop.LargeGlyph = global::SampleApplication.Properties.Resources.auto_crop_32x32;
             this.barButtonItemAutoCrop.Name = "barButtonItemAutoCrop";
+            this.barButtonItemAutoCrop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemAutoCrop_ItemClick);
             // 
             // barButtonItemEdgeCleanup
             // 
