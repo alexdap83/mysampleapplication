@@ -13,11 +13,22 @@ namespace SampleApplication
         {
             item.Down = isChecked;
         }
-        bool IsChecked(BarButtonItem item)
+        bool IsChecked(BarItem item)
+        {
+            if(item is BarButtonItem)
+                return ((BarButtonItem)item).Down;
+            return false;
+        }
+        void SetEnable(BarButtonItem item, bool isEnable)
+        {
+            item.Enabled = isEnable;
+        }
+        bool IsEnable(BarButtonItem item)
         {
             return item.Down;
 
         }
+
         void SetVisible(RibbonPageGroup group, bool isVisible)
         {
             group.Visible = isVisible;
