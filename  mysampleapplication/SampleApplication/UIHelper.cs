@@ -27,5 +27,9 @@ namespace SampleApplication
             return group.Visible;
         }
 
+        void SetSelectedPage(int pageIndex)
+        {
+            ribbon.SelectedPage = ribbon.Pages[pageIndex];
+        }
     }
 }

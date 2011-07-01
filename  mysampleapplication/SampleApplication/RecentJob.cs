@@ -13,41 +13,33 @@ namespace SampleApplication
 {
     public partial class MainForm
     {
-        #region MostRecentFiles
+        #region MostRecentJobs
         MRUArrayList arMRUList = null;
-        string mrfFileName = "RibbonMRUFiles.ini";
        
         //private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         //{
-        //    SaveMostRecentFiles(arMRUList);
+        //    SaveMostRecentJobs(arMRUList);
         //}
 
-        void InitMostRecentFiles(MRUArrayList arList)
+        void InitMostRecentJobs(MRUArrayList arList)
         {
-            string fileName = Application.StartupPath + "\\" + mrfFileName;
-            if (!System.IO.File.Exists(fileName))
-            {
-                AddToMostRecentFiles("Document1.rtf", arList);
+            AddToMostRecentJobs("The First Jobs", arList);
                 return;
-            }
-            System.IO.StreamReader sr = System.IO.File.OpenText(fileName);
-            for (string s = sr.ReadLine(); s != null; s = sr.ReadLine())
-                AddToMostRecentFiles(s, arList);
-            sr.Close();
+         
         }
 
-        void SaveMostRecentFiles(MRUArrayList arList)
+        void SaveMostRecentJobs(MRUArrayList arList)
         {
             try
             {
-                System.IO.StreamWriter sw = System.IO.File.CreateText(Application.StartupPath + "\\" + mrfFileName);
-                for (int i = arList.Count - 1; i >= 0; i--) sw.WriteLine(string.Format("{0},{1}", arList[i].ToString(), arList.GetLabelChecked(arList[i].ToString())));
-                sw.Close();
+                //System.IO.StreamWriter sw = System.IO.File.CreateText(Application.StartupPath + "\\" + mrfFileName);
+                //for (int i = arList.Count - 1; i >= 0; i--) sw.WriteLine(string.Format("{0},{1}", arList[i].ToString(), arList.GetLabelChecked(arList[i].ToString())));
+                //sw.Close();
             }
             catch { }
         }
 
-        void AddToMostRecentFiles(string name, MRUArrayList arList)
+        void AddToMostRecentJobs(string name, MRUArrayList arList)
         {
             arList.InsertElement(name);
         }
@@ -59,7 +51,7 @@ namespace SampleApplication
         class MRUArrayList : ArrayList
         {
             PanelControl container;
-            int maxRecentFiles = 9;
+            int maxRecentJobs = 9;
             Image imgChecked, imgUncheked;
             public event EventHandler LabelClicked;
             public MRUArrayList(PanelControl cont, Image iChecked, Image iUnchecked)
@@ -87,7 +79,7 @@ namespace SampleApplication
                     }
                 }
                 bool access = true;
-                if (base.Count >= maxRecentFiles)
+                if (base.Count >= maxRecentJobs)
                     access = RemoveLastElement();
                 if (access)
                 {
