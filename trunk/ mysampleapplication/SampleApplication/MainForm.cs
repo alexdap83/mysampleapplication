@@ -55,20 +55,9 @@ namespace SampleApplication
             SetChecked(barButtonItemVRSColor,modeVRSColor);
             SetChecked(barButtonItemVRSGeneral, modeVRSGeneral);
 
-            foreach (var ribbonPageGroup in ScannerGroups)
-            {
-                ribbonPageGroup.Visible = modeScanner;
-            }
-
-            foreach (var ribbonPageGroup in VRSGeneralGroups)
-            {
-                ribbonPageGroup.Visible = modeVRSGeneral;
-            }
-            foreach (var ribbonPageGroup in VRSColorGroups)
-            {
-                ribbonPageGroup.Visible = modeVRSColor;
-            }
-
+            ScannerGroups.ForEach( p => p.Visible = modeScanner);
+            VRSGeneralGroups.ForEach(p => p.Visible = modeVRSGeneral);
+            VRSColorGroups.ForEach(p => p.Visible = modeVRSColor);
         }
     }
 }
