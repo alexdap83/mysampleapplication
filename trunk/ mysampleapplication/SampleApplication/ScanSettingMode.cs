@@ -11,4 +11,10 @@ namespace SampleApplication
         VRSGeneral,
         VRSColor
     }
+    public enum ColorMode
+    {
+        BlackAndWhite,
+        Grayscale,
+        Color
+    }
 }

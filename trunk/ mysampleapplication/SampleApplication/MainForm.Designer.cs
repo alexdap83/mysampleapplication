@@ -174,10 +174,10 @@ namespace SampleApplication
             this.ribbonPageGroupAutoResolve = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupColorDetection = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupBackground = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroupReset = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupAutomaticCorrections = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupClarity = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupBWFilters = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroupReset = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupScanner = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonDocument = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonRescan = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -187,8 +187,8 @@ namespace SampleApplication
             this.ribbonIndexSetup = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonHelp = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonStatusBar2 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -221,6 +221,8 @@ namespace SampleApplication
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
+            this.barButtonItemRefresh = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemAllJob = new DevExpress.XtraBars.BarButtonItem();
             barEditItemSmoothingTrackBar = new DevExpress.XtraBars.BarEditItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
@@ -386,9 +388,11 @@ namespace SampleApplication
             this.barStaticItem7,
             this.barEditItemSmoothingValue,
             this.barButtonItemSnapToWhite,
-            this.barButtonItemBackgroundColorToWhite});
+            this.barButtonItemBackgroundColorToWhite,
+            this.barButtonItemRefresh,
+            this.barButtonItemAllJob});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 212;
+            this.ribbon.MaxItemId = 214;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonHome,
@@ -422,9 +426,9 @@ namespace SampleApplication
             this.repositoryItemSpinEdit5,
             this.repositoryItemTrackBar9,
             this.repositoryItemSpinEdit6});
-            this.ribbon.SelectedPage = this.ribbonScanSettings;
+            this.ribbon.SelectedPage = this.ribbonHome;
             this.ribbon.Size = new System.Drawing.Size(1063, 148);
-            this.ribbon.StatusBar = this.ribbonStatusBar2;
+            this.ribbon.StatusBar = this.ribbonStatusBar;
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemScanOne);
             this.ribbon.TransparentEditors = true;
             this.ribbon.SelectedPageChanged += new System.EventHandler(this.ribbon_SelectedPageChanged);
@@ -1907,13 +1911,6 @@ namespace SampleApplication
             this.ribbonPageGroupBackground.ShowCaptionButton = false;
             this.ribbonPageGroupBackground.Text = "Background";
             // 
-            // ribbonPageGroupReset
-            // 
-            this.ribbonPageGroupReset.ItemLinks.Add(this.barButtonItemResetScanSetting);
-            this.ribbonPageGroupReset.Name = "ribbonPageGroupReset";
-            this.ribbonPageGroupReset.ShowCaptionButton = false;
-            this.ribbonPageGroupReset.Text = "Reset";
-            // 
             // ribbonPageGroupAutomaticCorrections
             // 
             this.ribbonPageGroupAutomaticCorrections.ItemLinks.Add(this.barButtonItemDeskew);
@@ -1956,6 +1953,13 @@ namespace SampleApplication
             this.ribbonPageGroupBWFilters.Name = "ribbonPageGroupBWFilters";
             this.ribbonPageGroupBWFilters.ShowCaptionButton = false;
             this.ribbonPageGroupBWFilters.Text = "B && W Filters";
+            // 
+            // ribbonPageGroupReset
+            // 
+            this.ribbonPageGroupReset.ItemLinks.Add(this.barButtonItemResetScanSetting);
+            this.ribbonPageGroupReset.Name = "ribbonPageGroupReset";
+            this.ribbonPageGroupReset.ShowCaptionButton = false;
+            this.ribbonPageGroupReset.Text = "Reset";
             // 
             // ribbonPageGroupScanner
             // 
@@ -2008,6 +2012,16 @@ namespace SampleApplication
             this.ribbonPageGroup15.ShowCaptionButton = false;
             this.ribbonPageGroup15.Text = "Themes";
             // 
+            // ribbonStatusBar2
+            // 
+            this.ribbonStatusBar2.Dock = System.Windows.Forms.DockStyle.None;
+            this.ribbonStatusBar2.ItemLinks.Add(this.barButtonItemRefresh);
+            this.ribbonStatusBar2.ItemLinks.Add(this.barButtonItemAllJob);
+            this.ribbonStatusBar2.Location = new System.Drawing.Point(2, 204);
+            this.ribbonStatusBar2.Name = "ribbonStatusBar2";
+            this.ribbonStatusBar2.Ribbon = this.ribbon;
+            this.ribbonStatusBar2.Size = new System.Drawing.Size(311, 23);
+            // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemScanOne);
@@ -2015,14 +2029,6 @@ namespace SampleApplication
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1063, 23);
-            // 
-            // ribbonStatusBar2
-            // 
-            this.ribbonStatusBar2.Dock = System.Windows.Forms.DockStyle.None;
-            this.ribbonStatusBar2.Location = new System.Drawing.Point(2, 204);
-            this.ribbonStatusBar2.Name = "ribbonStatusBar2";
-            this.ribbonStatusBar2.Ribbon = this.ribbon;
-            this.ribbonStatusBar2.Size = new System.Drawing.Size(311, 23);
             // 
             // dockManager1
             // 
@@ -2359,6 +2365,19 @@ namespace SampleApplication
             this.simpleSeparator1.Size = new System.Drawing.Size(241, 2);
             this.simpleSeparator1.Text = "simpleSeparator1";
             // 
+            // barButtonItemRefresh
+            // 
+            this.barButtonItemRefresh.Caption = "Refresh";
+            this.barButtonItemRefresh.Id = 212;
+            this.barButtonItemRefresh.Name = "barButtonItemRefresh";
+            // 
+            // barButtonItemAllJob
+            // 
+            this.barButtonItemAllJob.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
+            this.barButtonItemAllJob.Caption = "All Jobs";
+            this.barButtonItemAllJob.Id = 213;
+            this.barButtonItemAllJob.Name = "barButtonItemAllJob";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2621,5 +2640,7 @@ namespace SampleApplication
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit6;
         private BarButtonItem barButtonItemSnapToWhite;
         private BarButtonItem barButtonItemBackgroundColorToWhite;
+        private BarButtonItem barButtonItemRefresh;
+        private BarButtonItem barButtonItemAllJob;
     }
 }
