@@ -49,11 +49,9 @@ namespace SampleApplication
             this.barButtonItemScanAll = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemStop = new DevExpress.XtraBars.BarButtonItem();
             this.popupControlContainerRightPanel = new DevExpress.XtraBars.PopupControlContainer(this.components);
-            this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.simpleSeparator2 = new DevExpress.XtraLayout.SimpleSeparator();
+            this.pcAppRecentJobs = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
@@ -156,6 +154,8 @@ namespace SampleApplication
             this.repositoryItemSpinEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.barButtonItemSnapToWhite = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemBackgroundColorToWhite = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemRefresh = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemAllJob = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribonPageGroupBatch = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupScan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -221,8 +221,6 @@ namespace SampleApplication
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
-            this.barButtonItemRefresh = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemAllJob = new DevExpress.XtraBars.BarButtonItem();
             barEditItemSmoothingTrackBar = new DevExpress.XtraBars.BarEditItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
@@ -230,11 +228,8 @@ namespace SampleApplication
             this.popupControlContainerBottomMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainerRightPanel)).BeginInit();
             this.popupControlContainerRightPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcAppRecentJobs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainerLanguages)).BeginInit();
@@ -426,7 +421,7 @@ namespace SampleApplication
             this.repositoryItemSpinEdit5,
             this.repositoryItemTrackBar9,
             this.repositoryItemSpinEdit6});
-            this.ribbon.SelectedPage = this.ribbonHome;
+            this.ribbon.SelectedPage = this.ribbonDocument;
             this.ribbon.Size = new System.Drawing.Size(1063, 148);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemScanOne);
@@ -523,72 +518,48 @@ namespace SampleApplication
             // 
             this.popupControlContainerRightPanel.AutoSize = true;
             this.popupControlContainerRightPanel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.popupControlContainerRightPanel.Controls.Add(this.layoutControl2);
-            this.popupControlContainerRightPanel.Location = new System.Drawing.Point(504, 316);
+            this.popupControlContainerRightPanel.Controls.Add(this.pcAppRecentJobs);
+            this.popupControlContainerRightPanel.Controls.Add(this.labelControl1);
+            this.popupControlContainerRightPanel.Controls.Add(this.panelControl1);
+            this.popupControlContainerRightPanel.Location = new System.Drawing.Point(585, 316);
             this.popupControlContainerRightPanel.Margin = new System.Windows.Forms.Padding(0);
             this.popupControlContainerRightPanel.Name = "popupControlContainerRightPanel";
             this.popupControlContainerRightPanel.Ribbon = this.ribbon;
-            this.popupControlContainerRightPanel.Size = new System.Drawing.Size(284, 154);
+            this.popupControlContainerRightPanel.Size = new System.Drawing.Size(284, 200);
             this.popupControlContainerRightPanel.TabIndex = 4;
             this.popupControlContainerRightPanel.Visible = false;
             // 
-            // layoutControl2
+            // pcAppRecentJobs
             // 
-            this.layoutControl2.Appearance.Control.BorderColor = System.Drawing.Color.Transparent;
-            this.layoutControl2.Appearance.Control.Options.UseBorderColor = true;
-            this.layoutControl2.Appearance.DisabledLayoutGroupCaption.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.layoutControl2.Appearance.DisabledLayoutGroupCaption.Options.UseForeColor = true;
-            this.layoutControl2.Appearance.DisabledLayoutItem.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.layoutControl2.Appearance.DisabledLayoutItem.Options.UseForeColor = true;
-            this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl2.Margin = new System.Windows.Forms.Padding(0);
-            this.layoutControl2.Name = "layoutControl2";
-            this.layoutControl2.OptionsView.ItemBorderColor = System.Drawing.Color.Transparent;
-            this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(284, 154);
-            this.layoutControl2.TabIndex = 0;
-            this.layoutControl2.Text = "layoutControl2";
+            this.pcAppRecentJobs.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pcAppRecentJobs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcAppRecentJobs.Location = new System.Drawing.Point(10, 22);
+            this.pcAppRecentJobs.Name = "pcAppRecentJobs";
+            this.pcAppRecentJobs.Size = new System.Drawing.Size(274, 178);
+            this.pcAppRecentJobs.TabIndex = 3;
             // 
-            // layoutControlGroup2
+            // labelControl1
             // 
-            this.layoutControlGroup2.CustomizationFormText = "layoutControlGroup2";
-            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.emptySpaceItem3,
-            this.emptySpaceItem4,
-            this.simpleSeparator2});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup2.Name = "Root";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(284, 154);
-            this.layoutControlGroup2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup2.Text = "Root";
-            this.layoutControlGroup2.TextVisible = false;
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelControl1.LineLocation = DevExpress.XtraEditors.LineLocation.Bottom;
+            this.labelControl1.LineVisible = true;
+            this.labelControl1.Location = new System.Drawing.Point(10, 0);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(274, 22);
+            this.labelControl1.TabIndex = 2;
+            this.labelControl1.Text = "Recent Jobs:";
             // 
-            // emptySpaceItem3
+            // panelControl1
             // 
-            this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
-            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 0);
-            this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(282, 26);
-            this.emptySpaceItem3.Text = "emptySpaceItem3";
-            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem4
-            // 
-            this.emptySpaceItem4.CustomizationFormText = "emptySpaceItem4";
-            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 28);
-            this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(282, 124);
-            this.emptySpaceItem4.Text = "emptySpaceItem4";
-            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // simpleSeparator2
-            // 
-            this.simpleSeparator2.CustomizationFormText = "simpleSeparator2";
-            this.simpleSeparator2.Location = new System.Drawing.Point(0, 26);
-            this.simpleSeparator2.Name = "simpleSeparator2";
-            this.simpleSeparator2.Size = new System.Drawing.Size(282, 2);
-            this.simpleSeparator2.Text = "simpleSeparator2";
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(10, 200);
+            this.panelControl1.TabIndex = 1;
             // 
             // imageList1
             // 
@@ -1025,10 +996,10 @@ namespace SampleApplication
             // 
             this.popupControlContainerLanguages.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.popupControlContainerLanguages.Controls.Add(this.layoutControl3);
-            this.popupControlContainerLanguages.Location = new System.Drawing.Point(382, 272);
+            this.popupControlContainerLanguages.Location = new System.Drawing.Point(338, 272);
             this.popupControlContainerLanguages.Name = "popupControlContainerLanguages";
             this.popupControlContainerLanguages.Ribbon = this.ribbon;
-            this.popupControlContainerLanguages.Size = new System.Drawing.Size(200, 225);
+            this.popupControlContainerLanguages.Size = new System.Drawing.Size(196, 225);
             this.popupControlContainerLanguages.TabIndex = 8;
             this.popupControlContainerLanguages.Visible = false;
             // 
@@ -1043,7 +1014,7 @@ namespace SampleApplication
             this.layoutControl3.Location = new System.Drawing.Point(0, 0);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.Root = this.layoutControlGroup4;
-            this.layoutControl3.Size = new System.Drawing.Size(200, 225);
+            this.layoutControl3.Size = new System.Drawing.Size(196, 225);
             this.layoutControl3.TabIndex = 0;
             this.layoutControl3.Text = "layoutControl3";
             // 
@@ -1060,7 +1031,7 @@ namespace SampleApplication
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null)});
             this.checkedListBoxControl1.Location = new System.Drawing.Point(2, 2);
             this.checkedListBoxControl1.Name = "checkedListBoxControl1";
-            this.checkedListBoxControl1.Size = new System.Drawing.Size(197, 222);
+            this.checkedListBoxControl1.Size = new System.Drawing.Size(193, 222);
             this.checkedListBoxControl1.StyleController = this.layoutControl3;
             this.checkedListBoxControl1.TabIndex = 4;
             // 
@@ -1071,7 +1042,7 @@ namespace SampleApplication
             this.layoutControlItem6});
             this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(200, 225);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(196, 225);
             this.layoutControlGroup4.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.layoutControlGroup4.Text = "layoutControlGroup4";
             this.layoutControlGroup4.TextVisible = false;
@@ -1083,7 +1054,7 @@ namespace SampleApplication
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlItem6.Size = new System.Drawing.Size(198, 223);
+            this.layoutControlItem6.Size = new System.Drawing.Size(194, 223);
             this.layoutControlItem6.Text = "layoutControlItem6";
             this.layoutControlItem6.TextLocation = DevExpress.Utils.Locations.Left;
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
@@ -1729,6 +1700,19 @@ namespace SampleApplication
             this.barButtonItemBackgroundColorToWhite.LargeGlyph = global::SampleApplication.Properties.Resources.color_background_to_white_32x32;
             this.barButtonItemBackgroundColorToWhite.Name = "barButtonItemBackgroundColorToWhite";
             // 
+            // barButtonItemRefresh
+            // 
+            this.barButtonItemRefresh.Caption = "Refresh";
+            this.barButtonItemRefresh.Id = 212;
+            this.barButtonItemRefresh.Name = "barButtonItemRefresh";
+            // 
+            // barButtonItemAllJob
+            // 
+            this.barButtonItemAllJob.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
+            this.barButtonItemAllJob.Caption = "All Jobs";
+            this.barButtonItemAllJob.Id = 213;
+            this.barButtonItemAllJob.Name = "barButtonItemAllJob";
+            // 
             // ribbonHome
             // 
             this.ribbonHome.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -2365,19 +2349,6 @@ namespace SampleApplication
             this.simpleSeparator1.Size = new System.Drawing.Size(241, 2);
             this.simpleSeparator1.Text = "simpleSeparator1";
             // 
-            // barButtonItemRefresh
-            // 
-            this.barButtonItemRefresh.Caption = "Refresh";
-            this.barButtonItemRefresh.Id = 212;
-            this.barButtonItemRefresh.Name = "barButtonItemRefresh";
-            // 
-            // barButtonItemAllJob
-            // 
-            this.barButtonItemAllJob.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
-            this.barButtonItemAllJob.Caption = "All Jobs";
-            this.barButtonItemAllJob.Id = 213;
-            this.barButtonItemAllJob.Name = "barButtonItemAllJob";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2400,11 +2371,8 @@ namespace SampleApplication
             this.popupControlContainerBottomMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainerRightPanel)).EndInit();
             this.popupControlContainerRightPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcAppRecentJobs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainerLanguages)).EndInit();
@@ -2503,11 +2471,6 @@ namespace SampleApplication
         private PopupControlContainer popupControlContainerRightPanel;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.SimpleSeparator simpleSeparator1;
-        private DevExpress.XtraLayout.LayoutControl layoutControl2;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
-        private DevExpress.XtraLayout.SimpleSeparator simpleSeparator2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupPaperSize;
         private BarButtonItem barButtonItem3;
         private BarButtonItem barButtonItem4;
@@ -2616,7 +2579,6 @@ namespace SampleApplication
         private DevExpress.XtraLayout.LayoutControl layoutControl3;
         private DevExpress.XtraEditors.CheckedListBoxControl checkedListBoxControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private BarButtonItem barButtonItemDetectColor;
         private RibbonPageGroup ribbonPageGroupColorDetection;
         private BarButtonItem barButtonItemDetectSmallColorObjects;
@@ -2642,5 +2604,9 @@ namespace SampleApplication
         private BarButtonItem barButtonItemBackgroundColorToWhite;
         private BarButtonItem barButtonItemRefresh;
         private BarButtonItem barButtonItemAllJob;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.PanelControl pcAppRecentJobs;
     }
 }
