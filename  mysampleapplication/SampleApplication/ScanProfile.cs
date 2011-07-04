@@ -235,7 +235,10 @@ namespace SampleApplication
         public bool IgnoreBackgroundColor { get; set; }
         #endregion
 
-
+        public static void Reload()
+        {
+            _currentSetting = null;
+        }
         private static ScanProfile _currentSetting;
 
         public static ScanProfile CurrentSetting

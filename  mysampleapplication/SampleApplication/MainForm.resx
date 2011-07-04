@@ -131,7 +131,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABS
-        zQIAAk1TRnQBSQFMAgEB+gEAAWABBAFgAQQBEAEAARABAAT/AREBAAj/AUIBTQE2BwABNgMAASgDAAFA
+        zQIAAk1TRnQBSQFMAgEB+gEAAZABBAGQAQQBEAEAARABAAT/AREBAAj/AUIBTQE2BwABNgMAASgDAAFA
         AwAB8AEDAgABAQEAARAGAAH4AQEVAAHbAUYBuwFGAbsBRgG7AUYB2wFGAdsBRgG7AUYBuwFGAdsBRgHb
         AUYB2wFKAbsBRgF6AToKAAHeAXsB3gF7Ad4BewHeAXsBYwEMASkBJQFzAU4B3gF7TAABXQFbAb0BcwHa
         AXcB2gF3AdoBdwHbAXcBvwFzAb8BcwG/AXMBvgFzAb4BcwG/AXMB2wFKBgAB/wF/Ad4BewH/AX8B/wF/
@@ -3194,6 +3194,15 @@
         AR8B8QH/AfABHwH/AZ8C/wH5Af8B8AEfAf8BvwL/Af0B/wHwAR8L
 </value>
   </data>
+  <metadata name="popupMenuFrontRotate.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>531, 17</value>
+  </metadata>
+  <metadata name="popupMenuBackRotate.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>657, 17</value>
+  </metadata>
+  <metadata name="popupMenu1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>837, 17</value>
+  </metadata>
   <metadata name="dockManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>127, 17</value>
   </metadata>

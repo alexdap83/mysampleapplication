@@ -34,10 +34,10 @@ namespace SampleApplication
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraBars.BarEditItem barEditItemSmoothingTrackBar;
-            DevExpress.Utils.SuperToolTip superToolTip9 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup9 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             this.repositoryItemTrackBar9 = new DevExpress.XtraEditors.Repository.RepositoryItemTrackBar();
             this.ribbon = new CustomCheckAndDropDownButton.MyRibbonControl();
             this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
@@ -93,7 +93,17 @@ namespace SampleApplication
             this.barButtonItemBothSides = new DevExpress.XtraBars.BarButtonItem();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.barButtonItemFront = new DevExpress.XtraBars.BarButtonItem();
+            this.popupMenuFrontRotate = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.barCheckItemFront0 = new DevExpress.XtraBars.BarCheckItem();
+            this.barCheckItemFront90Left = new DevExpress.XtraBars.BarCheckItem();
+            this.barCheckItemFront90Right = new DevExpress.XtraBars.BarCheckItem();
+            this.barCheckItemFront180 = new DevExpress.XtraBars.BarCheckItem();
             this.barButtonItemBack = new DevExpress.XtraBars.BarButtonItem();
+            this.popupMenuBackRotate = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.barCheckItemBack0 = new DevExpress.XtraBars.BarCheckItem();
+            this.barCheckItemBack90Left = new DevExpress.XtraBars.BarCheckItem();
+            this.barCheckItemBack90Right = new DevExpress.XtraBars.BarCheckItem();
+            this.barCheckItemBack180 = new DevExpress.XtraBars.BarCheckItem();
             this.barButtonItemAutoResolve = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemResetScanSetting = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSelectScanner = new DevExpress.XtraBars.BarButtonItem();
@@ -221,6 +231,11 @@ namespace SampleApplication
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.barCheckItemOutOfPaper = new DevExpress.XtraBars.BarCheckItem();
+            this.barCheckItemPaperJam = new DevExpress.XtraBars.BarCheckItem();
+            this.barCheckItemCoverOpen = new DevExpress.XtraBars.BarCheckItem();
+            this.barCheckItemMultifeed = new DevExpress.XtraBars.BarCheckItem();
             barEditItemSmoothingTrackBar = new DevExpress.XtraBars.BarEditItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
@@ -239,6 +254,8 @@ namespace SampleApplication
             ((System.ComponentModel.ISupportInitialize)(this.checkedListBoxControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenuFrontRotate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenuBackRotate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar2)).BeginInit();
@@ -275,6 +292,7 @@ namespace SampleApplication
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.SuspendLayout();
             // 
             // barEditItemSmoothingTrackBar
@@ -385,9 +403,21 @@ namespace SampleApplication
             this.barButtonItemSnapToWhite,
             this.barButtonItemBackgroundColorToWhite,
             this.barButtonItemRefresh,
-            this.barButtonItemAllJob});
+            this.barButtonItemAllJob,
+            this.barCheckItemFront0,
+            this.barCheckItemFront90Left,
+            this.barCheckItemFront90Right,
+            this.barCheckItemFront180,
+            this.barCheckItemBack0,
+            this.barCheckItemBack90Left,
+            this.barCheckItemBack90Right,
+            this.barCheckItemBack180,
+            this.barCheckItemOutOfPaper,
+            this.barCheckItemPaperJam,
+            this.barCheckItemCoverOpen,
+            this.barCheckItemMultifeed});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 214;
+            this.ribbon.MaxItemId = 226;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonHome,
@@ -482,9 +512,9 @@ namespace SampleApplication
             this.barButtonItemNewBatch.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B));
             this.barButtonItemNewBatch.LargeGlyph = global::SampleApplication.Properties.Resources.new_batch_32x32;
             this.barButtonItemNewBatch.Name = "barButtonItemNewBatch";
-            toolTipItem9.Text = "Create a new batch (Ctrl+B)";
-            superToolTip9.Items.Add(toolTipItem9);
-            this.barButtonItemNewBatch.SuperTip = superToolTip9;
+            toolTipItem1.Text = "Create a new batch (Ctrl+B)";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.barButtonItemNewBatch.SuperTip = superToolTip1;
             // 
             // barButtonItemScanOne
             // 
@@ -912,6 +942,7 @@ namespace SampleApplication
             this.barButtonItemPortrait.Id = 131;
             this.barButtonItemPortrait.Name = "barButtonItemPortrait";
             this.barButtonItemPortrait.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+            this.barButtonItemPortrait.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemPortrait_ItemClick);
             // 
             // barButtonItemLandscape
             // 
@@ -921,6 +952,7 @@ namespace SampleApplication
             this.barButtonItemLandscape.Id = 132;
             this.barButtonItemLandscape.Name = "barButtonItemLandscape";
             this.barButtonItemLandscape.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+            this.barButtonItemLandscape.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemLandscape_ItemClick);
             // 
             // barEditItem1
             // 
@@ -1208,25 +1240,122 @@ namespace SampleApplication
             // barButtonItemFront
             // 
             this.barButtonItemFront.ActAsDropDown = true;
+            this.barButtonItemFront.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.barButtonItemFront.Caption = "Front";
+            this.barButtonItemFront.DropDownControl = this.popupMenuFrontRotate;
             this.barButtonItemFront.Glyph = global::SampleApplication.Properties.Resources.rotate_00_16x16;
             this.barButtonItemFront.Id = 163;
             this.barButtonItemFront.LargeGlyph = global::SampleApplication.Properties.Resources.rotate_00_32x32;
             this.barButtonItemFront.Name = "barButtonItemFront";
             // 
+            // popupMenuFrontRotate
+            // 
+            this.popupMenuFrontRotate.ItemLinks.Add(this.barCheckItemFront0);
+            this.popupMenuFrontRotate.ItemLinks.Add(this.barCheckItemFront90Left);
+            this.popupMenuFrontRotate.ItemLinks.Add(this.barCheckItemFront90Right);
+            this.popupMenuFrontRotate.ItemLinks.Add(this.barCheckItemFront180);
+            this.popupMenuFrontRotate.Name = "popupMenuFrontRotate";
+            this.popupMenuFrontRotate.Ribbon = this.ribbon;
+            // 
+            // barCheckItemFront0
+            // 
+            this.barCheckItemFront0.Caption = "0°";
+            this.barCheckItemFront0.Glyph = global::SampleApplication.Properties.Resources.rotate_00_32x32;
+            this.barCheckItemFront0.GroupIndex = 1;
+            this.barCheckItemFront0.Id = 214;
+            this.barCheckItemFront0.LargeGlyph = global::SampleApplication.Properties.Resources.rotate_00_32x32;
+            this.barCheckItemFront0.Name = "barCheckItemFront0";
+            this.barCheckItemFront0.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckItemFront0_ItemClick);
+            // 
+            // barCheckItemFront90Left
+            // 
+            this.barCheckItemFront90Left.Caption = "90° Left";
+            this.barCheckItemFront90Left.Glyph = global::SampleApplication.Properties.Resources.rotate_270_32x32;
+            this.barCheckItemFront90Left.GroupIndex = 1;
+            this.barCheckItemFront90Left.Id = 215;
+            this.barCheckItemFront90Left.Name = "barCheckItemFront90Left";
+            this.barCheckItemFront90Left.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckItemFront90Left_ItemClick);
+            // 
+            // barCheckItemFront90Right
+            // 
+            this.barCheckItemFront90Right.Caption = "90° Right";
+            this.barCheckItemFront90Right.Glyph = global::SampleApplication.Properties.Resources.rotate_90_32x32;
+            this.barCheckItemFront90Right.GroupIndex = 1;
+            this.barCheckItemFront90Right.Id = 216;
+            this.barCheckItemFront90Right.Name = "barCheckItemFront90Right";
+            this.barCheckItemFront90Right.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckItemFront90Right_ItemClick);
+            // 
+            // barCheckItemFront180
+            // 
+            this.barCheckItemFront180.Caption = "180°";
+            this.barCheckItemFront180.Glyph = global::SampleApplication.Properties.Resources.rotate_180_32x32;
+            this.barCheckItemFront180.GroupIndex = 1;
+            this.barCheckItemFront180.Id = 217;
+            this.barCheckItemFront180.Name = "barCheckItemFront180";
+            this.barCheckItemFront180.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckItemFront180_ItemClick);
+            // 
             // barButtonItemBack
             // 
             this.barButtonItemBack.ActAsDropDown = true;
+            this.barButtonItemBack.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.barButtonItemBack.Caption = "Back";
+            this.barButtonItemBack.DropDownControl = this.popupMenuBackRotate;
             this.barButtonItemBack.Glyph = global::SampleApplication.Properties.Resources.rotate_00_16x16;
             this.barButtonItemBack.Id = 164;
             this.barButtonItemBack.LargeGlyph = global::SampleApplication.Properties.Resources.rotate_00_32x32;
             this.barButtonItemBack.Name = "barButtonItemBack";
             // 
+            // popupMenuBackRotate
+            // 
+            this.popupMenuBackRotate.ItemLinks.Add(this.barCheckItemBack0);
+            this.popupMenuBackRotate.ItemLinks.Add(this.barCheckItemBack90Left);
+            this.popupMenuBackRotate.ItemLinks.Add(this.barCheckItemBack90Right);
+            this.popupMenuBackRotate.ItemLinks.Add(this.barCheckItemBack180);
+            this.popupMenuBackRotate.Name = "popupMenuBackRotate";
+            this.popupMenuBackRotate.Ribbon = this.ribbon;
+            // 
+            // barCheckItemBack0
+            // 
+            this.barCheckItemBack0.Caption = "0°";
+            this.barCheckItemBack0.Glyph = global::SampleApplication.Properties.Resources.rotate_00_32x32;
+            this.barCheckItemBack0.GroupIndex = 2;
+            this.barCheckItemBack0.Id = 218;
+            this.barCheckItemBack0.Name = "barCheckItemBack0";
+            this.barCheckItemBack0.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckItemBack0_ItemClick);
+            // 
+            // barCheckItemBack90Left
+            // 
+            this.barCheckItemBack90Left.Caption = "90° Left";
+            this.barCheckItemBack90Left.Glyph = global::SampleApplication.Properties.Resources.rotate_270_32x32;
+            this.barCheckItemBack90Left.GroupIndex = 2;
+            this.barCheckItemBack90Left.Id = 219;
+            this.barCheckItemBack90Left.Name = "barCheckItemBack90Left";
+            this.barCheckItemBack90Left.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckItemBack90Left_ItemClick);
+            // 
+            // barCheckItemBack90Right
+            // 
+            this.barCheckItemBack90Right.Caption = "90° Right";
+            this.barCheckItemBack90Right.Glyph = global::SampleApplication.Properties.Resources.rotate_90_32x32;
+            this.barCheckItemBack90Right.GroupIndex = 2;
+            this.barCheckItemBack90Right.Id = 220;
+            this.barCheckItemBack90Right.Name = "barCheckItemBack90Right";
+            this.barCheckItemBack90Right.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckItemBack90Right_ItemClick);
+            // 
+            // barCheckItemBack180
+            // 
+            this.barCheckItemBack180.Caption = "180°";
+            this.barCheckItemBack180.Glyph = global::SampleApplication.Properties.Resources.rotate_180_32x32;
+            this.barCheckItemBack180.GroupIndex = 2;
+            this.barCheckItemBack180.Id = 221;
+            this.barCheckItemBack180.Name = "barCheckItemBack180";
+            this.barCheckItemBack180.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckItemBack180_ItemClick);
+            // 
             // barButtonItemAutoResolve
             // 
             this.barButtonItemAutoResolve.ActAsDropDown = true;
+            this.barButtonItemAutoResolve.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.barButtonItemAutoResolve.Caption = "Auto Resolve";
+            this.barButtonItemAutoResolve.DropDownControl = this.popupMenu1;
             this.barButtonItemAutoResolve.Glyph = global::SampleApplication.Properties.Resources.import_scanner_profiles_16x16;
             this.barButtonItemAutoResolve.Id = 165;
             this.barButtonItemAutoResolve.LargeGlyph = global::SampleApplication.Properties.Resources.import_scanner_profiles_32x32;
@@ -1239,6 +1368,7 @@ namespace SampleApplication
             this.barButtonItemResetScanSetting.Id = 166;
             this.barButtonItemResetScanSetting.LargeGlyph = global::SampleApplication.Properties.Resources.reset_vrs_32x32;
             this.barButtonItemResetScanSetting.Name = "barButtonItemResetScanSetting";
+            this.barButtonItemResetScanSetting.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemResetScanSetting_ItemClick);
             // 
             // barButtonItemSelectScanner
             // 
@@ -1557,9 +1687,9 @@ namespace SampleApplication
             this.ribbonGalleryBarItemThemes.Gallery.AllowHoverImages = true;
             this.ribbonGalleryBarItemThemes.Gallery.ColumnCount = 4;
             this.ribbonGalleryBarItemThemes.Gallery.FixedHoverImageSize = false;
-            galleryItemGroup9.Caption = "Themes";
+            galleryItemGroup1.Caption = "Themes";
             this.ribbonGalleryBarItemThemes.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup9});
+            galleryItemGroup1});
             this.ribbonGalleryBarItemThemes.Gallery.ImageSize = new System.Drawing.Size(17, 17);
             this.ribbonGalleryBarItemThemes.Gallery.ItemImageLocation = DevExpress.Utils.Locations.Top;
             this.ribbonGalleryBarItemThemes.Gallery.RowCount = 4;
@@ -2368,6 +2498,39 @@ namespace SampleApplication
             this.simpleSeparator1.Size = new System.Drawing.Size(241, 2);
             this.simpleSeparator1.Text = "simpleSeparator1";
             // 
+            // popupMenu1
+            // 
+            this.popupMenu1.ItemLinks.Add(this.barCheckItemOutOfPaper);
+            this.popupMenu1.ItemLinks.Add(this.barCheckItemPaperJam);
+            this.popupMenu1.ItemLinks.Add(this.barCheckItemCoverOpen);
+            this.popupMenu1.ItemLinks.Add(this.barCheckItemMultifeed);
+            this.popupMenu1.Name = "popupMenu1";
+            this.popupMenu1.Ribbon = this.ribbon;
+            // 
+            // barCheckItemOutOfPaper
+            // 
+            this.barCheckItemOutOfPaper.Caption = "Out Of Paper";
+            this.barCheckItemOutOfPaper.Id = 222;
+            this.barCheckItemOutOfPaper.Name = "barCheckItemOutOfPaper";
+            // 
+            // barCheckItemPaperJam
+            // 
+            this.barCheckItemPaperJam.Caption = "Paper jam";
+            this.barCheckItemPaperJam.Id = 223;
+            this.barCheckItemPaperJam.Name = "barCheckItemPaperJam";
+            // 
+            // barCheckItemCoverOpen
+            // 
+            this.barCheckItemCoverOpen.Caption = "Cover Open";
+            this.barCheckItemCoverOpen.Id = 224;
+            this.barCheckItemCoverOpen.Name = "barCheckItemCoverOpen";
+            // 
+            // barCheckItemMultifeed
+            // 
+            this.barCheckItemMultifeed.Caption = "Multifeed";
+            this.barCheckItemMultifeed.Id = 225;
+            this.barCheckItemMultifeed.Name = "barCheckItemMultifeed";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2401,6 +2564,8 @@ namespace SampleApplication
             ((System.ComponentModel.ISupportInitialize)(this.checkedListBoxControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenuFrontRotate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenuBackRotate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar2)).EndInit();
@@ -2437,6 +2602,7 @@ namespace SampleApplication
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2627,5 +2793,20 @@ namespace SampleApplication
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.PanelControl pcAppRecentJobs;
+        private PopupMenu popupMenuFrontRotate;
+        private BarCheckItem barCheckItemFront0;
+        private BarCheckItem barCheckItemFront90Left;
+        private BarCheckItem barCheckItemFront90Right;
+        private BarCheckItem barCheckItemFront180;
+        private BarCheckItem barCheckItemBack0;
+        private BarCheckItem barCheckItemBack90Left;
+        private BarCheckItem barCheckItemBack90Right;
+        private BarCheckItem barCheckItemBack180;
+        private PopupMenu popupMenuBackRotate;
+        private PopupMenu popupMenu1;
+        private BarCheckItem barCheckItemOutOfPaper;
+        private BarCheckItem barCheckItemPaperJam;
+        private BarCheckItem barCheckItemCoverOpen;
+        private BarCheckItem barCheckItemMultifeed;
     }
 }
