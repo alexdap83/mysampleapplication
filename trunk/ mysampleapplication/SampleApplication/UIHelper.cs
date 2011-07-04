@@ -19,6 +19,7 @@ namespace SampleApplication
                 return ((BarButtonItem)item).Down;
             return false;
         }
+
         void SetEnable(BarButtonItem item, bool isEnable)
         {
             item.Enabled = isEnable;
@@ -27,6 +28,11 @@ namespace SampleApplication
         {
             return item.Down;
 
+        }
+
+        private void SetChecked(BarCheckItem item, bool isChecked)
+        {
+            item.Checked = isChecked;
         }
 
         void SetVisible(RibbonPageGroup group, bool isVisible)
