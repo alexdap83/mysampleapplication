@@ -34,10 +34,10 @@ namespace SampleApplication
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraBars.BarEditItem barEditItemSmoothingTrackBar;
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip9 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup9 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             this.repositoryItemTrackBar9 = new DevExpress.XtraEditors.Repository.RepositoryItemTrackBar();
             this.ribbon = new CustomCheckAndDropDownButton.MyRibbonControl();
             this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
@@ -482,9 +482,9 @@ namespace SampleApplication
             this.barButtonItemNewBatch.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B));
             this.barButtonItemNewBatch.LargeGlyph = global::SampleApplication.Properties.Resources.new_batch_32x32;
             this.barButtonItemNewBatch.Name = "barButtonItemNewBatch";
-            toolTipItem1.Text = "Create a new batch (Ctrl+B)";
-            superToolTip1.Items.Add(toolTipItem1);
-            this.barButtonItemNewBatch.SuperTip = superToolTip1;
+            toolTipItem9.Text = "Create a new batch (Ctrl+B)";
+            superToolTip9.Items.Add(toolTipItem9);
+            this.barButtonItemNewBatch.SuperTip = superToolTip9;
             // 
             // barButtonItemScanOne
             // 
@@ -854,22 +854,30 @@ namespace SampleApplication
             this.repositoryItemComboBox3.AutoHeight = false;
             this.repositoryItemComboBox3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemComboBox3.DropDownRows = 14;
+            this.repositoryItemComboBox3.DropDownRows = 18;
             this.repositoryItemComboBox3.Items.AddRange(new object[] {
-            "ưert",
-            "ưer",
-            "ưe",
-            "rưe",
-            "r",
-            "ưer",
-            "ư",
-            "ẻ",
-            "ưer",
-            "ưe",
-            "r"});
+            "A0",
+            "A1",
+            "A2",
+            "A3",
+            "A4",
+            "A5",
+            "B",
+            "B0",
+            "B1",
+            "B2",
+            "B3",
+            "B4",
+            "B5",
+            "B6",
+            "Legal",
+            "Letter",
+            "Maximum",
+            "Minimum"});
             this.repositoryItemComboBox3.Name = "repositoryItemComboBox3";
             this.repositoryItemComboBox3.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.repositoryItemComboBox3.UseParentBackground = true;
+            this.repositoryItemComboBox3.EditValueChanged += new System.EventHandler(this.repositoryItemComboBox3_EditValueChanged);
             // 
             // barButtonGroupLongSheet
             // 
@@ -1156,6 +1164,7 @@ namespace SampleApplication
             this.barButtonItemFlatbed.Id = 154;
             this.barButtonItemFlatbed.LargeGlyph = global::SampleApplication.Properties.Resources.flatbed_32x32;
             this.barButtonItemFlatbed.Name = "barButtonItemFlatbed";
+            this.barButtonItemFlatbed.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFlatbed_ItemClick);
             // 
             // barButtonItemFeeder
             // 
@@ -1166,6 +1175,7 @@ namespace SampleApplication
             this.barButtonItemFeeder.Id = 155;
             this.barButtonItemFeeder.LargeGlyph = global::SampleApplication.Properties.Resources.adf_32x32;
             this.barButtonItemFeeder.Name = "barButtonItemFeeder";
+            this.barButtonItemFeeder.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemFeeder_ItemClick);
             // 
             // barButtonItemOneSide
             // 
@@ -1175,6 +1185,7 @@ namespace SampleApplication
             this.barButtonItemOneSide.Id = 156;
             this.barButtonItemOneSide.LargeGlyph = global::SampleApplication.Properties.Resources.simplex_32x32;
             this.barButtonItemOneSide.Name = "barButtonItemOneSide";
+            this.barButtonItemOneSide.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemOneSide_ItemClick);
             // 
             // barButtonItemBothSides
             // 
@@ -1185,6 +1196,7 @@ namespace SampleApplication
             this.barButtonItemBothSides.Id = 157;
             this.barButtonItemBothSides.LargeGlyph = global::SampleApplication.Properties.Resources.duplex_32x32;
             this.barButtonItemBothSides.Name = "barButtonItemBothSides";
+            this.barButtonItemBothSides.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemBothSides_ItemClick);
             // 
             // barStaticItem1
             // 
@@ -1262,6 +1274,7 @@ namespace SampleApplication
             this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
             this.repositoryItemComboBox1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.repositoryItemComboBox1.UseParentBackground = true;
+            this.repositoryItemComboBox1.EditValueChanged += new System.EventHandler(this.repositoryItemComboBox1_EditValueChanged);
             // 
             // barStaticItem2
             // 
@@ -1347,6 +1360,7 @@ namespace SampleApplication
             this.repositoryItemTrackBar1.Name = "repositoryItemTrackBar1";
             this.repositoryItemTrackBar1.TickFrequency = 10;
             this.repositoryItemTrackBar1.UseParentBackground = true;
+            this.repositoryItemTrackBar1.EditValueChanged += new System.EventHandler(this.repositoryItemTrackBar1_EditValueChanged);
             // 
             // barEditItemContrast
             // 
@@ -1543,9 +1557,9 @@ namespace SampleApplication
             this.ribbonGalleryBarItemThemes.Gallery.AllowHoverImages = true;
             this.ribbonGalleryBarItemThemes.Gallery.ColumnCount = 4;
             this.ribbonGalleryBarItemThemes.Gallery.FixedHoverImageSize = false;
-            galleryItemGroup1.Caption = "Themes";
+            galleryItemGroup9.Caption = "Themes";
             this.ribbonGalleryBarItemThemes.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup1});
+            galleryItemGroup9});
             this.ribbonGalleryBarItemThemes.Gallery.ImageSize = new System.Drawing.Size(17, 17);
             this.ribbonGalleryBarItemThemes.Gallery.ItemImageLocation = DevExpress.Utils.Locations.Top;
             this.ribbonGalleryBarItemThemes.Gallery.RowCount = 4;

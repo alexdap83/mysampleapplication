@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace SampleApplication
 {
@@ -23,6 +24,179 @@ namespace SampleApplication
         public bool PaperJamAutoResolve { get; set; }
         public bool CoverOpenAutoResolve { get; set; }
         public bool MultiFeedAutoResolve { get; set; }
+
+        [XmlIgnore]
+        public int ResolutionValue
+        {
+            get
+            {
+                switch (CurrentResolution)
+                {
+                    case Resolution.Resolution75:
+                        return 75;
+                 
+                    case Resolution.Resolution100:
+                        return 100;
+                        
+                    case Resolution.Resolution150:
+                        return 150;
+                        
+                    case Resolution.Resolution200:
+                        return 200;
+                        
+                    case Resolution.Resolution240:
+                        return 240;
+                        
+                    case Resolution.Resolution300:
+                        return 300;
+                        
+                    case Resolution.Resolution400:
+                        return 400;
+                    
+                    case Resolution.Resolution500:
+                        return 500;
+                    default:
+                        throw new Exception("Invalid Value");
+                }
+            }
+            set
+            {
+                switch (value)
+                {
+                    case 75:
+                        CurrentResolution = Resolution.Resolution75;
+                        break;
+                    case 100:
+                        CurrentResolution = Resolution.Resolution100;
+                        break;
+                    case 150:
+                        CurrentResolution = Resolution.Resolution150;
+                        break;
+                    case 200:
+                        CurrentResolution = Resolution.Resolution200;
+                        break;
+                    case 240:
+                        CurrentResolution = Resolution.Resolution240;
+                        break;
+                    case 300:
+                        CurrentResolution = Resolution.Resolution300;
+                        break;
+                    case 400:
+                        CurrentResolution = Resolution.Resolution400;
+                        break;
+                    case 500:
+                        CurrentResolution = Resolution.Resolution500;
+                        break;
+                    default:
+                        throw new Exception("Invalid Value");
+                }
+            }
+        }
+        [XmlIgnore]
+        public string CurrentPaperSizeValue
+        {
+            get
+            {
+                switch (CurrentPaperSize)
+                {
+                    case PaperSize.A0:
+                        return "A0";
+                    case PaperSize.A1:
+                        return "A1";
+                    case PaperSize.A2:
+                        return "A2";
+                    case PaperSize.A3:
+                        return "A3";
+                    case PaperSize.A4:
+                        return "A4";
+                    case PaperSize.A5:
+                        return "A5";
+                    case PaperSize.B:
+                        return "B";
+                    case PaperSize.B1:
+                        return "B1";
+                    case PaperSize.B2:
+                        return "B2";
+                    case PaperSize.B3:
+                        return "B3";
+                    case PaperSize.B4:
+                        return "B4";
+                    case PaperSize.B5:
+                        return "B5";
+                    case PaperSize.B6:
+                        return "B6";
+                    case PaperSize.Legal:
+                        return "Legal";
+                    case PaperSize.Letter:
+                        return "Letter";
+                    case PaperSize.Maximum:
+                        return "Maximum";
+                    case PaperSize.Minimum:
+                        return "Minimum";
+                    default:
+                        throw new Exception("Invalid Value");
+                }
+            }
+            set
+            {
+                switch (value)
+                {
+                    case "A0":
+                        CurrentPaperSize = PaperSize.A0;
+                        break;
+                    case "A1":
+                        CurrentPaperSize = PaperSize.A1;
+                        break;
+                    case "A2":
+                        CurrentPaperSize = PaperSize.A2;
+                        break;
+                    case "A3":
+                        CurrentPaperSize = PaperSize.A3;
+                        break;
+                    case "A4":
+                        CurrentPaperSize = PaperSize.A4;
+                        break;
+                    case "A5":
+                        CurrentPaperSize = PaperSize.A5;
+                        break;
+                    case "B":
+                        CurrentPaperSize = PaperSize.B;
+                        break;
+                    case "B1":
+                        CurrentPaperSize = PaperSize.B1;
+                        break;
+                    case "B2":
+                        CurrentPaperSize = PaperSize.B2;
+                        break;
+                    case "B3":
+                        CurrentPaperSize = PaperSize.B3;
+                        break;
+                    case "B4":
+                        CurrentPaperSize = PaperSize.B4;
+                        break;
+                    case "B5":
+                        CurrentPaperSize = PaperSize.B5;
+                        break;
+                    case "B6":
+                        CurrentPaperSize = PaperSize.B6;
+                        break;
+                    case "Legal":
+                        CurrentPaperSize = PaperSize.Legal;
+                        break;
+                    case "Letter":
+                        CurrentPaperSize = PaperSize.Letter;
+                        break;
+                    case "Maximum":
+                        CurrentPaperSize = PaperSize.Maximum;
+                        break;
+                    case "Minimum":
+                        CurrentPaperSize = PaperSize.Minimum;
+                        break;
+                    default:
+                        throw new Exception("Invalid Value");
+                }
+            }
+        }
         #endregion
 
         #region PropertyVRSGeneral

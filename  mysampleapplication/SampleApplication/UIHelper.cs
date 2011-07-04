@@ -33,6 +33,11 @@ namespace SampleApplication
         {
             group.Visible = isVisible;
         }
+        void SetVisible(BarButtonItem item, bool isVisible)
+        {
+            item.Visibility = isVisible ? BarItemVisibility.Always : BarItemVisibility.Never;
+        }
+
         bool IsVisible(RibbonPageGroup group)
         {
             return group.Visible;
