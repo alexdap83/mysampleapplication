@@ -1,11 +1,14 @@
 using System;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraEditors;
 
 namespace SampleApplication
 {
     public partial class MainForm : RibbonForm
     {
+        private Sides? tempSides = null;
+
         public MainForm()
         {
             InitializeComponent();
@@ -22,10 +25,14 @@ namespace SampleApplication
             SkinHelper.CreateGallery(ribbonGalleryBarItemThemes);
 
             SetupGroup();
+            
             SetScanSettingMode(ScanProfile.CurrentSetting.CurrentScanSettingMode);
+            SetResolution(ScanProfile.CurrentSetting.ResolutionValue);
+            SetFeederMode(ScanProfile.CurrentSetting.CurrentFeeder);
+            SetPaperSize(ScanProfile.CurrentSetting.CurrentPaperSizeValue);
             DeskewChangedState(ScanProfile.CurrentSetting.Desknew);
             AutoCropChangedState(ScanProfile.CurrentSetting.AutoCrop);
-
+            BrightnessValueChanged(50);
             ribbon.Minimized = AppSetting.CurrentSetting.IsRibbonMinimized;
             ribbon.ToolbarLocation = AppSetting.CurrentSetting.ToolbarLocation;
             //SetSelectedPage(AppSetting.CurrentSetting.SelectedPageIndex);
@@ -100,7 +107,6 @@ namespace SampleApplication
 
             ScanProfile.CurrentSetting.CurrentScanSettingMode = mode;
         }
-
         private void SetColorSettingMode(ColorMode mode)
         {
             bool modeBlackAndWhite = mode == ColorMode.BlackAndWhite;
@@ -114,6 +120,42 @@ namespace SampleApplication
             ScanProfile.CurrentSetting.CurrentColorMode = mode;
         }
 
+        private void SetResolution(int value)
+        {
+            barEditItem2.EditValue = value;
+            ScanProfile.CurrentSetting.ResolutionValue = value;
+        }
+
+        private void SetFeederMode(FeederMode mode)
+        {
+            bool flatbedMode = mode == FeederMode.Flatbed;
+            bool feederMode = mode == FeederMode.Feerder;
+
+            SetChecked(barButtonItemFeeder, feederMode);
+            SetChecked(barButtonItemFlatbed, flatbedMode);
+            SetEnable(barButtonItemBothSides, feederMode);
+            ScanProfile.CurrentSetting.CurrentFeeder = mode;
+
+            if (flatbedMode) SetSides(Sides.OneSide);
+            if(feederMode && tempSides != null)SetSides(Sides.BothSides);
+            
+        }
+        private void SetSides(Sides mode)
+        {
+            if (mode == Sides.OneSide && ScanProfile.CurrentSetting.CurrentFeeder == FeederMode.Flatbed && ScanProfile.CurrentSetting.CurrentSides == Sides.BothSides)
+                tempSides = Sides.BothSides;
+            else
+                tempSides = null;
+            SetChecked(barButtonItemOneSide, mode == Sides.OneSide);
+            SetChecked(barButtonItemBothSides, mode == Sides.BothSides);
+            SetVisible(barButtonItemBack, mode == Sides.BothSides);
+            ScanProfile.CurrentSetting.CurrentSides = mode;
+        }
+        private void SetPaperSize(string size)
+        {
+            barEditItemSize.EditValue = size;
+            ScanProfile.CurrentSetting.CurrentPaperSizeValue = size;
+        }
         private void DeskewChangedState(bool isChecked)
         {
             barButtonItemDeskew.Down
@@ -130,6 +172,11 @@ namespace SampleApplication
             ScanProfile.CurrentSetting.AutoCrop = isChecked;
         }
 
+        private void BrightnessValueChanged(int value)
+        {
+            barEditItemBrightness.EditValue = value;
+            barEditItemBrightnessValue.EditValue = value;
+        }
         private void barButtonItemDeskew_ItemClick(object sender, ItemClickEventArgs e)
         {
             DeskewChangedState(IsChecked(e.Item));
@@ -138,6 +185,43 @@ namespace SampleApplication
         private void barButtonItemAutoCrop_ItemClick(object sender, ItemClickEventArgs e)
         {
             AutoCropChangedState(IsChecked(e.Item));
+        }
+
+        private void repositoryItemTrackBar1_EditValueChanged(object sender, EventArgs e)
+        {
+            var control = (TrackBarControl) sender;
+            BrightnessValueChanged(control.Value);
+        }
+
+        private void barButtonItemFlatbed_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetFeederMode(FeederMode.Flatbed);
+        }
+
+        private void barButtonItemFeeder_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetFeederMode(FeederMode.Feerder);
+        }
+
+        private void repositoryItemComboBox1_EditValueChanged(object sender, EventArgs e)
+        {
+            var item = (ComboBoxEdit) sender;
+            SetResolution(int.Parse(item.EditValue.ToString()));
+        }
+
+        private void barButtonItemOneSide_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetSides(Sides.OneSide);
+        }
+        private void barButtonItemBothSides_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetSides(Sides.BothSides);
+        }
+
+        private void repositoryItemComboBox3_EditValueChanged(object sender, EventArgs e)
+        {
+            var item = (ComboBoxEdit)sender;
+            SetPaperSize(item.EditValue.ToString());
         }
     }
 }
