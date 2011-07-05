@@ -105,6 +105,11 @@ namespace SampleApplication
             this.barCheckItemBack90Right = new DevExpress.XtraBars.BarCheckItem();
             this.barCheckItemBack180 = new DevExpress.XtraBars.BarCheckItem();
             this.barButtonItemAutoResolve = new DevExpress.XtraBars.BarButtonItem();
+            this.popupMenuAutoResolve = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.barCheckItemOutOfPaper = new DevExpress.XtraBars.BarCheckItem();
+            this.barCheckItemPaperJam = new DevExpress.XtraBars.BarCheckItem();
+            this.barCheckItemCoverOpen = new DevExpress.XtraBars.BarCheckItem();
+            this.barCheckItemMultifeed = new DevExpress.XtraBars.BarCheckItem();
             this.barButtonItemResetScanSetting = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSelectScanner = new DevExpress.XtraBars.BarButtonItem();
             this.barEditItem2 = new DevExpress.XtraBars.BarEditItem();
@@ -197,8 +202,8 @@ namespace SampleApplication
             this.ribbonIndexSetup = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonHelp = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonStatusBar2 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -231,11 +236,6 @@ namespace SampleApplication
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.barCheckItemOutOfPaper = new DevExpress.XtraBars.BarCheckItem();
-            this.barCheckItemPaperJam = new DevExpress.XtraBars.BarCheckItem();
-            this.barCheckItemCoverOpen = new DevExpress.XtraBars.BarCheckItem();
-            this.barCheckItemMultifeed = new DevExpress.XtraBars.BarCheckItem();
             barEditItemSmoothingTrackBar = new DevExpress.XtraBars.BarEditItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
@@ -256,6 +256,7 @@ namespace SampleApplication
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuFrontRotate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuBackRotate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenuAutoResolve)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar2)).BeginInit();
@@ -292,7 +293,6 @@ namespace SampleApplication
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.SuspendLayout();
             // 
             // barEditItemSmoothingTrackBar
@@ -453,7 +453,7 @@ namespace SampleApplication
             this.repositoryItemSpinEdit6});
             this.ribbon.SelectedPage = this.ribbonScanSettings;
             this.ribbon.Size = new System.Drawing.Size(1063, 148);
-            this.ribbon.StatusBar = this.ribbonStatusBar2;
+            this.ribbon.StatusBar = this.ribbonStatusBar;
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemScanOne);
             this.ribbon.TransparentEditors = true;
             this.ribbon.SelectedPageChanged += new System.EventHandler(this.ribbon_SelectedPageChanged);
@@ -1355,11 +1355,48 @@ namespace SampleApplication
             this.barButtonItemAutoResolve.ActAsDropDown = true;
             this.barButtonItemAutoResolve.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.barButtonItemAutoResolve.Caption = "Auto Resolve";
-            this.barButtonItemAutoResolve.DropDownControl = this.popupMenu1;
+            this.barButtonItemAutoResolve.DropDownControl = this.popupMenuAutoResolve;
             this.barButtonItemAutoResolve.Glyph = global::SampleApplication.Properties.Resources.import_scanner_profiles_16x16;
             this.barButtonItemAutoResolve.Id = 165;
             this.barButtonItemAutoResolve.LargeGlyph = global::SampleApplication.Properties.Resources.import_scanner_profiles_32x32;
             this.barButtonItemAutoResolve.Name = "barButtonItemAutoResolve";
+            // 
+            // popupMenuAutoResolve
+            // 
+            this.popupMenuAutoResolve.ItemLinks.Add(this.barCheckItemOutOfPaper);
+            this.popupMenuAutoResolve.ItemLinks.Add(this.barCheckItemPaperJam);
+            this.popupMenuAutoResolve.ItemLinks.Add(this.barCheckItemCoverOpen);
+            this.popupMenuAutoResolve.ItemLinks.Add(this.barCheckItemMultifeed);
+            this.popupMenuAutoResolve.Name = "popupMenuAutoResolve";
+            this.popupMenuAutoResolve.Ribbon = this.ribbon;
+            // 
+            // barCheckItemOutOfPaper
+            // 
+            this.barCheckItemOutOfPaper.Caption = "Out Of Paper";
+            this.barCheckItemOutOfPaper.Id = 222;
+            this.barCheckItemOutOfPaper.Name = "barCheckItemOutOfPaper";
+            this.barCheckItemOutOfPaper.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckItemOutOfPaper_ItemClick);
+            // 
+            // barCheckItemPaperJam
+            // 
+            this.barCheckItemPaperJam.Caption = "Paper jam";
+            this.barCheckItemPaperJam.Id = 223;
+            this.barCheckItemPaperJam.Name = "barCheckItemPaperJam";
+            this.barCheckItemPaperJam.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckItemPaperJam_ItemClick);
+            // 
+            // barCheckItemCoverOpen
+            // 
+            this.barCheckItemCoverOpen.Caption = "Cover Open";
+            this.barCheckItemCoverOpen.Id = 224;
+            this.barCheckItemCoverOpen.Name = "barCheckItemCoverOpen";
+            this.barCheckItemCoverOpen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckItemCoverOpen_ItemClick);
+            // 
+            // barCheckItemMultifeed
+            // 
+            this.barCheckItemMultifeed.Caption = "Multifeed";
+            this.barCheckItemMultifeed.Id = 225;
+            this.barCheckItemMultifeed.Name = "barCheckItemMultifeed";
+            this.barCheckItemMultifeed.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckItemMultifeed_ItemClick);
             // 
             // barButtonItemResetScanSetting
             // 
@@ -1377,6 +1414,7 @@ namespace SampleApplication
             this.barButtonItemSelectScanner.Id = 167;
             this.barButtonItemSelectScanner.LargeGlyph = global::SampleApplication.Properties.Resources.adf_32x32;
             this.barButtonItemSelectScanner.Name = "barButtonItemSelectScanner";
+            this.barButtonItemSelectScanner.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSelectScanner_ItemClick);
             // 
             // barEditItem2
             // 
@@ -2145,14 +2183,6 @@ namespace SampleApplication
             this.ribbonPageGroup15.ShowCaptionButton = false;
             this.ribbonPageGroup15.Text = "Themes";
             // 
-            // ribbonStatusBar
-            // 
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemScanOne);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 565);
-            this.ribbonStatusBar.Name = "ribbonStatusBar";
-            this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1063, 23);
-            // 
             // ribbonStatusBar2
             // 
             this.ribbonStatusBar2.Dock = System.Windows.Forms.DockStyle.None;
@@ -2162,6 +2192,14 @@ namespace SampleApplication
             this.ribbonStatusBar2.Name = "ribbonStatusBar2";
             this.ribbonStatusBar2.Ribbon = this.ribbon;
             this.ribbonStatusBar2.Size = new System.Drawing.Size(311, 23);
+            // 
+            // ribbonStatusBar
+            // 
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemScanOne);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 565);
+            this.ribbonStatusBar.Name = "ribbonStatusBar";
+            this.ribbonStatusBar.Ribbon = this.ribbon;
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1063, 23);
             // 
             // dockManager1
             // 
@@ -2300,11 +2338,14 @@ namespace SampleApplication
             // 
             // propertyGridControl1
             // 
+            this.propertyGridControl1.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.Transparent;
+            this.propertyGridControl1.Appearance.HideSelectionRow.Options.UseBackColor = true;
             this.propertyGridControl1.Location = new System.Drawing.Point(7, 272);
             this.propertyGridControl1.Name = "propertyGridControl1";
             this.propertyGridControl1.OptionsBehavior.Editable = false;
             this.propertyGridControl1.OptionsBehavior.UseDefaultEditorsCollection = false;
             this.propertyGridControl1.OptionsView.ShowButtons = false;
+            this.propertyGridControl1.OptionsView.ShowFocusedFrame = false;
             this.propertyGridControl1.Rows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
             this.erPages,
             this.editorRow2,
@@ -2498,39 +2539,6 @@ namespace SampleApplication
             this.simpleSeparator1.Size = new System.Drawing.Size(241, 2);
             this.simpleSeparator1.Text = "simpleSeparator1";
             // 
-            // popupMenu1
-            // 
-            this.popupMenu1.ItemLinks.Add(this.barCheckItemOutOfPaper);
-            this.popupMenu1.ItemLinks.Add(this.barCheckItemPaperJam);
-            this.popupMenu1.ItemLinks.Add(this.barCheckItemCoverOpen);
-            this.popupMenu1.ItemLinks.Add(this.barCheckItemMultifeed);
-            this.popupMenu1.Name = "popupMenu1";
-            this.popupMenu1.Ribbon = this.ribbon;
-            // 
-            // barCheckItemOutOfPaper
-            // 
-            this.barCheckItemOutOfPaper.Caption = "Out Of Paper";
-            this.barCheckItemOutOfPaper.Id = 222;
-            this.barCheckItemOutOfPaper.Name = "barCheckItemOutOfPaper";
-            // 
-            // barCheckItemPaperJam
-            // 
-            this.barCheckItemPaperJam.Caption = "Paper jam";
-            this.barCheckItemPaperJam.Id = 223;
-            this.barCheckItemPaperJam.Name = "barCheckItemPaperJam";
-            // 
-            // barCheckItemCoverOpen
-            // 
-            this.barCheckItemCoverOpen.Caption = "Cover Open";
-            this.barCheckItemCoverOpen.Id = 224;
-            this.barCheckItemCoverOpen.Name = "barCheckItemCoverOpen";
-            // 
-            // barCheckItemMultifeed
-            // 
-            this.barCheckItemMultifeed.Caption = "Multifeed";
-            this.barCheckItemMultifeed.Id = 225;
-            this.barCheckItemMultifeed.Name = "barCheckItemMultifeed";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2566,6 +2574,7 @@ namespace SampleApplication
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuFrontRotate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuBackRotate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenuAutoResolve)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar2)).EndInit();
@@ -2602,7 +2611,6 @@ namespace SampleApplication
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2803,7 +2811,7 @@ namespace SampleApplication
         private BarCheckItem barCheckItemBack90Right;
         private BarCheckItem barCheckItemBack180;
         private PopupMenu popupMenuBackRotate;
-        private PopupMenu popupMenu1;
+        private PopupMenu popupMenuAutoResolve;
         private BarCheckItem barCheckItemOutOfPaper;
         private BarCheckItem barCheckItemPaperJam;
         private BarCheckItem barCheckItemCoverOpen;
