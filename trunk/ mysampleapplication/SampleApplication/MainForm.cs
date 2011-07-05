@@ -1,4 +1,6 @@
 using System;
+using System.Windows.Forms;
+using CustomCheckAndDropDownButton;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
@@ -9,6 +11,7 @@ namespace SampleApplication
     {
         private Sides? tempSides = null;
         private ScanProfile scanProfile = ScanProfile.CurrentSetting;
+        private ColorMode tempColorMode;
 
         public MainForm()
         {
@@ -29,6 +32,7 @@ namespace SampleApplication
             SetScanSettingMode(scanProfile.CurrentScanSettingMode,false);
 
             LoadScanProfile();
+            this.WindowState = AppSetting.CurrentSetting.WindowState;
             ribbon.Minimized = AppSetting.CurrentSetting.IsRibbonMinimized;
             ribbon.ToolbarLocation = AppSetting.CurrentSetting.ToolbarLocation;
             //SetSelectedPage(AppSetting.CurrentSetting.SelectedPageIndex);
@@ -37,8 +41,10 @@ namespace SampleApplication
 
         private void LoadScanProfile()
         {
+            SetColorSettingMode(scanProfile.CurrentColorMode,false);
             SetResolution(scanProfile.ResolutionValue,false);
             SetFeederMode(scanProfile.CurrentFeeder,false);
+            SetSides(scanProfile.CurrentSides,false);
             SetPaperSize(scanProfile.CurrentPaperSizeValue,false);
             SetOrientation(scanProfile.CurrentOrientation,false);
             SetRotationFront(scanProfile.FontRotation,false);
@@ -50,7 +56,21 @@ namespace SampleApplication
 
             DeskewChangedState(scanProfile.Desknew,false);
             AutoCropChangedState(scanProfile.AutoCrop,false);
-            BrightnessValueChanged(50);
+            SetEdgeCleanup(scanProfile.EdgeCleanup,false);
+            SetHolePunchRemoval(scanProfile.RemoveHole,false);
+            SetDeleteBlank(scanProfile.DeleteBlank,false);
+            SetBlankContentSensitivityValue(scanProfile.BlankContentSensitivity,false);
+            SetIgnoreHole(scanProfile.IgnoreHolePunches,false);
+            SetAutoRotate(scanProfile.AutoRotate, false);
+            SetAutoBrightness(scanProfile.AutoBrightness, false);
+            SetAdvancedClarity(scanProfile.AdvanceClarity, false);
+            SetAdvancedClarityValue(scanProfile.AdvanceClarityValue, false);
+            SetThicknessValue(scanProfile.Thickness,false);
+            SetSpeckleValue(scanProfile.Speckle,false);
+
+            SetDetectColor(scanProfile.DetectColor, false);
+            SetSmoothing(scanProfile.Smoothing,false);
+
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
@@ -58,7 +78,9 @@ namespace SampleApplication
             AppSetting.CurrentSetting.IsRibbonMinimized = ribbon.Minimized;
             AppSetting.CurrentSetting.SelectedPageIndex = ribbon.SelectedPage.PageIndex;
             AppSetting.CurrentSetting.ToolbarLocation = ribbon.ToolbarLocation;
+            AppSetting.CurrentSetting.WindowState = this.WindowState;
             AppSetting.CurrentSetting.Save();
+            
 
             scanProfile.Save();
         }
@@ -130,9 +152,159 @@ namespace SampleApplication
             SetChecked(barButtonItemBlackAndWhite, modeBlackAndWhite);
             SetChecked(barButtonItemGrayscale, modeGrayscale);
             SetChecked(barButtonItemColor, modeColor);
-
+            if (modeColor)
+                EnableModeColor();
+            else if (modeGrayscale)
+                EnableModeGrayscale();
+            else if (modeBlackAndWhite)
+                EnableModeBlackAndWhiteColor();
             if (autoSave)
                 scanProfile.CurrentColorMode = mode;
+           
+            BrightnessValueChanged(scanProfile.Brightness, false);
+            ContrastValueChanged(scanProfile.Contrast, false);
+            GammaValueChanged(scanProfile.Gamma, false);
+            SetEnable(barButtonItemSmoothing, scanProfile.CurrentColorMode != ColorMode.BlackAndWhite);
+        }
+        private void SetAutoBrightness(bool isChecked,bool autoSave)
+        {
+            SetChecked(barEditItemAutoBrightness, isChecked);
+            if (!scanProfile.AdvanceClarity || scanProfile.CurrentColorMode == ColorMode.Grayscale)
+            {
+                SetEnable(barEditItemBrightness, !isChecked);
+                SetEnable(barEditItemBrightnessValue, !isChecked);
+ 
+            }
+            if(scanProfile.CurrentColorMode ==ColorMode.Grayscale)
+            {
+                SetEnable(barEditItemContrast,!isChecked);
+                SetEnable(barEditItemContrastValue,!isChecked);
+                SetEnable(barEditItemGamma,!isChecked);
+                SetEnable(barEditItemGammaValue,!isChecked);
+            }
+            if (autoSave)
+                scanProfile.AutoBrightness = isChecked;
+        }
+
+        private void SetAdvancedClarity(bool isChecked, bool autoSave)
+        {
+            SetChecked(barEditItemAdvancedClarity,isChecked);
+            SetEnable(barButtonItemAdvancedClaritySetup,isChecked);
+            SetEnable(barEditItemClarityValue,isChecked);
+            SetEnable(barStaticItemHight,isChecked);
+
+            SetEnable(barEditItemBrightness,!isChecked&& !scanProfile.AutoBrightness);
+            SetEnable(barEditItemBrightnessValue, !isChecked && !scanProfile.AutoBrightness);
+            SetEnable(barEditItemContrast,!isChecked);
+            SetEnable(barEditItemContrastValue,!isChecked);
+            if (autoSave)
+                scanProfile.AdvanceClarity = isChecked;
+        }
+
+        private void SetAdvancedClarityValue(int value,bool autoSave)
+        {
+            barEditItemClarityValue.EditValue = value;
+            if (autoSave)
+                scanProfile.AdvanceClarityValue = value;
+        }
+        
+        private void SetThicknessValue(int value,bool autoSave)
+        {
+            barEditItemThickness.EditValue = value;
+            if (autoSave)
+                scanProfile.Thickness = value;
+        }
+        
+        private void SetSpeckleValue(int value, bool autoSave)
+        {
+            barEditItemSpeckle.EditValue = value;
+            if (autoSave)
+                scanProfile.Speckle = value;
+        }
+
+        private void SetBlankContentSensitivityValue(int value, bool autoSave)
+        {
+            barEditItemTrackBarBlankContentSensitivityValue.EditValue = value;
+            barEditItemBlankContentSensitivityValue.EditValue = value;
+            if (autoSave)
+            {
+                scanProfile.BlankContentSensitivity = value;
+                SetDeleteBlank(true,true);
+            }
+        }
+        private void SetIgnoreHole(bool isChecked, bool autoSave)
+        {
+            SetChecked(barCheckItemIgnoreHole, isChecked);
+            if (autoSave)
+            {
+                scanProfile.IgnoreHolePunches = isChecked;
+                SetDeleteBlank(true, true);
+            }
+        }
+        private void EnableModeBlackAndWhiteColor()
+        {
+            SetEnable(barEditItemBrightness, !scanProfile.AutoBrightness && !scanProfile.AdvanceClarity);
+            SetEnable(barEditItemBrightnessValue, !scanProfile.AutoBrightness && !scanProfile.AdvanceClarity);
+            SetEnable(barEditItemContrast, !scanProfile.AdvanceClarity);
+            SetEnable(barEditItemContrastValue, !scanProfile.AdvanceClarity);
+            SetEnable(barEditItemGamma, true);
+            SetEnable(barEditItemGammaValue, true);
+            SetEnable(barEditItemAutoBrightness, true);
+            SetEnable(barEditItemAdvancedClarity, true);
+
+            SetEnable(barEditItemClarityValue, scanProfile.AdvanceClarity);
+            SetEnable(barStaticItemHight, scanProfile.AdvanceClarity);
+            SetEnable(barButtonItemAdvancedClaritySetup, scanProfile.AdvanceClarity);
+
+            SetEnable(barEditItemThickness, true);
+            SetEnable(barStaticItemThickness, true);
+            SetEnable(barEditItemSpeckle, true);
+            SetEnable(barStaticItemSpeckle, true);
+        }
+        private void EnableModeGrayscale()
+        {
+            
+            SetEnable(barEditItemBrightness, !scanProfile.AutoBrightness);
+            SetEnable(barEditItemBrightnessValue, !scanProfile.AutoBrightness);
+            SetEnable(barEditItemContrast, !scanProfile.AutoBrightness);
+            SetEnable(barEditItemContrastValue, !scanProfile.AutoBrightness);
+            SetEnable(barEditItemGamma, !scanProfile.AutoBrightness);
+            SetEnable(barEditItemGammaValue, !scanProfile.AutoBrightness);
+
+            SetEnable(barEditItemAutoBrightness, true);
+            SetEnable(barEditItemAdvancedClarity, false);
+            SetEnable(barEditItemClarityValue, false);
+            SetEnable(barStaticItemHight, false);
+            SetEnable(barButtonItemAdvancedClaritySetup, false);
+            
+            SetEnable(barEditItemThickness, false);
+            SetEnable(barStaticItemThickness, false);
+            SetEnable(barEditItemSpeckle, false);
+            SetEnable(barStaticItemSpeckle, false);
+            
+        }
+        private void EnableModeColor()
+        {
+            //SetChecked(barButtonItemColor, true);
+
+            SetEnable(barEditItemBrightness, true);
+            SetEnable(barEditItemBrightnessValue, true);
+            SetEnable(barEditItemContrast, true);
+            SetEnable(barEditItemContrastValue, true);
+            SetEnable(barEditItemGamma, true);
+            SetEnable(barEditItemGammaValue, true);
+
+            SetEnable(barEditItemAutoBrightness,false);
+            SetEnable(barEditItemAdvancedClarity, false);
+            SetEnable(barEditItemClarityValue, false);
+            SetEnable(barStaticItemHight, false);
+            SetEnable(barButtonItemAdvancedClaritySetup, false);
+            SetEnable(barEditItemAdvancedClarity, false);
+            SetEnable(barEditItemThickness,false);
+            SetEnable(barStaticItemThickness,false);
+            SetEnable(barEditItemSpeckle,false);
+            SetEnable(barStaticItemSpeckle,false);
+
         }
 
         private void SetResolution(int value,bool autoSave)
@@ -153,8 +325,10 @@ namespace SampleApplication
             if (autoSave)
                 scanProfile.CurrentFeeder = mode;
 
-            if (flatbedMode) SetSides(Sides.OneSide,autoSave);
-            if(feederMode && tempSides != null)SetSides(Sides.BothSides,autoSave);
+            if (flatbedMode) 
+                SetSides(Sides.OneSide,autoSave);
+            else if(feederMode && tempSides != null)
+                SetSides(Sides.BothSides,autoSave);
             
         }
         private void SetSides(Sides mode, bool autoSave)
@@ -185,10 +359,26 @@ namespace SampleApplication
                 scanProfile.CurrentOrientation = mode;
         }
 
-        private void BrightnessValueChanged(int value)
+        private void BrightnessValueChanged(int value, bool autoSave)
         {
             barEditItemBrightness.EditValue = value;
             barEditItemBrightnessValue.EditValue = value;
+            if (autoSave)
+                scanProfile.Brightness = value;
+        }
+        private void ContrastValueChanged(int value, bool autoSave)
+        {
+            barEditItemContrast.EditValue = value;
+            barEditItemContrastValue.EditValue = value;
+            if (autoSave)
+                scanProfile.Contrast = value;
+        }
+        private void GammaValueChanged(int value, bool autoSave)
+        {
+            barEditItemGamma.EditValue = value;
+            barEditItemGammaValue.EditValue = value;
+            if (autoSave)
+                scanProfile.Gamma = value;
         }
         private void SetRotationFront(Rotation rotation, bool autoSave)
         {
@@ -294,6 +484,74 @@ namespace SampleApplication
             if (autoSave)
                 scanProfile.AutoCrop = isChecked;
         }
+        private void SetEdgeCleanup(bool isChecked, bool autoSave)
+        {
+            SetChecked(barButtonItemEdgeCleanup,isChecked);
+            if (autoSave)
+                scanProfile.EdgeCleanup = isChecked;
+        }
+        private void SetHolePunchRemoval(bool isChecked, bool autoSave)
+        {
+            SetChecked(barButtonItemHolePunchRemoval,isChecked);
+            if (autoSave)
+                scanProfile.RemoveHole = isChecked;
+        }
+        private void SetDeleteBlank(bool isChecked, bool autoSave)
+        {
+            SetChecked(barButtonItemDeleteBlank,isChecked);
+            if (autoSave)
+                scanProfile.DeleteBlank = isChecked;
+        }
+        private void SetAutoRotate(bool isChecked, bool autoSave)
+        {
+            SetChecked(barButtonItemAutoRotate,isChecked);
+            if (autoSave)
+                scanProfile.AutoRotate = isChecked;
+        }
+
+        private void SetDetectColor(bool isCheck, bool autoSave)
+        {
+            SetChecked(barButtonItemDetectColor,isCheck);
+            if(isCheck)
+            {
+                tempColorMode = scanProfile.CurrentColorMode;
+                SetColorSettingMode(ColorMode.Color,true);
+            }
+            else
+            {
+                SetColorSettingMode(tempColorMode,true);
+            }
+            SetEnable(barButtonItemDetectSmallColorObjects, isCheck);
+            SetEnable(barEditItemOverall, isCheck);
+            SetEnable(barEditItemSensitivity, isCheck);
+            SetEnable(barEditItemOverallValue, isCheck);
+            SetEnable(barEditItemSensitivityValue, isCheck);
+            SetEnable(barStaticItemOverall, isCheck);
+            SetEnable(barStaticItemSensitivity, isCheck);
+
+            SetEnable(barButtonItemBlackAndWhite,!isCheck);
+            SetEnable(barButtonItemGrayscale,!isCheck);
+            SetEnable(barButtonItemColor,!isCheck);
+            SetEnable(barButtonItemSmoothing,!isCheck);
+            SetEnable(barEditItemSmoothingTrackBar, !isCheck);
+            SetEnable(barStaticItemSmoothing, !isCheck);
+            SetEnable(barEditItemSmoothingValue, !isCheck);
+
+            if (autoSave)
+                scanProfile.DetectColor = isCheck;
+        }
+        private void SetSmoothing(bool isCheck, bool autoSave)
+        {
+            SetChecked(barButtonItemSmoothing,isCheck);
+
+            SetEnable(barEditItemSmoothingTrackBar, isCheck);
+            SetEnable(barStaticItemSmoothing, isCheck);
+            SetEnable(barEditItemSmoothingValue, isCheck);
+
+            scanProfile.DetectColor = isCheck;
+            if (autoSave)
+                scanProfile.Smoothing = isCheck;
+        }
 
         private void barButtonItemDeskew_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -303,12 +561,6 @@ namespace SampleApplication
         private void barButtonItemAutoCrop_ItemClick(object sender, ItemClickEventArgs e)
         {
             AutoCropChangedState(IsChecked(e.Item), true);
-        }
-
-        private void repositoryItemTrackBar1_EditValueChanged(object sender, EventArgs e)
-        {
-            var control = (TrackBarControl) sender;
-            BrightnessValueChanged(control.Value);
         }
 
         private void barButtonItemFlatbed_ItemClick(object sender, ItemClickEventArgs e)
@@ -417,6 +669,97 @@ namespace SampleApplication
         {
             var frm = new frmSelectScanner();
             frm.ShowDialog();
+        }
+
+        private void repositoryItemCheckEdit1_CheckedChanged(object sender, EventArgs e)
+        {
+            var item = (CheckEdit)sender;
+            SetAutoBrightness(item.Checked, true);
+        }
+
+        private void repositoryItemCheckEdit2_CheckedChanged(object sender, EventArgs e)
+        {
+            var item = (CheckEdit)sender;
+            SetAdvancedClarity(item.Checked, true);
+        }
+
+        private void repositoryItemSpinEditBrightness_EditValueChanged(object sender, EventArgs e)
+        {
+            var item = (SpinEdit) sender;
+            BrightnessValueChanged((int) item.Value,true);
+        }
+
+        private void repositoryItemSpinEditContrast_EditValueChanged(object sender, EventArgs e)
+        {
+            var item = (SpinEdit)sender;
+            ContrastValueChanged((int)item.Value, true);
+        }
+
+        private void repositoryItemSpinEditGamma_EditValueChanged(object sender, EventArgs e)
+        {
+            var item = (SpinEdit)sender;
+            GammaValueChanged((int)item.Value, true);
+        }
+
+        private void repositoryItemTrackBarBrightness_EditValueChanged(object sender, EventArgs e)
+        {
+            var control = (TrackBarControl)sender;
+            BrightnessValueChanged(control.Value, true);
+        }
+        private void repositoryItemTrackBarContrast_EditValueChanged(object sender, EventArgs e)
+        {
+            var control = (TrackBarControl)sender;
+            ContrastValueChanged(control.Value, true);
+        }
+
+        private void repositoryItemTrackBarGamma_EditValueChanged(object sender, EventArgs e)
+        {
+            var control = (TrackBarControl)sender;
+            GammaValueChanged(control.Value, true);
+        }
+
+        private void repositoryItemTrackBarClarityValue_EditValueChanged(object sender, EventArgs e)
+        {
+            var control = (TrackBarControl)sender;
+            SetAdvancedClarityValue(control.Value,true);
+        }
+
+        private void repositoryItemTrackBarBlankContentSensitivity_EditValueChanged(object sender, EventArgs e)
+        {
+            var control = (TrackBarControl)sender;
+            SetBlankContentSensitivityValue(control.Value, true);
+        }
+
+        private void repositoryItemTrackBarThickness_EditValueChanged(object sender, EventArgs e)
+        {
+            var control = (TrackBarControl)sender;
+            SetThicknessValue(control.Value, true);
+        }
+
+        private void repositoryItemTrackBarSpeckle_EditValueChanged(object sender, EventArgs e)
+        {
+            var control = (TrackBarControl)sender;
+            SetSpeckleValue(control.Value, true);
+        }
+
+        private void barCheckItemIgnoreHole_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetIgnoreHole(((BarCheckItem)e.Item).Checked, true);
+        }
+
+        private void barButtonItemDeleteBlank_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetDeleteBlank(IsChecked((BarCheckAndDropDownButton)e.Item), true);
+        }
+
+        private void barButtonItemDetectColor_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetDetectColor(IsChecked((BarButtonItem)e.Item),true);
+        }
+
+        private void barButtonItemSmoothing_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetSmoothing(IsChecked((BarButtonItem)e.Item), true);
         }
     }
 }

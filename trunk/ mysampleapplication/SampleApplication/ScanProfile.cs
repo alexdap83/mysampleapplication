@@ -113,6 +113,8 @@ namespace SampleApplication
                         return "A5";
                     case PaperSize.B:
                         return "B";
+                    case PaperSize.B0:
+                        return "B0";
                     case PaperSize.B1:
                         return "B1";
                     case PaperSize.B2:
@@ -162,6 +164,9 @@ namespace SampleApplication
                     case "B":
                         CurrentPaperSize = PaperSize.B;
                         break;
+                    case "B0":
+                        CurrentPaperSize = PaperSize.B0;
+                        break;
                     case "B1":
                         CurrentPaperSize = PaperSize.B1;
                         break;
@@ -205,9 +210,9 @@ namespace SampleApplication
         public bool AutoCrop { get; set; }
         public bool EdgeCleanup { get; set; }
         public bool RemoveHole { get; set; }
-        public bool RemoveBlank { get; set; }
+        public bool DeleteBlank { get; set; }
         public int BlankContentSensitivity { get; set; }
-        public int IgnoreHolePunches { get; set; }
+        public bool IgnoreHolePunches { get; set; }
         public bool AutoRotate { get; set; }
         public int BrightnessBlackAndWhite { get; set; }
         public int BrightnessGrayScale { get; set; }
@@ -225,6 +230,70 @@ namespace SampleApplication
         public bool IgnorePicture { get; set; }
         public int Thickness { get; set; }
         public int Speckle { get; set; }
+        
+        [XmlIgnore]
+        public int Brightness
+        {
+            get
+            {
+                if (CurrentColorMode == ColorMode.BlackAndWhite)
+                    return BrightnessBlackAndWhite;
+                if (CurrentColorMode == ColorMode.Grayscale)
+                    return BrightnessGrayScale;
+                return BrightnessColor;
+                
+            }
+            set
+            {
+                if (CurrentColorMode == ColorMode.BlackAndWhite)
+                    BrightnessBlackAndWhite = value;
+                else if (CurrentColorMode == ColorMode.Grayscale)
+                    BrightnessGrayScale = value;
+                else BrightnessColor = value;
+            }
+        }
+        [XmlIgnore]
+        public int Contrast
+        {
+            get
+            {
+                if (CurrentColorMode == ColorMode.BlackAndWhite)
+                    return ContrastBlackAndWhite;
+                if (CurrentColorMode == ColorMode.Grayscale)
+                    return ContrastGrayScale;
+                return ContrastColor;
+                
+            }
+            set
+            {
+                if (CurrentColorMode == ColorMode.BlackAndWhite)
+                    ContrastBlackAndWhite = value;
+                else if (CurrentColorMode == ColorMode.Grayscale)
+                    ContrastGrayScale = value;
+                else ContrastColor = value;
+            }
+        }
+        [XmlIgnore]
+        public int Gamma
+        {
+            get
+            {
+                if (CurrentColorMode == ColorMode.BlackAndWhite)
+                    return GammaBlackAndWhite;
+                if (CurrentColorMode == ColorMode.Grayscale)
+                    return GammaGrayScale;
+                return GammaColor;
+                
+            }
+            set
+            {
+                if (CurrentColorMode == ColorMode.BlackAndWhite)
+                    GammaBlackAndWhite = value;
+                else if (CurrentColorMode == ColorMode.Grayscale)
+                    GammaGrayScale = value;
+                else GammaColor = value;
+            }
+        }
         #endregion
 
         #region VRSColor
@@ -233,6 +302,10 @@ namespace SampleApplication
         public int ContentSensitivity { get; set; }
         public int ObjectSensitivity { get; set; }
         public bool IgnoreBackgroundColor { get; set; }
+        public bool Smoothing { get; set; }
+        public int SmoothingValue { get; set; }
+        public bool SnapToWhite { get; set; }
+        public bool BackgroundColorToWhite { get; set; }
         #endregion
 
         public static void Reload()
