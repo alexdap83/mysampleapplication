@@ -1,9 +1,12 @@
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using CustomCheckAndDropDownButton;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 
 namespace SampleApplication
 {
@@ -37,6 +40,7 @@ namespace SampleApplication
             ribbon.ToolbarLocation = AppSetting.CurrentSetting.ToolbarLocation;
             //SetSelectedPage(AppSetting.CurrentSetting.SelectedPageIndex);
             SetSelectedPage(0); // Allways show Home Tab
+            LoadBatches();
         }
 
         private void LoadScanProfile()
@@ -72,7 +76,14 @@ namespace SampleApplication
             SetSmoothing(scanProfile.Smoothing,false);
 
         }
-
+        private void LoadBatches()
+        {
+            var list = new List<Batch>();
+            list.Add(new Batch{Icon = null,BatchName = "Batch002",JobName = "Job1",Documents = 2,Pages = 5,Status = string.Empty});
+            list.Add(new Batch{Icon = null,BatchName = "Batch003",JobName = "Job1",Documents = 2,Pages = 5,Status = string.Empty});
+            list.Add(new Batch{Icon = null,BatchName = "Batch004",JobName = "Job1",Documents = 2,Pages = 5,Status = string.Empty});
+            gridControl1.DataSource = list;
+        }
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
             AppSetting.CurrentSetting.IsRibbonMinimized = ribbon.Minimized;
@@ -165,6 +176,9 @@ namespace SampleApplication
             ContrastValueChanged(scanProfile.Contrast, false);
             GammaValueChanged(scanProfile.Gamma, false);
             SetEnable(barButtonItemSmoothing, scanProfile.CurrentColorMode != ColorMode.BlackAndWhite);
+            SetEnable(barEditItemSmoothingTrackBar, scanProfile.CurrentColorMode != ColorMode.BlackAndWhite);
+            SetEnable(barStaticItemSmoothing, scanProfile.CurrentColorMode != ColorMode.BlackAndWhite);
+            SetEnable(barEditItemSmoothingValue, scanProfile.CurrentColorMode != ColorMode.BlackAndWhite);
         }
         private void SetAutoBrightness(bool isChecked,bool autoSave)
         {
@@ -532,10 +546,11 @@ namespace SampleApplication
             SetEnable(barButtonItemBlackAndWhite,!isCheck);
             SetEnable(barButtonItemGrayscale,!isCheck);
             SetEnable(barButtonItemColor,!isCheck);
-            SetEnable(barButtonItemSmoothing,!isCheck);
-            SetEnable(barEditItemSmoothingTrackBar, !isCheck);
-            SetEnable(barStaticItemSmoothing, !isCheck);
-            SetEnable(barEditItemSmoothingValue, !isCheck);
+ 
+            SetEnable(barButtonItemSmoothing, !isCheck && scanProfile.CurrentColorMode != ColorMode.BlackAndWhite);
+            SetEnable(barEditItemSmoothingTrackBar, !isCheck && scanProfile.CurrentColorMode != ColorMode.BlackAndWhite);
+            SetEnable(barStaticItemSmoothing, !isCheck && scanProfile.CurrentColorMode != ColorMode.BlackAndWhite);
+            SetEnable(barEditItemSmoothingValue, !isCheck && scanProfile.CurrentColorMode != ColorMode.BlackAndWhite);
 
             if (autoSave)
                 scanProfile.DetectColor = isCheck;
@@ -760,6 +775,14 @@ namespace SampleApplication
         private void barButtonItemSmoothing_ItemClick(object sender, ItemClickEventArgs e)
         {
             SetSmoothing(IsChecked((BarButtonItem)e.Item), true);
+        }
+
+        private void gridView1_ShowGridMenu(object sender, DevExpress.XtraGrid.Views.Grid.GridMenuEventArgs e)
+        {
+            var view = (GridView) sender;
+            GridHitInfo hitInfo = view.CalcHitInfo(e.Point);
+            if(hitInfo.InRow)
+                popupMenu2.ShowPopup(MousePosition);
         }
     }
 }
