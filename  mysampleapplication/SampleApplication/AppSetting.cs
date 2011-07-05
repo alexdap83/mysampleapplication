@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraBars.Ribbon;
+﻿using System.Windows.Forms;
+using DevExpress.XtraBars.Ribbon;
 
 namespace SampleApplication
 {
@@ -9,6 +10,14 @@ namespace SampleApplication
         public bool IsRibbonMinimized { get; set; }
         public RibbonQuickAccessToolbarLocation ToolbarLocation { get; set; }
         public int SelectedPageIndex { get; set; }
+        private FormWindowState _windowState;
+        public FormWindowState WindowState
+        {
+            get { return _windowState; }
+            set {
+                _windowState = value == FormWindowState.Minimized ? FormWindowState.Normal : value;
+            }
+        }
 
         #endregion
 
