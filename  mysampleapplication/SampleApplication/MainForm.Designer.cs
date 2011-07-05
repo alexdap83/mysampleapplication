@@ -182,6 +182,36 @@ namespace SampleApplication
             this.barStaticItemSpeckle = new DevExpress.XtraBars.BarStaticItem();
             this.barEditItemSmoothingTrackBar = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTrackBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemTrackBar();
+            this.barEditItemDocument = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.barEditItemImage = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.barStaticItem4 = new DevExpress.XtraBars.BarStaticItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barStaticItem5 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem6 = new DevExpress.XtraBars.BarStaticItem();
+            this.barButtonItemDelete = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemDeleteToEnd = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemRescan = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemRescanMultiFeed = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemInsert = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemRescanFlatbed = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemRescanFeeder = new DevExpress.XtraBars.BarButtonItem();
+            this.barEditItemJob = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemTextEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.barEditItemBatchPath = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemTextEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.barEditItemNextBatchName = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemTextEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
+            this.barStaticItem7 = new DevExpress.XtraBars.BarStaticItem();
+            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
+            this.barStaticItem8 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem9 = new DevExpress.XtraBars.BarStaticItem();
+            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
+            this.barStaticItem10 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem11 = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribonPageGroupBatch = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupScan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -206,15 +236,20 @@ namespace SampleApplication
             this.ribbonPageGroupReset = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupScanner = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonDocument = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroupCurent = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonRescan = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonVRSCorrections = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonJobSetup = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonBarCodeSetup = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonIndexSetup = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonHelp = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonStatusBar2 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.ribbonStatusBar2 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -290,6 +325,11 @@ namespace SampleApplication
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
@@ -428,9 +468,34 @@ namespace SampleApplication
             this.barEditItemTrackBarBlankContentSensitivityValue,
             this.barEditItemBlankContentSensitivityValue,
             this.barCheckItemIgnoreHole,
-            this.barEditItemSmoothingTrackBar});
+            this.barEditItemSmoothingTrackBar,
+            this.barEditItemDocument,
+            this.barEditItemImage,
+            this.barStaticItem4,
+            this.barButtonItem2,
+            this.barStaticItem5,
+            this.barStaticItem6,
+            this.barButtonItemDelete,
+            this.barButtonItemDeleteToEnd,
+            this.barButtonItemRescan,
+            this.barButtonItemRescanMultiFeed,
+            this.barButtonItemInsert,
+            this.barButtonItemRescanFlatbed,
+            this.barButtonItemRescanFeeder,
+            this.barEditItemJob,
+            this.barEditItemBatchPath,
+            this.barEditItemNextBatchName,
+            this.barButtonItem7,
+            this.barButtonItem8,
+            this.barStaticItem7,
+            this.barButtonItem9,
+            this.barStaticItem8,
+            this.barStaticItem9,
+            this.barButtonItem10,
+            this.barStaticItem10,
+            this.barStaticItem11});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 234;
+            this.ribbon.MaxItemId = 259;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonHome,
@@ -466,10 +531,15 @@ namespace SampleApplication
             this.repositoryItemSpinEdit6,
             this.repositoryItemTrackBarBlankContentSensitivity,
             this.repositoryItemSpinEditBlankContentSensitivityValue,
-            this.repositoryItemTrackBar1});
-            this.ribbon.SelectedPage = this.ribbonScanSettings;
+            this.repositoryItemTrackBar1,
+            this.repositoryItemTextEdit1,
+            this.repositoryItemTextEdit2,
+            this.repositoryItemTextEdit3,
+            this.repositoryItemTextEdit4,
+            this.repositoryItemTextEdit5});
+            this.ribbon.SelectedPage = this.ribbonJobSetup;
             this.ribbon.Size = new System.Drawing.Size(1059, 148);
-            this.ribbon.StatusBar = this.ribbonStatusBar;
+            this.ribbon.StatusBar = this.ribbonStatusBar2;
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemScanOne);
             this.ribbon.TransparentEditors = true;
             this.ribbon.SelectedPageChanged += new System.EventHandler(this.ribbon_SelectedPageChanged);
@@ -2040,6 +2110,215 @@ namespace SampleApplication
             this.repositoryItemTrackBar1.TickFrequency = 10;
             this.repositoryItemTrackBar1.UseParentBackground = true;
             // 
+            // barEditItemDocument
+            // 
+            this.barEditItemDocument.Caption = "Document";
+            this.barEditItemDocument.Edit = this.repositoryItemTextEdit1;
+            this.barEditItemDocument.Id = 234;
+            this.barEditItemDocument.Name = "barEditItemDocument";
+            // 
+            // repositoryItemTextEdit1
+            // 
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            this.repositoryItemTextEdit1.UseParentBackground = true;
+            // 
+            // barEditItemImage
+            // 
+            this.barEditItemImage.Caption = "Image";
+            this.barEditItemImage.Edit = this.repositoryItemTextEdit2;
+            this.barEditItemImage.Id = 235;
+            this.barEditItemImage.Name = "barEditItemImage";
+            // 
+            // repositoryItemTextEdit2
+            // 
+            this.repositoryItemTextEdit2.AutoHeight = false;
+            this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
+            this.repositoryItemTextEdit2.UseParentBackground = true;
+            // 
+            // barStaticItem4
+            // 
+            this.barStaticItem4.Id = 236;
+            this.barStaticItem4.Name = "barStaticItem4";
+            this.barStaticItem4.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "Create";
+            this.barButtonItem2.Glyph = global::SampleApplication.Properties.Resources.new_document_16x16;
+            this.barButtonItem2.Id = 237;
+            this.barButtonItem2.Name = "barButtonItem2";
+            this.barButtonItem2.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+            // 
+            // barStaticItem5
+            // 
+            this.barStaticItem5.Id = 238;
+            this.barStaticItem5.Name = "barStaticItem5";
+            this.barStaticItem5.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barStaticItem6
+            // 
+            this.barStaticItem6.Id = 239;
+            this.barStaticItem6.Name = "barStaticItem6";
+            this.barStaticItem6.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barButtonItemDelete
+            // 
+            this.barButtonItemDelete.Caption = "Delete";
+            this.barButtonItemDelete.Glyph = global::SampleApplication.Properties.Resources.delete_document_16x16;
+            this.barButtonItemDelete.Id = 240;
+            this.barButtonItemDelete.LargeGlyph = global::SampleApplication.Properties.Resources.delete_document_32x32;
+            this.barButtonItemDelete.Name = "barButtonItemDelete";
+            // 
+            // barButtonItemDeleteToEnd
+            // 
+            this.barButtonItemDeleteToEnd.Caption = "Delete to End";
+            this.barButtonItemDeleteToEnd.Glyph = global::SampleApplication.Properties.Resources.delete_end_of_document_16x16;
+            this.barButtonItemDeleteToEnd.Id = 241;
+            this.barButtonItemDeleteToEnd.LargeGlyph = global::SampleApplication.Properties.Resources.delete_end_of_document_32x32;
+            this.barButtonItemDeleteToEnd.Name = "barButtonItemDeleteToEnd";
+            // 
+            // barButtonItemRescan
+            // 
+            this.barButtonItemRescan.Caption = "Rescan";
+            this.barButtonItemRescan.Glyph = global::SampleApplication.Properties.Resources.rescan_multi_page_16x16;
+            this.barButtonItemRescan.Id = 242;
+            this.barButtonItemRescan.LargeGlyph = global::SampleApplication.Properties.Resources.rescan_multi_page_32x32;
+            this.barButtonItemRescan.Name = "barButtonItemRescan";
+            // 
+            // barButtonItemRescanMultiFeed
+            // 
+            this.barButtonItemRescanMultiFeed.Caption = "Rescan Multifeed";
+            this.barButtonItemRescanMultiFeed.Glyph = global::SampleApplication.Properties.Resources.rescan_multi_feed_16x16;
+            this.barButtonItemRescanMultiFeed.Id = 243;
+            this.barButtonItemRescanMultiFeed.LargeGlyph = global::SampleApplication.Properties.Resources.rescan_multi_feed_32x32;
+            this.barButtonItemRescanMultiFeed.Name = "barButtonItemRescanMultiFeed";
+            // 
+            // barButtonItemInsert
+            // 
+            this.barButtonItemInsert.Caption = "Insert";
+            this.barButtonItemInsert.Glyph = global::SampleApplication.Properties.Resources.insert_scan_multi_16x16;
+            this.barButtonItemInsert.Id = 244;
+            this.barButtonItemInsert.LargeGlyph = global::SampleApplication.Properties.Resources.insert_scan_multi_32x32;
+            this.barButtonItemInsert.Name = "barButtonItemInsert";
+            // 
+            // barButtonItemRescanFlatbed
+            // 
+            this.barButtonItemRescanFlatbed.Caption = "Flatbed";
+            this.barButtonItemRescanFlatbed.Glyph = global::SampleApplication.Properties.Resources.flatbed_16x16;
+            this.barButtonItemRescanFlatbed.Id = 245;
+            this.barButtonItemRescanFlatbed.LargeGlyph = global::SampleApplication.Properties.Resources.flatbed_32x32;
+            this.barButtonItemRescanFlatbed.Name = "barButtonItemRescanFlatbed";
+            // 
+            // barButtonItemRescanFeeder
+            // 
+            this.barButtonItemRescanFeeder.Caption = "Feeder";
+            this.barButtonItemRescanFeeder.Glyph = global::SampleApplication.Properties.Resources.adf_16x16;
+            this.barButtonItemRescanFeeder.Id = 246;
+            this.barButtonItemRescanFeeder.LargeGlyph = global::SampleApplication.Properties.Resources.adf_32x32;
+            this.barButtonItemRescanFeeder.Name = "barButtonItemRescanFeeder";
+            // 
+            // barEditItemJob
+            // 
+            this.barEditItemJob.Caption = "Job";
+            this.barEditItemJob.Edit = this.repositoryItemTextEdit3;
+            this.barEditItemJob.Id = 247;
+            this.barEditItemJob.Name = "barEditItemJob";
+            this.barEditItemJob.Width = 150;
+            // 
+            // repositoryItemTextEdit3
+            // 
+            this.repositoryItemTextEdit3.AutoHeight = false;
+            this.repositoryItemTextEdit3.Name = "repositoryItemTextEdit3";
+            this.repositoryItemTextEdit3.UseParentBackground = true;
+            // 
+            // barEditItemBatchPath
+            // 
+            this.barEditItemBatchPath.Caption = "Batch Path";
+            this.barEditItemBatchPath.Edit = this.repositoryItemTextEdit4;
+            this.barEditItemBatchPath.Id = 248;
+            this.barEditItemBatchPath.Name = "barEditItemBatchPath";
+            this.barEditItemBatchPath.Width = 150;
+            // 
+            // repositoryItemTextEdit4
+            // 
+            this.repositoryItemTextEdit4.AutoHeight = false;
+            this.repositoryItemTextEdit4.Name = "repositoryItemTextEdit4";
+            this.repositoryItemTextEdit4.UseParentBackground = true;
+            // 
+            // barEditItemNextBatchName
+            // 
+            this.barEditItemNextBatchName.Caption = "Next Batch Name";
+            this.barEditItemNextBatchName.Edit = this.repositoryItemTextEdit5;
+            this.barEditItemNextBatchName.Id = 249;
+            this.barEditItemNextBatchName.Name = "barEditItemNextBatchName";
+            this.barEditItemNextBatchName.Width = 150;
+            // 
+            // repositoryItemTextEdit5
+            // 
+            this.repositoryItemTextEdit5.AutoHeight = false;
+            this.repositoryItemTextEdit5.Name = "repositoryItemTextEdit5";
+            this.repositoryItemTextEdit5.UseParentBackground = true;
+            // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Caption = "barButtonItem7";
+            this.barButtonItem7.Id = 250;
+            this.barButtonItem7.Name = "barButtonItem7";
+            // 
+            // barButtonItem8
+            // 
+            this.barButtonItem8.Caption = "barButtonItem8";
+            this.barButtonItem8.Id = 251;
+            this.barButtonItem8.Name = "barButtonItem8";
+            // 
+            // barStaticItem7
+            // 
+            this.barStaticItem7.Caption = "barStaticItem7";
+            this.barStaticItem7.Id = 252;
+            this.barStaticItem7.Name = "barStaticItem7";
+            this.barStaticItem7.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barButtonItem9
+            // 
+            this.barButtonItem9.Caption = "barButtonItem9";
+            this.barButtonItem9.Id = 253;
+            this.barButtonItem9.Name = "barButtonItem9";
+            // 
+            // barStaticItem8
+            // 
+            this.barStaticItem8.Caption = "barStaticItem8";
+            this.barStaticItem8.Id = 254;
+            this.barStaticItem8.Name = "barStaticItem8";
+            this.barStaticItem8.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barStaticItem9
+            // 
+            this.barStaticItem9.Caption = "barStaticItem9";
+            this.barStaticItem9.Id = 255;
+            this.barStaticItem9.Name = "barStaticItem9";
+            this.barStaticItem9.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barButtonItem10
+            // 
+            this.barButtonItem10.Caption = "barButtonItem10";
+            this.barButtonItem10.Id = 256;
+            this.barButtonItem10.Name = "barButtonItem10";
+            // 
+            // barStaticItem10
+            // 
+            this.barStaticItem10.Caption = "barStaticItem10";
+            this.barStaticItem10.Id = 257;
+            this.barStaticItem10.Name = "barStaticItem10";
+            this.barStaticItem10.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barStaticItem11
+            // 
+            this.barStaticItem11.Caption = "barStaticItem11";
+            this.barStaticItem11.Id = 258;
+            this.barStaticItem11.Name = "barStaticItem11";
+            this.barStaticItem11.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
             // ribbonHome
             // 
             this.ribbonHome.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -2281,13 +2560,56 @@ namespace SampleApplication
             // 
             // ribbonDocument
             // 
+            this.ribbonDocument.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroupCurent,
+            this.ribbonPageGroup1});
             this.ribbonDocument.Name = "ribbonDocument";
             this.ribbonDocument.Text = "Document";
             // 
+            // ribbonPageGroupCurent
+            // 
+            this.ribbonPageGroupCurent.ItemLinks.Add(this.barEditItemDocument);
+            this.ribbonPageGroupCurent.ItemLinks.Add(this.barEditItemImage);
+            this.ribbonPageGroupCurent.ItemLinks.Add(this.barStaticItem4);
+            this.ribbonPageGroupCurent.ItemLinks.Add(this.barButtonItem2);
+            this.ribbonPageGroupCurent.ItemLinks.Add(this.barStaticItem5);
+            this.ribbonPageGroupCurent.ItemLinks.Add(this.barStaticItem6);
+            this.ribbonPageGroupCurent.Name = "ribbonPageGroupCurent";
+            this.ribbonPageGroupCurent.ShowCaptionButton = false;
+            this.ribbonPageGroupCurent.Text = "Current";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemDelete);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemDeleteToEnd);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.ShowCaptionButton = false;
+            this.ribbonPageGroup1.Text = "Corrections";
+            // 
             // ribbonRescan
             // 
+            this.ribbonRescan.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup2,
+            this.ribbonPageGroup3});
             this.ribbonRescan.Name = "ribbonRescan";
             this.ribbonRescan.Text = "Rescan";
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItemRescan);
+            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItemRescanMultiFeed);
+            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItemInsert);
+            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItemStop);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.ShowCaptionButton = false;
+            this.ribbonPageGroup2.Text = "Rescan";
+            // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItemRescanFlatbed);
+            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItemRescanFeeder);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.Text = "Rescan Settings";
             // 
             // ribbonVRSCorrections
             // 
@@ -2296,8 +2618,27 @@ namespace SampleApplication
             // 
             // ribbonJobSetup
             // 
+            this.ribbonJobSetup.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup4});
             this.ribbonJobSetup.Name = "ribbonJobSetup";
             this.ribbonJobSetup.Text = "Job Setup";
+            // 
+            // ribbonPageGroup4
+            // 
+            this.ribbonPageGroup4.ItemLinks.Add(this.barEditItemJob);
+            this.ribbonPageGroup4.ItemLinks.Add(this.barEditItemBatchPath);
+            this.ribbonPageGroup4.ItemLinks.Add(this.barEditItemNextBatchName);
+            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem7);
+            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem8);
+            this.ribbonPageGroup4.ItemLinks.Add(this.barStaticItem7);
+            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem9);
+            this.ribbonPageGroup4.ItemLinks.Add(this.barStaticItem8);
+            this.ribbonPageGroup4.ItemLinks.Add(this.barStaticItem9);
+            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem10);
+            this.ribbonPageGroup4.ItemLinks.Add(this.barStaticItem10);
+            this.ribbonPageGroup4.ItemLinks.Add(this.barStaticItem11);
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            this.ribbonPageGroup4.Text = "Destination";
             // 
             // ribbonBarCodeSetup
             // 
@@ -2323,6 +2664,14 @@ namespace SampleApplication
             this.ribbonPageGroup15.ShowCaptionButton = false;
             this.ribbonPageGroup15.Text = "Themes";
             // 
+            // ribbonStatusBar
+            // 
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemScanOne);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 565);
+            this.ribbonStatusBar.Name = "ribbonStatusBar";
+            this.ribbonStatusBar.Ribbon = this.ribbon;
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1059, 23);
+            // 
             // ribbonStatusBar2
             // 
             this.ribbonStatusBar2.Dock = System.Windows.Forms.DockStyle.None;
@@ -2332,14 +2681,6 @@ namespace SampleApplication
             this.ribbonStatusBar2.Name = "ribbonStatusBar2";
             this.ribbonStatusBar2.Ribbon = this.ribbon;
             this.ribbonStatusBar2.Size = new System.Drawing.Size(311, 23);
-            // 
-            // ribbonStatusBar
-            // 
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemScanOne);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 565);
-            this.ribbonStatusBar.Name = "ribbonStatusBar";
-            this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1059, 23);
             // 
             // dockManager1
             // 
@@ -2421,12 +2762,16 @@ namespace SampleApplication
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.OptionsView.ShowIndicator = false;
+            this.gridView1.ShowGridMenu += new DevExpress.XtraGrid.Views.Grid.GridMenuEventHandler(this.gridView1_ShowGridMenu);
             // 
             // gridColumnIcon
             // 
             this.gridColumnIcon.Caption = " ";
             this.gridColumnIcon.FieldName = "Icon";
             this.gridColumnIcon.Name = "gridColumnIcon";
+            this.gridColumnIcon.OptionsColumn.AllowEdit = false;
+            this.gridColumnIcon.OptionsColumn.AllowFocus = false;
+            this.gridColumnIcon.OptionsColumn.ReadOnly = true;
             this.gridColumnIcon.Visible = true;
             this.gridColumnIcon.VisibleIndex = 0;
             this.gridColumnIcon.Width = 20;
@@ -2445,6 +2790,9 @@ namespace SampleApplication
             this.gridColumnJobName.Caption = "Job Name";
             this.gridColumnJobName.FieldName = "JobName";
             this.gridColumnJobName.Name = "gridColumnJobName";
+            this.gridColumnJobName.OptionsColumn.AllowEdit = false;
+            this.gridColumnJobName.OptionsColumn.AllowFocus = false;
+            this.gridColumnJobName.OptionsColumn.ReadOnly = true;
             this.gridColumnJobName.Visible = true;
             this.gridColumnJobName.VisibleIndex = 2;
             this.gridColumnJobName.Width = 104;
@@ -2454,6 +2802,9 @@ namespace SampleApplication
             this.gridColumnDocuments.Caption = "Documents";
             this.gridColumnDocuments.FieldName = "Documents";
             this.gridColumnDocuments.Name = "gridColumnDocuments";
+            this.gridColumnDocuments.OptionsColumn.AllowEdit = false;
+            this.gridColumnDocuments.OptionsColumn.AllowFocus = false;
+            this.gridColumnDocuments.OptionsColumn.ReadOnly = true;
             this.gridColumnDocuments.Visible = true;
             this.gridColumnDocuments.VisibleIndex = 3;
             this.gridColumnDocuments.Width = 36;
@@ -2463,6 +2814,9 @@ namespace SampleApplication
             this.gridColumnPages.Caption = "Pages";
             this.gridColumnPages.FieldName = "Pages";
             this.gridColumnPages.Name = "gridColumnPages";
+            this.gridColumnPages.OptionsColumn.AllowEdit = false;
+            this.gridColumnPages.OptionsColumn.AllowFocus = false;
+            this.gridColumnPages.OptionsColumn.ReadOnly = true;
             this.gridColumnPages.Visible = true;
             this.gridColumnPages.VisibleIndex = 4;
             this.gridColumnPages.Width = 36;
@@ -2472,6 +2826,9 @@ namespace SampleApplication
             this.gridColumnStatus.Caption = "Status";
             this.gridColumnStatus.FieldName = "Status";
             this.gridColumnStatus.Name = "gridColumnStatus";
+            this.gridColumnStatus.OptionsColumn.AllowEdit = false;
+            this.gridColumnStatus.OptionsColumn.AllowFocus = false;
+            this.gridColumnStatus.OptionsColumn.ReadOnly = true;
             this.gridColumnStatus.Visible = true;
             this.gridColumnStatus.VisibleIndex = 5;
             this.gridColumnStatus.Width = 32;
@@ -2738,6 +3095,11 @@ namespace SampleApplication
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
@@ -2973,5 +3335,40 @@ namespace SampleApplication
         private BarCheckItem barCheckItemIgnoreHole;
         private BarEditItem barEditItemSmoothingTrackBar;
         private DevExpress.XtraEditors.Repository.RepositoryItemTrackBar repositoryItemTrackBar1;
+        private BarEditItem barEditItemDocument;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        private BarEditItem barEditItemImage;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
+        private BarStaticItem barStaticItem4;
+        private BarButtonItem barButtonItem2;
+        private BarStaticItem barStaticItem5;
+        private BarStaticItem barStaticItem6;
+        private RibbonPageGroup ribbonPageGroupCurent;
+        private BarButtonItem barButtonItemDelete;
+        private BarButtonItem barButtonItemDeleteToEnd;
+        private BarButtonItem barButtonItemRescan;
+        private BarButtonItem barButtonItemRescanMultiFeed;
+        private BarButtonItem barButtonItemInsert;
+        private BarButtonItem barButtonItemRescanFlatbed;
+        private RibbonPageGroup ribbonPageGroup1;
+        private RibbonPageGroup ribbonPageGroup2;
+        private RibbonPageGroup ribbonPageGroup3;
+        private BarButtonItem barButtonItemRescanFeeder;
+        private BarEditItem barEditItemJob;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit3;
+        private BarEditItem barEditItemBatchPath;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit4;
+        private BarEditItem barEditItemNextBatchName;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit5;
+        private RibbonPageGroup ribbonPageGroup4;
+        private BarButtonItem barButtonItem7;
+        private BarButtonItem barButtonItem8;
+        private BarStaticItem barStaticItem7;
+        private BarButtonItem barButtonItem9;
+        private BarStaticItem barStaticItem8;
+        private BarStaticItem barStaticItem9;
+        private BarButtonItem barButtonItem10;
+        private BarStaticItem barStaticItem10;
+        private BarStaticItem barStaticItem11;
     }
 }
