@@ -8,6 +8,7 @@ namespace SampleApplication
     public partial class MainForm : RibbonForm
     {
         private Sides? tempSides = null;
+        private ScanProfile scanProfile = ScanProfile.CurrentSetting;
 
         public MainForm()
         {
@@ -25,7 +26,7 @@ namespace SampleApplication
             SkinHelper.CreateGallery(ribbonGalleryBarItemThemes);
 
             SetupGroup();
-            SetScanSettingMode(ScanProfile.CurrentSetting.CurrentScanSettingMode,false);
+            SetScanSettingMode(scanProfile.CurrentScanSettingMode,false);
 
             LoadScanProfile();
             ribbon.Minimized = AppSetting.CurrentSetting.IsRibbonMinimized;
@@ -36,15 +37,19 @@ namespace SampleApplication
 
         private void LoadScanProfile()
         {
-            SetResolution(ScanProfile.CurrentSetting.ResolutionValue,false);
-            SetFeederMode(ScanProfile.CurrentSetting.CurrentFeeder,false);
-            SetPaperSize(ScanProfile.CurrentSetting.CurrentPaperSizeValue,false);
-            SetOrientation(ScanProfile.CurrentSetting.CurrentOrientation,false);
-            SetRotationFront(ScanProfile.CurrentSetting.FontRotation,false);
-            SetRotationBack(ScanProfile.CurrentSetting.BackRotation,false);
+            SetResolution(scanProfile.ResolutionValue,false);
+            SetFeederMode(scanProfile.CurrentFeeder,false);
+            SetPaperSize(scanProfile.CurrentPaperSizeValue,false);
+            SetOrientation(scanProfile.CurrentOrientation,false);
+            SetRotationFront(scanProfile.FontRotation,false);
+            SetRotationBack(scanProfile.BackRotation,false);
+            SetOutOfPaperResolve(scanProfile.OutOfPaperAutoResolve,false);
+            SetPaperJamResolve(scanProfile.PaperJamAutoResolve,false);
+            SetCoverOpenResolve(scanProfile.CoverOpenAutoResolve,false);
+            SetMultilFeedResolve(scanProfile.MultiFeedAutoResolve,false);
 
-            DeskewChangedState(ScanProfile.CurrentSetting.Desknew,false);
-            AutoCropChangedState(ScanProfile.CurrentSetting.AutoCrop,false);
+            DeskewChangedState(scanProfile.Desknew,false);
+            AutoCropChangedState(scanProfile.AutoCrop,false);
             BrightnessValueChanged(50);
         }
 
@@ -55,7 +60,7 @@ namespace SampleApplication
             AppSetting.CurrentSetting.ToolbarLocation = ribbon.ToolbarLocation;
             AppSetting.CurrentSetting.Save();
 
-            ScanProfile.CurrentSetting.Save();
+            scanProfile.Save();
         }
 
         private void ribbon_SelectedPageChanged(object sender, EventArgs e)
@@ -114,7 +119,7 @@ namespace SampleApplication
             VRSGeneralGroups.ForEach(p => p.Visible = modeVRSGeneral);
             VRSColorGroups.ForEach(p => p.Visible = modeVRSColor);
             if(autoSave)
-                ScanProfile.CurrentSetting.CurrentScanSettingMode = mode;
+                scanProfile.CurrentScanSettingMode = mode;
         }
         private void SetColorSettingMode(ColorMode mode, bool autoSave)
         {
@@ -127,14 +132,14 @@ namespace SampleApplication
             SetChecked(barButtonItemColor, modeColor);
 
             if (autoSave)
-                ScanProfile.CurrentSetting.CurrentColorMode = mode;
+                scanProfile.CurrentColorMode = mode;
         }
 
         private void SetResolution(int value,bool autoSave)
         {
             barEditItem2.EditValue = value;
             if (autoSave)
-                ScanProfile.CurrentSetting.ResolutionValue = value;
+                scanProfile.ResolutionValue = value;
         }
 
         private void SetFeederMode(FeederMode mode, bool autoSave)
@@ -146,7 +151,7 @@ namespace SampleApplication
             SetChecked(barButtonItemFlatbed, flatbedMode);
             SetEnable(barButtonItemBothSides, feederMode);
             if (autoSave)
-                ScanProfile.CurrentSetting.CurrentFeeder = mode;
+                scanProfile.CurrentFeeder = mode;
 
             if (flatbedMode) SetSides(Sides.OneSide,autoSave);
             if(feederMode && tempSides != null)SetSides(Sides.BothSides,autoSave);
@@ -154,7 +159,7 @@ namespace SampleApplication
         }
         private void SetSides(Sides mode, bool autoSave)
         {
-            if (mode == Sides.OneSide && ScanProfile.CurrentSetting.CurrentFeeder == FeederMode.Flatbed && ScanProfile.CurrentSetting.CurrentSides == Sides.BothSides)
+            if (mode == Sides.OneSide && scanProfile.CurrentFeeder == FeederMode.Flatbed && scanProfile.CurrentSides == Sides.BothSides)
                 tempSides = Sides.BothSides;
             else
                 tempSides = null;
@@ -162,13 +167,13 @@ namespace SampleApplication
             SetChecked(barButtonItemBothSides, mode == Sides.BothSides);
             SetVisible(barButtonItemBack, mode == Sides.BothSides);
             if (autoSave)
-                ScanProfile.CurrentSetting.CurrentSides = mode;
+                scanProfile.CurrentSides = mode;
         }
         private void SetPaperSize(string size, bool autoSave)
         {
             barEditItemSize.EditValue = size;
             if (autoSave) 
-                ScanProfile.CurrentSetting.CurrentPaperSizeValue = size;
+                scanProfile.CurrentPaperSizeValue = size;
         }
         private void SetOrientation(Orientation mode,bool autoSave)
         {
@@ -177,24 +182,7 @@ namespace SampleApplication
             SetChecked(barButtonItemLandscape,modeLandscape);
             SetChecked(barButtonItemPortrait,modePortrait);
             if (autoSave) 
-                ScanProfile.CurrentSetting.CurrentOrientation = mode;
-        }
-        private void DeskewChangedState(bool isChecked, bool autoSave)
-        {
-            barButtonItemDeskew.Down
-            = barButtonItemAutoCrop.Enabled
-                = barButtonItemEdgeCleanup.Enabled
-                  = barButtonItemAutoRotate.Enabled
-                    =isChecked;
-            if (autoSave)
-                ScanProfile.CurrentSetting.Desknew = isChecked;
-        }
-
-        private void AutoCropChangedState(bool isChecked, bool autoSave)
-        {
-            SetChecked(barButtonItemAutoCrop,isChecked);
-            if (autoSave)
-                ScanProfile.CurrentSetting.AutoCrop = isChecked;
+                scanProfile.CurrentOrientation = mode;
         }
 
         private void BrightnessValueChanged(int value)
@@ -228,7 +216,7 @@ namespace SampleApplication
                 barButtonItemFront.Glyph = barCheckItemFront180.Glyph;
                 barButtonItemFront.LargeGlyph = barCheckItemFront180.Glyph;
             }
-            ScanProfile.CurrentSetting.FontRotation = rotation;
+            scanProfile.FontRotation = rotation;
 
             SetRotationBack(rotation, autoSave);
             
@@ -261,13 +249,52 @@ namespace SampleApplication
                 barButtonItemBack.LargeGlyph = barCheckItemBack180.Glyph;
             }
             if(autoSave)
-                ScanProfile.CurrentSetting.BackRotation = rotation;
+                scanProfile.BackRotation = rotation;
         }
-        private void SetOutOfPaperResolve(bool isChecked)
+        private void SetOutOfPaperResolve(bool isChecked,bool autoSave)
         {
-            if(ScanProfile.CurrentSetting.OutOfPaperAutoResolve)
-                SetChecked(barCheckItemOutOfPaper, isChecked);
+            SetChecked(barCheckItemOutOfPaper, isChecked);
+            if (autoSave) 
+                scanProfile.OutOfPaperAutoResolve = isChecked;
+
         }
+        private void SetPaperJamResolve(bool isChecked, bool autoSave)
+        {
+            SetChecked(barCheckItemPaperJam, isChecked);
+            if (autoSave)
+                scanProfile.PaperJamAutoResolve = isChecked;
+        }
+        private void SetCoverOpenResolve(bool isChecked, bool autoSave)
+        {
+            SetChecked(barCheckItemCoverOpen, isChecked);
+            if (autoSave)
+                scanProfile.CoverOpenAutoResolve = isChecked;
+        }
+        private void SetMultilFeedResolve(bool isChecked, bool autoSave)
+        {
+            SetChecked(barCheckItemMultifeed, isChecked);
+            if (autoSave)
+                scanProfile.MultiFeedAutoResolve = isChecked;
+        }
+
+        private void DeskewChangedState(bool isChecked, bool autoSave)
+        {
+            barButtonItemDeskew.Down
+            = barButtonItemAutoCrop.Enabled
+                = barButtonItemEdgeCleanup.Enabled
+                  = barButtonItemAutoRotate.Enabled
+                    = isChecked;
+            if (autoSave)
+                scanProfile.Desknew = isChecked;
+        }
+
+        private void AutoCropChangedState(bool isChecked, bool autoSave)
+        {
+            SetChecked(barButtonItemAutoCrop, isChecked);
+            if (autoSave)
+                scanProfile.AutoCrop = isChecked;
+        }
+
         private void barButtonItemDeskew_ItemClick(object sender, ItemClickEventArgs e)
         {
             DeskewChangedState(IsChecked(e.Item), true);
@@ -327,6 +354,7 @@ namespace SampleApplication
         private void barButtonItemResetScanSetting_ItemClick(object sender, ItemClickEventArgs e)
         {
             ScanProfile.Reload();
+            scanProfile = ScanProfile.CurrentSetting;
             LoadScanProfile();
         }
 
@@ -363,6 +391,32 @@ namespace SampleApplication
         private void barCheckItemBack180_ItemClick(object sender, ItemClickEventArgs e)
         {
             SetRotationBack(Rotation.Rotate180, true);
+        }
+
+        private void barCheckItemOutOfPaper_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetOutOfPaperResolve(((BarCheckItem)e.Item).Checked,true);
+        }
+
+        private void barCheckItemPaperJam_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetPaperJamResolve(((BarCheckItem)e.Item).Checked, true);
+        }
+
+        private void barCheckItemCoverOpen_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetCoverOpenResolve(((BarCheckItem)e.Item).Checked, true);
+        }
+
+        private void barCheckItemMultifeed_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetMultilFeedResolve(((BarCheckItem)e.Item).Checked, true);
+        }
+
+        private void barButtonItemSelectScanner_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var frm = new frmSelectScanner();
+            frm.ShowDialog();
         }
     }
 }
