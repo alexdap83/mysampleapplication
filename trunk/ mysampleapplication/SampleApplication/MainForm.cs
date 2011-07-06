@@ -79,12 +79,15 @@ namespace SampleApplication
             SetAutoBrightness(scanProfile.AutoBrightness, false);
             SetAdvancedClarity(scanProfile.AdvanceClarity, false);
             SetAdvancedClarityValue(scanProfile.AdvanceClarityValue, false);
+            SetAnalyzeColor(scanProfile.AnalyzeColor, false);
+            SetIgnorePicture(scanProfile.IgnorePicture, false);
             SetThicknessValue(scanProfile.Thickness,false);
             SetSpeckleValue(scanProfile.Speckle,false);
 
             SetDetectColor(scanProfile.DetectColor, false);
             SetSmoothing(scanProfile.Smoothing,false);
 
+            SetRawImageType(scanProfile.RawImageType, false);
         }
         private void LoadBatches()
         {
@@ -245,10 +248,10 @@ namespace SampleApplication
 
         private void SetAdvancedClarity(bool isChecked, bool autoSave)
         {
-            SetChecked(barEditItemAdvancedClarity,isChecked);
-            SetEnable(barButtonItemAdvancedClaritySetup,isChecked);
-            SetEnable(barEditItemClarityValue,isChecked);
-            SetEnable(barStaticItemHight,isChecked);
+            SetChecked(barEditItemAdvancedClarity, isChecked);
+            SetEnable(barButtonItemAdvancedClaritySetup, isChecked && scanProfile.CurrentColorMode == ColorMode.BlackAndWhite);
+            SetEnable(barEditItemClarityValue, isChecked && scanProfile.CurrentColorMode == ColorMode.BlackAndWhite);
+            SetEnable(barStaticItemHight, isChecked && scanProfile.CurrentColorMode == ColorMode.BlackAndWhite);
 
             SetEnable(barEditItemBrightness,!isChecked&& !scanProfile.AutoBrightness);
             SetEnable(barEditItemBrightnessValue, !isChecked && !scanProfile.AutoBrightness);
@@ -574,7 +577,7 @@ namespace SampleApplication
                 tempColorMode = scanProfile.CurrentColorMode;
                 SetColorSettingMode(ColorMode.Color,true);
             }
-            else
+            else if (autoSave)
             {
                 SetColorSettingMode(tempColorMode,true);
             }
@@ -606,8 +609,7 @@ namespace SampleApplication
             SetEnable(barStaticItemSmoothing, isCheck);
             SetEnable(barEditItemSmoothingValue, isCheck);
 
-            scanProfile.DetectColor = isCheck;
-            if (autoSave)
+           if (autoSave)
                 scanProfile.Smoothing = isCheck;
         }
 
@@ -967,6 +969,65 @@ namespace SampleApplication
         private void repositoryItemZoomTrackBar1_EditValueChanged(object sender, EventArgs e)
         {
             SetZoomValue(((ZoomTrackBarControl)sender).Value,true);
+        }
+        private void SetAnalyzeColor(bool isChecked, bool autoSave)
+        {
+            SetChecked(barCheckItemAnalyzeColor,isChecked);
+            if (autoSave)
+                scanProfile.AnalyzeColor = isChecked;
+        }
+        private void SetIgnorePicture(bool isChecked, bool autoSave)
+        {
+            SetChecked(barCheckItemIgnorePicture, isChecked);
+            if (autoSave)
+                scanProfile.IgnorePicture = isChecked;
+        }
+        private void barCheckItemAnalyzeColor_CheckedChanged(object sender, ItemClickEventArgs e)
+        {
+            var item = (BarCheckItem)sender;
+            SetAnalyzeColor(item.Checked, true);
+        }
+
+        private void barCheckItemIgnorePicture_CheckedChanged(object sender, ItemClickEventArgs e)
+        {
+            var item = (BarCheckItem)sender;
+            SetIgnorePicture(item.Checked, true);
+        }
+        private void SetRawImageType(RawImageType type, bool autoSave)
+        {
+            if(type == RawImageType.Color)
+            {
+                SetChecked(barButtonItemRawColorColor, true);
+                barButtonItemRawColor.LargeGlyph = barButtonItemRawColorColor.Glyph;
+                barButtonItemRawColor.Caption = barButtonItemRawColorColor.Caption;
+            }
+            else if(type == RawImageType.Grayscale)
+            {
+                SetChecked(barCheckItemRawColorGrayscale, true);
+                barButtonItemRawColor.LargeGlyph = barCheckItemRawColorGrayscale.Glyph;
+                barButtonItemRawColor.Caption = barCheckItemRawColorGrayscale.Caption;
+            }
+            else if(type == RawImageType.Off)
+            {
+                SetChecked(barCheckItemRawColorOff, true);
+                barButtonItemRawColor.LargeGlyph = barCheckItemRawColorOff.Glyph;
+                barButtonItemRawColor.Caption = barCheckItemRawColorOff.Caption;
+            }
+            if (autoSave)
+                scanProfile.RawImageType = type;
+        }
+
+        private void barCheckItemRawColorOff_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetRawImageType(RawImageType.Off, true);
+        } 
+        private void barCheckItemRawColorColor_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetRawImageType(RawImageType.Color, true);
+        }       
+        private void barCheckItemRawColorGrayscale_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetRawImageType(RawImageType.Grayscale, true);
         }
     }
 }
