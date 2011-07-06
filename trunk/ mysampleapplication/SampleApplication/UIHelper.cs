@@ -42,10 +42,6 @@ namespace SampleApplication
         //        return item.Down;
         //}
 
-        void SetEnable(BarButtonItem item, bool isEnable)
-        {
-            item.Enabled = isEnable;
-        }
         void SetEnable(BarItem item, bool isEnable)
         {
             item.Enabled = isEnable;
@@ -73,11 +69,11 @@ namespace SampleApplication
         {
             group.Visible = isVisible;
         }
-        void SetVisible(BarButtonItem item, bool isVisible)
+
+        private void SetVisible(BarItem item, bool isVisible)
         {
             item.Visibility = isVisible ? BarItemVisibility.Always : BarItemVisibility.Never;
         }
-
         bool IsVisible(RibbonPageGroup group)
         {
             return group.Visible;
@@ -87,5 +83,30 @@ namespace SampleApplication
         {
             ribbon.SelectedPage = ribbon.Pages[pageIndex];
         }
+
+        private BarItem GetItemFromName(string name)
+        {
+            return ribbon.Items.Cast<BarItem>().FirstOrDefault(item => item.Name == name);
+            //foreach (BarItem item in ribbon.Items)
+            //{
+            //    if (item.Name == name)
+            //        return item;
+            //}
+            //return null;
+        }
+        private List<string> GetQuickAccessItemName()
+        {
+            return (from BarButtonItemLink item in ribbon.Toolbar.ItemLinks
+                    where !DefaultQuickAccess.Contains(item.Item)
+                    select item.Item.Name).ToList();
+        }
+        private void AddQuickAccessItem()
+        {
+            foreach (string s in AppSetting.CurrentSetting.QuickAccessItem)
+            {
+                ribbon.Toolbar.ItemLinks.Add(GetItemFromName(s));
+            }
+        }
+
     }
 }

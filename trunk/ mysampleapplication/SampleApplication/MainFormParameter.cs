@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 
 namespace SampleApplication
@@ -9,7 +10,7 @@ namespace SampleApplication
         private readonly List<RibbonPageGroup> VRSColorGroups = new List<RibbonPageGroup>();
         private readonly List<RibbonPageGroup> VRSGeneralGroups = new List<RibbonPageGroup>();
 
-        private void SetupGroup()
+        private void SetupUI()
         {
             ScannerGroups.Add(ribbonPageGroupDetail);
             ScannerGroups.Add(ribbonPageGroupFeeder);
@@ -26,6 +27,10 @@ namespace SampleApplication
 
             VRSColorGroups.Add(ribbonPageGroupColorDetection);
             VRSColorGroups.Add(ribbonPageGroupBackground);
+
+            DefaultQuickAccess.Add(this.barButtonItemScanOne);
         }
+
+        private List<BarItem> DefaultQuickAccess= new List<BarItem>();
     }
 }
