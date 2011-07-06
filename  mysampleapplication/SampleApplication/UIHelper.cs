@@ -102,6 +102,7 @@ namespace SampleApplication
         }
         private void AddQuickAccessItem()
         {
+            if (AppSetting.CurrentSetting.QuickAccessItem == null) return;
             foreach (string s in AppSetting.CurrentSetting.QuickAccessItem)
             {
                 ribbon.Toolbar.ItemLinks.Add(GetItemFromName(s));
