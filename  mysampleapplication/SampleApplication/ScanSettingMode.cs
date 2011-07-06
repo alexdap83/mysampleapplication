@@ -92,4 +92,11 @@ namespace SampleApplication
         Pan,
         Draw
     }
+
+    public enum RawImageType
+    {
+        Color,
+        Grayscale,
+        Off
+    }
 }
