@@ -28,7 +28,11 @@ namespace SampleApplication
             VRSColorGroups.Add(ribbonPageGroupColorDetection);
             VRSColorGroups.Add(ribbonPageGroupBackground);
 
-            DefaultQuickAccess.Add(this.barButtonItemScanOne);
+            DefaultQuickAccess.Add(this.barButtonItemCut);
+            DefaultQuickAccess.Add(this.barButtonItemCopy);
+            DefaultQuickAccess.Add(this.barButtonItemPaste);
+            DefaultQuickAccess.Add(this.barButtonItemUndo);
+            DefaultQuickAccess.Add(this.barButtonItemRedo);
         }
 
         private List<BarItem> DefaultQuickAccess= new List<BarItem>();

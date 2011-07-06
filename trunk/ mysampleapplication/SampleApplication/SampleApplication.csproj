@@ -101,6 +101,9 @@
     <EmbeddedResource Include="RibbonForm1.resx">
       <DependentUpon>RibbonForm1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="userUndoRedo.resx">
+      <DependentUpon>userUndoRedo.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -130,6 +133,12 @@
     <Compile Include="SkinHelper.cs" />
     <Compile Include="UIHelper.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="userUndoRedo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="userUndoRedo.Designer.cs">
+      <DependentUpon>userUndoRedo.cs</DependentUpon>
     </Compile>
     <Compile Include="XMLData.cs" />
   </ItemGroup>

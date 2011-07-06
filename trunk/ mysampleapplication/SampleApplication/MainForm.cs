@@ -6,6 +6,7 @@ using CustomCheckAndDropDownButton;
 using DevExpress.LookAndFeel;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
+using DevExpress.XtraBars.Ribbon.ViewInfo;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
@@ -142,6 +143,16 @@ namespace SampleApplication
             scanProfile.Save();
         }
 
+        private void simpleButtonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void userUndoRedo1_Selected(object sender, SelectedEventArgs e)
+        {
+            barStaticItemStatus.Caption = string.Format("Undo lai: {0}", e.SelectedIndex);
+            popupControlContainerUndoRedo.HidePopup();
+        }
         private void ribbon_SelectedPageChanged(object sender, EventArgs e)
         {
             if (ribbon.SelectedPage.Name == "ribbonScanSettings")
@@ -832,7 +843,7 @@ namespace SampleApplication
 
         private void ribbon_ShowCustomizationMenu(object sender, RibbonCustomizationMenuEventArgs e)
         {
-            if (e.HitInfo !=null && e.HitInfo.Item !=null && e.HitInfo.HitTest == DevExpress.XtraBars.Ribbon.ViewInfo.RibbonHitTest.Item && e.HitInfo.Item.Caption == "Scan One")
+            if (e.HitInfo !=null && e.HitInfo.Item !=null && (e.HitInfo.HitTest == DevExpress.XtraBars.Ribbon.ViewInfo.RibbonHitTest.Item || e.HitInfo.HitTest == RibbonHitTest.ItemDrop) && DefaultQuickAccess.Contains( e.HitInfo.Item.Item))
             {
                 e.CustomizationMenu.ItemLinks[1].Item.Enabled = false;
                 return;
@@ -1029,5 +1040,7 @@ namespace SampleApplication
         {
             SetRawImageType(RawImageType.Grayscale, true);
         }
+
+
     }
 }
