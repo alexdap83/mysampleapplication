@@ -73,6 +73,23 @@ namespace SampleApplication
         Maximum,
         Minimum
     }
-
-
+    public enum ViewerType
+    {
+        CompactThumbnail,
+        Thumbnail,
+        Single
+    }
+    public enum FitType
+    {
+        Page,
+        Horizonal,
+        Vertical,
+        View100
+    }
+    public enum CursorType
+    {
+        Zoom,
+        Pan,
+        Draw
+    }
 }

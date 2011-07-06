@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using CustomCheckAndDropDownButton;
+using DevExpress.LookAndFeel;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
@@ -24,23 +26,31 @@ namespace SampleApplication
 
         protected override void OnLoad(EventArgs e)
         {
+
             arMRUList = new MRUArrayList(pcAppRecentJobs, imageList1.Images[0], imageList1.Images[1]);
             arMRUList.LabelClicked += OnLabelClicked;
             InitMostRecentJobs(arMRUList);
 
-            ribbon.ForceInitialize(); // Fix error: skin gallery not show until click on dropdown
-            SkinHelper.CreateGallery(ribbonGalleryBarItemThemes);
 
-            SetupGroup();
-            SetScanSettingMode(scanProfile.CurrentScanSettingMode,false);
+            UserLookAndFeel.Default.SetSkinStyle(AppSetting.CurrentSetting.Theme);
+            SetupUI();
+            SetScanSettingMode(scanProfile.CurrentScanSettingMode, false);
 
-            LoadScanProfile();
             this.WindowState = AppSetting.CurrentSetting.WindowState;
             ribbon.Minimized = AppSetting.CurrentSetting.IsRibbonMinimized;
             ribbon.ToolbarLocation = AppSetting.CurrentSetting.ToolbarLocation;
-            //SetSelectedPage(AppSetting.CurrentSetting.SelectedPageIndex);
+            AddQuickAccessItem();
+            SetCursorType(CursorType.Zoom);
+            SetFitType(AppSetting.CurrentSetting.CurrentFitType, false);
+            SetViewerType(AppSetting.CurrentSetting.CurrentViewType, false);
+            SetZoomValue(AppSetting.CurrentSetting.CurrentZoomValue, false);
+            LoadScanProfile();
+
             SetSelectedPage(0); // Allways show Home Tab
             LoadBatches();
+            ribbon.ForceInitialize(); // Fix error: skin gallery not show until click on dropdown
+            SkinHelper.CreateGallery(ribbonGalleryBarItemThemes);
+            
         }
 
         private void LoadScanProfile()
@@ -78,11 +88,42 @@ namespace SampleApplication
         }
         private void LoadBatches()
         {
-            var list = new List<Batch>();
-            list.Add(new Batch{Icon = null,BatchName = "Batch002",JobName = "Job1",Documents = 2,Pages = 5,Status = string.Empty});
-            list.Add(new Batch{Icon = null,BatchName = "Batch003",JobName = "Job1",Documents = 2,Pages = 5,Status = string.Empty});
-            list.Add(new Batch{Icon = null,BatchName = "Batch004",JobName = "Job1",Documents = 2,Pages = 5,Status = string.Empty});
+            var list = new List<Batch>
+                           {
+                               new Batch
+                                   {
+                                       Icon = 0,
+                                       BatchName = "Batch002",
+                                       JobName = "Job1",
+                                       Documents = 2,
+                                       Pages = 5,
+                                       Status = string.Empty
+                                   },
+                               new Batch
+                                   {
+                                       Icon = 1,
+                                       BatchName = "Batch003",
+                                       JobName = "Job1",
+                                       Documents = 2,
+                                       Pages = 5,
+                                       Status = string.Empty
+                                   },
+                               new Batch
+                                   {
+                                       Icon = 0,
+                                       BatchName = "Batch004",
+                                       JobName = "Job1",
+                                       Documents = 2,
+                                       Pages = 5,
+                                       Status = string.Empty
+                                   }
+                           };
             gridControl1.DataSource = list;
+            gridControl2.DataSource = new List<Performance>
+                                          {
+                                             new Performance {Title = "Document", Value = "123"},
+                                             new Performance {Title = "Image", Value = "24"}
+                                          };
         }
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
@@ -90,6 +131,8 @@ namespace SampleApplication
             AppSetting.CurrentSetting.SelectedPageIndex = ribbon.SelectedPage.PageIndex;
             AppSetting.CurrentSetting.ToolbarLocation = ribbon.ToolbarLocation;
             AppSetting.CurrentSetting.WindowState = this.WindowState;
+            AppSetting.CurrentSetting.QuickAccessItem = GetQuickAccessItemName();
+            AppSetting.CurrentSetting.Theme = UserLookAndFeel.Default.SkinName;
             AppSetting.CurrentSetting.Save();
             
 
@@ -783,6 +826,147 @@ namespace SampleApplication
             GridHitInfo hitInfo = view.CalcHitInfo(e.Point);
             if(hitInfo.InRow)
                 popupMenu2.ShowPopup(MousePosition);
+        }
+
+        private void ribbon_ShowCustomizationMenu(object sender, RibbonCustomizationMenuEventArgs e)
+        {
+            if (e.HitInfo !=null && e.HitInfo.Item !=null && e.HitInfo.HitTest == DevExpress.XtraBars.Ribbon.ViewInfo.RibbonHitTest.Item && e.HitInfo.Item.Caption == "Scan One")
+            {
+                e.CustomizationMenu.ItemLinks[1].Item.Enabled = false;
+                return;
+            }
+            e.CustomizationMenu.ItemLinks[1].Item.Enabled = true;
+        }
+
+        private void barButtonItemIndexing_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetIndexingMode(IsChecked((BarButtonItem) e.Item));
+        }
+
+        private void SetIndexingMode(bool isChecked)
+        {
+            ribbonPageGroupZonalOCR.Visible = isChecked;
+            SetEnable(barButtonItemNewBatch,!isChecked);
+            SetEnable(barButtonItemScanOne, !isChecked);
+            SetEnable(barButtonItemScanAll, !isChecked);
+            SetEnable(barButtonItemNewDocument, !isChecked);
+            SetEnable(barButtonItemSplitDocument, !isChecked);
+
+            
+            SetVisible(barEditItemScanProfile,!isChecked);
+            SetVisible(barButtonItemNewScanProfile,!isChecked);
+            SetVisible(barButtonItemSaveScanProfile,!isChecked);
+            SetVisible(barButtonItemSaveScanProfileAs,!isChecked);
+            SetVisible(barButtonItemRenameScanProfile,!isChecked);
+            SetVisible(barButtonItemDeleteScanProfile,!isChecked);
+            SetVisible(barButtonItemIndexFristDocument,isChecked);
+            SetVisible(barButtonItemPreviousDocument,isChecked);
+            SetVisible(barButtonItemNextDocument,isChecked);
+            SetVisible(barButtonItemLastDocument,isChecked);
+            SetVisible(barButtonItemNextIncomplete,isChecked);
+
+            SetViewerType(isChecked ? ViewerType.Single : AppSetting.CurrentSetting.CurrentViewType, false);
+        }
+        private void SetViewerType(ViewerType type,bool autoSave)
+        {
+            bool isCompact = type == ViewerType.CompactThumbnail;
+            bool isThumbnail = type == ViewerType.Thumbnail;
+            bool isSingle = type == ViewerType.Single;
+            SetChecked(barButtonItemCompactThumbnailView,isCompact);
+            SetChecked(barButtonItemThumbnailView,isThumbnail);
+            SetChecked(barButtonItemSingleView,isSingle);
+            SetVisible(barButtonItemZoom,isSingle);
+            SetVisible(barButtonItemPan, isSingle);
+            SetVisible(barButtonItemDrawZone, isSingle && barButtonItemIndexing.Down);
+            SetVisible(barButtonItemPageFit, isSingle);
+            SetVisible(barButtonItemHorizontalFit, isSingle);
+            SetVisible(barButtonItemVerticalFit, isSingle);
+            SetVisible(barButtonItem100View, isSingle);
+            ribbonStatusBar.Refresh();
+            if (autoSave)
+                AppSetting.CurrentSetting.CurrentViewType = type;
+        }
+
+        private void barButtonItemCompactThumbnailView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetViewerType(ViewerType.CompactThumbnail,true);
+        }
+
+        private void barButtonItemThumbnailView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetViewerType(ViewerType.Thumbnail,true);
+        }
+
+        private void barButtonItemSingleView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetViewerType(ViewerType.Single,true);
+        }
+
+        private void SetCursorType(CursorType type)
+        {
+            bool isZoom = type == CursorType.Zoom;
+            bool isPan = type == CursorType.Pan;
+            bool isDraw = type == CursorType.Draw;
+            SetChecked(barButtonItemZoom, isZoom);
+            SetChecked(barButtonItemPan, isPan);
+            SetChecked(barButtonItemDrawZone, isDraw);
+        }
+
+        private void barButtonItemZoom_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetCursorType(CursorType.Zoom);
+        }
+
+        private void barButtonItemPan_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetCursorType(CursorType.Pan);
+        }
+
+        private void barButtonItemDrawZone_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetCursorType(CursorType.Draw);
+        }
+
+        private void SetFitType(FitType type, bool autoSave)
+        {
+            bool isPageFit = type == FitType.Page;
+            bool isHorizonal = type == FitType.Horizonal;
+            bool isVertical = type == FitType.Vertical;
+            bool isView100 = type == FitType.View100;
+            SetChecked(barButtonItemPageFit,isPageFit);
+            SetChecked(barButtonItemHorizontalFit,isHorizonal);
+            SetChecked(barButtonItemVerticalFit,isVertical);
+            SetChecked(barButtonItem100View,isView100);
+            if(autoSave)
+                AppSetting.CurrentSetting.CurrentFitType = type;
+        }
+        private void SetZoomValue(int value, bool autoSave)
+        {
+            barEditItemZoomTrackBar.Caption = value.ToString().PadLeft(5) + " %";
+            barEditItemZoomTrackBar.EditValue = value;
+            if (autoSave)
+                AppSetting.CurrentSetting.CurrentZoomValue = value;
+        }
+        private void barButtonItemPageFit_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetFitType(FitType.Page, true);
+        }
+        private void barButtonItemHorizonalFit_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetFitType(FitType.Horizonal, true);
+        }
+        private void barButtonItemVerticalFit_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetFitType(FitType.Vertical, true);
+        }
+        private void barButtonItem100View_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetFitType(FitType.View100, true);
+        }
+
+        private void repositoryItemZoomTrackBar1_EditValueChanged(object sender, EventArgs e)
+        {
+            SetZoomValue(((ZoomTrackBarControl)sender).Value,true);
         }
     }
 }

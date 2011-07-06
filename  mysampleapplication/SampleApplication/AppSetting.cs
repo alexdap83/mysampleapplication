@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
 using DevExpress.XtraBars.Ribbon;
 
 namespace SampleApplication
@@ -10,6 +11,11 @@ namespace SampleApplication
         public bool IsRibbonMinimized { get; set; }
         public RibbonQuickAccessToolbarLocation ToolbarLocation { get; set; }
         public int SelectedPageIndex { get; set; }
+        public List<string> QuickAccessItem { get; set; }
+        public string Theme { get; set; }
+        public ViewerType CurrentViewType { get; set; }
+        public FitType CurrentFitType { get; set; }
+        public int CurrentZoomValue { get; set; }
         private FormWindowState _windowState;
         public FormWindowState WindowState
         {
@@ -18,6 +24,7 @@ namespace SampleApplication
                 _windowState = value == FormWindowState.Minimized ? FormWindowState.Normal : value;
             }
         }
+        
 
         #endregion
 
@@ -41,5 +48,7 @@ namespace SampleApplication
                 return _currentSetting;
             }
         }
+
+        
     }
 }
