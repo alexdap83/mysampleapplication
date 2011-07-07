@@ -9,11 +9,21 @@ using DevExpress.XtraEditors;
 
 namespace SampleApplication
 {
-    public partial class frmSelectScanner : XtraForm
+    public sealed partial class frmSelectScanner : XtraForm
     {
         public frmSelectScanner()
         {
             InitializeComponent();
+        }
+
+        private void frmSelectScanner_Load(object sender, EventArgs e)
+        {
+            listBoxControlScanner.SetSelected(0,true);
+        }
+
+        private void listBoxControlScanner_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

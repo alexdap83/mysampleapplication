@@ -42,6 +42,10 @@ namespace SampleApplication
         public PatchCodeType PatchCode { get; set; }
         public bool WhenBarCodeChange { get; set; }
         public BarCodeType BarCode { get; set; }
+        public bool IsDeleteFirstPage { get; set; }
+        public bool IsDeleteBatchAfterExport { get; set; }
+        public bool IsCreateNewBatchAfterExport { get; set; }
+        public bool IsBackgroundExport { get; set; }
         public List<BarCodeType> BarCodeTypes { get; set; }
         public bool Checksum { get; set; }
         public int MinimumLength { get; set; }

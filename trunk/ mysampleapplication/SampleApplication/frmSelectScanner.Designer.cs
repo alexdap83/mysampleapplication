@@ -1,6 +1,6 @@
 namespace SampleApplication
 {
-    partial class frmSelectScanner
+    sealed partial class frmSelectScanner
     {
         /// <summary>
         /// Required designer variable.
@@ -28,22 +28,20 @@ namespace SampleApplication
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.listBoxControl1 = new DevExpress.XtraEditors.ListBoxControl();
+            this.listBoxControlScanner = new DevExpress.XtraEditors.ListBoxControl();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControlScanner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
@@ -61,7 +59,7 @@ namespace SampleApplication
             this.layoutControl1.Controls.Add(this.simpleButton4);
             this.layoutControl1.Controls.Add(this.simpleButton3);
             this.layoutControl1.Controls.Add(this.simpleButton2);
-            this.layoutControl1.Controls.Add(this.listBoxControl1);
+            this.layoutControl1.Controls.Add(this.listBoxControlScanner);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -72,40 +70,43 @@ namespace SampleApplication
             // 
             // simpleButton4
             // 
-            this.simpleButton4.Location = new System.Drawing.Point(306, 239);
+            this.simpleButton4.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.simpleButton4.Location = new System.Drawing.Point(278, 239);
             this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(61, 22);
+            this.simpleButton4.Size = new System.Drawing.Size(89, 22);
             this.simpleButton4.StyleController = this.layoutControl1;
             this.simpleButton4.TabIndex = 7;
             this.simpleButton4.Text = "Cancel";
             // 
             // simpleButton3
             // 
-            this.simpleButton3.Location = new System.Drawing.Point(220, 239);
+            this.simpleButton3.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.simpleButton3.Location = new System.Drawing.Point(178, 239);
             this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(75, 22);
+            this.simpleButton3.Size = new System.Drawing.Size(89, 22);
             this.simpleButton3.StyleController = this.layoutControl1;
             this.simpleButton3.TabIndex = 6;
             this.simpleButton3.Text = "OK";
             // 
             // simpleButton2
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(102, 239);
+            this.simpleButton2.Location = new System.Drawing.Point(78, 239);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(107, 22);
+            this.simpleButton2.Size = new System.Drawing.Size(89, 22);
             this.simpleButton2.StyleController = this.layoutControl1;
             this.simpleButton2.TabIndex = 5;
             this.simpleButton2.Text = "Retry";
             // 
-            // listBoxControl1
+            // listBoxControlScanner
             // 
-            this.listBoxControl1.Items.AddRange(new object[] {
+            this.listBoxControlScanner.Items.AddRange(new object[] {
             "FolderScan"});
-            this.listBoxControl1.Location = new System.Drawing.Point(7, 7);
-            this.listBoxControl1.Name = "listBoxControl1";
-            this.listBoxControl1.Size = new System.Drawing.Size(360, 221);
-            this.listBoxControl1.StyleController = this.layoutControl1;
-            this.listBoxControl1.TabIndex = 4;
+            this.listBoxControlScanner.Location = new System.Drawing.Point(7, 7);
+            this.listBoxControlScanner.Name = "listBoxControlScanner";
+            this.listBoxControlScanner.Size = new System.Drawing.Size(360, 221);
+            this.listBoxControlScanner.StyleController = this.layoutControl1;
+            this.listBoxControlScanner.TabIndex = 4;
+            this.listBoxControlScanner.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxControlScanner_MouseDoubleClick);
             // 
             // layoutControlGroup1
             // 
@@ -125,7 +126,7 @@ namespace SampleApplication
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.listBoxControl1;
+            this.layoutControlItem1.Control = this.listBoxControlScanner;
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
@@ -141,7 +142,7 @@ namespace SampleApplication
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 232);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(95, 33);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(71, 33);
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -149,9 +150,9 @@ namespace SampleApplication
             // 
             this.layoutControlItem2.Control = this.simpleButton2;
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem2.Location = new System.Drawing.Point(95, 232);
+            this.layoutControlItem2.Location = new System.Drawing.Point(71, 232);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(118, 33);
+            this.layoutControlItem2.Size = new System.Drawing.Size(100, 33);
             this.layoutControlItem2.Text = "layoutControlItem2";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Left;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
@@ -162,11 +163,11 @@ namespace SampleApplication
             // 
             this.layoutControlItem3.Control = this.simpleButton3;
             this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem3.Location = new System.Drawing.Point(213, 232);
+            this.layoutControlItem3.Location = new System.Drawing.Point(171, 232);
             this.layoutControlItem3.MaxSize = new System.Drawing.Size(0, 33);
             this.layoutControlItem3.MinSize = new System.Drawing.Size(38, 33);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(86, 33);
+            this.layoutControlItem3.Size = new System.Drawing.Size(100, 33);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem3.Text = "layoutControlItem3";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Left;
@@ -179,11 +180,11 @@ namespace SampleApplication
             this.layoutControlItem4.Control = this.simpleButton4;
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
             this.layoutControlItem4.FillControlToClientArea = false;
-            this.layoutControlItem4.Location = new System.Drawing.Point(299, 232);
+            this.layoutControlItem4.Location = new System.Drawing.Point(271, 232);
             this.layoutControlItem4.MaxSize = new System.Drawing.Size(0, 33);
             this.layoutControlItem4.MinSize = new System.Drawing.Size(56, 33);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(72, 33);
+            this.layoutControlItem4.Size = new System.Drawing.Size(100, 33);
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.Text = "layoutControlItem4";
             this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Left;
@@ -191,16 +192,14 @@ namespace SampleApplication
             this.layoutControlItem4.TextToControlDistance = 0;
             this.layoutControlItem4.TextVisible = false;
             // 
-            // defaultLookAndFeel1
-            // 
-            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Blue";
-            // 
             // frmSelectScanner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(373, 267);
             this.Controls.Add(this.layoutControl1);
+            this.LookAndFeel.SkinName = "iMaginary";
+            this.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmSelectScanner";
@@ -208,9 +207,10 @@ namespace SampleApplication
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Select Scanner";
+            this.Load += new System.EventHandler(this.frmSelectScanner_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControlScanner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
@@ -228,12 +228,11 @@ namespace SampleApplication
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.ListBoxControl listBoxControl1;
+        private DevExpress.XtraEditors.ListBoxControl listBoxControlScanner;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
     }
 }

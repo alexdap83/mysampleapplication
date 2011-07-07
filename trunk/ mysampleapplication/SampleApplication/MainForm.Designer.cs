@@ -213,8 +213,6 @@ namespace SampleApplication
             this.barButtonItemInsert = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemRescanFlatbed = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemRescanFeeder = new DevExpress.XtraBars.BarButtonItem();
-            this.barEditItemJob = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemTextEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.barEditItemBatchPath = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.barEditItemNextBatchName = new DevExpress.XtraBars.BarEditItem();
@@ -318,18 +316,18 @@ namespace SampleApplication
             this.barEditItemExport = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemComboBox5 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.barStaticItem16 = new DevExpress.XtraBars.BarStaticItem();
-            this.barEditItem6 = new DevExpress.XtraBars.BarEditItem();
+            this.barEditItemDeleteFirstPage = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemCheckEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.barButtonItemSetup = new DevExpress.XtraBars.BarButtonItem();
             this.barEditItemDeleteAfterExport = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemCheckEdit7 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.barEditItem8 = new DevExpress.XtraBars.BarEditItem();
+            this.barEditItemCreateNewBatchAfterExport = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemCheckEdit8 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.barEditItem9 = new DevExpress.XtraBars.BarEditItem();
+            this.barEditItemBackgroundExport = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemCheckEdit9 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.barButtonItemType = new CustomCheckAndDropDownButton.BarCheckAndDropDownButton();
             this.popupMenu3 = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.barButtonItemTypes = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemTypes = new SampleApplication.CheckableBarButtonItem();
             this.popupMenu4 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.barEditItemChecksum = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemCheckEdit10 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
@@ -398,6 +396,8 @@ namespace SampleApplication
             this.barButtonItem22 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem23 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem24 = new DevExpress.XtraBars.BarButtonItem();
+            this.barEditItemJob = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemComboBox8 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.ribbonHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribonPageGroupBatch = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupScan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -449,6 +449,7 @@ namespace SampleApplication
             this.ribbonPageGroup16 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup17 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.repositoryItemTextEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.ribbonStatusBar2 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -486,6 +487,7 @@ namespace SampleApplication
             this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
             this.popupMenuPerfomance = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenuBatch = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.folderBrowserDialogBatchPath = new System.Windows.Forms.FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainerBottomMenu)).BeginInit();
             this.popupControlContainerBottomMenu.SuspendLayout();
@@ -530,7 +532,6 @@ namespace SampleApplication
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).BeginInit();
@@ -565,6 +566,8 @@ namespace SampleApplication
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainerUndoRedo)).BeginInit();
             this.popupControlContainerUndoRedo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
@@ -712,7 +715,6 @@ namespace SampleApplication
             this.barButtonItemInsert,
             this.barButtonItemRescanFlatbed,
             this.barButtonItemRescanFeeder,
-            this.barEditItemJob,
             this.barEditItemBatchPath,
             this.barEditItemNextBatchName,
             this.barButtonItemNewJob,
@@ -804,11 +806,11 @@ namespace SampleApplication
             this.barCheckItemRawColorColor,
             this.barEditItemExport,
             this.barStaticItem16,
-            this.barEditItem6,
+            this.barEditItemDeleteFirstPage,
             this.barButtonItemSetup,
             this.barEditItemDeleteAfterExport,
-            this.barEditItem8,
-            this.barEditItem9,
+            this.barEditItemCreateNewBatchAfterExport,
+            this.barEditItemBackgroundExport,
             this.barButtonItemType,
             this.barButtonItemTypes,
             this.barEditItemChecksum,
@@ -878,9 +880,10 @@ namespace SampleApplication
             this.barButtonItem21,
             this.barButtonItem22,
             this.barButtonItem23,
-            this.barButtonItem24});
+            this.barButtonItem24,
+            this.barEditItemJob});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 405;
+            this.ribbon.MaxItemId = 408;
             this.ribbon.Name = "ribbon";
             this.ribbon.PageHeaderItemLinks.Add(this.barButtonItemAbout);
             this.ribbon.PageHeaderItemLinks.Add(this.barButtonItemHelp);
@@ -947,8 +950,9 @@ namespace SampleApplication
             this.repositoryItemComboBox7,
             this.repositoryItemTextEdit10,
             this.repositoryItemSpinEdit7,
-            this.repositoryItemCheckEdit13});
-            this.ribbon.SelectedPage = this.ribbonVRSCorrections;
+            this.repositoryItemCheckEdit13,
+            this.repositoryItemComboBox8});
+            this.ribbon.SelectedPage = this.ribbonBarCodeSetup;
             this.ribbon.Size = new System.Drawing.Size(1059, 148);
             this.ribbon.StatusBar = this.ribbonStatusBar1;
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemCut);
@@ -3002,24 +3006,11 @@ namespace SampleApplication
             this.barButtonItemRescanFeeder.LargeGlyph = global::SampleApplication.Properties.Resources.adf_32x32;
             this.barButtonItemRescanFeeder.Name = "barButtonItemRescanFeeder";
             // 
-            // barEditItemJob
-            // 
-            this.barEditItemJob.Caption = "Job";
-            this.barEditItemJob.Edit = this.repositoryItemTextEdit3;
-            this.barEditItemJob.Id = 247;
-            this.barEditItemJob.Name = "barEditItemJob";
-            this.barEditItemJob.Width = 186;
-            // 
-            // repositoryItemTextEdit3
-            // 
-            this.repositoryItemTextEdit3.AutoHeight = false;
-            this.repositoryItemTextEdit3.Name = "repositoryItemTextEdit3";
-            this.repositoryItemTextEdit3.UseParentBackground = true;
-            // 
             // barEditItemBatchPath
             // 
             this.barEditItemBatchPath.Caption = "Batch Path";
             this.barEditItemBatchPath.Edit = this.repositoryItemTextEdit4;
+            this.barEditItemBatchPath.EditValue = "C:\\";
             this.barEditItemBatchPath.Id = 248;
             this.barEditItemBatchPath.Name = "barEditItemBatchPath";
             this.barEditItemBatchPath.Width = 151;
@@ -3028,12 +3019,14 @@ namespace SampleApplication
             // 
             this.repositoryItemTextEdit4.AutoHeight = false;
             this.repositoryItemTextEdit4.Name = "repositoryItemTextEdit4";
+            this.repositoryItemTextEdit4.ReadOnly = true;
             this.repositoryItemTextEdit4.UseParentBackground = true;
             // 
             // barEditItemNextBatchName
             // 
             this.barEditItemNextBatchName.Caption = "Next Batch Name";
             this.barEditItemNextBatchName.Edit = this.repositoryItemTextEdit5;
+            this.barEditItemNextBatchName.EditValue = "Job001";
             this.barEditItemNextBatchName.Id = 249;
             this.barEditItemNextBatchName.Name = "barEditItemNextBatchName";
             this.barEditItemNextBatchName.Width = 120;
@@ -3059,6 +3052,7 @@ namespace SampleApplication
             this.barButtonItemBrowseBatchPath.Id = 251;
             this.barButtonItemBrowseBatchPath.Name = "barButtonItemBrowseBatchPath";
             this.barButtonItemBrowseBatchPath.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
+            this.barButtonItemBrowseBatchPath.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemBrowseBatchPath_ItemClick);
             // 
             // barStaticItem7
             // 
@@ -3492,6 +3486,7 @@ namespace SampleApplication
             this.barButtonItemDocumentSeperation.Id = 294;
             this.barButtonItemDocumentSeperation.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_128_32x32;
             this.barButtonItemDocumentSeperation.Name = "barButtonItemDocumentSeperation";
+            this.barButtonItemDocumentSeperation.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemDocumentSeperation_ItemClick);
             // 
             // popupMenuDocumentSeperation
             // 
@@ -3697,6 +3692,8 @@ namespace SampleApplication
             new DevExpress.XtraBars.LinkPersistInfo(this.barCheckItemUPC_A),
             new DevExpress.XtraBars.LinkPersistInfo(this.barCheckItemUPC_E)});
             this.barSubItemBarCodesType.Name = "barSubItemBarCodesType";
+            this.barSubItemBarCodesType.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barSubItemBarCodesType_ItemClick);
+            this.barSubItemBarCodesType.ItemPress += new DevExpress.XtraBars.ItemClickEventHandler(this.barSubItemBarCodesType_ItemPress);
             // 
             // barCheckItemBarAztec
             // 
@@ -3962,6 +3959,7 @@ namespace SampleApplication
             // barEditItemExport
             // 
             this.barEditItemExport.Edit = this.repositoryItemComboBox5;
+            this.barEditItemExport.EditValue = "Kofax Capture";
             this.barEditItemExport.Id = 326;
             this.barEditItemExport.Name = "barEditItemExport";
             this.barEditItemExport.Width = 150;
@@ -3986,12 +3984,12 @@ namespace SampleApplication
             this.barStaticItem16.Name = "barStaticItem16";
             this.barStaticItem16.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
-            // barEditItem6
+            // barEditItemDeleteFirstPage
             // 
-            this.barEditItem6.Edit = this.repositoryItemCheckEdit6;
-            this.barEditItem6.Id = 328;
-            this.barEditItem6.Name = "barEditItem6";
-            this.barEditItem6.Width = 100;
+            this.barEditItemDeleteFirstPage.Edit = this.repositoryItemCheckEdit6;
+            this.barEditItemDeleteFirstPage.Id = 328;
+            this.barEditItemDeleteFirstPage.Name = "barEditItemDeleteFirstPage";
+            this.barEditItemDeleteFirstPage.Width = 100;
             // 
             // repositoryItemCheckEdit6
             // 
@@ -4001,6 +3999,7 @@ namespace SampleApplication
             this.repositoryItemCheckEdit6.Name = "repositoryItemCheckEdit6";
             this.repositoryItemCheckEdit6.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
             this.repositoryItemCheckEdit6.UseParentBackground = true;
+            this.repositoryItemCheckEdit6.CheckedChanged += new System.EventHandler(this.repositoryItemCheckEdit6_CheckedChanged);
             // 
             // barButtonItemSetup
             // 
@@ -4025,13 +4024,14 @@ namespace SampleApplication
             this.repositoryItemCheckEdit7.Name = "repositoryItemCheckEdit7";
             this.repositoryItemCheckEdit7.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
             this.repositoryItemCheckEdit7.UseParentBackground = true;
+            this.repositoryItemCheckEdit7.CheckedChanged += new System.EventHandler(this.repositoryItemCheckEdit7_CheckedChanged);
             // 
-            // barEditItem8
+            // barEditItemCreateNewBatchAfterExport
             // 
-            this.barEditItem8.Edit = this.repositoryItemCheckEdit8;
-            this.barEditItem8.Id = 331;
-            this.barEditItem8.Name = "barEditItem8";
-            this.barEditItem8.Width = 180;
+            this.barEditItemCreateNewBatchAfterExport.Edit = this.repositoryItemCheckEdit8;
+            this.barEditItemCreateNewBatchAfterExport.Id = 331;
+            this.barEditItemCreateNewBatchAfterExport.Name = "barEditItemCreateNewBatchAfterExport";
+            this.barEditItemCreateNewBatchAfterExport.Width = 180;
             // 
             // repositoryItemCheckEdit8
             // 
@@ -4041,13 +4041,14 @@ namespace SampleApplication
             this.repositoryItemCheckEdit8.Name = "repositoryItemCheckEdit8";
             this.repositoryItemCheckEdit8.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
             this.repositoryItemCheckEdit8.UseParentBackground = true;
+            this.repositoryItemCheckEdit8.CheckedChanged += new System.EventHandler(this.repositoryItemCheckEdit8_CheckedChanged);
             // 
-            // barEditItem9
+            // barEditItemBackgroundExport
             // 
-            this.barEditItem9.Edit = this.repositoryItemCheckEdit9;
-            this.barEditItem9.Id = 332;
-            this.barEditItem9.Name = "barEditItem9";
-            this.barEditItem9.Width = 180;
+            this.barEditItemBackgroundExport.Edit = this.repositoryItemCheckEdit9;
+            this.barEditItemBackgroundExport.Id = 332;
+            this.barEditItemBackgroundExport.Name = "barEditItemBackgroundExport";
+            this.barEditItemBackgroundExport.Width = 180;
             // 
             // repositoryItemCheckEdit9
             // 
@@ -4057,6 +4058,7 @@ namespace SampleApplication
             this.repositoryItemCheckEdit9.Name = "repositoryItemCheckEdit9";
             this.repositoryItemCheckEdit9.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
             this.repositoryItemCheckEdit9.UseParentBackground = true;
+            this.repositoryItemCheckEdit9.CheckedChanged += new System.EventHandler(this.repositoryItemCheckEdit9_CheckedChanged);
             // 
             // barButtonItemType
             // 
@@ -4092,6 +4094,7 @@ namespace SampleApplication
             this.barButtonItemTypes.ActAsDropDown = true;
             this.barButtonItemTypes.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.barButtonItemTypes.Caption = "Types";
+            this.barButtonItemTypes.Down = true;
             this.barButtonItemTypes.DropDownControl = this.popupMenu4;
             this.barButtonItemTypes.Glyph = global::SampleApplication.Properties.Resources.bar_code_128_16x16;
             this.barButtonItemTypes.Id = 334;
@@ -4451,6 +4454,7 @@ namespace SampleApplication
             // 
             this.barButtonItemMemory.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.barButtonItemMemory.Caption = "Memory";
+            this.barButtonItemMemory.Down = true;
             this.barButtonItemMemory.Glyph = global::SampleApplication.Properties.Resources.ok_16x16;
             this.barButtonItemMemory.Id = 364;
             this.barButtonItemMemory.LargeGlyph = global::SampleApplication.Properties.Resources.ok_32x32;
@@ -4460,6 +4464,7 @@ namespace SampleApplication
             // 
             this.barButtonItemFastMode.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.barButtonItemFastMode.Caption = "Fast Mode";
+            this.barButtonItemFastMode.Down = true;
             this.barButtonItemFastMode.Glyph = global::SampleApplication.Properties.Resources.fast_16x16;
             this.barButtonItemFastMode.Id = 365;
             this.barButtonItemFastMode.LargeGlyph = global::SampleApplication.Properties.Resources.fast_32x32;
@@ -4644,6 +4649,28 @@ namespace SampleApplication
             this.barButtonItem24.Enabled = false;
             this.barButtonItem24.Id = 404;
             this.barButtonItem24.Name = "barButtonItem24";
+            // 
+            // barEditItemJob
+            // 
+            this.barEditItemJob.Caption = "Job";
+            this.barEditItemJob.Edit = this.repositoryItemComboBox8;
+            this.barEditItemJob.EditValue = "Job 01";
+            this.barEditItemJob.Id = 405;
+            this.barEditItemJob.Name = "barEditItemJob";
+            this.barEditItemJob.Width = 186;
+            // 
+            // repositoryItemComboBox8
+            // 
+            this.repositoryItemComboBox8.AutoHeight = false;
+            this.repositoryItemComboBox8.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox8.Items.AddRange(new object[] {
+            "Job 01",
+            "Job 02",
+            "Job 03"});
+            this.repositoryItemComboBox8.Name = "repositoryItemComboBox8";
+            this.repositoryItemComboBox8.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.repositoryItemComboBox8.UseParentBackground = true;
             // 
             // ribbonHome
             // 
@@ -5000,13 +5027,13 @@ namespace SampleApplication
             // 
             this.ribbonPageGroup6.ItemLinks.Add(this.barEditItemExport);
             this.ribbonPageGroup6.ItemLinks.Add(this.barStaticItem16);
-            this.ribbonPageGroup6.ItemLinks.Add(this.barEditItem6);
+            this.ribbonPageGroup6.ItemLinks.Add(this.barEditItemDeleteFirstPage);
             this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItemSetup);
             this.ribbonPageGroup6.ItemLinks.Add(this.barStaticItem16);
             this.ribbonPageGroup6.ItemLinks.Add(this.barStaticItem16);
             this.ribbonPageGroup6.ItemLinks.Add(this.barEditItemDeleteAfterExport, true);
-            this.ribbonPageGroup6.ItemLinks.Add(this.barEditItem8);
-            this.ribbonPageGroup6.ItemLinks.Add(this.barEditItem9);
+            this.ribbonPageGroup6.ItemLinks.Add(this.barEditItemCreateNewBatchAfterExport);
+            this.ribbonPageGroup6.ItemLinks.Add(this.barEditItemBackgroundExport);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.ShowCaptionButton = false;
             this.ribbonPageGroup6.Text = "Export";
@@ -5155,6 +5182,12 @@ namespace SampleApplication
             this.ribbonPageGroup15.Name = "ribbonPageGroup15";
             this.ribbonPageGroup15.ShowCaptionButton = false;
             this.ribbonPageGroup15.Text = "Themes";
+            // 
+            // repositoryItemTextEdit3
+            // 
+            this.repositoryItemTextEdit3.AutoHeight = false;
+            this.repositoryItemTextEdit3.Name = "repositoryItemTextEdit3";
+            this.repositoryItemTextEdit3.UseParentBackground = true;
             // 
             // ribbonStatusBar2
             // 
@@ -5348,6 +5381,7 @@ namespace SampleApplication
             this.gridView1.OptionsView.EnableAppearanceOddRow = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.OptionsView.ShowIndicator = false;
+            this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
             this.gridView1.ShowGridMenu += new DevExpress.XtraGrid.Views.Grid.GridMenuEventHandler(this.gridView1_ShowGridMenu);
             // 
             // gridColumnIcon
@@ -5622,6 +5656,10 @@ namespace SampleApplication
             this.popupMenuBatch.Name = "popupMenuBatch";
             this.popupMenuBatch.Ribbon = this.ribbon;
             // 
+            // folderBrowserDialogBatchPath
+            // 
+            this.folderBrowserDialogBatchPath.SelectedPath = "C:\\";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5684,7 +5722,6 @@ namespace SampleApplication
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).EndInit();
@@ -5719,6 +5756,8 @@ namespace SampleApplication
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainerUndoRedo)).EndInit();
             this.popupControlContainerUndoRedo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
@@ -5744,7 +5783,7 @@ namespace SampleApplication
             this.ResumeLayout(false);
             this.PerformLayout();
 
-        }
+      }
 
         #endregion
 
@@ -5969,7 +6008,6 @@ namespace SampleApplication
         private RibbonPageGroup ribbonPageGroup2;
         private RibbonPageGroup ribbonPageGroup3;
         private BarButtonItem barButtonItemRescanFeeder;
-        private BarEditItem barEditItemJob;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit3;
         private BarEditItem barEditItemBatchPath;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit4;
@@ -6089,19 +6127,19 @@ namespace SampleApplication
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox5;
         private RibbonPageGroup ribbonPageGroup6;
         private BarStaticItem barStaticItem16;
-        private BarEditItem barEditItem6;
+        private BarEditItem barEditItemDeleteFirstPage;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit6;
         private BarButtonItem barButtonItemSetup;
         private BarEditItem barEditItemDeleteAfterExport;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit7;
-        private BarEditItem barEditItem8;
+        private BarEditItem barEditItemCreateNewBatchAfterExport;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit8;
-        private BarEditItem barEditItem9;
+        private BarEditItem barEditItemBackgroundExport;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit9;
         private BarCheckAndDropDownButton barButtonItemType;
         private RibbonPageGroup ribbonPageGroup8;
         private PopupMenu popupMenu3;
-        private BarButtonItem barButtonItemTypes;
+        private CheckableBarButtonItem barButtonItemTypes;
         private PopupMenu popupMenu4;
         private BarEditItem barEditItemChecksum;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit10;
@@ -6199,5 +6237,8 @@ namespace SampleApplication
         private BarButtonItem barButtonItem23;
         private BarButtonItem barButtonItem24;
         private PopupMenu popupMenuBatch;
+        private BarEditItem barEditItemJob;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox8;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialogBatchPath;
     }
 }
