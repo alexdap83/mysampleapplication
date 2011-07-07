@@ -37,7 +37,6 @@ namespace SampleApplication
             DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            this.repositoryItemTrackBar9 = new DevExpress.XtraEditors.Repository.RepositoryItemTrackBar();
             this.ribbon = new CustomCheckAndDropDownButton.MyRibbonControl();
             this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.popupControlContainerBottomMenu = new DevExpress.XtraBars.PopupControlContainer(this.components);
@@ -450,10 +449,9 @@ namespace SampleApplication
             this.ribbonPageGroup16 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup17 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
-            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonStatusBar2 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -488,7 +486,6 @@ namespace SampleApplication
             this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
             this.popupMenuPerfomance = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenuBatch = new DevExpress.XtraBars.PopupMenu(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainerBottomMenu)).BeginInit();
             this.popupControlContainerBottomMenu.SuspendLayout();
@@ -568,7 +565,6 @@ namespace SampleApplication
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainerUndoRedo)).BeginInit();
             this.popupControlContainerUndoRedo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
@@ -592,14 +588,6 @@ namespace SampleApplication
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuPerfomance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuBatch)).BeginInit();
             this.SuspendLayout();
-            // 
-            // repositoryItemTrackBar9
-            // 
-            this.repositoryItemTrackBar9.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.repositoryItemTrackBar9.Maximum = 100;
-            this.repositoryItemTrackBar9.Name = "repositoryItemTrackBar9";
-            this.repositoryItemTrackBar9.TickFrequency = 10;
-            this.repositoryItemTrackBar9.UseParentBackground = true;
             // 
             // ribbon
             // 
@@ -926,7 +914,6 @@ namespace SampleApplication
             this.repositoryItemCheckEdit4,
             this.repositoryItemSpinEdit4,
             this.repositoryItemSpinEdit5,
-            this.repositoryItemTrackBar9,
             this.repositoryItemSpinEdit6,
             this.repositoryItemTrackBarBlankContentSensitivity,
             this.repositoryItemSpinEditBlankContentSensitivityValue,
@@ -951,7 +938,6 @@ namespace SampleApplication
             this.repositoryItemCheckEdit10,
             this.repositoryItemSpinEdit2,
             this.repositoryItemTextEdit7,
-            this.repositoryItemImageEdit1,
             this.repositoryItemComboBox6,
             this.repositoryItemTextEdit8,
             this.repositoryItemTextEdit9,
@@ -964,7 +950,7 @@ namespace SampleApplication
             this.repositoryItemCheckEdit13});
             this.ribbon.SelectedPage = this.ribbonBarCodeSetup;
             this.ribbon.Size = new System.Drawing.Size(1059, 148);
-            this.ribbon.StatusBar = this.ribbonStatusBar2;
+            this.ribbon.StatusBar = this.ribbonStatusBar;
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemCut);
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemCopy);
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemPaste);
@@ -3598,6 +3584,12 @@ namespace SampleApplication
             // repositoryItemTextEdit6
             // 
             this.repositoryItemTextEdit6.AutoHeight = false;
+            this.repositoryItemTextEdit6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemTextEdit6.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemTextEdit6.Mask.EditMask = "d";
+            this.repositoryItemTextEdit6.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.repositoryItemTextEdit6.Mask.UseMaskAsDisplayFormat = true;
+            this.repositoryItemTextEdit6.MaxLength = 4;
             this.repositoryItemTextEdit6.Name = "repositoryItemTextEdit6";
             // 
             // barCheckItemUsingPatchCodes
@@ -3683,6 +3675,7 @@ namespace SampleApplication
             this.repositoryItemCheckEdit5.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
             this.repositoryItemCheckEdit5.Name = "repositoryItemCheckEdit5";
             this.repositoryItemCheckEdit5.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
+            this.repositoryItemCheckEdit5.CheckedChanged += new System.EventHandler(this.repositoryItemCheckEdit5_CheckedChanged);
             // 
             // barSubItemBarCodesType
             // 
@@ -5162,36 +5155,6 @@ namespace SampleApplication
             this.ribbonPageGroup15.ShowCaptionButton = false;
             this.ribbonPageGroup15.Text = "Themes";
             // 
-            // repositoryItemImageEdit1
-            // 
-            this.repositoryItemImageEdit1.AutoHeight = false;
-            this.repositoryItemImageEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemImageEdit1.Name = "repositoryItemImageEdit1";
-            this.repositoryItemImageEdit1.UseParentBackground = true;
-            // 
-            // ribbonStatusBar
-            // 
-            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItemCountDocument);
-            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItemCountBatch, true);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemZoom, true);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemPan);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemDrawZone);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemPageFit, true);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemHorizontalFit);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemVerticalFit);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItem100View);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemCompactThumbnailView, true);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemThumbnailView);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemSingleView);
-            this.ribbonStatusBar.ItemLinks.Add(this.barEditItemZoomTrackBar);
-            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem12);
-            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItemStatus, true);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 565);
-            this.ribbonStatusBar.Name = "ribbonStatusBar";
-            this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1059, 23);
-            // 
             // ribbonStatusBar1
             // 
             this.ribbonStatusBar1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -5223,6 +5186,28 @@ namespace SampleApplication
             this.ribbonStatusBar2.Name = "ribbonStatusBar2";
             this.ribbonStatusBar2.Ribbon = this.ribbon;
             this.ribbonStatusBar2.Size = new System.Drawing.Size(311, 23);
+            // 
+            // ribbonStatusBar
+            // 
+            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItemCountDocument);
+            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItemCountBatch, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemZoom, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemPan);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemDrawZone);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemPageFit, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemHorizontalFit);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemVerticalFit);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItem100View);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemCompactThumbnailView, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemThumbnailView);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemSingleView);
+            this.ribbonStatusBar.ItemLinks.Add(this.barEditItemZoomTrackBar);
+            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem12);
+            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItemStatus, true);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 565);
+            this.ribbonStatusBar.Name = "ribbonStatusBar";
+            this.ribbonStatusBar.Ribbon = this.ribbon;
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1059, 23);
             // 
             // dockManager1
             // 
@@ -5654,7 +5639,6 @@ namespace SampleApplication
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Sample Application";
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainerBottomMenu)).EndInit();
             this.popupControlContainerBottomMenu.ResumeLayout(false);
@@ -5734,7 +5718,6 @@ namespace SampleApplication
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainerUndoRedo)).EndInit();
             this.popupControlContainerUndoRedo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
@@ -5926,7 +5909,6 @@ namespace SampleApplication
         private BarEditItem barEditItemSensitivityValue;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit5;
         private BarButtonItem barButtonItemSmoothing;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTrackBar repositoryItemTrackBar9;
         private RibbonPageGroup ribbonPageGroupBackground;
         private BarStaticItem barStaticItemSmoothing;
         private BarEditItem barEditItemSmoothingValue;
@@ -6134,7 +6116,6 @@ namespace SampleApplication
         private PopupMenu popupMenu5;
         private BarStaticItem barStaticItem19;
         private RibbonPageGroup ribbonPageGroup9;
-        private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit repositoryItemImageEdit1;
         private BarButtonItem barButtonItemNewIndex;
         private BarButtonItem barButtonItemDeleteIndex;
         private RibbonPageGroup ribbonPageGroup10;
