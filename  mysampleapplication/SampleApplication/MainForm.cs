@@ -51,6 +51,25 @@ namespace SampleApplication
             LoadBatches();
             ribbon.ForceInitialize(); // Fix error: skin gallery not show until click on dropdown
             SkinHelper.CreateGallery(ribbonGalleryBarItemThemes);
+
+            foreach (BarItemLink itemLink in popupMenuDocumentSeperation.ItemLinks)
+            {
+                if (itemLink.Item is BarCheckItem)
+                {
+                    itemLink.Item.ItemClick += itemLink_ItemClick;
+                }
+                else if (itemLink .Item is BarSubItem)
+                {
+                    BarSubItem subItem = (BarSubItem)itemLink.Item;
+                    foreach (BarItemLink subItemLink in subItem.ItemLinks)
+                    {
+                        if (subItemLink.Item is BarCheckItem)
+                        {
+                            subItemLink.Item.ItemClick += new ItemClickEventHandler(itemLink_ItemClick);
+                        }
+                    }
+                }
+            }
             
         }
 
@@ -88,7 +107,7 @@ namespace SampleApplication
             SetDetectColor(scanProfile.DetectColor, false);
             SetSmoothing(scanProfile.Smoothing,false);
 
-            SetRawImageType(scanProfile.RawImageType, false);
+            //SetRawImageType(scanProfile.RawImageType, false);
         }
         private void LoadBatches()
         {
@@ -150,7 +169,7 @@ namespace SampleApplication
 
         private void userUndoRedo1_Selected(object sender, SelectedEventArgs e)
         {
-            barStaticItemStatus.Caption = string.Format("Undo lai: {0}", e.SelectedIndex);
+            barStaticItemStatus.Caption = string.Format("Undo count: {0}", e.SelectedIndex);
             popupControlContainerUndoRedo.HidePopup();
         }
         private void ribbon_SelectedPageChanged(object sender, EventArgs e)
@@ -838,7 +857,7 @@ namespace SampleApplication
             var view = (GridView) sender;
             GridHitInfo hitInfo = view.CalcHitInfo(e.Point);
             if(hitInfo.InRow)
-                popupMenu2.ShowPopup(MousePosition);
+                popupMenuBatch.ShowPopup(MousePosition);
         }
 
         private void ribbon_ShowCustomizationMenu(object sender, RibbonCustomizationMenuEventArgs e)
@@ -1024,8 +1043,8 @@ namespace SampleApplication
                 barButtonItemRawColor.LargeGlyph = barCheckItemRawColorOff.Glyph;
                 barButtonItemRawColor.Caption = barCheckItemRawColorOff.Caption;
             }
-            if (autoSave)
-                scanProfile.RawImageType = type;
+            //if (autoSave)
+            //    scanProfile.RawImageType = type;
         }
 
         private void barCheckItemRawColorOff_ItemClick(object sender, ItemClickEventArgs e)
@@ -1040,7 +1059,22 @@ namespace SampleApplication
         {
             SetRawImageType(RawImageType.Grayscale, true);
         }
+        void SetSeperationDocument(BarItem item)
+        {
+            barButtonItemDocumentSeperation.LargeGlyph = item.LargeGlyph;
+        }
 
+        void itemLink_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SetSeperationDocument(e.Item);
+        }
 
+        private void gridView2_ShowGridMenu(object sender, GridMenuEventArgs e)
+        {
+            var view = (GridView)sender;
+            GridHitInfo hitInfo = view.CalcHitInfo(e.Point);
+            if (hitInfo.InRow)
+                popupMenuPerfomance.ShowPopup(MousePosition);
+        }
     }
 }

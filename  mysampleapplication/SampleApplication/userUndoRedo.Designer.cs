@@ -54,7 +54,7 @@ namespace SampleApplication
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(264, 569);
+            this.layoutControl1.Size = new System.Drawing.Size(135, 77);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -64,9 +64,9 @@ namespace SampleApplication
             this.labelControl1.Appearance.Options.UseTextOptions = true;
             this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.Location = new System.Drawing.Point(7, 550);
+            this.labelControl1.Location = new System.Drawing.Point(7, 58);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(251, 13);
+            this.labelControl1.Size = new System.Drawing.Size(122, 13);
             this.labelControl1.StyleController = this.layoutControl1;
             this.labelControl1.TabIndex = 5;
             // 
@@ -79,7 +79,7 @@ namespace SampleApplication
             this.listBoxControl1.Location = new System.Drawing.Point(2, 2);
             this.listBoxControl1.Name = "listBoxControl1";
             this.listBoxControl1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBoxControl1.Size = new System.Drawing.Size(261, 542);
+            this.listBoxControl1.Size = new System.Drawing.Size(132, 50);
             this.listBoxControl1.StyleController = this.layoutControl1;
             this.listBoxControl1.TabIndex = 4;
             this.listBoxControl1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.listBoxControl1_MouseMove);
@@ -94,7 +94,7 @@ namespace SampleApplication
             this.layoutControlItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(264, 569);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(135, 77);
             this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
@@ -106,7 +106,7 @@ namespace SampleApplication
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlItem1.Size = new System.Drawing.Size(262, 543);
+            this.layoutControlItem1.Size = new System.Drawing.Size(133, 51);
             this.layoutControlItem1.Text = "layoutControlItem1";
             this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Left;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
@@ -117,9 +117,9 @@ namespace SampleApplication
             // 
             this.layoutControlItem2.Control = this.labelControl1;
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 543);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 51);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(262, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(133, 24);
             this.layoutControlItem2.Text = "layoutControlItem2";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Left;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
@@ -132,7 +132,7 @@ namespace SampleApplication
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
             this.Name = "UserUndoRedo";
-            this.Size = new System.Drawing.Size(264, 569);
+            this.Size = new System.Drawing.Size(135, 77);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).EndInit();

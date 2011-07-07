@@ -9,7 +9,7 @@ using DevExpress.XtraEditors;
 
 namespace SampleApplication
 {
-    public partial class frmSelectScanner : DevExpress.XtraEditors.XtraForm
+    public partial class frmSelectScanner : XtraForm
     {
         public frmSelectScanner()
         {
