@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows.Forms;
 using CustomCheckAndDropDownButton;
 using DevExpress.LookAndFeel;
 using DevExpress.XtraBars;
@@ -444,7 +445,7 @@ namespace SampleApplication
             SetZoomValue(((ZoomTrackBarControl) sender).Value, true);
         }
 
-  
+
         private void barCheckItemAnalyzeColor_CheckedChanged(object sender, ItemClickEventArgs e)
         {
             var item = (BarCheckItem) sender;
@@ -457,7 +458,7 @@ namespace SampleApplication
             SetIgnorePicture(item.Checked, true);
         }
 
-       
+
 
         private void barCheckItemRawColorOff_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -562,6 +563,66 @@ namespace SampleApplication
         {
             var item = (CheckEdit) sender;
             SetWhenValueChanges(item.Checked, true);
+        }
+
+        private void gridView1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            var view = sender as GridView;
+            if(view.FocusedRowHandle <0)return;
+            
+            Batch batch = (Batch) view.GetFocusedRow();
+            if (e.KeyCode == Keys.Delete &&
+                XtraMessageBox.Show(string.Format("Are you sure you wan to permanenltly delete batch '{0}'", batch.BatchName), "Kofax Express",
+                                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                
+                view.DeleteRow(view.FocusedRowHandle);
+            }
+
+        }
+
+        private void barButtonItemBrowseBatchPath_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (folderBrowserDialogBatchPath.ShowDialog() == DialogResult.OK)
+                barEditItemBatchPath.EditValue = folderBrowserDialogBatchPath.SelectedPath;
+        }
+
+        private void repositoryItemCheckEdit6_CheckedChanged(object sender, EventArgs e)
+        {
+            var item = (CheckEdit)sender;
+            SetDeleteFirstPage(item.Checked, true);
+        }
+
+        private void repositoryItemCheckEdit7_CheckedChanged(object sender, EventArgs e)
+        {
+            var item = (CheckEdit)sender;
+            SetDeleteBatchAfterExport(item.Checked, true);
+        }  
+        private void repositoryItemCheckEdit8_CheckedChanged(object sender, EventArgs e)
+        {
+            var item = (CheckEdit)sender;
+            SetCreateNewBatchAfterExport(item.Checked, true);
+        } 
+        private void repositoryItemCheckEdit9_CheckedChanged(object sender, EventArgs e)
+        {
+            var item = (CheckEdit)sender;
+            SetBackgroundExport(item.Checked, true);
+        }
+
+        private void barButtonItemDocumentSeperation_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            EnableDocumentSeperation(IsChecked(e.Item), true);
+        }
+
+        private void barSubItemBarCodesType_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            
+        }
+
+        private void barSubItemBarCodesType_ItemPress(object sender, ItemClickEventArgs e)
+        {
+
         }
     }
 }

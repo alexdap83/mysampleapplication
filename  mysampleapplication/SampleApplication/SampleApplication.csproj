@@ -31,7 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v8.3, Version=8.3.5.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v8.3, Version=8.3.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.OfficeSkins.v8.3, Version=8.3.5.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v8.3, Version=8.3.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v8.3, Version=8.3.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v8.3, Version=8.3.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -66,6 +68,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Batch.cs" />
+    <Compile Include="CheckableBarButtonItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="frmSelectScanner.cs">
       <SubType>Form</SubType>
     </Compile>

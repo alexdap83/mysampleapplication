@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using DevExpress.LookAndFeel;
+using DevExpress.Skins;
+using DevExpress.UserSkins;
 
 namespace SampleApplication
 {
@@ -13,6 +16,10 @@ namespace SampleApplication
         [STAThread]
         static void Main()
         {
+
+            OfficeSkins.Register();
+            SkinManager.EnableFormSkins();
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
