@@ -449,9 +449,9 @@ namespace SampleApplication
             this.ribbonPageGroup16 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup17 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonStatusBar2 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.ribbonStatusBar2 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -948,9 +948,9 @@ namespace SampleApplication
             this.repositoryItemTextEdit10,
             this.repositoryItemSpinEdit7,
             this.repositoryItemCheckEdit13});
-            this.ribbon.SelectedPage = this.ribbonBarCodeSetup;
+            this.ribbon.SelectedPage = this.ribbonVRSCorrections;
             this.ribbon.Size = new System.Drawing.Size(1059, 148);
-            this.ribbon.StatusBar = this.ribbonStatusBar2;
+            this.ribbon.StatusBar = this.ribbonStatusBar1;
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemCut);
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemCopy);
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemPaste);
@@ -5156,6 +5156,16 @@ namespace SampleApplication
             this.ribbonPageGroup15.ShowCaptionButton = false;
             this.ribbonPageGroup15.Text = "Themes";
             // 
+            // ribbonStatusBar2
+            // 
+            this.ribbonStatusBar2.Dock = System.Windows.Forms.DockStyle.None;
+            this.ribbonStatusBar2.ItemLinks.Add(this.barButtonItemRefresh);
+            this.ribbonStatusBar2.ItemLinks.Add(this.barButtonItemAllJob);
+            this.ribbonStatusBar2.Location = new System.Drawing.Point(2, 141);
+            this.ribbonStatusBar2.Name = "ribbonStatusBar2";
+            this.ribbonStatusBar2.Ribbon = this.ribbon;
+            this.ribbonStatusBar2.Size = new System.Drawing.Size(311, 23);
+            // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.barStaticItemCountDocument);
@@ -5199,16 +5209,6 @@ namespace SampleApplication
             this.ribbonStatusBar1.Ribbon = this.ribbon;
             this.ribbonStatusBar1.ShowSizeGrip = false;
             this.ribbonStatusBar1.Size = new System.Drawing.Size(1059, 23);
-            // 
-            // ribbonStatusBar2
-            // 
-            this.ribbonStatusBar2.Dock = System.Windows.Forms.DockStyle.None;
-            this.ribbonStatusBar2.ItemLinks.Add(this.barButtonItemRefresh);
-            this.ribbonStatusBar2.ItemLinks.Add(this.barButtonItemAllJob);
-            this.ribbonStatusBar2.Location = new System.Drawing.Point(2, 141);
-            this.ribbonStatusBar2.Name = "ribbonStatusBar2";
-            this.ribbonStatusBar2.Ribbon = this.ribbon;
-            this.ribbonStatusBar2.Size = new System.Drawing.Size(311, 23);
             // 
             // dockManager1
             // 
