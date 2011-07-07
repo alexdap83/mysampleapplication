@@ -29,14 +29,14 @@ namespace SampleApplication
         private void InitializeComponent()
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.listBoxControl1 = new DevExpress.XtraEditors.ListBoxControl();
+            this.labelStatus = new DevExpress.XtraEditors.LabelControl();
+            this.listBoxControlUndoRedo = new DevExpress.XtraEditors.ListBoxControl();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControlUndoRedo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -48,8 +48,8 @@ namespace SampleApplication
             this.layoutControl1.Appearance.DisabledLayoutGroupCaption.Options.UseForeColor = true;
             this.layoutControl1.Appearance.DisabledLayoutItem.ForeColor = System.Drawing.SystemColors.GrayText;
             this.layoutControl1.Appearance.DisabledLayoutItem.Options.UseForeColor = true;
-            this.layoutControl1.Controls.Add(this.labelControl1);
-            this.layoutControl1.Controls.Add(this.listBoxControl1);
+            this.layoutControl1.Controls.Add(this.labelStatus);
+            this.layoutControl1.Controls.Add(this.listBoxControlUndoRedo);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -58,33 +58,33 @@ namespace SampleApplication
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // labelControl1
+            // labelStatus
             // 
-            this.labelControl1.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.labelControl1.Appearance.Options.UseTextOptions = true;
-            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.Location = new System.Drawing.Point(7, 58);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(122, 13);
-            this.labelControl1.StyleController = this.layoutControl1;
-            this.labelControl1.TabIndex = 5;
+            this.labelStatus.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.labelStatus.Appearance.Options.UseTextOptions = true;
+            this.labelStatus.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelStatus.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelStatus.Location = new System.Drawing.Point(7, 58);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(122, 13);
+            this.labelStatus.StyleController = this.layoutControl1;
+            this.labelStatus.TabIndex = 5;
             // 
-            // listBoxControl1
+            // listBoxControlUndoRedo
             // 
-            this.listBoxControl1.Items.AddRange(new object[] {
+            this.listBoxControlUndoRedo.Items.AddRange(new object[] {
             "Change to Grayscale",
             "Scan document",
             "Delete document"});
-            this.listBoxControl1.Location = new System.Drawing.Point(2, 2);
-            this.listBoxControl1.Name = "listBoxControl1";
-            this.listBoxControl1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBoxControl1.Size = new System.Drawing.Size(132, 50);
-            this.listBoxControl1.StyleController = this.layoutControl1;
-            this.listBoxControl1.TabIndex = 4;
-            this.listBoxControl1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.listBoxControl1_MouseMove);
-            this.listBoxControl1.MouseLeave += new System.EventHandler(this.listBoxControl1_MouseLeave);
-            this.listBoxControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxControl1_MouseDown);
+            this.listBoxControlUndoRedo.Location = new System.Drawing.Point(2, 2);
+            this.listBoxControlUndoRedo.Name = "listBoxControlUndoRedo";
+            this.listBoxControlUndoRedo.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.listBoxControlUndoRedo.Size = new System.Drawing.Size(132, 50);
+            this.listBoxControlUndoRedo.StyleController = this.layoutControl1;
+            this.listBoxControlUndoRedo.TabIndex = 4;
+            this.listBoxControlUndoRedo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.listBoxControlUndoRedo_MouseMove);
+            this.listBoxControlUndoRedo.MouseLeave += new System.EventHandler(this.listBoxControlUndoRedo_MouseLeave);
+            this.listBoxControlUndoRedo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listBoxControlUndoRedo_MouseDown);
             // 
             // layoutControlGroup1
             // 
@@ -101,7 +101,7 @@ namespace SampleApplication
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.listBoxControl1;
+            this.layoutControlItem1.Control = this.listBoxControlUndoRedo;
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
@@ -115,7 +115,7 @@ namespace SampleApplication
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.labelControl1;
+            this.layoutControlItem2.Control = this.labelStatus;
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 51);
             this.layoutControlItem2.Name = "layoutControlItem2";
@@ -135,7 +135,7 @@ namespace SampleApplication
             this.Size = new System.Drawing.Size(135, 77);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControlUndoRedo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -147,8 +147,8 @@ namespace SampleApplication
 
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.ListBoxControl listBoxControl1;
+        private DevExpress.XtraEditors.LabelControl labelStatus;
+        private DevExpress.XtraEditors.ListBoxControl listBoxControlUndoRedo;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
     }

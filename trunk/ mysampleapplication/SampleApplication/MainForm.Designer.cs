@@ -449,9 +449,9 @@ namespace SampleApplication
             this.ribbonPageGroup16 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup17 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonStatusBar2 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -950,7 +950,7 @@ namespace SampleApplication
             this.repositoryItemCheckEdit13});
             this.ribbon.SelectedPage = this.ribbonBarCodeSetup;
             this.ribbon.Size = new System.Drawing.Size(1059, 148);
-            this.ribbon.StatusBar = this.ribbonStatusBar;
+            this.ribbon.StatusBar = this.ribbonStatusBar2;
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemCut);
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemCopy);
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemPaste);
@@ -3504,6 +3504,7 @@ namespace SampleApplication
             this.popupMenuDocumentSeperation.ItemLinks.Add(this.barCheckItemUsingBarCodes);
             this.popupMenuDocumentSeperation.ItemLinks.Add(this.barEditItemWhenValueChanges);
             this.popupMenuDocumentSeperation.ItemLinks.Add(this.barSubItemBarCodesType);
+            this.popupMenuDocumentSeperation.MenuDrawMode = DevExpress.XtraBars.MenuDrawMode.SmallImagesText;
             this.popupMenuDocumentSeperation.Name = "popupMenuDocumentSeperation";
             this.popupMenuDocumentSeperation.Ribbon = this.ribbon;
             // 
@@ -5155,6 +5156,28 @@ namespace SampleApplication
             this.ribbonPageGroup15.ShowCaptionButton = false;
             this.ribbonPageGroup15.Text = "Themes";
             // 
+            // ribbonStatusBar
+            // 
+            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItemCountDocument);
+            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItemCountBatch, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemZoom, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemPan);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemDrawZone);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemPageFit, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemHorizontalFit);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemVerticalFit);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItem100View);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemCompactThumbnailView, true);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemThumbnailView);
+            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemSingleView);
+            this.ribbonStatusBar.ItemLinks.Add(this.barEditItemZoomTrackBar);
+            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem12);
+            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItemStatus, true);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 565);
+            this.ribbonStatusBar.Name = "ribbonStatusBar";
+            this.ribbonStatusBar.Ribbon = this.ribbon;
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1059, 23);
+            // 
             // ribbonStatusBar1
             // 
             this.ribbonStatusBar1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -5186,28 +5209,6 @@ namespace SampleApplication
             this.ribbonStatusBar2.Name = "ribbonStatusBar2";
             this.ribbonStatusBar2.Ribbon = this.ribbon;
             this.ribbonStatusBar2.Size = new System.Drawing.Size(311, 23);
-            // 
-            // ribbonStatusBar
-            // 
-            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItemCountDocument);
-            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItemCountBatch, true);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemZoom, true);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemPan);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemDrawZone);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemPageFit, true);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemHorizontalFit);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemVerticalFit);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItem100View);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemCompactThumbnailView, true);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemThumbnailView);
-            this.ribbonStatusBar.ItemLinks.Add(this.barButtonItemSingleView);
-            this.ribbonStatusBar.ItemLinks.Add(this.barEditItemZoomTrackBar);
-            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem12);
-            this.ribbonStatusBar.ItemLinks.Add(this.barStaticItemStatus, true);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 565);
-            this.ribbonStatusBar.Name = "ribbonStatusBar";
-            this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1059, 23);
             // 
             // dockManager1
             // 
