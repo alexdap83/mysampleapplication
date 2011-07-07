@@ -18,6 +18,8 @@ namespace SampleApplication
         private Sides? tempSides = null;
         private ScanProfile scanProfile = ScanProfile.CurrentSetting;
         private ColorMode tempColorMode;
+        private AppSetting appSetting = AppSetting.CurrentSetting;
+
 
         public MainForm()
         {
@@ -27,28 +29,28 @@ namespace SampleApplication
 
         protected override void OnLoad(EventArgs e)
         {
-
             arMRUList = new MRUArrayList(pcAppRecentJobs, imageList1.Images[0], imageList1.Images[1]);
             arMRUList.LabelClicked += OnLabelClicked;
             InitMostRecentJobs(arMRUList);
 
 
-            UserLookAndFeel.Default.SetSkinStyle(AppSetting.CurrentSetting.Theme);
+            UserLookAndFeel.Default.SetSkinStyle(appSetting.Theme);
             SetupUI();
             SetScanSettingMode(scanProfile.CurrentScanSettingMode, false);
 
-            this.WindowState = AppSetting.CurrentSetting.WindowState;
-            ribbon.Minimized = AppSetting.CurrentSetting.IsRibbonMinimized;
-            ribbon.ToolbarLocation = AppSetting.CurrentSetting.ToolbarLocation;
+            this.WindowState = appSetting.WindowState;
+            ribbon.Minimized = appSetting.IsRibbonMinimized;
+            ribbon.ToolbarLocation = appSetting.ToolbarLocation;
             AddQuickAccessItem();
             SetCursorType(CursorType.Zoom);
-            SetFitType(AppSetting.CurrentSetting.CurrentFitType, false);
-            SetViewerType(AppSetting.CurrentSetting.CurrentViewType, false);
-            SetZoomValue(AppSetting.CurrentSetting.CurrentZoomValue, false);
-            LoadScanProfile();
+            SetFitType(appSetting.CurrentFitType, false);
+            SetViewerType(appSetting.CurrentViewType, false);
+            SetZoomValue(appSetting.CurrentZoomValue, false);
+
 
             SetSelectedPage(0); // Allways show Home Tab
-            LoadBatches();
+            LoadBatch();
+            LoadPerfomance(false);
             ribbon.ForceInitialize(); // Fix error: skin gallery not show until click on dropdown
             SkinHelper.CreateGallery(ribbonGalleryBarItemThemes);
 
@@ -70,7 +72,9 @@ namespace SampleApplication
                     }
                 }
             }
-            
+
+            LoadScanProfile();
+            LoadJob();
         }
 
         private void LoadScanProfile()
@@ -109,54 +113,164 @@ namespace SampleApplication
 
             //SetRawImageType(scanProfile.RawImageType, false);
         }
-        private void LoadBatches()
+        
+        private void LoadJob()
         {
-            var list = new List<Batch>
-                           {
-                               new Batch
-                                   {
-                                       Icon = 0,
-                                       BatchName = "Batch002",
-                                       JobName = "Job1",
-                                       Documents = 2,
-                                       Pages = 5,
-                                       Status = string.Empty
-                                   },
-                               new Batch
-                                   {
-                                       Icon = 1,
-                                       BatchName = "Batch003",
-                                       JobName = "Job1",
-                                       Documents = 2,
-                                       Pages = 5,
-                                       Status = string.Empty
-                                   },
-                               new Batch
-                                   {
-                                       Icon = 0,
-                                       BatchName = "Batch004",
-                                       JobName = "Job1",
-                                       Documents = 2,
-                                       Pages = 5,
-                                       Status = string.Empty
-                                   }
-                           };
-            gridControl1.DataSource = list;
-            gridControl2.DataSource = new List<Performance>
-                                          {
-                                             new Performance {Title = "Document", Value = "123"},
-                                             new Performance {Title = "Image", Value = "24"}
-                                          };
+            SetRawImageType(appSetting.RawImageType,false);
+        }
+        private void SetupDocumentSeperation()
+        {
+            SetChecked(barButtonItemDocumentSeperation,appSetting.UseDocumentSeperation);
+            if( appSetting.DocumentSeparation == DocumentSeparationMode.BlankSheet)
+            {
+                barButtonItemDocumentSeperation.LargeGlyph = 
+            }
+        }
+        void SetBarCode(BarCodeType barcode, bool autoSave)
+        {
+            switch (barcode)
+            {
+                case BarCodeType.Aztec:
+                    SetChecked(barCheckItemBarAztec, true);
+                    barButtonItemDocumentSeperation.LargeGlyph = barCheckItemBarAztec.LargeGlyph;
+                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemBarAztec.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemBarAztec.LargeGlyph;
+                    break;
+                case BarCodeType.Codabar:
+                    SetChecked(barCheckItemCodabar, true);
+                    barButtonItemDocumentSeperation.LargeGlyph = barCheckItemCodabar.LargeGlyph;
+                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemCodabar.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemCodabar.LargeGlyph;
+                    break;
+                case BarCodeType.Code39:
+                    SetChecked(barCheckItemCode39, true);
+                    barButtonItemDocumentSeperation.LargeGlyph = barCheckItemCode39.LargeGlyph;
+                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemCode39.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemCode39.LargeGlyph;
+                    break;
+                case BarCodeType.Code93:
+                    SetChecked(barCheckItemCode93, true);
+                    barButtonItemDocumentSeperation.LargeGlyph = barCheckItemCode93.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemCode93.LargeGlyph;
+                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemCode93.LargeGlyph;
+                    break;
+                case BarCodeType.Code128:
+                    SetChecked(barCheckItemCode128, true);
+                    barButtonItemDocumentSeperation.LargeGlyph = barCheckItemCode128.LargeGlyph;
+                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemCode128.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemCode128.LargeGlyph;
+                    break;
+                case BarCodeType.DataMatrix:
+                    SetChecked(barCheckItemDataMatrix, true);
+                    barButtonItemDocumentSeperation.LargeGlyph = barCheckItemDataMatrix.LargeGlyph;
+                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemDataMatrix.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemDataMatrix.LargeGlyph;
+                    break;
+                case BarCodeType.EAN:
+                    SetChecked(barCheckItemEAN, true);
+                    barButtonItemDocumentSeperation.LargeGlyph = barCheckItemEAN.LargeGlyph;
+                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemEAN.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemEAN.LargeGlyph;
+                    break;
+                case BarCodeType.InterLeaved2of5:
+                    SetChecked(barCheckItemInterLeaved2of5, true);
+                    barButtonItemDocumentSeperation.LargeGlyph = barCheckItemInterLeaved2of5.LargeGlyph;
+                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemInterLeaved2of5.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemInterLeaved2of5.LargeGlyph;
+                    break;
+                case BarCodeType.PDF417:
+                    SetChecked(barCheckItemPdf417, true);
+                    barButtonItemDocumentSeperation.LargeGlyph = barCheckItemPdf417.LargeGlyph;
+                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemPdf417.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemPdf417.LargeGlyph;
+                    break;
+                case BarCodeType.PostNet:
+                    SetChecked(barCheckItemPostNet, true);
+                    barButtonItemDocumentSeperation.LargeGlyph = barCheckItemPostNet.LargeGlyph;
+                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemPostNet.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemPostNet.LargeGlyph;
+                    break;
+                case BarCodeType.QR:
+                    SetChecked(barCheckItemQR, true);
+                    barButtonItemDocumentSeperation.LargeGlyph = barCheckItemQR.LargeGlyph;
+                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemQR.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemQR.LargeGlyph;
+                    break;
+                case BarCodeType.UPC_A:
+                    SetChecked(barCheckItemUPC_A, true);
+                    barButtonItemDocumentSeperation.LargeGlyph = barCheckItemUPC_A.LargeGlyph;
+                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemUPC_A.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemUPC_A.LargeGlyph;
+                    break;
+                case BarCodeType.UPC_E:
+                    SetChecked(barCheckItemUPC_E, true);
+                    barButtonItemDocumentSeperation.LargeGlyph = barCheckItemUPC_E.LargeGlyph;
+                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemUPC_E.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemUPC_E.LargeGlyph;
+                    break;
+            }
+            if (autoSave)
+            {
+                SetChecked(barCheckItemUsingBarCodes, true);
+                appSetting.BarCode = barcode;
+            }
+        }
+        void SetUsingBarCode(bool autoSave)
+        {
+            SetChecked(barCheckItemUsingBarCodes,true);
+            barButtonItemDocumentSeperation.LargeGlyph = barCheckItemUsingBarCodes.LargeGlyph;
+            if(autoSave)
+                appSetting.DocumentSeparation = DocumentSeparationMode.BarCode;
+        }
+        void SetUsingPatchCode(bool autoSave)
+        {
+            SetChecked(barCheckItemUsingBarCodes,true);
+            barButtonItemDocumentSeperation.LargeGlyph = barCheckItemUsingPatchCodes.LargeGlyph;
+            if(autoSave)
+                appSetting.DocumentSeparation = DocumentSeparationMode.PatchCode;
+        }
+        void SetDocumentSeperation(DocumentSeparationMode mode, bool autoSave)
+        {
+            switch (mode)
+            {
+                case DocumentSeparationMode.BarCode:
+                    SetChecked(barCheckItemUsingBarCodes, true);
+                    barButtonItemDocumentSeperation.LargeGlyph = barCheckItemUsingBarCodes.LargeGlyph;
+                    break;
+                case DocumentSeparationMode.PatchCode:
+                    SetChecked(barCheckItemUsingPatchCodes, true);
+                    barButtonItemDocumentSeperation.LargeGlyph = barCheckItemUsingPatchCodes.LargeGlyph;
+                    break;
+                case DocumentSeparationMode.BlankSheet:
+                    SetChecked(barCheckItemUsingBlankSheets, true);
+                    barButtonItemDocumentSeperation.LargeGlyph = barCheckItemUsingBlankSheets.LargeGlyph;
+                    break;
+                case DocumentSeparationMode.EveryNSheet:
+                    SetChecked(barCheckItemEveryNSheets, true);
+                    barButtonItemDocumentSeperation.LargeGlyph = barCheckItemEveryNSheets.LargeGlyph;
+                    break;
+            }
+            if (autoSave)
+                appSetting.DocumentSeparation = mode;
+
+        }
+        void LoadPerfomance(bool isAdvance)
+        {
+            gridControl2.DataSource = _listPerformances.Where(p => !p.IsAdvance || isAdvance).ToList();
+        }
+        void LoadBatch()
+        {
+            gridControl1.DataSource = listBatch;
         }
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
-            AppSetting.CurrentSetting.IsRibbonMinimized = ribbon.Minimized;
-            AppSetting.CurrentSetting.SelectedPageIndex = ribbon.SelectedPage.PageIndex;
-            AppSetting.CurrentSetting.ToolbarLocation = ribbon.ToolbarLocation;
-            AppSetting.CurrentSetting.WindowState = this.WindowState;
-            AppSetting.CurrentSetting.QuickAccessItem = GetQuickAccessItemName();
-            AppSetting.CurrentSetting.Theme = UserLookAndFeel.Default.SkinName;
-            AppSetting.CurrentSetting.Save();
+            appSetting.IsRibbonMinimized = ribbon.Minimized;
+            appSetting.SelectedPageIndex = ribbon.SelectedPage.PageIndex;
+            appSetting.ToolbarLocation = ribbon.ToolbarLocation;
+            appSetting.WindowState = this.WindowState;
+            appSetting.QuickAccessItem = GetQuickAccessItemName();
+            appSetting.Theme = UserLookAndFeel.Default.SkinName;
+            appSetting.Save();
             
 
             scanProfile.Save();
@@ -897,7 +1011,7 @@ namespace SampleApplication
             SetVisible(barButtonItemLastDocument,isChecked);
             SetVisible(barButtonItemNextIncomplete,isChecked);
 
-            SetViewerType(isChecked ? ViewerType.Single : AppSetting.CurrentSetting.CurrentViewType, false);
+            SetViewerType(isChecked ? ViewerType.Single : appSetting.CurrentViewType, false);
         }
         private void SetViewerType(ViewerType type,bool autoSave)
         {
@@ -916,7 +1030,7 @@ namespace SampleApplication
             SetVisible(barButtonItem100View, isSingle);
             ribbonStatusBar.Refresh();
             if (autoSave)
-                AppSetting.CurrentSetting.CurrentViewType = type;
+                appSetting.CurrentViewType = type;
         }
 
         private void barButtonItemCompactThumbnailView_ItemClick(object sender, ItemClickEventArgs e)
@@ -970,14 +1084,14 @@ namespace SampleApplication
             SetChecked(barButtonItemVerticalFit,isVertical);
             SetChecked(barButtonItem100View,isView100);
             if(autoSave)
-                AppSetting.CurrentSetting.CurrentFitType = type;
+                appSetting.CurrentFitType = type;
         }
         private void SetZoomValue(int value, bool autoSave)
         {
             barEditItemZoomTrackBar.Caption = value.ToString().PadLeft(5) + " %";
             barEditItemZoomTrackBar.EditValue = value;
             if (autoSave)
-                AppSetting.CurrentSetting.CurrentZoomValue = value;
+                appSetting.CurrentZoomValue = value;
         }
         private void barButtonItemPageFit_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -1043,8 +1157,8 @@ namespace SampleApplication
                 barButtonItemRawColor.LargeGlyph = barCheckItemRawColorOff.Glyph;
                 barButtonItemRawColor.Caption = barCheckItemRawColorOff.Caption;
             }
-            //if (autoSave)
-            //    scanProfile.RawImageType = type;
+            if (autoSave)
+                appSetting.RawImageType = type;
         }
 
         private void barCheckItemRawColorOff_ItemClick(object sender, ItemClickEventArgs e)
@@ -1066,7 +1180,52 @@ namespace SampleApplication
 
         void itemLink_ItemClick(object sender, ItemClickEventArgs e)
         {
-            SetSeperationDocument(e.Item);
+            switch (e.Item.Name)
+            {
+                case "barCheckItemBarAztec":
+                    SetBarCode(BarCodeType.Aztec, true);
+                    break;
+                case "barCheckItemCodabar":
+                    SetBarCode(BarCodeType.Codabar, true);
+                    break;
+                case "barCheckItemCode39":
+                    SetBarCode(BarCodeType.Code39, true);
+                    break;
+                case "barCheckItemCode93":
+                    SetBarCode(BarCodeType.Code93, true);
+                    break;
+                case "barCheckItemCode128":
+                    SetBarCode(BarCodeType.Code128, true);
+                    break;
+                case "barCheckItemDataMatrix":
+                    SetBarCode(BarCodeType.DataMatrix, true);
+                    break;
+                case "barCheckItemEAN":
+                    SetBarCode(BarCodeType.EAN, true);
+                    break;
+                case "barCheckItemInterLeaved2of5":
+                    SetBarCode(BarCodeType.InterLeaved2of5, true);
+                    break;
+                case "barCheckItemPdf417":
+                    SetBarCode(BarCodeType.PDF417, true);
+                    break;
+                case "barCheckItemPostNet":
+                    SetBarCode(BarCodeType.PostNet, true);
+                    break;
+                case "barCheckItemQR":
+                    SetBarCode(BarCodeType.QR, true);
+                    break;
+                case "barCheckItemUPC_A":
+                    SetBarCode(BarCodeType.UPC_A, true);
+                    break;
+                case "barCheckItemUPC_E":
+                    SetBarCode(BarCodeType.UPC_E, true);
+                    break;
+
+                case "barCheckItemUsingBarCodes":
+                    SetUsingBarCode();
+                    break;
+            }
         }
 
         private void gridView2_ShowGridMenu(object sender, GridMenuEventArgs e)
@@ -1075,6 +1234,11 @@ namespace SampleApplication
             GridHitInfo hitInfo = view.CalcHitInfo(e.Point);
             if (hitInfo.InRow)
                 popupMenuPerfomance.ShowPopup(MousePosition);
+        }
+
+        private void barCheckItemShowAdvanInfomation_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadPerfomance(IsChecked(e.Item));
         }
     }
 }

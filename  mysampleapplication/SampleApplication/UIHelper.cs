@@ -25,6 +25,8 @@ namespace SampleApplication
         {
             if(item is BarButtonItem)
                 return ((BarButtonItem)item).Down;
+            if (item is BarCheckItem)
+                return ((BarCheckItem) item).Checked;
             return false;
         }
         bool IsChecked(BarCheckAndDropDownButton item)

@@ -451,9 +451,9 @@ namespace SampleApplication
             this.ribbonPageGroup17 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
-            this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonStatusBar2 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -962,9 +962,9 @@ namespace SampleApplication
             this.repositoryItemTextEdit10,
             this.repositoryItemSpinEdit7,
             this.repositoryItemCheckEdit13});
-            this.ribbon.SelectedPage = this.ribbonIndexSetup;
+            this.ribbon.SelectedPage = this.ribbonRescan;
             this.ribbon.Size = new System.Drawing.Size(1059, 148);
-            this.ribbon.StatusBar = this.ribbonStatusBar;
+            this.ribbon.StatusBar = this.ribbonStatusBar1;
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemCut);
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemCopy);
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemPaste);
@@ -3009,6 +3009,7 @@ namespace SampleApplication
             // 
             this.barButtonItemRescanFeeder.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.barButtonItemRescanFeeder.Caption = "Feeder";
+            this.barButtonItemRescanFeeder.Down = true;
             this.barButtonItemRescanFeeder.Glyph = global::SampleApplication.Properties.Resources.adf_16x16;
             this.barButtonItemRescanFeeder.GroupIndex = 7;
             this.barButtonItemRescanFeeder.Id = 246;
@@ -4599,6 +4600,7 @@ namespace SampleApplication
             this.barCheckItemShowAdvanInfomation.Caption = "Show advance perfomance infomarion";
             this.barCheckItemShowAdvanInfomation.Id = 399;
             this.barCheckItemShowAdvanInfomation.Name = "barCheckItemShowAdvanInfomation";
+            this.barCheckItemShowAdvanInfomation.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckItemShowAdvanInfomation_ItemClick);
             // 
             // barButtonItemCopyInfomationToClipboard
             // 
@@ -5147,28 +5149,6 @@ namespace SampleApplication
             this.repositoryItemImageEdit1.Name = "repositoryItemImageEdit1";
             this.repositoryItemImageEdit1.UseParentBackground = true;
             // 
-            // ribbonStatusBar1
-            // 
-            this.ribbonStatusBar1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ribbonStatusBar1.ItemLinks.Add(this.barStaticItemCurentSanner);
-            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItemAdvanceScanSetting);
-            this.ribbonStatusBar1.ItemLinks.Add(this.barEditItemScanProfile);
-            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItemNewScanProfile);
-            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItemSaveScanProfile);
-            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItemSaveScanProfileAs);
-            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItemRenameScanProfile);
-            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItemDeleteScanProfile);
-            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItemIndexFristDocument);
-            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItemPreviousDocument);
-            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItemNextDocument);
-            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItemLastDocument);
-            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItemNextIncomplete);
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 148);
-            this.ribbonStatusBar1.Name = "ribbonStatusBar1";
-            this.ribbonStatusBar1.Ribbon = this.ribbon;
-            this.ribbonStatusBar1.ShowSizeGrip = false;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(1059, 23);
-            // 
             // ribbonStatusBar2
             // 
             this.ribbonStatusBar2.Dock = System.Windows.Forms.DockStyle.None;
@@ -5200,6 +5180,28 @@ namespace SampleApplication
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1059, 23);
+            // 
+            // ribbonStatusBar1
+            // 
+            this.ribbonStatusBar1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ribbonStatusBar1.ItemLinks.Add(this.barStaticItemCurentSanner);
+            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItemAdvanceScanSetting);
+            this.ribbonStatusBar1.ItemLinks.Add(this.barEditItemScanProfile);
+            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItemNewScanProfile);
+            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItemSaveScanProfile);
+            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItemSaveScanProfileAs);
+            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItemRenameScanProfile);
+            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItemDeleteScanProfile);
+            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItemIndexFristDocument);
+            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItemPreviousDocument);
+            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItemNextDocument);
+            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItemLastDocument);
+            this.ribbonStatusBar1.ItemLinks.Add(this.barButtonItemNextIncomplete);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 148);
+            this.ribbonStatusBar1.Name = "ribbonStatusBar1";
+            this.ribbonStatusBar1.Ribbon = this.ribbon;
+            this.ribbonStatusBar1.ShowSizeGrip = false;
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(1059, 23);
             // 
             // dockManager1
             // 

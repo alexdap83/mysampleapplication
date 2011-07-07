@@ -34,6 +34,17 @@ namespace SampleApplication
         public List<string> Jobs { get; set; }
         public string BatchPath { get; set; }
         public string NextbatchName { get; set; }
+        public bool UseDocumentSeperation { get; set; }
+        public DocumentSeparationMode DocumentSeparation { get; set; }
+        public int BlankSheetSensitivityvalue { get; set; }
+        public int EveryNSheetsCount { get; set; }
+        public bool DeletepatchCodeSeperator{ get; set; }
+        public PatchCodeType PatchCode { get; set; }
+        public bool WhenBarCodeChange { get; set; }
+        public BarCodeType BarCode { get; set; }
+        public List<BarCodeType> BarCodeTypes { get; set; }
+        public bool Checksum { get; set; }
+        public int MinimumLength { get; set; }
         #endregion
 
         private static AppSetting _currentSetting;

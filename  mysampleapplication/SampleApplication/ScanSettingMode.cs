@@ -99,4 +99,34 @@ namespace SampleApplication
         Grayscale,
         Off
     }
+
+    public enum DocumentSeparationMode
+    {
+        BlankSheet,
+        EveryNSheet,
+        PatchCode,
+        BarCode
+    }
+    public enum BarCodeType
+    {
+        Aztec,
+        Codabar,
+        Code39,
+        Code93,
+        Code128,
+        DataMatrix,
+        EAN,
+        InterLeaved2of5,
+        PDF417,
+        PostNet,
+        QR,
+        UPC_A,
+        UPC_E
+    }
+    public enum PatchCodeType
+    {
+        PatchII,
+        PatchIII,
+        PatchT
+    }
 }
