@@ -119,7 +119,36 @@ namespace SampleApplication
             SetRawImageType(appSetting.RawImageType,false);
             EnableDocumentSeperation(appSetting.UseDocumentSeperation,false);
             SetBarCode(appSetting.BarCode,false);
+            SetPatchCode(appSetting.PatchCode, false);
             SetDocumentSeperation(appSetting.DocumentSeparation, false);
+            SetWhenValueChanges(appSetting.WhenBarCodeChange, false);
+        }
+        void SetPatchCode(PatchCodeType patchcode, bool autoSave)
+        {
+            switch (patchcode)
+            {
+                case PatchCodeType.PatchII:
+                    SetChecked(barCheckItemPatchII, true);
+                    barButtonItemDocumentSeperation.LargeGlyph = barCheckItemPatchII.LargeGlyph;
+                    barCheckItemUsingPatchCodes.Glyph = barCheckItemPatchII.Glyph;
+                    break;
+                case PatchCodeType.PatchIII:
+                    SetChecked(barCheckItemPatchIII, true);
+                    barButtonItemDocumentSeperation.LargeGlyph = barCheckItemPatchIII.LargeGlyph;
+                    barCheckItemUsingPatchCodes.Glyph = barCheckItemPatchIII.Glyph;
+                    break;
+                case PatchCodeType.PatchT:
+                    SetChecked(barCheckItemPatchT, true);
+                    barButtonItemDocumentSeperation.LargeGlyph = barCheckItemPatchT.LargeGlyph;
+                    barCheckItemUsingPatchCodes.Glyph = barCheckItemPatchT.Glyph;
+                    break;
+            }
+            if (autoSave)
+            {
+                SetChecked(barCheckItemUsingPatchCodes, true);
+                SetChecked(barButtonItemDocumentSeperation, true);
+                appSetting.PatchCode = patchcode;
+            }
         }
 
         void SetBarCode(BarCodeType barcode, bool autoSave)
@@ -131,7 +160,7 @@ namespace SampleApplication
                     barButtonItemDocumentSeperation.LargeGlyph = barCheckItemBarAztec.LargeGlyph;
                     barButtonItemType.LargeGlyph = barCheckItemBarAztec.LargeGlyph;
                     barCheckItemUsingBarCodes.Glyph = barCheckItemBarAztec.GlyphDisabled;
-                    break;
+                    break; 
                 case BarCodeType.Codabar:
                     SetChecked(barCheckItemCodabar, true);
                     barButtonItemDocumentSeperation.LargeGlyph = barCheckItemCodabar.LargeGlyph;
@@ -220,6 +249,17 @@ namespace SampleApplication
             if (autoSave)
                 appSetting.UseDocumentSeperation = isChecked;
         }
+
+        private void SetWhenValueChanges(bool isChecked, bool autoSave)
+        {
+            SetChecked(barEditItemWhenValueChanges,isChecked);
+            if (autoSave)
+            {
+                SetDocumentSeperation(DocumentSeparationMode.BarCode, autoSave);
+                appSetting.WhenBarCodeChange = isChecked;
+            }
+
+        }
         void SetDocumentSeperation(DocumentSeparationMode mode, bool autoSave)
         {
             switch (mode)
@@ -236,7 +276,7 @@ namespace SampleApplication
                     SetChecked(barCheckItemUsingBlankSheets, true);
                     barButtonItemDocumentSeperation.LargeGlyph = barCheckItemUsingBlankSheets.LargeGlyph;
                     break;
-                case DocumentSeparationMode.EveryNSheet:
+                case DocumentSeparationMode.EveryNSheets:
                     SetChecked(barCheckItemEveryNSheets, true);
                     barButtonItemDocumentSeperation.LargeGlyph = barCheckItemEveryNSheets.LargeGlyph;
                     break;
@@ -1215,8 +1255,29 @@ namespace SampleApplication
                 case "barCheckItemUPC_E":
                     SetBarCode(BarCodeType.UPC_E, true);
                     break;
+                case "barCheckItemPatchII":
+                    SetPatchCode(PatchCodeType.PatchII, true);
+                    break;
+                case "barCheckItemPatchIII":
+                    SetPatchCode(PatchCodeType.PatchIII, true);
+                    break;
+                case "barCheckItemPatchT":
+                    SetPatchCode(PatchCodeType.PatchT, true);
+                    break;
+                case "barCheckItemDeletePatchCodeSepetator":
+                    //SetDeletePatchPatchCodeSeperator(PatchCodeType.PatchII, true);
+                    break;;
                 case "barCheckItemUsingBarCodes":
                     SetDocumentSeperation(DocumentSeparationMode.BarCode, true);
+                    break;
+                case "barCheckItemEveryNSheets":
+                    SetDocumentSeperation(DocumentSeparationMode.EveryNSheets, true);
+                    break;
+                case "barCheckItemUsingPatchCodes":
+                    SetDocumentSeperation(DocumentSeparationMode.PatchCode, true);
+                    break;
+                case "barCheckItemUsingBlankSheets":
+                    SetDocumentSeperation(DocumentSeparationMode.BlankSheet, true);
                     break;
             }
         }
@@ -1233,5 +1294,12 @@ namespace SampleApplication
         {
             LoadPerfomance(IsChecked(e.Item));
         }
+
+        private void repositoryItemCheckEdit5_CheckedChanged(object sender, EventArgs e)
+        {
+            var item = (CheckEdit)sender;
+            SetWhenValueChanges(item.Checked, true);
+        }
+
     }
 }

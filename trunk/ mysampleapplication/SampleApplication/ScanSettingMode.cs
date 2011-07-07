@@ -103,7 +103,7 @@ namespace SampleApplication
     public enum DocumentSeparationMode
     {
         BlankSheet,
-        EveryNSheet,
+        EveryNSheets,
         PatchCode,
         BarCode
     }
