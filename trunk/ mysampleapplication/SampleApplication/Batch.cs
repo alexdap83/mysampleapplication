@@ -19,6 +19,7 @@ namespace SampleApplication
     {
         public string Title { get; set; }
         public string Value { get; set; }
+        public bool IsAdvance { get; set; }
     }
     
 }
