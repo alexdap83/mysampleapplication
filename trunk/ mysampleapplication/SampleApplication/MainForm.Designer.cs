@@ -34,9 +34,9 @@ namespace SampleApplication
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup3 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             this.repositoryItemTrackBar9 = new DevExpress.XtraEditors.Repository.RepositoryItemTrackBar();
             this.ribbon = new CustomCheckAndDropDownButton.MyRibbonControl();
             this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
@@ -278,7 +278,7 @@ namespace SampleApplication
             this.barEditItem5 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.barCheckItemEveryNSheets = new DevExpress.XtraBars.BarCheckItem();
-            this.barEditItem3 = new DevExpress.XtraBars.BarEditItem();
+            this.barEditItemCount = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.barCheckItemUsingPatchCodes = new DevExpress.XtraBars.BarCheckItem();
             this.barSubItemPatchCodesSetting = new DevExpress.XtraBars.BarSubItem();
@@ -387,6 +387,18 @@ namespace SampleApplication
             this.barButtonItemUndo = new DevExpress.XtraBars.BarButtonItem();
             this.popupControlContainerUndoRedo = new DevExpress.XtraBars.PopupControlContainer(this.components);
             this.userUndoRedo1 = new SampleApplication.UserUndoRedo();
+            this.barButtonItemRedo = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemCut = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemCopy = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemPaste = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemLearnMore = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemActivate = new DevExpress.XtraBars.BarButtonItem();
+            this.barCheckItemShowAdvanInfomation = new DevExpress.XtraBars.BarCheckItem();
+            this.barButtonItemCopyInfomationToClipboard = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem21 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem22 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem23 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem24 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribonPageGroupBatch = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupScan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -435,6 +447,8 @@ namespace SampleApplication
             this.ribbonHelp = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup16 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup17 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -472,10 +486,8 @@ namespace SampleApplication
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.simpleSeparator1 = new DevExpress.XtraLayout.SimpleSeparator();
-            this.barButtonItemRedo = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemCut = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemCopy = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemPaste = new DevExpress.XtraBars.BarButtonItem();
+            this.popupMenuPerfomance = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.popupMenuBatch = new DevExpress.XtraBars.PopupMenu(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainerBottomMenu)).BeginInit();
@@ -577,6 +589,8 @@ namespace SampleApplication
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenuPerfomance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenuBatch)).BeginInit();
             this.SuspendLayout();
             // 
             // repositoryItemTrackBar9
@@ -760,7 +774,7 @@ namespace SampleApplication
             this.barCheckItemUsingBlankSheets,
             this.barSubItemBlankSheetsSetting,
             this.barCheckItemEveryNSheets,
-            this.barEditItem3,
+            this.barEditItemCount,
             this.barCheckItemUsingPatchCodes,
             this.barSubItemPatchCodesSetting,
             this.barCheckItemUsingBarCodes,
@@ -868,9 +882,17 @@ namespace SampleApplication
             this.barButtonItemRedo,
             this.barButtonItemCut,
             this.barButtonItemCopy,
-            this.barButtonItemPaste});
+            this.barButtonItemPaste,
+            this.barButtonItemLearnMore,
+            this.barButtonItemActivate,
+            this.barCheckItemShowAdvanInfomation,
+            this.barButtonItemCopyInfomationToClipboard,
+            this.barButtonItem21,
+            this.barButtonItem22,
+            this.barButtonItem23,
+            this.barButtonItem24});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 397;
+            this.ribbon.MaxItemId = 405;
             this.ribbon.Name = "ribbon";
             this.ribbon.PageHeaderItemLinks.Add(this.barButtonItemAbout);
             this.ribbon.PageHeaderItemLinks.Add(this.barButtonItemHelp);
@@ -940,7 +962,7 @@ namespace SampleApplication
             this.repositoryItemTextEdit10,
             this.repositoryItemSpinEdit7,
             this.repositoryItemCheckEdit13});
-            this.ribbon.SelectedPage = this.ribbonHome;
+            this.ribbon.SelectedPage = this.ribbonIndexSetup;
             this.ribbon.Size = new System.Drawing.Size(1059, 148);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemCut);
@@ -1198,256 +1220,461 @@ namespace SampleApplication
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "vrs_rotate_90_16x16.png");
-            this.imageList1.Images.SetKeyName(1, "vrs_rotate_180_16x16.png");
-            this.imageList1.Images.SetKeyName(2, "vrs_rotate_270_16x16.png");
-            this.imageList1.Images.SetKeyName(3, "warning_16x16.png");
-            this.imageList1.Images.SetKeyName(4, "zoom_on_rectangle_16x16.png");
-            this.imageList1.Images.SetKeyName(5, "rectangle_16x16.png");
-            this.imageList1.Images.SetKeyName(6, "redo_16x16.png");
-            this.imageList1.Images.SetKeyName(7, "register_16x16.png");
-            this.imageList1.Images.SetKeyName(8, "remove_rubber_band_ocr_16x16.png");
-            this.imageList1.Images.SetKeyName(9, "rename_16x16.png");
-            this.imageList1.Images.SetKeyName(10, "required_16x16.png");
-            this.imageList1.Images.SetKeyName(11, "rescan_multi_feed_16x16.png");
-            this.imageList1.Images.SetKeyName(12, "rescan_multi_page_16x16.png");
-            this.imageList1.Images.SetKeyName(13, "reset_16x16.png");
-            this.imageList1.Images.SetKeyName(14, "reset_vrs_16x16.png");
-            this.imageList1.Images.SetKeyName(15, "rotate_00_16x16.png");
-            this.imageList1.Images.SetKeyName(16, "rotate_90_16x16.png");
-            this.imageList1.Images.SetKeyName(17, "rotate_180_16x16.png");
-            this.imageList1.Images.SetKeyName(18, "rotate_270_16x16.png");
-            this.imageList1.Images.SetKeyName(19, "rubber_band_ocr_16x16.png");
-            this.imageList1.Images.SetKeyName(20, "sans_serif_16x16.png");
-            this.imageList1.Images.SetKeyName(21, "save_16x16.png");
-            this.imageList1.Images.SetKeyName(22, "save_as_16x16.png");
-            this.imageList1.Images.SetKeyName(23, "save_job_16x16.png");
-            this.imageList1.Images.SetKeyName(24, "save_job_as_16x16.png");
-            this.imageList1.Images.SetKeyName(25, "save_job_as_template_16x16.png");
-            this.imageList1.Images.SetKeyName(26, "save_scan_profile_16x16.png");
-            this.imageList1.Images.SetKeyName(27, "save_scan_profile_as_16x16.png");
-            this.imageList1.Images.SetKeyName(28, "scan_batch_16x16.png");
-            this.imageList1.Images.SetKeyName(29, "scan_page_16x16.png");
-            this.imageList1.Images.SetKeyName(30, "scanner_button_16x16.png");
-            this.imageList1.Images.SetKeyName(31, "screw_tool_16x16.png");
-            this.imageList1.Images.SetKeyName(32, "select_16x16.png");
-            this.imageList1.Images.SetKeyName(33, "send_raw_to_server_16x16.png");
-            this.imageList1.Images.SetKeyName(34, "serif_16x16.png");
-            this.imageList1.Images.SetKeyName(35, "setup_16x16.png");
-            this.imageList1.Images.SetKeyName(36, "simplex_16x16.png");
-            this.imageList1.Images.SetKeyName(37, "single_sheet_16x16.png");
-            this.imageList1.Images.SetKeyName(38, "slow_16x16.png");
-            this.imageList1.Images.SetKeyName(39, "smoothing_16x16.png");
-            this.imageList1.Images.SetKeyName(40, "smoothing_high_16x16.png");
-            this.imageList1.Images.SetKeyName(41, "smoothing_low_16x16.png");
-            this.imageList1.Images.SetKeyName(42, "snap_to_white_16x16.png");
-            this.imageList1.Images.SetKeyName(43, "split_document_16x16.png");
-            this.imageList1.Images.SetKeyName(44, "start_16x16.png");
-            this.imageList1.Images.SetKeyName(45, "step_16x16.png");
-            this.imageList1.Images.SetKeyName(46, "sticky_value_16x16.png");
-            this.imageList1.Images.SetKeyName(47, "stop_multifeed_16x16.png");
-            this.imageList1.Images.SetKeyName(48, "stop_scanner_16x16.png");
-            this.imageList1.Images.SetKeyName(49, "support_16x16.png");
-            this.imageList1.Images.SetKeyName(50, "suspendbatch_16x16.png");
-            this.imageList1.Images.SetKeyName(51, "swap_front_back_16x16.png");
-            this.imageList1.Images.SetKeyName(52, "switch_to_bw_16x16.png");
-            this.imageList1.Images.SetKeyName(53, "switch_to_color_16x16.png");
-            this.imageList1.Images.SetKeyName(54, "switch_to_gray_16x16.png");
-            this.imageList1.Images.SetKeyName(55, "template_ocr_16x16.png");
-            this.imageList1.Images.SetKeyName(56, "thick_16x16.png");
-            this.imageList1.Images.SetKeyName(57, "thin_16x16.png");
-            this.imageList1.Images.SetKeyName(58, "time_out_16x16.png");
-            this.imageList1.Images.SetKeyName(59, "top_offset_16x16.png");
-            this.imageList1.Images.SetKeyName(60, "tutorial_16x16.png");
-            this.imageList1.Images.SetKeyName(61, "undo_16x16.png");
-            this.imageList1.Images.SetKeyName(62, "view_one_image_16x16.png");
-            this.imageList1.Images.SetKeyName(63, "view_thumbnails_16x16.png");
-            this.imageList1.Images.SetKeyName(64, "view_two_images_16x16.png");
-            this.imageList1.Images.SetKeyName(65, "vrs_16x16.png");
-            this.imageList1.Images.SetKeyName(66, "invert_16x16.png");
-            this.imageList1.Images.SetKeyName(67, "job_16x16.png");
-            this.imageList1.Images.SetKeyName(68, "key_from_image_16x16.png");
-            this.imageList1.Images.SetKeyName(69, "landscape_16x16.png");
-            this.imageList1.Images.SetKeyName(70, "landscape_orientation_landscapetext_0_degrees_16x16.png");
-            this.imageList1.Images.SetKeyName(71, "landscape_orientation_landscapetext_180_degrees_16x16.png");
-            this.imageList1.Images.SetKeyName(72, "landscape_orientation_portraittext_0_degrees_16x16.png");
-            this.imageList1.Images.SetKeyName(73, "landscape_orientation_portraittext_180_degrees_16x16.png");
-            this.imageList1.Images.SetKeyName(74, "lasso_ocr_16x16.png");
-            this.imageList1.Images.SetKeyName(75, "last_16x16.png");
-            this.imageList1.Images.SetKeyName(76, "learn_more_16x16.png");
-            this.imageList1.Images.SetKeyName(77, "left_offset_16x16.png");
-            this.imageList1.Images.SetKeyName(78, "level1_16x16.png");
-            this.imageList1.Images.SetKeyName(79, "level2_16x16.png");
-            this.imageList1.Images.SetKeyName(80, "level3_16x16.png");
-            this.imageList1.Images.SetKeyName(81, "lock_16x16.png");
-            this.imageList1.Images.SetKeyName(82, "long_paper_16x16.png");
-            this.imageList1.Images.SetKeyName(83, "magnifier_16x16.png");
-            this.imageList1.Images.SetKeyName(84, "merge_documents_16x16.png");
-            this.imageList1.Images.SetKeyName(85, "merge_with_next_16x16.png");
-            this.imageList1.Images.SetKeyName(86, "merge_with_previous_16x16.png");
-            this.imageList1.Images.SetKeyName(87, "multifeed_detect_16x16.png");
-            this.imageList1.Images.SetKeyName(88, "multifeed_off_16x16.png");
-            this.imageList1.Images.SetKeyName(89, "new_16x16.png");
-            this.imageList1.Images.SetKeyName(90, "new_batch_16x16.png");
-            this.imageList1.Images.SetKeyName(91, "new_document_16x16.png");
-            this.imageList1.Images.SetKeyName(92, "new_job_16x16.png");
-            this.imageList1.Images.SetKeyName(93, "new_scan_profile_16x16.png");
-            this.imageList1.Images.SetKeyName(94, "next_16x16.png");
-            this.imageList1.Images.SetKeyName(95, "next_incomplete_16x16.png");
-            this.imageList1.Images.SetKeyName(96, "nextbatch_16x16.png");
-            this.imageList1.Images.SetKeyName(97, "ocr_language_16x16.png");
-            this.imageList1.Images.SetKeyName(98, "off_16x16.png");
-            this.imageList1.Images.SetKeyName(99, "ok_16x16.png");
-            this.imageList1.Images.SetKeyName(100, "on_16x16.png");
-            this.imageList1.Images.SetKeyName(101, "open_16x16.png");
-            this.imageList1.Images.SetKeyName(102, "page_count_separation_16x16.png");
-            this.imageList1.Images.SetKeyName(103, "pan_hand_16x16.png");
-            this.imageList1.Images.SetKeyName(104, "paste_16x16.png");
-            this.imageList1.Images.SetKeyName(105, "patch_code_ii_16x16.png");
-            this.imageList1.Images.SetKeyName(106, "patch_code_iii_16x16.png");
-            this.imageList1.Images.SetKeyName(107, "patch_code_t_16x16.png");
-            this.imageList1.Images.SetKeyName(108, "performance_16x16.png");
-            this.imageList1.Images.SetKeyName(109, "portrait_16x16.png");
-            this.imageList1.Images.SetKeyName(110, "portrait_orientation_landscapetext_0_degrees_16x16.png");
-            this.imageList1.Images.SetKeyName(111, "portrait_orientation_landscapetext_180_degrees_16x16.png");
-            this.imageList1.Images.SetKeyName(112, "portrait_orientation_portrait_text_0_degrees_16x16.png");
-            this.imageList1.Images.SetKeyName(113, "portrait_orientation_portrait_text_180_degrees_16x16.png");
-            this.imageList1.Images.SetKeyName(114, "previous_16x16.png");
-            this.imageList1.Images.SetKeyName(115, "print_16x16.png");
-            this.imageList1.Images.SetKeyName(116, "properties_16x16.png");
-            this.imageList1.Images.SetKeyName(117, "publish_16x16.png");
-            this.imageList1.Images.SetKeyName(118, "publishjob_16x16.png");
-            this.imageList1.Images.SetKeyName(119, "publishjobas_16x16.png");
-            this.imageList1.Images.SetKeyName(120, "publishscanprofile_16x16.png");
-            this.imageList1.Images.SetKeyName(121, "raw_off_16x16.png");
-            this.imageList1.Images.SetKeyName(122, "color_mode_color_16x16.png");
-            this.imageList1.Images.SetKeyName(123, "color_mode_gray_16x16.png");
-            this.imageList1.Images.SetKeyName(124, "color_photographic_16x16.png");
-            this.imageList1.Images.SetKeyName(125, "color_small_16x16.png");
-            this.imageList1.Images.SetKeyName(126, "color_some_16x16.png");
-            this.imageList1.Images.SetKeyName(127, "color_very_small_16x16.png");
-            this.imageList1.Images.SetKeyName(128, "compact_view_16x16.png");
-            this.imageList1.Images.SetKeyName(129, "compress_color_16x16.png");
-            this.imageList1.Images.SetKeyName(130, "compress_gray_16x16.png");
-            this.imageList1.Images.SetKeyName(131, "continuous_paper_16x16.png");
-            this.imageList1.Images.SetKeyName(132, "contrast_16x16.png");
-            this.imageList1.Images.SetKeyName(133, "copy_16x16.png");
-            this.imageList1.Images.SetKeyName(134, "counter_16x16.png");
-            this.imageList1.Images.SetKeyName(135, "counter_length_16x16.png");
-            this.imageList1.Images.SetKeyName(136, "crop_16x16.png");
-            this.imageList1.Images.SetKeyName(137, "cut_16x16.png");
-            this.imageList1.Images.SetKeyName(138, "deactivate 16x16.png");
-            this.imageList1.Images.SetKeyName(139, "deactivate_16x16.png");
-            this.imageList1.Images.SetKeyName(140, "delete_batch_16x16.png");
-            this.imageList1.Images.SetKeyName(141, "delete_blank_sides_16x16.png");
-            this.imageList1.Images.SetKeyName(142, "delete_document_16x16.png");
-            this.imageList1.Images.SetKeyName(143, "delete_end_of_document_16x16.png");
-            this.imageList1.Images.SetKeyName(144, "delete_job_16x16.png");
-            this.imageList1.Images.SetKeyName(145, "delete_job_template_16x16.png");
-            this.imageList1.Images.SetKeyName(146, "delete_object_16x16.png");
+            this.imageList1.Images.SetKeyName(0, "100_display_16x16.png");
+            this.imageList1.Images.SetKeyName(1, "100_display_32x32.png");
+            this.imageList1.Images.SetKeyName(2, "about_16x16.png");
+            this.imageList1.Images.SetKeyName(3, "activate_16x16.png");
+            this.imageList1.Images.SetKeyName(4, "activate_32x32.png");
+            this.imageList1.Images.SetKeyName(5, "activate16x16.png");
+            this.imageList1.Images.SetKeyName(6, "activate32x32.png");
+            this.imageList1.Images.SetKeyName(7, "adf_16x16.png");
+            this.imageList1.Images.SetKeyName(8, "adf_32x32.png");
+            this.imageList1.Images.SetKeyName(9, "annotate_16x16.png");
+            this.imageList1.Images.SetKeyName(10, "annotate_32x32.png");
+            this.imageList1.Images.SetKeyName(11, "annotate_font_size_8_16x16.png");
+            this.imageList1.Images.SetKeyName(12, "annotate_font_size_10_16x16.png");
+            this.imageList1.Images.SetKeyName(13, "annotate_font_size_12_16x16.png");
+            this.imageList1.Images.SetKeyName(14, "annotate_horizontal_down_16x16.png");
+            this.imageList1.Images.SetKeyName(15, "annotate_horizontal_left_16x16.png");
+            this.imageList1.Images.SetKeyName(16, "annotate_horizontal_right_16x16.png");
+            this.imageList1.Images.SetKeyName(17, "annotate_horizontal_up_16x16.png");
+            this.imageList1.Images.SetKeyName(18, "annotate_vertical_down_16x16.png");
+            this.imageList1.Images.SetKeyName(19, "annotate_vertical_left_16x16.png");
+            this.imageList1.Images.SetKeyName(20, "annotate_vertical_right_16x16.png");
+            this.imageList1.Images.SetKeyName(21, "annotate_vertical_up_16x16.png");
+            this.imageList1.Images.SetKeyName(22, "annotation_background_transparent_16x16.png");
+            this.imageList1.Images.SetKeyName(23, "annotation_background_white_16x16.png");
+            this.imageList1.Images.SetKeyName(24, "application_menu.png");
+            this.imageList1.Images.SetKeyName(25, "auto_crop_16x16.png");
+            this.imageList1.Images.SetKeyName(26, "auto_crop_32x32.png");
+            this.imageList1.Images.SetKeyName(27, "auto_rotate_16x16.png");
+            this.imageList1.Images.SetKeyName(28, "auto_rotate_32x32.png");
+            this.imageList1.Images.SetKeyName(29, "autoexport_16x16.png");
+            this.imageList1.Images.SetKeyName(30, "autoexport_32x321.png");
+            this.imageList1.Images.SetKeyName(31, "bar_code_16x16.png");
+            this.imageList1.Images.SetKeyName(32, "bar_code_32x32.png");
+            this.imageList1.Images.SetKeyName(33, "bar_code_39_16x16.png");
+            this.imageList1.Images.SetKeyName(34, "bar_code_39_32x32.png");
+            this.imageList1.Images.SetKeyName(35, "bar_code_93_16x16.png");
+            this.imageList1.Images.SetKeyName(36, "bar_code_93_32x32.png");
+            this.imageList1.Images.SetKeyName(37, "bar_code_128_16x16.png");
+            this.imageList1.Images.SetKeyName(38, "bar_code_128_32x32.png");
+            this.imageList1.Images.SetKeyName(39, "bar_code_aztec_16x16.png");
+            this.imageList1.Images.SetKeyName(40, "bar_code_aztec_32x32.png");
+            this.imageList1.Images.SetKeyName(41, "bar_code_codabar_16x16.png");
+            this.imageList1.Images.SetKeyName(42, "bar_code_codabar_32x32.png");
+            this.imageList1.Images.SetKeyName(43, "bar_code_data_matrix_16x16.png");
+            this.imageList1.Images.SetKeyName(44, "bar_code_data_matrix_32x32.png");
+            this.imageList1.Images.SetKeyName(45, "bar_code_ean_16x16.png");
+            this.imageList1.Images.SetKeyName(46, "bar_code_ean_32x32.png");
+            this.imageList1.Images.SetKeyName(47, "bar_code_i25_16x16.png");
+            this.imageList1.Images.SetKeyName(48, "bar_code_i25_32x32.png");
+            this.imageList1.Images.SetKeyName(49, "bar_code_maxi_code_16x16.png");
+            this.imageList1.Images.SetKeyName(50, "bar_code_maxi_code_32x32.png");
+            this.imageList1.Images.SetKeyName(51, "bar_code_orientation_000_16x16.png");
+            this.imageList1.Images.SetKeyName(52, "bar_code_orientation_090_16x16.png");
+            this.imageList1.Images.SetKeyName(53, "bar_code_orientation_180_16x16.png");
+            this.imageList1.Images.SetKeyName(54, "bar_code_orientation_270_16x16.png");
+            this.imageList1.Images.SetKeyName(55, "bar_code_pdf_417_16x16.png");
+            this.imageList1.Images.SetKeyName(56, "bar_code_pdf_417_32x32.png");
+            this.imageList1.Images.SetKeyName(57, "bar_code_postnet_16x16.png");
+            this.imageList1.Images.SetKeyName(58, "bar_code_postnet_32x32.png");
+            this.imageList1.Images.SetKeyName(59, "bar_code_qr_16x16.png");
+            this.imageList1.Images.SetKeyName(60, "bar_code_qr_32x32.png");
+            this.imageList1.Images.SetKeyName(61, "bar_code_upc_16x16.png");
+            this.imageList1.Images.SetKeyName(62, "bar_code_upc_32x32.png");
+            this.imageList1.Images.SetKeyName(63, "batch_16x16.png");
+            this.imageList1.Images.SetKeyName(64, "batch_32x32.png");
+            this.imageList1.Images.SetKeyName(65, "batch_release_16x16.png");
+            this.imageList1.Images.SetKeyName(66, "batch_release_32x32.png");
+            this.imageList1.Images.SetKeyName(67, "beep_16x16.png");
+            this.imageList1.Images.SetKeyName(68, "beep_32x32.png");
+            this.imageList1.Images.SetKeyName(69, "blank_sensitivity1_16x16.png");
+            this.imageList1.Images.SetKeyName(70, "blank_sensitivity1_32x32.png");
+            this.imageList1.Images.SetKeyName(71, "blank_sensitivity2_16x16.png");
+            this.imageList1.Images.SetKeyName(72, "blank_sensitivity2_32x32.png");
+            this.imageList1.Images.SetKeyName(73, "blank_sensitivity3_16x16.png");
+            this.imageList1.Images.SetKeyName(74, "blank_sensitivity3_32x32.png");
+            this.imageList1.Images.SetKeyName(75, "blank_sensitivity4_16x16.png");
+            this.imageList1.Images.SetKeyName(76, "blank_sensitivity4_32x32.png");
+            this.imageList1.Images.SetKeyName(77, "blank_sensitivity5_16x16.png");
+            this.imageList1.Images.SetKeyName(78, "blank_sensitivity5_32x32.png");
+            this.imageList1.Images.SetKeyName(79, "blank_sheet_separation_16x16.png");
+            this.imageList1.Images.SetKeyName(80, "blank_sheet_separation_32x32.png");
+            this.imageList1.Images.SetKeyName(81, "brightness_16x16.png");
+            this.imageList1.Images.SetKeyName(82, "browse_16x16.png");
+            this.imageList1.Images.SetKeyName(83, "calibrate_16x16.png");
+            this.imageList1.Images.SetKeyName(84, "calibrate_32x32.png");
+            this.imageList1.Images.SetKeyName(85, "check_red_16x16.png");
+            this.imageList1.Images.SetKeyName(86, "cleaner_16x16.png");
+            this.imageList1.Images.SetKeyName(87, "cleaner_32x32.png");
+            this.imageList1.Images.SetKeyName(88, "close_16x16.png");
+            this.imageList1.Images.SetKeyName(89, "close_32x32.png");
+            this.imageList1.Images.SetKeyName(90, "close_kfi.png");
+            this.imageList1.Images.SetKeyName(91, "closebatch_16x16.png");
+            this.imageList1.Images.SetKeyName(92, "closebatch_32x321.png");
+            this.imageList1.Images.SetKeyName(93, "closebatch_32x322.png");
+            this.imageList1.Images.SetKeyName(94, "color_background_to_white_16x16.png");
+            this.imageList1.Images.SetKeyName(95, "color_background_to_white_32x32.png");
+            this.imageList1.Images.SetKeyName(96, "color_business_16x16.png");
+            this.imageList1.Images.SetKeyName(97, "color_detect_16x16.png");
+            this.imageList1.Images.SetKeyName(98, "color_detect_32x32.png");
+            this.imageList1.Images.SetKeyName(99, "color_lots_16x16.png");
+            this.imageList1.Images.SetKeyName(100, "color_lots_32x32.png");
+            this.imageList1.Images.SetKeyName(101, "color_mode_bw_16x16.png");
+            this.imageList1.Images.SetKeyName(102, "color_mode_bw_32x32.png");
+            this.imageList1.Images.SetKeyName(103, "color_mode_color_16x16.png");
+            this.imageList1.Images.SetKeyName(104, "color_mode_color_32x32.png");
+            this.imageList1.Images.SetKeyName(105, "color_mode_gray_16x16.png");
+            this.imageList1.Images.SetKeyName(106, "color_mode_gray_32x32.png");
+            this.imageList1.Images.SetKeyName(107, "color_photographic_16x16.png");
+            this.imageList1.Images.SetKeyName(108, "color_small_16x16.png");
+            this.imageList1.Images.SetKeyName(109, "color_small_32x32.png");
+            this.imageList1.Images.SetKeyName(110, "color_some_16x16.png");
+            this.imageList1.Images.SetKeyName(111, "color_some_32x32.png");
+            this.imageList1.Images.SetKeyName(112, "color_very_small_16x16.png");
+            this.imageList1.Images.SetKeyName(113, "color_very_small_32x32.png");
+            this.imageList1.Images.SetKeyName(114, "compact_view_16x16.png");
+            this.imageList1.Images.SetKeyName(115, "compress_color_16x16.png");
+            this.imageList1.Images.SetKeyName(116, "compress_gray_16x16.png");
+            this.imageList1.Images.SetKeyName(117, "continuous_paper_16x16.png");
+            this.imageList1.Images.SetKeyName(118, "continuous_paper_32x32.png");
+            this.imageList1.Images.SetKeyName(119, "contrast_16x16.png");
+            this.imageList1.Images.SetKeyName(120, "copy_16x16.png");
+            this.imageList1.Images.SetKeyName(121, "copy_32x32.png");
+            this.imageList1.Images.SetKeyName(122, "counter_16x16.png");
+            this.imageList1.Images.SetKeyName(123, "counter_32x32.png");
+            this.imageList1.Images.SetKeyName(124, "counter_length_16x16.png");
+            this.imageList1.Images.SetKeyName(125, "counter_length_32x32.png");
+            this.imageList1.Images.SetKeyName(126, "crop_16x16.png");
+            this.imageList1.Images.SetKeyName(127, "crop_32x32.png");
+            this.imageList1.Images.SetKeyName(128, "cut_16x16.png");
+            this.imageList1.Images.SetKeyName(129, "cut_32x32.png");
+            this.imageList1.Images.SetKeyName(130, "deactivate 16x16.png");
+            this.imageList1.Images.SetKeyName(131, "deactivate_16x16.png");
+            this.imageList1.Images.SetKeyName(132, "deactivate_32x32.png");
+            this.imageList1.Images.SetKeyName(133, "delete_batch_16x16.png");
+            this.imageList1.Images.SetKeyName(134, "delete_batch_32x32.png");
+            this.imageList1.Images.SetKeyName(135, "delete_blank_sides_16x16.png");
+            this.imageList1.Images.SetKeyName(136, "delete_blank_sides_32x32.png");
+            this.imageList1.Images.SetKeyName(137, "delete_document_16x16.png");
+            this.imageList1.Images.SetKeyName(138, "delete_document_32x32.png");
+            this.imageList1.Images.SetKeyName(139, "delete_end_of_document_16x16.png");
+            this.imageList1.Images.SetKeyName(140, "delete_end_of_document_32x32.png");
+            this.imageList1.Images.SetKeyName(141, "delete_job_16x16.png");
+            this.imageList1.Images.SetKeyName(142, "delete_job_32x32.png");
+            this.imageList1.Images.SetKeyName(143, "delete_job_template_16x16.png");
+            this.imageList1.Images.SetKeyName(144, "delete_job_template_32x32.png");
+            this.imageList1.Images.SetKeyName(145, "delete_object_16x16.png");
+            this.imageList1.Images.SetKeyName(146, "delete_object_32x32.png");
             this.imageList1.Images.SetKeyName(147, "deskew_16x16.png");
-            this.imageList1.Images.SetKeyName(148, "drop_down_16x16.png");
-            this.imageList1.Images.SetKeyName(149, "drop_out_blue_16x16.png");
-            this.imageList1.Images.SetKeyName(150, "drop_out_green_16x16.png");
-            this.imageList1.Images.SetKeyName(151, "drop_out_off_16x16.png");
-            this.imageList1.Images.SetKeyName(152, "drop_out_red_16x16.png");
-            this.imageList1.Images.SetKeyName(153, "duplex_16x16.png");
-            this.imageList1.Images.SetKeyName(154, "edge_cleanup_16x16.png");
-            this.imageList1.Images.SetKeyName(155, "exit_16x16.png");
-            this.imageList1.Images.SetKeyName(156, "export_16x16.png");
-            this.imageList1.Images.SetKeyName(157, "export_job_16x16.png");
-            this.imageList1.Images.SetKeyName(158, "export_scanner_profiles_16x16.png");
-            this.imageList1.Images.SetKeyName(159, "fast_16x16.png");
-            this.imageList1.Images.SetKeyName(160, "first_16x16.png");
-            this.imageList1.Images.SetKeyName(161, "fit_horizontal_16x16.png");
-            this.imageList1.Images.SetKeyName(162, "fit_page_16x16.png");
-            this.imageList1.Images.SetKeyName(163, "fit_vertical_16x16.png");
-            this.imageList1.Images.SetKeyName(164, "flatbed_16x16.png");
-            this.imageList1.Images.SetKeyName(165, "gamma_16x16.png");
-            this.imageList1.Images.SetKeyName(166, "help_contents_16x16.png");
-            this.imageList1.Images.SetKeyName(167, "help_index_16x16.png");
-            this.imageList1.Images.SetKeyName(168, "help_search_16x16.png");
-            this.imageList1.Images.SetKeyName(169, "help_website_16x16.png");
-            this.imageList1.Images.SetKeyName(170, "hole_punch_removal_16x16.png");
-            this.imageList1.Images.SetKeyName(171, "hole_punches_16x16.png");
-            this.imageList1.Images.SetKeyName(172, "import_16x16.png");
-            this.imageList1.Images.SetKeyName(173, "import_job_16x16.png");
-            this.imageList1.Images.SetKeyName(174, "import_scanner_profiles_16x16.png");
-            this.imageList1.Images.SetKeyName(175, "imprinter_16x16.png");
-            this.imageList1.Images.SetKeyName(176, "imprinter_bold_16x16.png");
-            this.imageList1.Images.SetKeyName(177, "imprinter_down_16x16.png");
-            this.imageList1.Images.SetKeyName(178, "imprinter_left_16x16.png");
-            this.imageList1.Images.SetKeyName(179, "imprinter_right_16x16.png");
-            this.imageList1.Images.SetKeyName(180, "imprinter_up_16x16.png");
-            this.imageList1.Images.SetKeyName(181, "increment_across_batches_off_16x16.png");
-            this.imageList1.Images.SetKeyName(182, "increment_across_batches_on_16x16.png");
-            this.imageList1.Images.SetKeyName(183, "index_16x16.png");
-            this.imageList1.Images.SetKeyName(184, "index_bar_code_types_16x16.png");
-            this.imageList1.Images.SetKeyName(185, "index_delete_16x16.png");
-            this.imageList1.Images.SetKeyName(186, "index_new_16x16.png");
-            this.imageList1.Images.SetKeyName(187, "insert_new_document_16x16.png");
-            this.imageList1.Images.SetKeyName(188, "insert_scan_multi_16x16.png");
-            this.imageList1.Images.SetKeyName(189, "100_display_16x16.png");
-            this.imageList1.Images.SetKeyName(190, "about_16x16.png");
-            this.imageList1.Images.SetKeyName(191, "activate 16x16.png");
-            this.imageList1.Images.SetKeyName(192, "activate_16x16.png");
-            this.imageList1.Images.SetKeyName(193, "adf_16x16.png");
-            this.imageList1.Images.SetKeyName(194, "annotate_16x16.png");
-            this.imageList1.Images.SetKeyName(195, "annotate_font_size_8_16x16.png");
-            this.imageList1.Images.SetKeyName(196, "annotate_font_size_10_16x16.png");
-            this.imageList1.Images.SetKeyName(197, "annotate_font_size_12_16x16.png");
-            this.imageList1.Images.SetKeyName(198, "annotate_horizontal_down_16x16.png");
-            this.imageList1.Images.SetKeyName(199, "annotate_horizontal_left_16x16.png");
-            this.imageList1.Images.SetKeyName(200, "annotate_horizontal_right_16x16.png");
-            this.imageList1.Images.SetKeyName(201, "annotate_horizontal_up_16x16.png");
-            this.imageList1.Images.SetKeyName(202, "annotate_vertical_down_16x16.png");
-            this.imageList1.Images.SetKeyName(203, "annotate_vertical_left_16x16.png");
-            this.imageList1.Images.SetKeyName(204, "annotate_vertical_right_16x16.png");
-            this.imageList1.Images.SetKeyName(205, "annotate_vertical_up_16x16.png");
-            this.imageList1.Images.SetKeyName(206, "annotation_background_transparent_16x16.png");
-            this.imageList1.Images.SetKeyName(207, "annotation_background_white_16x16.png");
-            this.imageList1.Images.SetKeyName(208, "auto_crop_16x16.png");
-            this.imageList1.Images.SetKeyName(209, "auto_rotate_16x16.png");
-            this.imageList1.Images.SetKeyName(210, "autoexport_16x16.png");
-            this.imageList1.Images.SetKeyName(211, "bar_code_16x16.png");
-            this.imageList1.Images.SetKeyName(212, "bar_code_39_16x16.png");
-            this.imageList1.Images.SetKeyName(213, "bar_code_93_16x16.png");
-            this.imageList1.Images.SetKeyName(214, "bar_code_128_16x16.png");
-            this.imageList1.Images.SetKeyName(215, "bar_code_aztec_16x16.png");
-            this.imageList1.Images.SetKeyName(216, "bar_code_codabar_16x16.png");
-            this.imageList1.Images.SetKeyName(217, "bar_code_data_matrix_16x16.png");
-            this.imageList1.Images.SetKeyName(218, "bar_code_ean_16x16.png");
-            this.imageList1.Images.SetKeyName(219, "bar_code_i25_16x16.png");
-            this.imageList1.Images.SetKeyName(220, "bar_code_maxi_code_16x16.png");
-            this.imageList1.Images.SetKeyName(221, "bar_code_orientation_000_16x16.png");
-            this.imageList1.Images.SetKeyName(222, "bar_code_orientation_090_16x16.png");
-            this.imageList1.Images.SetKeyName(223, "bar_code_orientation_180_16x16.png");
-            this.imageList1.Images.SetKeyName(224, "bar_code_orientation_270_16x16.png");
-            this.imageList1.Images.SetKeyName(225, "bar_code_pdf_417_16x16.png");
-            this.imageList1.Images.SetKeyName(226, "bar_code_postnet_16x16.png");
-            this.imageList1.Images.SetKeyName(227, "bar_code_qr_16x16.png");
-            this.imageList1.Images.SetKeyName(228, "bar_code_upc_16x16.png");
-            this.imageList1.Images.SetKeyName(229, "batch_16x16.png");
-            this.imageList1.Images.SetKeyName(230, "batch_release_16x16.png");
-            this.imageList1.Images.SetKeyName(231, "beep_16x16.png");
-            this.imageList1.Images.SetKeyName(232, "blank_sensitivity1_16x16.png");
-            this.imageList1.Images.SetKeyName(233, "blank_sensitivity2_16x16.png");
-            this.imageList1.Images.SetKeyName(234, "blank_sensitivity3_16x16.png");
-            this.imageList1.Images.SetKeyName(235, "blank_sensitivity4_16x16.png");
-            this.imageList1.Images.SetKeyName(236, "blank_sensitivity5_16x16.png");
-            this.imageList1.Images.SetKeyName(237, "blank_sheet_separation_16x16.png");
-            this.imageList1.Images.SetKeyName(238, "brightness_16x16.png");
-            this.imageList1.Images.SetKeyName(239, "browse_16x16.png");
-            this.imageList1.Images.SetKeyName(240, "calibrate_16x16.png");
-            this.imageList1.Images.SetKeyName(241, "check_red_16x16.png");
-            this.imageList1.Images.SetKeyName(242, "cleaner_16x16.png");
-            this.imageList1.Images.SetKeyName(243, "close_16x16.png");
-            this.imageList1.Images.SetKeyName(244, "closebatch_16x16.png");
-            this.imageList1.Images.SetKeyName(245, "color_background_to_white_16x16.png");
-            this.imageList1.Images.SetKeyName(246, "color_business_16x16.png");
-            this.imageList1.Images.SetKeyName(247, "color_detect_16x16.png");
-            this.imageList1.Images.SetKeyName(248, "color_lots_16x16.png");
-            this.imageList1.Images.SetKeyName(249, "color_mode_bw_16x16.png");
+            this.imageList1.Images.SetKeyName(148, "deskew_32x32.png");
+            this.imageList1.Images.SetKeyName(149, "drop_down_16x16.png");
+            this.imageList1.Images.SetKeyName(150, "drop_down_32x32.png");
+            this.imageList1.Images.SetKeyName(151, "drop_out_blue_16x16.png");
+            this.imageList1.Images.SetKeyName(152, "drop_out_green_16x16.png");
+            this.imageList1.Images.SetKeyName(153, "drop_out_off_16x16.png");
+            this.imageList1.Images.SetKeyName(154, "drop_out_red_16x16.png");
+            this.imageList1.Images.SetKeyName(155, "duplex_16x16.png");
+            this.imageList1.Images.SetKeyName(156, "duplex_32x32.png");
+            this.imageList1.Images.SetKeyName(157, "edge_cleanup_16x16.png");
+            this.imageList1.Images.SetKeyName(158, "edge_cleanup_32x32.png");
+            this.imageList1.Images.SetKeyName(159, "exit_16x16.png");
+            this.imageList1.Images.SetKeyName(160, "exit_32x32.png");
+            this.imageList1.Images.SetKeyName(161, "export_16x16.png");
+            this.imageList1.Images.SetKeyName(162, "export_32x32.png");
+            this.imageList1.Images.SetKeyName(163, "export_job_16x16.png");
+            this.imageList1.Images.SetKeyName(164, "export_job_32x32.png");
+            this.imageList1.Images.SetKeyName(165, "export_scanner_profiles_16x16.png");
+            this.imageList1.Images.SetKeyName(166, "export_scanner_profiles_32x32.png");
+            this.imageList1.Images.SetKeyName(167, "fast_16x16.png");
+            this.imageList1.Images.SetKeyName(168, "fast_32x32.png");
+            this.imageList1.Images.SetKeyName(169, "first_16x16.png");
+            this.imageList1.Images.SetKeyName(170, "fit_horizontal_16x16.png");
+            this.imageList1.Images.SetKeyName(171, "fit_horizontal_32x32.png");
+            this.imageList1.Images.SetKeyName(172, "fit_page_16x16.png");
+            this.imageList1.Images.SetKeyName(173, "fit_page_32x32.png");
+            this.imageList1.Images.SetKeyName(174, "fit_vertical_16x16.png");
+            this.imageList1.Images.SetKeyName(175, "fit_vertical_32x32.png");
+            this.imageList1.Images.SetKeyName(176, "flatbed_16x16.png");
+            this.imageList1.Images.SetKeyName(177, "flatbed_32x32.png");
+            this.imageList1.Images.SetKeyName(178, "gamma_16x16.png");
+            this.imageList1.Images.SetKeyName(179, "help.ico");
+            this.imageList1.Images.SetKeyName(180, "help_contents_16x16.png");
+            this.imageList1.Images.SetKeyName(181, "help_index_16x16.png");
+            this.imageList1.Images.SetKeyName(182, "help_search_16x16.png");
+            this.imageList1.Images.SetKeyName(183, "help_website_16x16.png");
+            this.imageList1.Images.SetKeyName(184, "help16x16.png");
+            this.imageList1.Images.SetKeyName(185, "help32x32.png");
+            this.imageList1.Images.SetKeyName(186, "hole_punch_removal_16x16.png");
+            this.imageList1.Images.SetKeyName(187, "hole_punch_removal_32x32.png");
+            this.imageList1.Images.SetKeyName(188, "hole_punches_16x16.png");
+            this.imageList1.Images.SetKeyName(189, "hole_punches_32x32.png");
+            this.imageList1.Images.SetKeyName(190, "import_16x16.png");
+            this.imageList1.Images.SetKeyName(191, "import_32x32.png");
+            this.imageList1.Images.SetKeyName(192, "import_job_16x16.png");
+            this.imageList1.Images.SetKeyName(193, "import_job_32x32.png");
+            this.imageList1.Images.SetKeyName(194, "import_scanner_profiles_16x16.png");
+            this.imageList1.Images.SetKeyName(195, "import_scanner_profiles_32x32.png");
+            this.imageList1.Images.SetKeyName(196, "imprinter_16x16.png");
+            this.imageList1.Images.SetKeyName(197, "imprinter_32x32.png");
+            this.imageList1.Images.SetKeyName(198, "imprinter_bold_16x16.png");
+            this.imageList1.Images.SetKeyName(199, "imprinter_bold_32x32.png");
+            this.imageList1.Images.SetKeyName(200, "imprinter_down_16x16.png");
+            this.imageList1.Images.SetKeyName(201, "imprinter_down_32x32.png");
+            this.imageList1.Images.SetKeyName(202, "imprinter_left_16x16.png");
+            this.imageList1.Images.SetKeyName(203, "imprinter_left_32x32.png");
+            this.imageList1.Images.SetKeyName(204, "imprinter_right_16x16.png");
+            this.imageList1.Images.SetKeyName(205, "imprinter_right_32x32.png");
+            this.imageList1.Images.SetKeyName(206, "imprinter_up_16x16.png");
+            this.imageList1.Images.SetKeyName(207, "imprinter_up_32x32.png");
+            this.imageList1.Images.SetKeyName(208, "increment_across_batches_off_16x16.png");
+            this.imageList1.Images.SetKeyName(209, "increment_across_batches_off_32x32.png");
+            this.imageList1.Images.SetKeyName(210, "increment_across_batches_on_16x16.png");
+            this.imageList1.Images.SetKeyName(211, "increment_across_batches_on_32x32.png");
+            this.imageList1.Images.SetKeyName(212, "index_16x16.png");
+            this.imageList1.Images.SetKeyName(213, "index_32x32.png");
+            this.imageList1.Images.SetKeyName(214, "index_bar_code_types_16x16.png");
+            this.imageList1.Images.SetKeyName(215, "index_bar_code_types_32x32.png");
+            this.imageList1.Images.SetKeyName(216, "index_delete_16x16.png");
+            this.imageList1.Images.SetKeyName(217, "index_delete_32x32.png");
+            this.imageList1.Images.SetKeyName(218, "index_new_16x16.png");
+            this.imageList1.Images.SetKeyName(219, "index_new_32x32.png");
+            this.imageList1.Images.SetKeyName(220, "insert_new_document_16x16.png");
+            this.imageList1.Images.SetKeyName(221, "insert_new_document_32x32.png");
+            this.imageList1.Images.SetKeyName(222, "insert_scan_multi_16x16.png");
+            this.imageList1.Images.SetKeyName(223, "insert_scan_multi_32x32.png");
+            this.imageList1.Images.SetKeyName(224, "invert_16x16.png");
+            this.imageList1.Images.SetKeyName(225, "invert_32x32.png");
+            this.imageList1.Images.SetKeyName(226, "job_16x16.png");
+            this.imageList1.Images.SetKeyName(227, "job_32x32.png");
+            this.imageList1.Images.SetKeyName(228, "key_from_image_16x16.png");
+            this.imageList1.Images.SetKeyName(229, "key_from_image_32x32.png");
+            this.imageList1.Images.SetKeyName(230, "landscape_16x16.png");
+            this.imageList1.Images.SetKeyName(231, "landscape_32x32.png");
+            this.imageList1.Images.SetKeyName(232, "landscape_48x48.png");
+            this.imageList1.Images.SetKeyName(233, "landscape_orientation_landscapetext_0_degrees_16x16.png");
+            this.imageList1.Images.SetKeyName(234, "landscape_orientation_landscapetext_0_degrees_32x32.png");
+            this.imageList1.Images.SetKeyName(235, "landscape_orientation_landscapetext_180_degrees_16x16.png");
+            this.imageList1.Images.SetKeyName(236, "landscape_orientation_landscapetext_180_degrees_32x32.png");
+            this.imageList1.Images.SetKeyName(237, "landscape_orientation_portraittext_0_degrees_16x16.png");
+            this.imageList1.Images.SetKeyName(238, "landscape_orientation_portraittext_0_degrees_32x32.png");
+            this.imageList1.Images.SetKeyName(239, "landscape_orientation_portraittext_180_degrees_16x16.png");
+            this.imageList1.Images.SetKeyName(240, "landscape_orientation_portraittext_180_degrees_32x32.png");
+            this.imageList1.Images.SetKeyName(241, "lasso_ocr_16x16.png");
+            this.imageList1.Images.SetKeyName(242, "lasso_ocr1.png");
+            this.imageList1.Images.SetKeyName(243, "last_16x16.png");
+            this.imageList1.Images.SetKeyName(244, "learn_more_16x16.png");
+            this.imageList1.Images.SetKeyName(245, "learn_more_32x32.png");
+            this.imageList1.Images.SetKeyName(246, "left_offset_16x16.png");
+            this.imageList1.Images.SetKeyName(247, "level1_16x16.png");
+            this.imageList1.Images.SetKeyName(248, "level1_32x32.png");
+            this.imageList1.Images.SetKeyName(249, "level2_16x16.png");
+            this.imageList1.Images.SetKeyName(250, "level2_32x32.png");
+            this.imageList1.Images.SetKeyName(251, "level3_16x16.png");
+            this.imageList1.Images.SetKeyName(252, "level3_32x32.png");
+            this.imageList1.Images.SetKeyName(253, "lock_16x16.png");
+            this.imageList1.Images.SetKeyName(254, "lock_32x32.png");
+            this.imageList1.Images.SetKeyName(255, "long_paper_16x16.png");
+            this.imageList1.Images.SetKeyName(256, "long_paper_32x32.png");
+            this.imageList1.Images.SetKeyName(257, "magnifier_16x16.png");
+            this.imageList1.Images.SetKeyName(258, "magnifier_32x32.png");
+            this.imageList1.Images.SetKeyName(259, "merge_documents_16x16.png");
+            this.imageList1.Images.SetKeyName(260, "merge_documents_32x32.png");
+            this.imageList1.Images.SetKeyName(261, "merge_with_next_16x16.png");
+            this.imageList1.Images.SetKeyName(262, "merge_with_next_32x32.png");
+            this.imageList1.Images.SetKeyName(263, "merge_with_previous_16x16.png");
+            this.imageList1.Images.SetKeyName(264, "merge_with_previous_32x32.png");
+            this.imageList1.Images.SetKeyName(265, "mini_index_viewer_32x32.png");
+            this.imageList1.Images.SetKeyName(266, "multifeed_detect_16x16.png");
+            this.imageList1.Images.SetKeyName(267, "multifeed_detect_32x32.png");
+            this.imageList1.Images.SetKeyName(268, "multifeed_off_16x16.png");
+            this.imageList1.Images.SetKeyName(269, "multifeed_off_32x32.png");
+            this.imageList1.Images.SetKeyName(270, "new_16x16.png");
+            this.imageList1.Images.SetKeyName(271, "new_32x32.png");
+            this.imageList1.Images.SetKeyName(272, "new_batch_16x16.png");
+            this.imageList1.Images.SetKeyName(273, "new_batch_32x32.png");
+            this.imageList1.Images.SetKeyName(274, "new_document_16x16.png");
+            this.imageList1.Images.SetKeyName(275, "new_document_32x32.png");
+            this.imageList1.Images.SetKeyName(276, "new_job_16x16.png");
+            this.imageList1.Images.SetKeyName(277, "new_job_32x32.png");
+            this.imageList1.Images.SetKeyName(278, "new_scan_profile_16x16.png");
+            this.imageList1.Images.SetKeyName(279, "new_scan_profile_32x32.png");
+            this.imageList1.Images.SetKeyName(280, "next_16x16.png");
+            this.imageList1.Images.SetKeyName(281, "next_incomplete_16x16.png");
+            this.imageList1.Images.SetKeyName(282, "nextbatch_16x16.png");
+            this.imageList1.Images.SetKeyName(283, "nextbatch_32x321.png");
+            this.imageList1.Images.SetKeyName(284, "nextbatch_32x322.png");
+            this.imageList1.Images.SetKeyName(285, "ocr_language_16x16.png");
+            this.imageList1.Images.SetKeyName(286, "ocr_language_32x32.png");
+            this.imageList1.Images.SetKeyName(287, "off_16x16.png");
+            this.imageList1.Images.SetKeyName(288, "off_32x32.png");
+            this.imageList1.Images.SetKeyName(289, "ok_16x16.png");
+            this.imageList1.Images.SetKeyName(290, "ok_32x32.png");
+            this.imageList1.Images.SetKeyName(291, "on_16x16.png");
+            this.imageList1.Images.SetKeyName(292, "on_32x32.png");
+            this.imageList1.Images.SetKeyName(293, "open_16x16.png");
+            this.imageList1.Images.SetKeyName(294, "open_32x32.png");
+            this.imageList1.Images.SetKeyName(295, "page_count_separation_16x16.png");
+            this.imageList1.Images.SetKeyName(296, "page_count_separation_32x32.png");
+            this.imageList1.Images.SetKeyName(297, "pan_hand_16x16.png");
+            this.imageList1.Images.SetKeyName(298, "pan_hand_32x32.png");
+            this.imageList1.Images.SetKeyName(299, "paste_16x16.png");
+            this.imageList1.Images.SetKeyName(300, "paste_32x32.png");
+            this.imageList1.Images.SetKeyName(301, "patch_code_ii_16x16.png");
+            this.imageList1.Images.SetKeyName(302, "patch_code_ii_32x32.png");
+            this.imageList1.Images.SetKeyName(303, "patch_code_iii_16x16.png");
+            this.imageList1.Images.SetKeyName(304, "patch_code_iii_32x32.png");
+            this.imageList1.Images.SetKeyName(305, "patch_code_t_16x16.png");
+            this.imageList1.Images.SetKeyName(306, "patch_code_t_32x32.png");
+            this.imageList1.Images.SetKeyName(307, "performance_16x16.png");
+            this.imageList1.Images.SetKeyName(308, "portrait_16x16.png");
+            this.imageList1.Images.SetKeyName(309, "portrait_32x32.png");
+            this.imageList1.Images.SetKeyName(310, "portrait_48x48.png");
+            this.imageList1.Images.SetKeyName(311, "portrait_orientation_landscapetext_0_degrees_16x16.png");
+            this.imageList1.Images.SetKeyName(312, "portrait_orientation_landscapetext_0_degrees_32x32.png");
+            this.imageList1.Images.SetKeyName(313, "portrait_orientation_landscapetext_180_degrees_16x16.png");
+            this.imageList1.Images.SetKeyName(314, "portrait_orientation_landscapetext_180_degrees_32x32.png");
+            this.imageList1.Images.SetKeyName(315, "portrait_orientation_portrait_text_0_degrees_16x16.png");
+            this.imageList1.Images.SetKeyName(316, "portrait_orientation_portrait_text_0_degrees_32x32.png");
+            this.imageList1.Images.SetKeyName(317, "portrait_orientation_portrait_text_180_degrees_16x16.png");
+            this.imageList1.Images.SetKeyName(318, "portrait_orientation_portrait_text_180_degrees_32x32.png");
+            this.imageList1.Images.SetKeyName(319, "previous_16x16.png");
+            this.imageList1.Images.SetKeyName(320, "print_16x16.png");
+            this.imageList1.Images.SetKeyName(321, "print_32x32.png");
+            this.imageList1.Images.SetKeyName(322, "properties_16x16.png");
+            this.imageList1.Images.SetKeyName(323, "properties_32x32.png");
+            this.imageList1.Images.SetKeyName(324, "publish_16x16.png");
+            this.imageList1.Images.SetKeyName(325, "publish_32x32.png");
+            this.imageList1.Images.SetKeyName(326, "publish_scan_profile_32x32.png");
+            this.imageList1.Images.SetKeyName(327, "publishjob_16x16.png");
+            this.imageList1.Images.SetKeyName(328, "publishjob_32x32.png");
+            this.imageList1.Images.SetKeyName(329, "publishjobas_16x16.png");
+            this.imageList1.Images.SetKeyName(330, "publishjobas_32x32.png");
+            this.imageList1.Images.SetKeyName(331, "publishscanprofile_16x16.png");
+            this.imageList1.Images.SetKeyName(332, "raw_off_16x16.png");
+            this.imageList1.Images.SetKeyName(333, "raw_off_32x32.png");
+            this.imageList1.Images.SetKeyName(334, "rectangle_16x16.png");
+            this.imageList1.Images.SetKeyName(335, "rectangle_32x32.png");
+            this.imageList1.Images.SetKeyName(336, "redo_16x16.png");
+            this.imageList1.Images.SetKeyName(337, "redo_32x32.png");
+            this.imageList1.Images.SetKeyName(338, "register_16x16.png");
+            this.imageList1.Images.SetKeyName(339, "register_32x32.png");
+            this.imageList1.Images.SetKeyName(340, "remove_rubber_band_ocr_16x16.png");
+            this.imageList1.Images.SetKeyName(341, "remove_rubber_band_ocr_32x32.png");
+            this.imageList1.Images.SetKeyName(342, "rename_16x16.png");
+            this.imageList1.Images.SetKeyName(343, "rename_32x32.png");
+            this.imageList1.Images.SetKeyName(344, "required_16x16.png");
+            this.imageList1.Images.SetKeyName(345, "required_32x32.png");
+            this.imageList1.Images.SetKeyName(346, "rescan_multi_feed_16x16.png");
+            this.imageList1.Images.SetKeyName(347, "rescan_multi_feed_32x32.png");
+            this.imageList1.Images.SetKeyName(348, "rescan_multi_page_16x16.png");
+            this.imageList1.Images.SetKeyName(349, "rescan_multi_page_32x32.png");
+            this.imageList1.Images.SetKeyName(350, "reset_16x16.png");
+            this.imageList1.Images.SetKeyName(351, "reset_32x32.png");
+            this.imageList1.Images.SetKeyName(352, "reset_vrs_16x16.png");
+            this.imageList1.Images.SetKeyName(353, "reset_vrs_32x32.png");
+            this.imageList1.Images.SetKeyName(354, "rotate_00_16x16.png");
+            this.imageList1.Images.SetKeyName(355, "rotate_00_32x32.png");
+            this.imageList1.Images.SetKeyName(356, "rotate_90_16x16.png");
+            this.imageList1.Images.SetKeyName(357, "rotate_90_32x32.png");
+            this.imageList1.Images.SetKeyName(358, "rotate_180_16x16.png");
+            this.imageList1.Images.SetKeyName(359, "rotate_180_32x32.png");
+            this.imageList1.Images.SetKeyName(360, "rotate_270_16x16.png");
+            this.imageList1.Images.SetKeyName(361, "rotate_270_32x32.png");
+            this.imageList1.Images.SetKeyName(362, "rubber_band_ocr_16x16.png");
+            this.imageList1.Images.SetKeyName(363, "rubber_band_ocr_32x32.png");
+            this.imageList1.Images.SetKeyName(364, "sans_serif_16x16.png");
+            this.imageList1.Images.SetKeyName(365, "save_16x16.png");
+            this.imageList1.Images.SetKeyName(366, "save_32x32.png");
+            this.imageList1.Images.SetKeyName(367, "save_as_16x16.png");
+            this.imageList1.Images.SetKeyName(368, "save_as_32x32.png");
+            this.imageList1.Images.SetKeyName(369, "save_job_16x16.png");
+            this.imageList1.Images.SetKeyName(370, "save_job_32x32.png");
+            this.imageList1.Images.SetKeyName(371, "save_job_as_16x16.png");
+            this.imageList1.Images.SetKeyName(372, "save_job_as_32x32.png");
+            this.imageList1.Images.SetKeyName(373, "save_job_as_template_16x16.png");
+            this.imageList1.Images.SetKeyName(374, "save_job_as_template_32x32.png");
+            this.imageList1.Images.SetKeyName(375, "save_scan_profile_16x16.png");
+            this.imageList1.Images.SetKeyName(376, "save_scan_profile_32x32.png");
+            this.imageList1.Images.SetKeyName(377, "save_scan_profile_as_16x16.png");
+            this.imageList1.Images.SetKeyName(378, "save_scan_profile_as_32x32.png");
+            this.imageList1.Images.SetKeyName(379, "scan_batch_16x16.png");
+            this.imageList1.Images.SetKeyName(380, "scan_batch_32x32.png");
+            this.imageList1.Images.SetKeyName(381, "scan_page_16x16.png");
+            this.imageList1.Images.SetKeyName(382, "scan_page_32x32.png");
+            this.imageList1.Images.SetKeyName(383, "scanner_button_16x16.png");
+            this.imageList1.Images.SetKeyName(384, "scanner_button_32x32.png");
+            this.imageList1.Images.SetKeyName(385, "screw_tool_16x16.png");
+            this.imageList1.Images.SetKeyName(386, "screw_tool_32x32.png");
+            this.imageList1.Images.SetKeyName(387, "select_16x16.png");
+            this.imageList1.Images.SetKeyName(388, "select_32x32.png");
+            this.imageList1.Images.SetKeyName(389, "send_raw_to_server_16x16.png");
+            this.imageList1.Images.SetKeyName(390, "send_raw_to_server_32x32.png");
+            this.imageList1.Images.SetKeyName(391, "serif_16x16.png");
+            this.imageList1.Images.SetKeyName(392, "setup_16x16.png");
+            this.imageList1.Images.SetKeyName(393, "setup_32x32.png");
+            this.imageList1.Images.SetKeyName(394, "simplex_16x16.png");
+            this.imageList1.Images.SetKeyName(395, "simplex_32x32.png");
+            this.imageList1.Images.SetKeyName(396, "single_sheet_16x16.png");
+            this.imageList1.Images.SetKeyName(397, "single_sheet_32x32.png");
+            this.imageList1.Images.SetKeyName(398, "slow_16x16.png");
+            this.imageList1.Images.SetKeyName(399, "slow_32x32.png");
+            this.imageList1.Images.SetKeyName(400, "smoothing_16x16.png");
+            this.imageList1.Images.SetKeyName(401, "smoothing_32x32.png");
+            this.imageList1.Images.SetKeyName(402, "smoothing_high_16x16.png");
+            this.imageList1.Images.SetKeyName(403, "smoothing_low_16x16.png");
+            this.imageList1.Images.SetKeyName(404, "snap_to_white_16x16.png");
+            this.imageList1.Images.SetKeyName(405, "snap_to_white_32x32.png");
+            this.imageList1.Images.SetKeyName(406, "split_document_16x16.png");
+            this.imageList1.Images.SetKeyName(407, "split_document_32x32.png");
+            this.imageList1.Images.SetKeyName(408, "start_16x16.png");
+            this.imageList1.Images.SetKeyName(409, "start_32x32.png");
+            this.imageList1.Images.SetKeyName(410, "step_16x16.png");
+            this.imageList1.Images.SetKeyName(411, "step_32x32.png");
+            this.imageList1.Images.SetKeyName(412, "sticky_value_16x16.png");
+            this.imageList1.Images.SetKeyName(413, "sticky_value_32x32.png");
+            this.imageList1.Images.SetKeyName(414, "stop_multifeed_16x16.png");
+            this.imageList1.Images.SetKeyName(415, "stop_multifeed_32x32.png");
+            this.imageList1.Images.SetKeyName(416, "stop_scanner_16x16.png");
+            this.imageList1.Images.SetKeyName(417, "stop_scanner_32x32.png");
+            this.imageList1.Images.SetKeyName(418, "support_16x16.png");
+            this.imageList1.Images.SetKeyName(419, "suspendbatch_16x16.png");
+            this.imageList1.Images.SetKeyName(420, "suspendbatch_32x321.png");
+            this.imageList1.Images.SetKeyName(421, "swap_front_back_16x16.png");
+            this.imageList1.Images.SetKeyName(422, "swap_front_back_32x32.png");
+            this.imageList1.Images.SetKeyName(423, "switch_to_bw_16x16.png");
+            this.imageList1.Images.SetKeyName(424, "switch_to_color_16x16.png");
+            this.imageList1.Images.SetKeyName(425, "switch_to_gray_16x16.png");
+            this.imageList1.Images.SetKeyName(426, "template_ocr_16x16.png");
+            this.imageList1.Images.SetKeyName(427, "template_ocr1.png");
+            this.imageList1.Images.SetKeyName(428, "thick_16x16.png");
+            this.imageList1.Images.SetKeyName(429, "thin_16x16.png");
+            this.imageList1.Images.SetKeyName(430, "time_out_16x16.png");
+            this.imageList1.Images.SetKeyName(431, "time_out_32x32.png");
+            this.imageList1.Images.SetKeyName(432, "top_offset_16x16.png");
+            this.imageList1.Images.SetKeyName(433, "tutorial_16x16.png");
+            this.imageList1.Images.SetKeyName(434, "tutorial_32x32.png");
+            this.imageList1.Images.SetKeyName(435, "undo_16x16.png");
+            this.imageList1.Images.SetKeyName(436, "undo_32x32.png");
+            this.imageList1.Images.SetKeyName(437, "view_one_image_16x16.png");
+            this.imageList1.Images.SetKeyName(438, "view_one_image_32x32.png");
+            this.imageList1.Images.SetKeyName(439, "view_thumbnails_16x16.png");
+            this.imageList1.Images.SetKeyName(440, "view_thumbnails_32x32.png");
+            this.imageList1.Images.SetKeyName(441, "view_two_images_16x16.png");
+            this.imageList1.Images.SetKeyName(442, "view_two_images_32x32.png");
+            this.imageList1.Images.SetKeyName(443, "vrs_16x16.png");
+            this.imageList1.Images.SetKeyName(444, "vrs_32x32.png");
+            this.imageList1.Images.SetKeyName(445, "vrs_rotate_90_16x16.png");
+            this.imageList1.Images.SetKeyName(446, "vrs_rotate_90_32x32.png");
+            this.imageList1.Images.SetKeyName(447, "vrs_rotate_180_16x16.png");
+            this.imageList1.Images.SetKeyName(448, "vrs_rotate_180_32x32.png");
+            this.imageList1.Images.SetKeyName(449, "vrs_rotate_270_16x16.png");
+            this.imageList1.Images.SetKeyName(450, "vrs_rotate_270_32x32.png");
+            this.imageList1.Images.SetKeyName(451, "warning_16x16.png");
+            this.imageList1.Images.SetKeyName(452, "warning_32x32.png");
+            this.imageList1.Images.SetKeyName(453, "zoom_on_rectangle_16x16.png");
+            this.imageList1.Images.SetKeyName(454, "zoom_on_rectangle_32x32.png");
             // 
             // barButtonItemNewBatch
             // 
@@ -1458,9 +1685,9 @@ namespace SampleApplication
             this.barButtonItemNewBatch.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B));
             this.barButtonItemNewBatch.LargeGlyph = global::SampleApplication.Properties.Resources.new_batch_32x32;
             this.barButtonItemNewBatch.Name = "barButtonItemNewBatch";
-            toolTipItem3.Text = "Create a new batch (Ctrl+B)";
-            superToolTip3.Items.Add(toolTipItem3);
-            this.barButtonItemNewBatch.SuperTip = superToolTip3;
+            toolTipItem1.Text = "Create a new batch (Ctrl+B)";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.barButtonItemNewBatch.SuperTip = superToolTip1;
             // 
             // barButtonItemScanOne
             // 
@@ -2473,9 +2700,9 @@ namespace SampleApplication
             this.ribbonGalleryBarItemThemes.Gallery.AllowHoverImages = true;
             this.ribbonGalleryBarItemThemes.Gallery.ColumnCount = 4;
             this.ribbonGalleryBarItemThemes.Gallery.FixedHoverImageSize = false;
-            galleryItemGroup3.Caption = "Themes";
+            galleryItemGroup1.Caption = "Themes";
             this.ribbonGalleryBarItemThemes.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup3});
+            galleryItemGroup1});
             this.ribbonGalleryBarItemThemes.Gallery.ImageSize = new System.Drawing.Size(17, 17);
             this.ribbonGalleryBarItemThemes.Gallery.ItemImageLocation = DevExpress.Utils.Locations.Top;
             this.ribbonGalleryBarItemThemes.Gallery.RowCount = 4;
@@ -3284,7 +3511,7 @@ namespace SampleApplication
             this.popupMenuDocumentSeperation.ItemLinks.Add(this.barCheckItemUsingBlankSheets);
             this.popupMenuDocumentSeperation.ItemLinks.Add(this.barSubItemBlankSheetsSetting);
             this.popupMenuDocumentSeperation.ItemLinks.Add(this.barCheckItemEveryNSheets);
-            this.popupMenuDocumentSeperation.ItemLinks.Add(this.barEditItem3);
+            this.popupMenuDocumentSeperation.ItemLinks.Add(this.barEditItemCount);
             this.popupMenuDocumentSeperation.ItemLinks.Add(this.barCheckItemUsingPatchCodes);
             this.popupMenuDocumentSeperation.ItemLinks.Add(this.barSubItemPatchCodesSetting);
             this.popupMenuDocumentSeperation.ItemLinks.Add(this.barCheckItemUsingBarCodes);
@@ -3300,6 +3527,7 @@ namespace SampleApplication
             this.barCheckItemUsingBlankSheets.Glyph = global::SampleApplication.Properties.Resources.blank_sheet_separation_16x16;
             this.barCheckItemUsingBlankSheets.GroupIndex = 4;
             this.barCheckItemUsingBlankSheets.Id = 295;
+            this.barCheckItemUsingBlankSheets.LargeGlyph = global::SampleApplication.Properties.Resources.blank_sheet_separation_32x32;
             this.barCheckItemUsingBlankSheets.Name = "barCheckItemUsingBlankSheets";
             // 
             // barSubItemBlankSheetsSetting
@@ -3354,14 +3582,15 @@ namespace SampleApplication
             this.barCheckItemEveryNSheets.Glyph = global::SampleApplication.Properties.Resources.page_count_separation_16x16;
             this.barCheckItemEveryNSheets.GroupIndex = 4;
             this.barCheckItemEveryNSheets.Id = 297;
+            this.barCheckItemEveryNSheets.LargeGlyph = global::SampleApplication.Properties.Resources.page_count_separation_32x32;
             this.barCheckItemEveryNSheets.Name = "barCheckItemEveryNSheets";
             // 
-            // barEditItem3
+            // barEditItemCount
             // 
-            this.barEditItem3.Caption = "              Count";
-            this.barEditItem3.Edit = this.repositoryItemTextEdit6;
-            this.barEditItem3.Id = 298;
-            this.barEditItem3.Name = "barEditItem3";
+            this.barEditItemCount.Caption = "              Count";
+            this.barEditItemCount.Edit = this.repositoryItemTextEdit6;
+            this.barEditItemCount.Id = 298;
+            this.barEditItemCount.Name = "barEditItemCount";
             // 
             // repositoryItemTextEdit6
             // 
@@ -3375,6 +3604,7 @@ namespace SampleApplication
             this.barCheckItemUsingPatchCodes.Glyph = global::SampleApplication.Properties.Resources.patch_code_ii_16x16;
             this.barCheckItemUsingPatchCodes.GroupIndex = 4;
             this.barCheckItemUsingPatchCodes.Id = 299;
+            this.barCheckItemUsingPatchCodes.LargeGlyph = global::SampleApplication.Properties.Resources.patch_code_ii_32x32;
             this.barCheckItemUsingPatchCodes.Name = "barCheckItemUsingPatchCodes";
             // 
             // barSubItemPatchCodesSetting
@@ -3402,6 +3632,7 @@ namespace SampleApplication
             this.barCheckItemPatchII.Glyph = global::SampleApplication.Properties.Resources.patch_code_ii_16x16;
             this.barCheckItemPatchII.GroupIndex = 5;
             this.barCheckItemPatchII.Id = 308;
+            this.barCheckItemPatchII.LargeGlyph = global::SampleApplication.Properties.Resources.patch_code_ii_32x32;
             this.barCheckItemPatchII.Name = "barCheckItemPatchII";
             // 
             // barCheckItemPatchIII
@@ -3411,6 +3642,7 @@ namespace SampleApplication
             this.barCheckItemPatchIII.Glyph = global::SampleApplication.Properties.Resources.patch_code_iii_16x16;
             this.barCheckItemPatchIII.GroupIndex = 5;
             this.barCheckItemPatchIII.Id = 309;
+            this.barCheckItemPatchIII.LargeGlyph = global::SampleApplication.Properties.Resources.patch_code_iii_32x32;
             this.barCheckItemPatchIII.Name = "barCheckItemPatchIII";
             // 
             // barCheckItemPatchT
@@ -3420,6 +3652,7 @@ namespace SampleApplication
             this.barCheckItemPatchT.Glyph = global::SampleApplication.Properties.Resources.patch_code_t_16x16;
             this.barCheckItemPatchT.GroupIndex = 5;
             this.barCheckItemPatchT.Id = 310;
+            this.barCheckItemPatchT.LargeGlyph = global::SampleApplication.Properties.Resources.patch_code_t_32x32;
             this.barCheckItemPatchT.Name = "barCheckItemPatchT";
             // 
             // barCheckItemUsingBarCodes
@@ -3429,6 +3662,7 @@ namespace SampleApplication
             this.barCheckItemUsingBarCodes.Glyph = global::SampleApplication.Properties.Resources.bar_code_93_16x16;
             this.barCheckItemUsingBarCodes.GroupIndex = 4;
             this.barCheckItemUsingBarCodes.Id = 301;
+            this.barCheckItemUsingBarCodes.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_128_16x16;
             this.barCheckItemUsingBarCodes.Name = "barCheckItemUsingBarCodes";
             // 
             // barEditItemWhenValueChanges
@@ -3472,6 +3706,7 @@ namespace SampleApplication
             this.barCheckItemBarAztec.Glyph = global::SampleApplication.Properties.Resources.bar_code_aztec_32x32;
             this.barCheckItemBarAztec.GroupIndex = 6;
             this.barCheckItemBarAztec.Id = 311;
+            this.barCheckItemBarAztec.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_aztec_32x32;
             this.barCheckItemBarAztec.Name = "barCheckItemBarAztec";
             // 
             // barCheckItemCodabar
@@ -3481,6 +3716,7 @@ namespace SampleApplication
             this.barCheckItemCodabar.Glyph = global::SampleApplication.Properties.Resources.bar_code_codabar_32x32;
             this.barCheckItemCodabar.GroupIndex = 6;
             this.barCheckItemCodabar.Id = 312;
+            this.barCheckItemCodabar.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_codabar_32x32;
             this.barCheckItemCodabar.Name = "barCheckItemCodabar";
             // 
             // barCheckItemCode39
@@ -3490,6 +3726,7 @@ namespace SampleApplication
             this.barCheckItemCode39.Glyph = global::SampleApplication.Properties.Resources.bar_code_39_32x32;
             this.barCheckItemCode39.GroupIndex = 6;
             this.barCheckItemCode39.Id = 313;
+            this.barCheckItemCode39.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_39_32x32;
             this.barCheckItemCode39.Name = "barCheckItemCode39";
             // 
             // barCheckItemCode93
@@ -3499,6 +3736,7 @@ namespace SampleApplication
             this.barCheckItemCode93.Glyph = global::SampleApplication.Properties.Resources.bar_code_93_32x32;
             this.barCheckItemCode93.GroupIndex = 6;
             this.barCheckItemCode93.Id = 314;
+            this.barCheckItemCode93.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_93_32x32;
             this.barCheckItemCode93.Name = "barCheckItemCode93";
             // 
             // barCheckItemCode128
@@ -3508,6 +3746,7 @@ namespace SampleApplication
             this.barCheckItemCode128.Glyph = global::SampleApplication.Properties.Resources.bar_code_128_32x32;
             this.barCheckItemCode128.GroupIndex = 6;
             this.barCheckItemCode128.Id = 315;
+            this.barCheckItemCode128.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_128_32x32;
             this.barCheckItemCode128.Name = "barCheckItemCode128";
             // 
             // barCheckItemDataMatrix
@@ -3517,6 +3756,7 @@ namespace SampleApplication
             this.barCheckItemDataMatrix.Glyph = global::SampleApplication.Properties.Resources.bar_code_data_matrix_32x32;
             this.barCheckItemDataMatrix.GroupIndex = 6;
             this.barCheckItemDataMatrix.Id = 316;
+            this.barCheckItemDataMatrix.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_data_matrix_32x32;
             this.barCheckItemDataMatrix.Name = "barCheckItemDataMatrix";
             // 
             // barCheckItemEAN
@@ -3526,6 +3766,7 @@ namespace SampleApplication
             this.barCheckItemEAN.Glyph = global::SampleApplication.Properties.Resources.bar_code_ean_32x32;
             this.barCheckItemEAN.GroupIndex = 6;
             this.barCheckItemEAN.Id = 318;
+            this.barCheckItemEAN.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_ean_32x32;
             this.barCheckItemEAN.Name = "barCheckItemEAN";
             // 
             // barCheckItemInterLeaved2of5
@@ -3535,6 +3776,7 @@ namespace SampleApplication
             this.barCheckItemInterLeaved2of5.Glyph = global::SampleApplication.Properties.Resources.bar_code_i25_32x32;
             this.barCheckItemInterLeaved2of5.GroupIndex = 6;
             this.barCheckItemInterLeaved2of5.Id = 319;
+            this.barCheckItemInterLeaved2of5.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_i25_32x32;
             this.barCheckItemInterLeaved2of5.Name = "barCheckItemInterLeaved2of5";
             // 
             // barCheckItemPdf417
@@ -3544,6 +3786,7 @@ namespace SampleApplication
             this.barCheckItemPdf417.Glyph = global::SampleApplication.Properties.Resources.bar_code_pdf_417_32x32;
             this.barCheckItemPdf417.GroupIndex = 6;
             this.barCheckItemPdf417.Id = 320;
+            this.barCheckItemPdf417.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_pdf_417_32x32;
             this.barCheckItemPdf417.Name = "barCheckItemPdf417";
             // 
             // barCheckItemPostNet
@@ -3553,6 +3796,7 @@ namespace SampleApplication
             this.barCheckItemPostNet.Glyph = global::SampleApplication.Properties.Resources.bar_code_postnet_32x32;
             this.barCheckItemPostNet.GroupIndex = 6;
             this.barCheckItemPostNet.Id = 321;
+            this.barCheckItemPostNet.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_postnet_32x32;
             this.barCheckItemPostNet.Name = "barCheckItemPostNet";
             // 
             // barCheckItemQR
@@ -3562,6 +3806,7 @@ namespace SampleApplication
             this.barCheckItemQR.Glyph = global::SampleApplication.Properties.Resources.bar_code_qr_32x32;
             this.barCheckItemQR.GroupIndex = 6;
             this.barCheckItemQR.Id = 322;
+            this.barCheckItemQR.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_qr_32x32;
             this.barCheckItemQR.Name = "barCheckItemQR";
             // 
             // barCheckItemUPC_A
@@ -3571,6 +3816,7 @@ namespace SampleApplication
             this.barCheckItemUPC_A.Glyph = global::SampleApplication.Properties.Resources.bar_code_upc_32x32;
             this.barCheckItemUPC_A.GroupIndex = 6;
             this.barCheckItemUPC_A.Id = 323;
+            this.barCheckItemUPC_A.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_upc_32x32;
             this.barCheckItemUPC_A.Name = "barCheckItemUPC_A";
             // 
             // barCheckItemUPC_E
@@ -3580,6 +3826,7 @@ namespace SampleApplication
             this.barCheckItemUPC_E.Glyph = global::SampleApplication.Properties.Resources.bar_code_upc_32x32;
             this.barCheckItemUPC_E.GroupIndex = 6;
             this.barCheckItemUPC_E.Id = 324;
+            this.barCheckItemUPC_E.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_upc_32x32;
             this.barCheckItemUPC_E.Name = "barCheckItemUPC_E";
             // 
             // barCheckItemBarAztecIndex
@@ -3588,6 +3835,7 @@ namespace SampleApplication
             this.barCheckItemBarAztecIndex.CloseSubMenuOnClick = false;
             this.barCheckItemBarAztecIndex.Glyph = global::SampleApplication.Properties.Resources.bar_code_aztec_32x32;
             this.barCheckItemBarAztecIndex.Id = 411;
+            this.barCheckItemBarAztecIndex.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_aztec_32x32;
             this.barCheckItemBarAztecIndex.Name = "barCheckItemBarAztecIndex";
             // 
             // barCheckItemCodabarIndex
@@ -3596,6 +3844,7 @@ namespace SampleApplication
             this.barCheckItemCodabarIndex.CloseSubMenuOnClick = false;
             this.barCheckItemCodabarIndex.Glyph = global::SampleApplication.Properties.Resources.bar_code_codabar_32x32;
             this.barCheckItemCodabarIndex.Id = 412;
+            this.barCheckItemCodabarIndex.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_codabar_32x32;
             this.barCheckItemCodabarIndex.Name = "barCheckItemCodabarIndex";
             // 
             // barCheckItemCode39Index
@@ -3604,6 +3853,7 @@ namespace SampleApplication
             this.barCheckItemCode39Index.CloseSubMenuOnClick = false;
             this.barCheckItemCode39Index.Glyph = global::SampleApplication.Properties.Resources.bar_code_39_32x32;
             this.barCheckItemCode39Index.Id = 413;
+            this.barCheckItemCode39Index.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_39_32x32;
             this.barCheckItemCode39Index.Name = "barCheckItemCode39Index";
             // 
             // barCheckItemCode93Index
@@ -3612,6 +3862,7 @@ namespace SampleApplication
             this.barCheckItemCode93Index.CloseSubMenuOnClick = false;
             this.barCheckItemCode93Index.Glyph = global::SampleApplication.Properties.Resources.bar_code_93_32x32;
             this.barCheckItemCode93Index.Id = 414;
+            this.barCheckItemCode93Index.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_93_32x32;
             this.barCheckItemCode93Index.Name = "barCheckItemCode93Index";
             // 
             // barCheckItemCode128Index
@@ -3620,6 +3871,7 @@ namespace SampleApplication
             this.barCheckItemCode128Index.CloseSubMenuOnClick = false;
             this.barCheckItemCode128Index.Glyph = global::SampleApplication.Properties.Resources.bar_code_128_32x32;
             this.barCheckItemCode128Index.Id = 415;
+            this.barCheckItemCode128Index.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_128_32x32;
             this.barCheckItemCode128Index.Name = "barCheckItemCode128Index";
             // 
             // barCheckItemDataMatrixIndex
@@ -3628,6 +3880,7 @@ namespace SampleApplication
             this.barCheckItemDataMatrixIndex.CloseSubMenuOnClick = false;
             this.barCheckItemDataMatrixIndex.Glyph = global::SampleApplication.Properties.Resources.bar_code_data_matrix_32x32;
             this.barCheckItemDataMatrixIndex.Id = 416;
+            this.barCheckItemDataMatrixIndex.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_data_matrix_32x32;
             this.barCheckItemDataMatrixIndex.Name = "barCheckItemDataMatrixIndex";
             // 
             // barCheckItemEANIndex
@@ -3636,6 +3889,7 @@ namespace SampleApplication
             this.barCheckItemEANIndex.CloseSubMenuOnClick = false;
             this.barCheckItemEANIndex.Glyph = global::SampleApplication.Properties.Resources.bar_code_ean_32x32;
             this.barCheckItemEANIndex.Id = 418;
+            this.barCheckItemEANIndex.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_ean_32x32;
             this.barCheckItemEANIndex.Name = "barCheckItemEANIndex";
             // 
             // barCheckItemInterLeaved2of5Index
@@ -3644,6 +3898,7 @@ namespace SampleApplication
             this.barCheckItemInterLeaved2of5Index.CloseSubMenuOnClick = false;
             this.barCheckItemInterLeaved2of5Index.Glyph = global::SampleApplication.Properties.Resources.bar_code_i25_32x32;
             this.barCheckItemInterLeaved2of5Index.Id = 419;
+            this.barCheckItemInterLeaved2of5Index.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_i25_32x32;
             this.barCheckItemInterLeaved2of5Index.Name = "barCheckItemInterLeaved2of5Index";
             // 
             // barCheckItemPdf417Index
@@ -3652,6 +3907,7 @@ namespace SampleApplication
             this.barCheckItemPdf417Index.CloseSubMenuOnClick = false;
             this.barCheckItemPdf417Index.Glyph = global::SampleApplication.Properties.Resources.bar_code_pdf_417_32x32;
             this.barCheckItemPdf417Index.Id = 420;
+            this.barCheckItemPdf417Index.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_pdf_417_32x32;
             this.barCheckItemPdf417Index.Name = "barCheckItemPdf417Index";
             // 
             // barCheckItemPostNetIndex
@@ -3660,6 +3916,7 @@ namespace SampleApplication
             this.barCheckItemPostNetIndex.CloseSubMenuOnClick = false;
             this.barCheckItemPostNetIndex.Glyph = global::SampleApplication.Properties.Resources.bar_code_postnet_32x32;
             this.barCheckItemPostNetIndex.Id = 421;
+            this.barCheckItemPostNetIndex.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_postnet_32x32;
             this.barCheckItemPostNetIndex.Name = "barCheckItemPostNetIndex";
             // 
             // barCheckItemQRIndex
@@ -3668,6 +3925,7 @@ namespace SampleApplication
             this.barCheckItemQRIndex.CloseSubMenuOnClick = false;
             this.barCheckItemQRIndex.Glyph = global::SampleApplication.Properties.Resources.bar_code_qr_32x32;
             this.barCheckItemQRIndex.Id = 422;
+            this.barCheckItemQRIndex.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_qr_32x32;
             this.barCheckItemQRIndex.Name = "barCheckItemQRIndex";
             // 
             // barCheckItemUPC_AIndex
@@ -3676,6 +3934,7 @@ namespace SampleApplication
             this.barCheckItemUPC_AIndex.CloseSubMenuOnClick = false;
             this.barCheckItemUPC_AIndex.Glyph = global::SampleApplication.Properties.Resources.bar_code_upc_32x32;
             this.barCheckItemUPC_AIndex.Id = 423;
+            this.barCheckItemUPC_AIndex.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_upc_32x32;
             this.barCheckItemUPC_AIndex.Name = "barCheckItemUPC_AIndex";
             // 
             // barCheckItemUPC_EIndex
@@ -3684,6 +3943,7 @@ namespace SampleApplication
             this.barCheckItemUPC_EIndex.CloseSubMenuOnClick = false;
             this.barCheckItemUPC_EIndex.Glyph = global::SampleApplication.Properties.Resources.bar_code_upc_32x32;
             this.barCheckItemUPC_EIndex.Id = 424;
+            this.barCheckItemUPC_EIndex.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_upc_32x32;
             this.barCheckItemUPC_EIndex.Name = "barCheckItemUPC_EIndex";
             // 
             // barEditItemExport
@@ -3891,6 +4151,7 @@ namespace SampleApplication
             // barButtonItemSetupFilters
             // 
             this.barButtonItemSetupFilters.ActAsDropDown = true;
+            this.barButtonItemSetupFilters.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.barButtonItemSetupFilters.Caption = "Setup";
             this.barButtonItemSetupFilters.DropDownControl = this.popupMenu5;
             this.barButtonItemSetupFilters.Glyph = global::SampleApplication.Properties.Resources.setup_16x16;
@@ -4011,6 +4272,7 @@ namespace SampleApplication
             // barButtonItemSetupDefaultIndexValue
             // 
             this.barButtonItemSetupDefaultIndexValue.ActAsDropDown = true;
+            this.barButtonItemSetupDefaultIndexValue.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.barButtonItemSetupDefaultIndexValue.Caption = "Setup";
             this.barButtonItemSetupDefaultIndexValue.DropDownControl = this.popupMenu5;
             this.barButtonItemSetupDefaultIndexValue.Glyph = global::SampleApplication.Properties.Resources.setup_16x16;
@@ -4041,6 +4303,7 @@ namespace SampleApplication
             // 
             // barButtonItemSitckyvalue
             // 
+            this.barButtonItemSitckyvalue.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.barButtonItemSitckyvalue.Caption = "Sticky Value";
             this.barButtonItemSitckyvalue.Glyph = global::SampleApplication.Properties.Resources.sticky_value_16x16;
             this.barButtonItemSitckyvalue.Id = 354;
@@ -4123,8 +4386,11 @@ namespace SampleApplication
             // 
             // barButtonItemSetupValidation
             // 
+            this.barButtonItemSetupValidation.ActAsDropDown = true;
             this.barButtonItemSetupValidation.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
+            this.barButtonItemSetupValidation.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.barButtonItemSetupValidation.Caption = "Setup";
+            this.barButtonItemSetupValidation.DropDownControl = this.popupMenu5;
             this.barButtonItemSetupValidation.Glyph = global::SampleApplication.Properties.Resources.setup_16x16;
             this.barButtonItemSetupValidation.Id = 360;
             this.barButtonItemSetupValidation.Name = "barButtonItemSetupValidation";
@@ -4149,6 +4415,7 @@ namespace SampleApplication
             // 
             // barButtonItemTemplateMode
             // 
+            this.barButtonItemTemplateMode.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.barButtonItemTemplateMode.Caption = "Template  Mode";
             this.barButtonItemTemplateMode.Glyph = global::SampleApplication.Properties.Resources.template_ocr_16x16;
             this.barButtonItemTemplateMode.GroupIndex = 15;
@@ -4158,7 +4425,9 @@ namespace SampleApplication
             // 
             // barButtonItemLassoMode
             // 
+            this.barButtonItemLassoMode.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.barButtonItemLassoMode.Caption = "Lasso  Mode";
+            this.barButtonItemLassoMode.Down = true;
             this.barButtonItemLassoMode.Glyph = global::SampleApplication.Properties.Resources.lasso_ocr_16x16;
             this.barButtonItemLassoMode.GroupIndex = 15;
             this.barButtonItemLassoMode.Id = 363;
@@ -4167,6 +4436,7 @@ namespace SampleApplication
             // 
             // barButtonItemMemory
             // 
+            this.barButtonItemMemory.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.barButtonItemMemory.Caption = "Memory";
             this.barButtonItemMemory.Glyph = global::SampleApplication.Properties.Resources.ok_16x16;
             this.barButtonItemMemory.Id = 364;
@@ -4175,6 +4445,7 @@ namespace SampleApplication
             // 
             // barButtonItemFastMode
             // 
+            this.barButtonItemFastMode.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
             this.barButtonItemFastMode.Caption = "Fast Mode";
             this.barButtonItemFastMode.Glyph = global::SampleApplication.Properties.Resources.fast_16x16;
             this.barButtonItemFastMode.Id = 365;
@@ -4264,7 +4535,7 @@ namespace SampleApplication
             this.popupControlContainerUndoRedo.Location = new System.Drawing.Point(595, 264);
             this.popupControlContainerUndoRedo.Name = "popupControlContainerUndoRedo";
             this.popupControlContainerUndoRedo.Ribbon = this.ribbon;
-            this.popupControlContainerUndoRedo.Size = new System.Drawing.Size(210, 281);
+            this.popupControlContainerUndoRedo.Size = new System.Drawing.Size(195, 85);
             this.popupControlContainerUndoRedo.TabIndex = 18;
             this.popupControlContainerUndoRedo.Visible = false;
             // 
@@ -4273,9 +4544,92 @@ namespace SampleApplication
             this.userUndoRedo1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userUndoRedo1.Location = new System.Drawing.Point(0, 0);
             this.userUndoRedo1.Name = "userUndoRedo1";
-            this.userUndoRedo1.Size = new System.Drawing.Size(210, 281);
+            this.userUndoRedo1.Size = new System.Drawing.Size(195, 85);
             this.userUndoRedo1.TabIndex = 0;
             this.userUndoRedo1.Selected += new SampleApplication.UserUndoRedo.OnSelectedClickHandler(this.userUndoRedo1_Selected);
+            // 
+            // barButtonItemRedo
+            // 
+            this.barButtonItemRedo.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
+            this.barButtonItemRedo.Caption = "Redo";
+            this.barButtonItemRedo.DropDownControl = this.popupControlContainerUndoRedo;
+            this.barButtonItemRedo.Glyph = global::SampleApplication.Properties.Resources.redo_16x16;
+            this.barButtonItemRedo.Id = 393;
+            this.barButtonItemRedo.Name = "barButtonItemRedo";
+            // 
+            // barButtonItemCut
+            // 
+            this.barButtonItemCut.Caption = "Cut";
+            this.barButtonItemCut.Glyph = global::SampleApplication.Properties.Resources.cut_16x16;
+            this.barButtonItemCut.Id = 394;
+            this.barButtonItemCut.Name = "barButtonItemCut";
+            // 
+            // barButtonItemCopy
+            // 
+            this.barButtonItemCopy.Caption = "Copy";
+            this.barButtonItemCopy.Glyph = global::SampleApplication.Properties.Resources.copy_16x16;
+            this.barButtonItemCopy.Id = 395;
+            this.barButtonItemCopy.Name = "barButtonItemCopy";
+            // 
+            // barButtonItemPaste
+            // 
+            this.barButtonItemPaste.Caption = "Paste";
+            this.barButtonItemPaste.Glyph = global::SampleApplication.Properties.Resources.paste_16x16;
+            this.barButtonItemPaste.Id = 396;
+            this.barButtonItemPaste.Name = "barButtonItemPaste";
+            // 
+            // barButtonItemLearnMore
+            // 
+            this.barButtonItemLearnMore.Caption = "Learn More";
+            this.barButtonItemLearnMore.Glyph = global::SampleApplication.Properties.Resources.learn_more_16x16;
+            this.barButtonItemLearnMore.Id = 397;
+            this.barButtonItemLearnMore.LargeGlyph = global::SampleApplication.Properties.Resources.learn_more_32x32;
+            this.barButtonItemLearnMore.Name = "barButtonItemLearnMore";
+            // 
+            // barButtonItemActivate
+            // 
+            this.barButtonItemActivate.Caption = "Activate";
+            this.barButtonItemActivate.Glyph = global::SampleApplication.Properties.Resources.activate_16x16;
+            this.barButtonItemActivate.Id = 398;
+            this.barButtonItemActivate.LargeGlyph = global::SampleApplication.Properties.Resources.activate_32x32;
+            this.barButtonItemActivate.Name = "barButtonItemActivate";
+            // 
+            // barCheckItemShowAdvanInfomation
+            // 
+            this.barCheckItemShowAdvanInfomation.Caption = "Show advance perfomance infomarion";
+            this.barCheckItemShowAdvanInfomation.Id = 399;
+            this.barCheckItemShowAdvanInfomation.Name = "barCheckItemShowAdvanInfomation";
+            // 
+            // barButtonItemCopyInfomationToClipboard
+            // 
+            this.barButtonItemCopyInfomationToClipboard.Caption = "Copy infomation to clipboard";
+            this.barButtonItemCopyInfomationToClipboard.Id = 400;
+            this.barButtonItemCopyInfomationToClipboard.Name = "barButtonItemCopyInfomationToClipboard";
+            // 
+            // barButtonItem21
+            // 
+            this.barButtonItem21.Caption = "Rename";
+            this.barButtonItem21.Id = 401;
+            this.barButtonItem21.Name = "barButtonItem21";
+            // 
+            // barButtonItem22
+            // 
+            this.barButtonItem22.Caption = "Delete";
+            this.barButtonItem22.Id = 402;
+            this.barButtonItem22.Name = "barButtonItem22";
+            // 
+            // barButtonItem23
+            // 
+            this.barButtonItem23.Caption = "Start Export";
+            this.barButtonItem23.Id = 403;
+            this.barButtonItem23.Name = "barButtonItem23";
+            // 
+            // barButtonItem24
+            // 
+            this.barButtonItem24.Caption = "Stop Export";
+            this.barButtonItem24.Enabled = false;
+            this.barButtonItem24.Id = 404;
+            this.barButtonItem24.Name = "barButtonItem24";
             // 
             // ribbonHome
             // 
@@ -4741,6 +5095,8 @@ namespace SampleApplication
             this.ribbonHelp.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup13,
             this.ribbonPageGroup14,
+            this.ribbonPageGroup16,
+            this.ribbonPageGroup17,
             this.ribbonPageGroup15});
             this.ribbonHelp.Name = "ribbonHelp";
             this.ribbonHelp.Text = "Help";
@@ -4761,6 +5117,20 @@ namespace SampleApplication
             this.ribbonPageGroup14.Name = "ribbonPageGroup14";
             this.ribbonPageGroup14.ShowCaptionButton = false;
             this.ribbonPageGroup14.Text = "Support";
+            // 
+            // ribbonPageGroup16
+            // 
+            this.ribbonPageGroup16.ItemLinks.Add(this.barButtonItemLearnMore);
+            this.ribbonPageGroup16.Name = "ribbonPageGroup16";
+            this.ribbonPageGroup16.ShowCaptionButton = false;
+            this.ribbonPageGroup16.Text = "Kofax";
+            // 
+            // ribbonPageGroup17
+            // 
+            this.ribbonPageGroup17.ItemLinks.Add(this.barButtonItemActivate);
+            this.ribbonPageGroup17.Name = "ribbonPageGroup17";
+            this.ribbonPageGroup17.ShowCaptionButton = false;
+            this.ribbonPageGroup17.Text = "License";
             // 
             // ribbonPageGroup15
             // 
@@ -4848,7 +5218,7 @@ namespace SampleApplication
             this.dockPanel1.Controls.Add(this.dockPanel1_Container);
             this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dockPanel1.ID = new System.Guid("97d439b4-e7ca-49e7-bcc5-3ba323b00c13");
-            this.dockPanel1.ImageIndex = 29;
+            this.dockPanel1.ImageIndex = 149;
             this.dockPanel1.Location = new System.Drawing.Point(0, 171);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.Options.AllowDockBottom = false;
@@ -4915,6 +5285,7 @@ namespace SampleApplication
             this.gridView2.OptionsView.ShowColumnHeaders = false;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             this.gridView2.OptionsView.ShowIndicator = false;
+            this.gridView2.ShowGridMenu += new DevExpress.XtraGrid.Views.Grid.GridMenuEventHandler(this.gridView2_ShowGridMenu);
             // 
             // gridColumn1
             // 
@@ -5226,34 +5597,21 @@ namespace SampleApplication
             this.simpleSeparator1.Size = new System.Drawing.Size(241, 2);
             this.simpleSeparator1.Text = "simpleSeparator1";
             // 
-            // barButtonItemRedo
+            // popupMenuPerfomance
             // 
-            this.barButtonItemRedo.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
-            this.barButtonItemRedo.Caption = "Redo";
-            this.barButtonItemRedo.Glyph = global::SampleApplication.Properties.Resources.redo_16x16;
-            this.barButtonItemRedo.Id = 393;
-            this.barButtonItemRedo.Name = "barButtonItemRedo";
+            this.popupMenuPerfomance.ItemLinks.Add(this.barCheckItemShowAdvanInfomation);
+            this.popupMenuPerfomance.ItemLinks.Add(this.barButtonItemCopyInfomationToClipboard);
+            this.popupMenuPerfomance.Name = "popupMenuPerfomance";
+            this.popupMenuPerfomance.Ribbon = this.ribbon;
             // 
-            // barButtonItemCut
+            // popupMenuBatch
             // 
-            this.barButtonItemCut.Caption = "Cut";
-            this.barButtonItemCut.Glyph = global::SampleApplication.Properties.Resources.cut_16x16;
-            this.barButtonItemCut.Id = 394;
-            this.barButtonItemCut.Name = "barButtonItemCut";
-            // 
-            // barButtonItemCopy
-            // 
-            this.barButtonItemCopy.Caption = "Copy";
-            this.barButtonItemCopy.Glyph = global::SampleApplication.Properties.Resources.copy_16x16;
-            this.barButtonItemCopy.Id = 395;
-            this.barButtonItemCopy.Name = "barButtonItemCopy";
-            // 
-            // barButtonItemPaste
-            // 
-            this.barButtonItemPaste.Caption = "Paste";
-            this.barButtonItemPaste.Glyph = global::SampleApplication.Properties.Resources.paste_16x16;
-            this.barButtonItemPaste.Id = 396;
-            this.barButtonItemPaste.Name = "barButtonItemPaste";
+            this.popupMenuBatch.ItemLinks.Add(this.barButtonItem21);
+            this.popupMenuBatch.ItemLinks.Add(this.barButtonItem22);
+            this.popupMenuBatch.ItemLinks.Add(this.barButtonItem23, true);
+            this.popupMenuBatch.ItemLinks.Add(this.barButtonItem24);
+            this.popupMenuBatch.Name = "popupMenuBatch";
+            this.popupMenuBatch.Ribbon = this.ribbon;
             // 
             // MainForm
             // 
@@ -5374,6 +5732,8 @@ namespace SampleApplication
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenuPerfomance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenuBatch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -5673,7 +6033,7 @@ namespace SampleApplication
         private PopupMenu popupMenuDocumentSeperation;
         private BarSubItem barSubItemBlankSheetsSetting;
         private BarCheckItem barCheckItemEveryNSheets;
-        private BarEditItem barEditItem3;
+        private BarEditItem barEditItemCount;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit6;
         private BarCheckItem barCheckItemUsingPatchCodes;
         private BarSubItem barSubItemPatchCodesSetting;
@@ -5822,5 +6182,17 @@ namespace SampleApplication
         private BarButtonItem barButtonItemCut;
         private BarButtonItem barButtonItemCopy;
         private BarButtonItem barButtonItemPaste;
+        private BarButtonItem barButtonItemLearnMore;
+        private BarButtonItem barButtonItemActivate;
+        private RibbonPageGroup ribbonPageGroup16;
+        private RibbonPageGroup ribbonPageGroup17;
+        private BarCheckItem barCheckItemShowAdvanInfomation;
+        private BarButtonItem barButtonItemCopyInfomationToClipboard;
+        private PopupMenu popupMenuPerfomance;
+        private BarButtonItem barButtonItem21;
+        private BarButtonItem barButtonItem22;
+        private BarButtonItem barButtonItem23;
+        private BarButtonItem barButtonItem24;
+        private PopupMenu popupMenuBatch;
     }
 }

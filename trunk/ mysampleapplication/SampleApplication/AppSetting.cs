@@ -28,6 +28,14 @@ namespace SampleApplication
 
         #endregion
 
+        #region Job
+
+        public RawImageType RawImageType { get; set; }
+        public List<string> Jobs { get; set; }
+        public string BatchPath { get; set; }
+        public string NextbatchName { get; set; }
+        #endregion
+
         private static AppSetting _currentSetting;
 
         public static AppSetting CurrentSetting

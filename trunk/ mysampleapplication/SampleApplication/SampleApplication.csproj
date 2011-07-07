@@ -109,7 +109,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Properties\DataSources\ScanProfile.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -146,10 +145,8 @@
     <Content Include="Resources\100_display_16x16.png" />
     <Content Include="Resources\100_display_32x32.png" />
     <Content Include="Resources\about_16x16.png" />
-    <Content Include="Resources\activate 16x16.png" />
-    <Content Include="Resources\activate 32x32.png" />
-    <Content Include="Resources\activate_16x16.png" />
-    <Content Include="Resources\activate_32x32.png" />
+    <None Include="Resources\activate_16x16.png" />
+    <None Include="Resources\activate_32x32.png" />
     <Content Include="Resources\adf_16x16.png" />
     <Content Include="Resources\adf_32x32.png" />
     <Content Include="Resources\annotate_16x16.png" />

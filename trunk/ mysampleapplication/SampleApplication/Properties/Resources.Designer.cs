@@ -81,6 +81,34 @@ namespace SampleApplication.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap activate_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("activate_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap activate_16x161 {
+            get {
+                object obj = ResourceManager.GetObject("activate_16x161", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap activate_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("activate_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap activate_32x321 {
+            get {
+                object obj = ResourceManager.GetObject("activate_32x321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap adf_16x16 {
             get {
                 object obj = ResourceManager.GetObject("adf_16x16", resourceCulture);

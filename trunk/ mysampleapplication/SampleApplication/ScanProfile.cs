@@ -308,12 +308,6 @@ namespace SampleApplication
         public bool BackgroundColorToWhite { get; set; }
         #endregion
 
-        #region Job
-
-        public RawImageType RawImageType { get; set; }
-#endregion
-
-
         public static void Reload()
         {
             _currentSetting = null;
