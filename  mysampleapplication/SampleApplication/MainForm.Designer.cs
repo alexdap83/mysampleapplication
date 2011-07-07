@@ -451,9 +451,9 @@ namespace SampleApplication
             this.ribbonPageGroup17 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
-            this.ribbonStatusBar2 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.ribbonStatusBar2 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -962,9 +962,9 @@ namespace SampleApplication
             this.repositoryItemTextEdit10,
             this.repositoryItemSpinEdit7,
             this.repositoryItemCheckEdit13});
-            this.ribbon.SelectedPage = this.ribbonRescan;
+            this.ribbon.SelectedPage = this.ribbonBarCodeSetup;
             this.ribbon.Size = new System.Drawing.Size(1059, 148);
-            this.ribbon.StatusBar = this.ribbonStatusBar1;
+            this.ribbon.StatusBar = this.ribbonStatusBar2;
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemCut);
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemCopy);
             this.ribbon.Toolbar.ItemLinks.Add(this.barButtonItemPaste);
@@ -3530,6 +3530,7 @@ namespace SampleApplication
             this.barCheckItemUsingBlankSheets.Id = 295;
             this.barCheckItemUsingBlankSheets.LargeGlyph = global::SampleApplication.Properties.Resources.blank_sheet_separation_32x32;
             this.barCheckItemUsingBlankSheets.Name = "barCheckItemUsingBlankSheets";
+            this.barCheckItemUsingBlankSheets.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
             // 
             // barSubItemBlankSheetsSetting
             // 
@@ -3585,6 +3586,7 @@ namespace SampleApplication
             this.barCheckItemEveryNSheets.Id = 297;
             this.barCheckItemEveryNSheets.LargeGlyph = global::SampleApplication.Properties.Resources.page_count_separation_32x32;
             this.barCheckItemEveryNSheets.Name = "barCheckItemEveryNSheets";
+            this.barCheckItemEveryNSheets.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
             // 
             // barEditItemCount
             // 
@@ -3607,6 +3609,7 @@ namespace SampleApplication
             this.barCheckItemUsingPatchCodes.Id = 299;
             this.barCheckItemUsingPatchCodes.LargeGlyph = global::SampleApplication.Properties.Resources.patch_code_ii_32x32;
             this.barCheckItemUsingPatchCodes.Name = "barCheckItemUsingPatchCodes";
+            this.barCheckItemUsingPatchCodes.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
             // 
             // barSubItemPatchCodesSetting
             // 
@@ -3660,11 +3663,12 @@ namespace SampleApplication
             // 
             this.barCheckItemUsingBarCodes.Caption = "Using Bar Codes";
             this.barCheckItemUsingBarCodes.CloseSubMenuOnClick = false;
-            this.barCheckItemUsingBarCodes.Glyph = global::SampleApplication.Properties.Resources.bar_code_93_16x16;
+            this.barCheckItemUsingBarCodes.Glyph = global::SampleApplication.Properties.Resources.bar_code_128_16x16;
             this.barCheckItemUsingBarCodes.GroupIndex = 4;
             this.barCheckItemUsingBarCodes.Id = 301;
-            this.barCheckItemUsingBarCodes.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_128_16x16;
+            this.barCheckItemUsingBarCodes.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_codabar_32x32;
             this.barCheckItemUsingBarCodes.Name = "barCheckItemUsingBarCodes";
+            this.barCheckItemUsingBarCodes.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
             // 
             // barEditItemWhenValueChanges
             // 
@@ -3705,16 +3709,19 @@ namespace SampleApplication
             this.barCheckItemBarAztec.Caption = "Aztec";
             this.barCheckItemBarAztec.CloseSubMenuOnClick = false;
             this.barCheckItemBarAztec.Glyph = global::SampleApplication.Properties.Resources.bar_code_aztec_32x32;
+            this.barCheckItemBarAztec.GlyphDisabled = global::SampleApplication.Properties.Resources.bar_code_aztec_16x16;
             this.barCheckItemBarAztec.GroupIndex = 6;
             this.barCheckItemBarAztec.Id = 311;
             this.barCheckItemBarAztec.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_aztec_32x32;
             this.barCheckItemBarAztec.Name = "barCheckItemBarAztec";
+            this.barCheckItemBarAztec.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
             // barCheckItemCodabar
             // 
             this.barCheckItemCodabar.Caption = "Codabar";
             this.barCheckItemCodabar.CloseSubMenuOnClick = false;
             this.barCheckItemCodabar.Glyph = global::SampleApplication.Properties.Resources.bar_code_codabar_32x32;
+            this.barCheckItemCodabar.GlyphDisabled = global::SampleApplication.Properties.Resources.bar_code_codabar_16x16;
             this.barCheckItemCodabar.GroupIndex = 6;
             this.barCheckItemCodabar.Id = 312;
             this.barCheckItemCodabar.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_codabar_32x32;
@@ -3725,6 +3732,7 @@ namespace SampleApplication
             this.barCheckItemCode39.Caption = "Code 39";
             this.barCheckItemCode39.CloseSubMenuOnClick = false;
             this.barCheckItemCode39.Glyph = global::SampleApplication.Properties.Resources.bar_code_39_32x32;
+            this.barCheckItemCode39.GlyphDisabled = global::SampleApplication.Properties.Resources.bar_code_39_16x16;
             this.barCheckItemCode39.GroupIndex = 6;
             this.barCheckItemCode39.Id = 313;
             this.barCheckItemCode39.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_39_32x32;
@@ -3735,6 +3743,7 @@ namespace SampleApplication
             this.barCheckItemCode93.Caption = "Code 93";
             this.barCheckItemCode93.CloseSubMenuOnClick = false;
             this.barCheckItemCode93.Glyph = global::SampleApplication.Properties.Resources.bar_code_93_32x32;
+            this.barCheckItemCode93.GlyphDisabled = global::SampleApplication.Properties.Resources.bar_code_93_16x16;
             this.barCheckItemCode93.GroupIndex = 6;
             this.barCheckItemCode93.Id = 314;
             this.barCheckItemCode93.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_93_32x32;
@@ -3745,6 +3754,7 @@ namespace SampleApplication
             this.barCheckItemCode128.Caption = "Code 128";
             this.barCheckItemCode128.CloseSubMenuOnClick = false;
             this.barCheckItemCode128.Glyph = global::SampleApplication.Properties.Resources.bar_code_128_32x32;
+            this.barCheckItemCode128.GlyphDisabled = global::SampleApplication.Properties.Resources.bar_code_128_16x16;
             this.barCheckItemCode128.GroupIndex = 6;
             this.barCheckItemCode128.Id = 315;
             this.barCheckItemCode128.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_128_32x32;
@@ -3755,6 +3765,7 @@ namespace SampleApplication
             this.barCheckItemDataMatrix.Caption = "Data Matrix";
             this.barCheckItemDataMatrix.CloseSubMenuOnClick = false;
             this.barCheckItemDataMatrix.Glyph = global::SampleApplication.Properties.Resources.bar_code_data_matrix_32x32;
+            this.barCheckItemDataMatrix.GlyphDisabled = global::SampleApplication.Properties.Resources.bar_code_data_matrix_16x16;
             this.barCheckItemDataMatrix.GroupIndex = 6;
             this.barCheckItemDataMatrix.Id = 316;
             this.barCheckItemDataMatrix.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_data_matrix_32x32;
@@ -3765,6 +3776,7 @@ namespace SampleApplication
             this.barCheckItemEAN.Caption = "EAN";
             this.barCheckItemEAN.CloseSubMenuOnClick = false;
             this.barCheckItemEAN.Glyph = global::SampleApplication.Properties.Resources.bar_code_ean_32x32;
+            this.barCheckItemEAN.GlyphDisabled = global::SampleApplication.Properties.Resources.bar_code_ean_16x16;
             this.barCheckItemEAN.GroupIndex = 6;
             this.barCheckItemEAN.Id = 318;
             this.barCheckItemEAN.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_ean_32x32;
@@ -3775,6 +3787,7 @@ namespace SampleApplication
             this.barCheckItemInterLeaved2of5.Caption = "Interleaved 2 of 5";
             this.barCheckItemInterLeaved2of5.CloseSubMenuOnClick = false;
             this.barCheckItemInterLeaved2of5.Glyph = global::SampleApplication.Properties.Resources.bar_code_i25_32x32;
+            this.barCheckItemInterLeaved2of5.GlyphDisabled = global::SampleApplication.Properties.Resources.bar_code_i25_16x16;
             this.barCheckItemInterLeaved2of5.GroupIndex = 6;
             this.barCheckItemInterLeaved2of5.Id = 319;
             this.barCheckItemInterLeaved2of5.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_i25_32x32;
@@ -3785,6 +3798,7 @@ namespace SampleApplication
             this.barCheckItemPdf417.Caption = "PDF 417";
             this.barCheckItemPdf417.CloseSubMenuOnClick = false;
             this.barCheckItemPdf417.Glyph = global::SampleApplication.Properties.Resources.bar_code_pdf_417_32x32;
+            this.barCheckItemPdf417.GlyphDisabled = global::SampleApplication.Properties.Resources.bar_code_pdf_417_16x16;
             this.barCheckItemPdf417.GroupIndex = 6;
             this.barCheckItemPdf417.Id = 320;
             this.barCheckItemPdf417.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_pdf_417_32x32;
@@ -3795,6 +3809,7 @@ namespace SampleApplication
             this.barCheckItemPostNet.Caption = "Post Net";
             this.barCheckItemPostNet.CloseSubMenuOnClick = false;
             this.barCheckItemPostNet.Glyph = global::SampleApplication.Properties.Resources.bar_code_postnet_32x32;
+            this.barCheckItemPostNet.GlyphDisabled = global::SampleApplication.Properties.Resources.bar_code_postnet_16x16;
             this.barCheckItemPostNet.GroupIndex = 6;
             this.barCheckItemPostNet.Id = 321;
             this.barCheckItemPostNet.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_postnet_32x32;
@@ -3805,6 +3820,7 @@ namespace SampleApplication
             this.barCheckItemQR.Caption = "QR";
             this.barCheckItemQR.CloseSubMenuOnClick = false;
             this.barCheckItemQR.Glyph = global::SampleApplication.Properties.Resources.bar_code_qr_32x32;
+            this.barCheckItemQR.GlyphDisabled = global::SampleApplication.Properties.Resources.bar_code_qr_16x16;
             this.barCheckItemQR.GroupIndex = 6;
             this.barCheckItemQR.Id = 322;
             this.barCheckItemQR.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_qr_32x32;
@@ -3815,6 +3831,7 @@ namespace SampleApplication
             this.barCheckItemUPC_A.Caption = "UPC-A";
             this.barCheckItemUPC_A.CloseSubMenuOnClick = false;
             this.barCheckItemUPC_A.Glyph = global::SampleApplication.Properties.Resources.bar_code_upc_32x32;
+            this.barCheckItemUPC_A.GlyphDisabled = global::SampleApplication.Properties.Resources.bar_code_upc_16x16;
             this.barCheckItemUPC_A.GroupIndex = 6;
             this.barCheckItemUPC_A.Id = 323;
             this.barCheckItemUPC_A.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_upc_32x32;
@@ -3825,6 +3842,7 @@ namespace SampleApplication
             this.barCheckItemUPC_E.Caption = "UPC-E";
             this.barCheckItemUPC_E.CloseSubMenuOnClick = false;
             this.barCheckItemUPC_E.Glyph = global::SampleApplication.Properties.Resources.bar_code_upc_32x32;
+            this.barCheckItemUPC_E.GlyphDisabled = global::SampleApplication.Properties.Resources.bar_code_upc_16x16;
             this.barCheckItemUPC_E.GroupIndex = 6;
             this.barCheckItemUPC_E.Id = 324;
             this.barCheckItemUPC_E.LargeGlyph = global::SampleApplication.Properties.Resources.bar_code_upc_32x32;
@@ -4924,6 +4942,7 @@ namespace SampleApplication
             this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItemRescanFlatbed);
             this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItemRescanFeeder);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.ShowCaptionButton = false;
             this.ribbonPageGroup3.Text = "Rescan Settings";
             // 
             // ribbonVRSCorrections
@@ -5012,12 +5031,14 @@ namespace SampleApplication
             // 
             this.ribbonPageGroup8.ItemLinks.Add(this.barButtonItemType);
             this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+            this.ribbonPageGroup8.ShowCaptionButton = false;
             this.ribbonPageGroup8.Text = "Seperation";
             // 
             // ribbonPageGroupIndex
             // 
             this.ribbonPageGroupIndex.ItemLinks.Add(this.barButtonItemTypes);
             this.ribbonPageGroupIndex.Name = "ribbonPageGroupIndex";
+            this.ribbonPageGroupIndex.ShowCaptionButton = false;
             this.ribbonPageGroupIndex.Text = "Index";
             // 
             // ribbonPageGroupFilter
@@ -5149,16 +5170,6 @@ namespace SampleApplication
             this.repositoryItemImageEdit1.Name = "repositoryItemImageEdit1";
             this.repositoryItemImageEdit1.UseParentBackground = true;
             // 
-            // ribbonStatusBar2
-            // 
-            this.ribbonStatusBar2.Dock = System.Windows.Forms.DockStyle.None;
-            this.ribbonStatusBar2.ItemLinks.Add(this.barButtonItemRefresh);
-            this.ribbonStatusBar2.ItemLinks.Add(this.barButtonItemAllJob);
-            this.ribbonStatusBar2.Location = new System.Drawing.Point(2, 141);
-            this.ribbonStatusBar2.Name = "ribbonStatusBar2";
-            this.ribbonStatusBar2.Ribbon = this.ribbon;
-            this.ribbonStatusBar2.Size = new System.Drawing.Size(311, 23);
-            // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.barStaticItemCountDocument);
@@ -5202,6 +5213,16 @@ namespace SampleApplication
             this.ribbonStatusBar1.Ribbon = this.ribbon;
             this.ribbonStatusBar1.ShowSizeGrip = false;
             this.ribbonStatusBar1.Size = new System.Drawing.Size(1059, 23);
+            // 
+            // ribbonStatusBar2
+            // 
+            this.ribbonStatusBar2.Dock = System.Windows.Forms.DockStyle.None;
+            this.ribbonStatusBar2.ItemLinks.Add(this.barButtonItemRefresh);
+            this.ribbonStatusBar2.ItemLinks.Add(this.barButtonItemAllJob);
+            this.ribbonStatusBar2.Location = new System.Drawing.Point(2, 141);
+            this.ribbonStatusBar2.Name = "ribbonStatusBar2";
+            this.ribbonStatusBar2.Ribbon = this.ribbon;
+            this.ribbonStatusBar2.Size = new System.Drawing.Size(311, 23);
             // 
             // dockManager1
             // 

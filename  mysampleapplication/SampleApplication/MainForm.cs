@@ -117,15 +117,11 @@ namespace SampleApplication
         private void LoadJob()
         {
             SetRawImageType(appSetting.RawImageType,false);
+            EnableDocumentSeperation(appSetting.UseDocumentSeperation,false);
+            SetBarCode(appSetting.BarCode,false);
+            SetDocumentSeperation(appSetting.DocumentSeparation, false);
         }
-        private void SetupDocumentSeperation()
-        {
-            SetChecked(barButtonItemDocumentSeperation,appSetting.UseDocumentSeperation);
-            if( appSetting.DocumentSeparation == DocumentSeparationMode.BlankSheet)
-            {
-                barButtonItemDocumentSeperation.LargeGlyph = 
-            }
-        }
+
         void SetBarCode(BarCodeType barcode, bool autoSave)
         {
             switch (barcode)
@@ -133,101 +129,96 @@ namespace SampleApplication
                 case BarCodeType.Aztec:
                     SetChecked(barCheckItemBarAztec, true);
                     barButtonItemDocumentSeperation.LargeGlyph = barCheckItemBarAztec.LargeGlyph;
-                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemBarAztec.LargeGlyph;
-                    barCheckItemUsingBarCodes.Glyph = barCheckItemBarAztec.LargeGlyph;
+                    barButtonItemType.LargeGlyph = barCheckItemBarAztec.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemBarAztec.GlyphDisabled;
                     break;
                 case BarCodeType.Codabar:
                     SetChecked(barCheckItemCodabar, true);
                     barButtonItemDocumentSeperation.LargeGlyph = barCheckItemCodabar.LargeGlyph;
-                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemCodabar.LargeGlyph;
-                    barCheckItemUsingBarCodes.Glyph = barCheckItemCodabar.LargeGlyph;
+                    barButtonItemType.LargeGlyph = barCheckItemCodabar.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemCodabar.GlyphDisabled;
                     break;
                 case BarCodeType.Code39:
                     SetChecked(barCheckItemCode39, true);
                     barButtonItemDocumentSeperation.LargeGlyph = barCheckItemCode39.LargeGlyph;
-                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemCode39.LargeGlyph;
-                    barCheckItemUsingBarCodes.Glyph = barCheckItemCode39.LargeGlyph;
+                    barButtonItemType.LargeGlyph = barCheckItemCode39.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemCode39.GlyphDisabled;
                     break;
                 case BarCodeType.Code93:
                     SetChecked(barCheckItemCode93, true);
                     barButtonItemDocumentSeperation.LargeGlyph = barCheckItemCode93.LargeGlyph;
-                    barCheckItemUsingBarCodes.Glyph = barCheckItemCode93.LargeGlyph;
-                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemCode93.LargeGlyph;
+                    barButtonItemType.LargeGlyph = barCheckItemCode93.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemCode93.GlyphDisabled;
                     break;
                 case BarCodeType.Code128:
                     SetChecked(barCheckItemCode128, true);
                     barButtonItemDocumentSeperation.LargeGlyph = barCheckItemCode128.LargeGlyph;
-                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemCode128.LargeGlyph;
-                    barCheckItemUsingBarCodes.Glyph = barCheckItemCode128.LargeGlyph;
+                    barButtonItemType.LargeGlyph = barCheckItemCode128.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemCode128.GlyphDisabled;
                     break;
                 case BarCodeType.DataMatrix:
                     SetChecked(barCheckItemDataMatrix, true);
                     barButtonItemDocumentSeperation.LargeGlyph = barCheckItemDataMatrix.LargeGlyph;
-                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemDataMatrix.LargeGlyph;
-                    barCheckItemUsingBarCodes.Glyph = barCheckItemDataMatrix.LargeGlyph;
+                    barButtonItemType.LargeGlyph = barCheckItemDataMatrix.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemDataMatrix.GlyphDisabled;
                     break;
                 case BarCodeType.EAN:
                     SetChecked(barCheckItemEAN, true);
                     barButtonItemDocumentSeperation.LargeGlyph = barCheckItemEAN.LargeGlyph;
-                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemEAN.LargeGlyph;
-                    barCheckItemUsingBarCodes.Glyph = barCheckItemEAN.LargeGlyph;
+                    barButtonItemType.LargeGlyph = barCheckItemEAN.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemEAN.GlyphDisabled;
                     break;
                 case BarCodeType.InterLeaved2of5:
                     SetChecked(barCheckItemInterLeaved2of5, true);
                     barButtonItemDocumentSeperation.LargeGlyph = barCheckItemInterLeaved2of5.LargeGlyph;
-                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemInterLeaved2of5.LargeGlyph;
-                    barCheckItemUsingBarCodes.Glyph = barCheckItemInterLeaved2of5.LargeGlyph;
+                    barButtonItemType.LargeGlyph = barCheckItemInterLeaved2of5.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemInterLeaved2of5.GlyphDisabled;
                     break;
                 case BarCodeType.PDF417:
                     SetChecked(barCheckItemPdf417, true);
                     barButtonItemDocumentSeperation.LargeGlyph = barCheckItemPdf417.LargeGlyph;
-                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemPdf417.LargeGlyph;
-                    barCheckItemUsingBarCodes.Glyph = barCheckItemPdf417.LargeGlyph;
+                    barButtonItemType.LargeGlyph = barCheckItemPdf417.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemPdf417.GlyphDisabled;
                     break;
                 case BarCodeType.PostNet:
                     SetChecked(barCheckItemPostNet, true);
                     barButtonItemDocumentSeperation.LargeGlyph = barCheckItemPostNet.LargeGlyph;
-                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemPostNet.LargeGlyph;
-                    barCheckItemUsingBarCodes.Glyph = barCheckItemPostNet.LargeGlyph;
+                    barButtonItemType.LargeGlyph = barCheckItemPostNet.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemPostNet.GlyphDisabled;
                     break;
                 case BarCodeType.QR:
                     SetChecked(barCheckItemQR, true);
                     barButtonItemDocumentSeperation.LargeGlyph = barCheckItemQR.LargeGlyph;
-                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemQR.LargeGlyph;
-                    barCheckItemUsingBarCodes.Glyph = barCheckItemQR.LargeGlyph;
+                    barButtonItemType.LargeGlyph = barCheckItemQR.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemQR.GlyphDisabled;
                     break;
                 case BarCodeType.UPC_A:
                     SetChecked(barCheckItemUPC_A, true);
                     barButtonItemDocumentSeperation.LargeGlyph = barCheckItemUPC_A.LargeGlyph;
-                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemUPC_A.LargeGlyph;
-                    barCheckItemUsingBarCodes.Glyph = barCheckItemUPC_A.LargeGlyph;
+                    barButtonItemType.LargeGlyph = barCheckItemUPC_A.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemUPC_A.GlyphDisabled;
                     break;
                 case BarCodeType.UPC_E:
                     SetChecked(barCheckItemUPC_E, true);
                     barButtonItemDocumentSeperation.LargeGlyph = barCheckItemUPC_E.LargeGlyph;
-                    barCheckItemUsingBarCodes.LargeGlyph = barCheckItemUPC_E.LargeGlyph;
-                    barCheckItemUsingBarCodes.Glyph = barCheckItemUPC_E.LargeGlyph;
+                    barButtonItemType.LargeGlyph = barCheckItemUPC_E.LargeGlyph;
+                    barCheckItemUsingBarCodes.Glyph = barCheckItemUPC_E.GlyphDisabled;
                     break;
             }
             if (autoSave)
             {
                 SetChecked(barCheckItemUsingBarCodes, true);
+                SetChecked(barButtonItemType, true);
+                SetChecked(barButtonItemDocumentSeperation, true);
                 appSetting.BarCode = barcode;
             }
         }
-        void SetUsingBarCode(bool autoSave)
+        void EnableDocumentSeperation(bool isChecked, bool autoSave)
         {
-            SetChecked(barCheckItemUsingBarCodes,true);
-            barButtonItemDocumentSeperation.LargeGlyph = barCheckItemUsingBarCodes.LargeGlyph;
-            if(autoSave)
-                appSetting.DocumentSeparation = DocumentSeparationMode.BarCode;
-        }
-        void SetUsingPatchCode(bool autoSave)
-        {
-            SetChecked(barCheckItemUsingBarCodes,true);
-            barButtonItemDocumentSeperation.LargeGlyph = barCheckItemUsingPatchCodes.LargeGlyph;
-            if(autoSave)
-                appSetting.DocumentSeparation = DocumentSeparationMode.PatchCode;
+            SetChecked(barButtonItemDocumentSeperation,isChecked);
+            SetChecked(barButtonItemType, isChecked);
+            if (autoSave)
+                appSetting.UseDocumentSeperation = isChecked;
         }
         void SetDocumentSeperation(DocumentSeparationMode mode, bool autoSave)
         {
@@ -251,7 +242,10 @@ namespace SampleApplication
                     break;
             }
             if (autoSave)
+            {
+                EnableDocumentSeperation(true,true);
                 appSetting.DocumentSeparation = mode;
+            }
 
         }
         void LoadPerfomance(bool isAdvance)
@@ -1221,9 +1215,8 @@ namespace SampleApplication
                 case "barCheckItemUPC_E":
                     SetBarCode(BarCodeType.UPC_E, true);
                     break;
-
                 case "barCheckItemUsingBarCodes":
-                    SetUsingBarCode();
+                    SetDocumentSeperation(DocumentSeparationMode.BarCode, true);
                     break;
             }
         }
